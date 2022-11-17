@@ -18,6 +18,7 @@ use App\Orchid\Screens\User\UserProfileScreen;
 use Illuminate\Support\Facades\Route;
 use Tabuna\Breadcrumbs\Trail;
 
+use App\Orchid\Screens\Revew\RevewListScreen;
 /*
 |--------------------------------------------------------------------------
 | Dashboard Routes
@@ -28,6 +29,10 @@ use Tabuna\Breadcrumbs\Trail;
 | contains the need "dashboard" middleware group. Now create something great!
 |
 */
+
+// Отзывы
+Route::screen('/revews', RevewListScreen::class)
+    ->name('platform.revews');
 
 // Main
 Route::screen('/main', PlatformScreen::class)

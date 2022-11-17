@@ -19,7 +19,8 @@ class ReviewFactory extends Factory
         return [
             'name' => $this->faker->name(),
             'lnk' => $this->faker->url(),
-            'text' => $this->faker->text(400)
+            'text' => $this->faker->text(400),
+            'avatar' => load_fake_avatar_img()
         ];
     }
 }
