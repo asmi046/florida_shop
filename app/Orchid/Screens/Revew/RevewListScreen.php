@@ -46,7 +46,7 @@ class RevewListScreen extends Screen
     public function commandBar(): iterable
     {
         return [
-            ModalToggle::make('Новый отзыв')->modal('addReviewModal')
+            ModalToggle::make('Новый отзыв')->modal('addReviewModal')->method('action')
         ];
     }
 
@@ -62,9 +62,14 @@ class RevewListScreen extends Screen
             ReviewsTable::class,
             Layout::modal('addReviewModal',
                 Layout::rows([
-                    Input::make("zzz")
-                ])->title("Создать новый отзыв")
-            )
+                    // Input::make("zzz")
+                ])
+            )->title("Создать новый отзыв")
         ];
+    }
+
+    public function action(Request $request) {
+        dd(11);
+        // Toast::info("все ок");
     }
 }
