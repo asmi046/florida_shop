@@ -30,7 +30,8 @@ class ReviewsTable extends Table
 
                 TD::make('avatar', 'Аватар')->width('15%')->render(
                     function($element) {
-                        return "<img width='50' height='50' src='".Storage::url('public/rewev_avatars/'.$element->avatar)."'>";
+
+                        return "<img width='50' height='50' src='".($element->avatar?Storage::url('public/rewev_avatars/'.$element->avatar):asset("img/noPhoto.jpg"))."'>";
                     }
                 ),
 

@@ -10,9 +10,15 @@ use App\Models\Review;
 
 use App\Orchid\Layouts\Review\ReviewsTable;
 use Orchid\Screen\Fields\Input;
+use Orchid\Screen\Fields\TextArea;
+use Orchid\Screen\Fields\Group;
+use Orchid\Screen\Fields\Upload;
+use Orchid\Attachment\Models\Attachment;
 
 use Orchid\Screen\Actions\ModalToggle;
+use Orchid\Support\Facades\Toast;
 
+use Illuminate\Http\Request;
 
 class RevewListScreen extends Screen
 {
@@ -58,18 +64,32 @@ class RevewListScreen extends Screen
     public function layout(): iterable
     {
         return [
-
-            ReviewsTable::class,
             Layout::modal('addReviewModal',
                 Layout::rows([
-                    // Input::make("zzz")
+                    Group::make([
+                        Input::make("name")->required()->title('Имя клиента'),
+                        Input::make("lnk")->required()->title('Ссылка на отзыв в соцсетях'),
+                    ]),
+
+
+                    TextArea::make("text")->required()->title('Текст отзыва'),
+                    Upload::make('avatar')->title('Загрузить аватар')->groups('photo'),
                 ])
-            )->title("Создать новый отзыв")
+            )->title("Создать новый отзыв"),
+            ReviewsTable::class,
+
         ];
     }
 
     public function action(Request $request) {
-        dd(11);
-        // Toast::info("все ок");
+        $request->validate([
+            'name' => ['required'],
+            'lnk' => ['required'],
+            'text' => ['required', 'min:50'],
+        ]);
+
+        Review::create($request->all());
+
+        Toast::info("все ок");
     }
 }
