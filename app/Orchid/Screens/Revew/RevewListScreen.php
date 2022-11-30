@@ -12,11 +12,13 @@ use App\Orchid\Layouts\Review\ReviewsTable;
 use Orchid\Screen\Fields\Input;
 use Orchid\Screen\Fields\TextArea;
 use Orchid\Screen\Fields\Group;
-use Orchid\Screen\Fields\Upload;
+use Orchid\Screen\Fields\Picture;
 use Orchid\Attachment\Models\Attachment;
 
 use Orchid\Screen\Actions\ModalToggle;
 use Orchid\Support\Facades\Toast;
+
+use Illuminate\Support\Facades\Storage;
 
 use Illuminate\Http\Request;
 
@@ -73,7 +75,7 @@ class RevewListScreen extends Screen
 
 
                     TextArea::make("text")->required()->title('Текст отзыва'),
-                    Upload::make('avatar')->title('Загрузить аватар')->groups('photo'),
+                    Picture::make('avatar')->title('Загрузить аватар')->targetRelativeUrl(),
                 ])
             )->title("Создать новый отзыв"),
             ReviewsTable::class,
@@ -85,11 +87,24 @@ class RevewListScreen extends Screen
         $request->validate([
             'name' => ['required'],
             'lnk' => ['required'],
-            'text' => ['required', 'min:50'],
+            'text' => ['required', 'min:5'],
         ]);
 
-        Review::create($request->all());
+        $lnk = $request->input('avatar');
+        $filename = pathinfo($request->input('avatar'))['filename'];
 
-        Toast::info("все ок");
+        $attach = Attachment::where('name', $filename)->first();
+
+        dd($attach->original_name);
+
+        if ($attach)
+        {
+            Storage::disk('local')->put("public/rewev_avatars/".$attach->original_name, file_get_contents(public_path($lnk)), 'public');
+            $attach->delete();
+        }
+
+        Review::create($request->merge(["avatar" =>  $attach->original_name])->all());
+
+        Toast::info("Отзыв добавлен");
     }
 }
