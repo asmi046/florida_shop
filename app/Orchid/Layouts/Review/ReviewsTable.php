@@ -7,6 +7,13 @@ use Orchid\Screen\TD;
 
 use Illuminate\Support\Facades\Storage;
 
+use App\Models\Review;
+
+use Orchid\Screen\Actions\ModalToggle;
+
+use Orchid\Screen\Fields\Group;
+use Orchid\Screen\Actions\Button;
+
 class ReviewsTable extends Table
 {
     /**
@@ -28,10 +35,11 @@ class ReviewsTable extends Table
     {
         return [
 
+                TD::make('id', 'ID')->width('3%'),
                 TD::make('avatar', 'Аватар')->width('15%')->render(
                     function($element) {
 
-                        return "<img width='50' height='50' src='".($element->avatar?Storage::url('public/rewev_avatars/'.$element->avatar):asset("img/noPhoto.jpg"))."'>";
+                        return "<img width='50' height='50' src='".($element->avatar?$element->avatar:asset("img/noPhoto.jpg"))."'>";
                     }
                 ),
 
@@ -41,7 +49,25 @@ class ReviewsTable extends Table
                         return "<a href='".$element->lnk."'>Посмотреть</a>";
                     }
                 ),
-                TD::make('text', 'Текст отзыва')->width('50%')
+                TD::make('text', 'Текст отзыва')->width('50%'),
+                TD::make('action', 'Действие')->render(function(Review $review) {
+                    return  Group::make([
+                        ModalToggle::make('Редактировать')
+                        ->modal('editReviewModal')
+                        ->method('editReview')
+                        ->modalTitle('Редактировать отзыв #'.$review->id)
+                        ->asyncParameters([
+                            'review' => $review->id
+                        ]),
+
+                        Button::make('Удалить')->method('deleteReview')->parameters([
+                            'id' => $review->id,
+                            'avatar' => $review->avatar,
+                        ])
+                    ]);
+
+
+                })
 
         ];
     }

@@ -54,7 +54,7 @@ class RevewListScreen extends Screen
     public function commandBar(): iterable
     {
         return [
-            ModalToggle::make('Новый отзыв')->modal('addReviewModal')->method('action')
+            ModalToggle::make('Новый отзыв')->modal('addReviewModal')->method('newReview')
         ];
     }
 
@@ -72,39 +72,58 @@ class RevewListScreen extends Screen
                         Input::make("name")->required()->title('Имя клиента'),
                         Input::make("lnk")->required()->title('Ссылка на отзыв в соцсетях'),
                     ]),
-
-
                     TextArea::make("text")->required()->title('Текст отзыва'),
                     Picture::make('avatar')->title('Загрузить аватар')->targetRelativeUrl(),
                 ])
             )->title("Создать новый отзыв"),
+
+            Layout::modal('editReviewModal',
+                Layout::rows([
+                    Input::make("review.id")->type('hidden'),
+                    Group::make([
+                        Input::make("review.name")->required()->title('Имя клиента'),
+                        Input::make("review.lnk")->required()->title('Ссылка на отзыв в соцсетях'),
+                    ]),
+                    TextArea::make("review.text")->required()->title('Текст отзыва'),
+                    Picture::make('review.avatar')->title('Загрузить аватар')->targetRelativeUrl(),
+                ])
+            )->async('asyncGetClient'),
+
             ReviewsTable::class,
 
         ];
     }
 
-    public function action(Request $request) {
+    public function asyncGetClient(Review $review) {
+        return [
+            'review' => $review
+        ];
+    }
+
+    public function newReview(Request $request) {
         $request->validate([
             'name' => ['required'],
             'lnk' => ['required'],
             'text' => ['required', 'min:5'],
         ]);
 
-        $lnk = $request->input('avatar');
-        $filename = pathinfo($request->input('avatar'))['filename'];
 
-        $attach = Attachment::where('name', $filename)->first();
+        $review = Review::create($request->all());
 
-        dd($attach->original_name);
-
-        if ($attach)
-        {
-            Storage::disk('local')->put("public/rewev_avatars/".$attach->original_name, file_get_contents(public_path($lnk)), 'public');
-            $attach->delete();
-        }
-
-        Review::create($request->merge(["avatar" =>  $attach->original_name])->all());
+        $attach = Attachment::where('name',  pathinfo($request->input('avatar'))['filename'])->first();
+        if ($attach) $attach->delete();
 
         Toast::info("Отзыв добавлен");
+    }
+
+    public function editReview(Request $request) {
+        Review::find($request->input('review.id'))->update($request->review);
+        Toast::info("Отзыв обновлен");
+    }
+
+    public function deleteReview(Request $request) {
+        Storage::delete($request->input('avatar'));
+        Review::find($request->input('id'))->delete($request->input('id'));
+        Toast::info("Отзыв удален");
     }
 }
