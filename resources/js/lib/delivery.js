@@ -1,13 +1,22 @@
-class Delivery {
+export default class Delivery {
 
     map = null
+    map_dom_element = null
+    map_dom_element_show = null
+    constructor(element, show) {
+        this.map_dom_element = element
+        this.map_dom_element_show = show
 
-    constructor() {
+        // Полигоны
+        this.poligons = []
+
+        this.map_dom_element.style.display = (show)?"block":"none"
+
         this.create()
     }
 
-    renderMap(mapContainer) {
-        this.map = new ymaps.Map(mapContainer, {
+    renderMap() {
+        this.map = new ymaps.Map(this.map_dom_element, {
             center: [36.189709, 51.742988],
             zoom: 8,
             controls: [],
@@ -24,6 +33,67 @@ class Delivery {
 
             obj.options.set({fillColor: fillColor, fillOpacity: fillOpacity, strokeColor: strokeColor, strokeOpacity: strokeOpacity, strokeWidth: strokeWidth});
         });
+
+        this.map.geoObjects.each((geoObject) => {
+            if (geoObject.geometry.getType() == "Polygon") {
+                this.poligons.push(geoObject)
+            }
+        });
+
+        this.map.geoObjects.events.add('click', (e) => {
+            const object = e.get('coords');
+
+            const myGeocoder = ymaps.geocode(object, {
+                results: 1,
+            });
+
+            myGeocoder.then((response) => {
+                console.log(response)
+                const coords = response.metaData.geocoder.request.split(',')
+
+                this.poligons.forEach(poligon => {
+                    if (poligon.geometry.contains(coords)) {
+
+                        console.log(poligon.properties._data.description)
+
+                        if (this.location.querySelector('.zones__map-label')) {
+                            this.location.querySelector('.zones__map-label').hidden = false
+                            this.location.querySelector('.zones__map-label').innerHTML = poligon.properties._data.description
+                        }
+
+                        let placemark = new ymaps.Placemark(coords, {}, {
+                            preset: 'islands#icon',
+                            iconColor: '#7F0FD6'
+                        });
+
+                        this.map.geoObjects.remove(this.current_placemark);
+
+                        this.current_placemark = placemark
+                        this.map.geoObjects.add(this.current_placemark);
+                    }
+                })
+            });
+        });
+
+        this.map.events.add('click', (e) => {
+            const object = e.get('coords');
+
+            const placemark = new ymaps.Placemark(object, {
+                iconContent: 'Данный адрес не входит в зону доставки',
+            }, {
+                iconContentLayout: this.icon_layout,
+            });
+
+
+            this.map.geoObjects.remove(this.current_placemark);
+            this.map.geoObjects.add(placemark);
+
+            this.current_placemark = placemark;
+
+            this.street.value = ''
+            this.house.value = ''
+        });
+
     }
 
     create() {
@@ -33,15 +103,15 @@ class Delivery {
                 this.zones = response
 
                 // Рендер карты
-                // await this.renderMap()
+                await this.renderMap()
 
-                if (this.needInputHandler) {
-                    if (this.addresses_id && this.addresses_id.length) {
-                        this.addressIdChange()
-                    } else {
-                        this.inputHandler()
-                    }
-                }
+                // if (this.needInputHandler) {
+                //     if (this.addresses_id && this.addresses_id.length) {
+                //         this.addressIdChange()
+                //     } else {
+                //         this.inputHandler()
+                //     }
+                // }
             })
         });
     }
@@ -57,6 +127,3 @@ class Delivery {
     }
 }
 
-let delivery = new Delivery();
-
-export default delivery;

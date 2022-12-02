@@ -5,10 +5,15 @@
 </template>
 
 <script>
-
-    import delivery from "../lib/delivery.js"
+    import Delivery from '../lib/delivery.js';
 
     export default {
+        data() {
+            return {
+                mapClass:null
+            }
+        },
+
         methods:{
             export() {
                 return 0;
@@ -16,13 +21,7 @@
         },
 
         mounted:function(){
-
-            console.log(delivery.zones);
-            ymaps.ready( () => {
-                console.log(delivery.zones);
-                delivery.renderMap(this.$refs.mapInComponent)
-            })
-
+            this.mapClass = new Delivery(this.$refs.mapInComponent, true)
         }
     }
 </script>
