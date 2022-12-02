@@ -9,6 +9,8 @@
         <!-- Fonts -->
         <link href="https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
 
+        <script src="//api-maps.yandex.ru/2.1/?lang=ru_RU&coordorder=longlat" type="text/javascript"></script>
+
         <style>
             body {
                 font-family: 'Nunito', sans-serif;
