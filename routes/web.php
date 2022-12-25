@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\EasyPageController;
+use App\Http\Controllers\IndexController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,8 +14,5 @@ use App\Http\Controllers\EasyPageController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
+Route::get('/', [IndexController::class, "show"])->name('home');
 Route::get('/zone', [EasyPageController::class, "zone"])->name('zone');
