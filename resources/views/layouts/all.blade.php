@@ -21,13 +21,19 @@
     <link rel="stylesheet" href="{{asset('js/lib/swiper/swiper-bundle.min.css')}}"/>
     <script src="{{asset('js/lib/swiper/swiper-bundle.min.js')}}"></script>
 
+    <script src="//api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"></script>
+
     @vite([
         'resources/css/app.css',
         'public/css/main.css',
+        'public/css/tovar_filter.css',
+
 
         'resources/js/app.js',
         'public/js/sliders.js',
-        'public/js/delivery_zone.js'
+        'public/js/delivery_zone.js',
+        'public/js/filter.js',
+        'public/js/map.js'
     ])
 
 </head>

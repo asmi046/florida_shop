@@ -1,0 +1,143 @@
+/*-----Фильтр-----*/
+
+.tovar_filter {
+    width:100%;
+}
+
+.acc_blk {
+    display: flex;
+    flex-direction: column;
+}
+
+.acc_blk .acc_head{
+    width:100%;
+    cursor:pointer;
+}
+
+.acc_blk .acc_head span{
+    font-size: 22px;
+    font-weight: bold;
+    position: relative;
+    display: inline-block;
+    margin: 10px 0;
+}
+
+.acc_blk .acc_head span::before{
+    content: "";
+    width:13px;
+    height: 6px;
+    position: absolute;
+    background-image: url("../img/icons/arrow-black.svg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    right:-20px;
+    top:calc(50% - 3px)
+}
+
+.acc_blk .acc_body{
+    width:100%;
+    min-height: 40px;
+    padding: 10px 0;
+    display: none;
+    flex-direction: column;
+}
+
+.acc_blk.open .acc_body {
+    display: flex;
+}
+
+.acc_blk.open .acc_head span::before{
+    content: "";
+    transform: rotate(180deg);
+}
+
+.price_selector_wrapper {
+    width:100%;
+    display: flex;
+}
+
+.price_selector_wrapper label{
+    display: flex;
+    flex-direction: column;
+
+}
+.price_selector_wrapper span{
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+.price_selector_wrapper label input{
+    width:115px;
+    min-height: 36px;
+    border: 1px solid #D2D1D1;
+    border-radius: 25px;
+    background-color: white;
+}
+
+.price_selector_wrapper label.price_start input{
+    border-radius: 22px 0 0 22px;
+}
+
+.price_selector_wrapper label.price_end input{
+    border-radius: 0 22px 22px 0;
+    border-left: none;
+}
+
+.filter_control_blk {
+    display: flex;
+    flex-direction: column;
+}
+
+.filter_control_blk .btn:first-child{
+    margin-bottom: 10px;
+}
+
+.filter_mobile_panel .filter_icon{
+    position: relative;
+}
+
+.filter_mobile_panel .filter_icon::before{
+    content:"";
+    position: absolute;
+    width:20px;
+    height:20px;
+    background-image: url('../img/icons/filter.svg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    left:-30px;
+    top:-3px;
+}
+
+.filter_mobile_panel {
+    display: none;
+    width:100%;
+    text-align: center;
+    margin: 20px 0;
+    box-shadow: 0 0 10px rgb(0 0 0 / 10%);
+    border-radius: 11px;
+    padding: 10px ;
+}
+
+.filter_mobile_panel.open {
+    background-color: #F18614;
+}
+
+
+
+/*-----Фильтр end-----*/
+
+@media (max-width: 768px) {
+
+    .filter_mobile_panel {
+        display: block;
+    }
+
+    .tovar_filter {
+        display: none;
+    }
+
+    .tovar_filter.open {
+        display: block;
+    }
+}

@@ -13,37 +13,31 @@
 
     <x-advantages></x-advantages>
 
-    <section class="hit_sliders">
+    <x-hit-slider></x-hit-slider>
+
+    <x-sales-slider></x-sales-slider>
+
+    <x-catalog-in-main></x-catalog-in-main>
+
+    <x-rew-in-main></x-rew-in-main>
+
+    <x-about-in-main></x-about-in-main>
+
+    <x-footer-map></x-footer-map>
+
+    <footer>
         <div class="_wrapper">
-            <div class="swiper_obj">
-                <div class="swiper hit_slider">
-                    <div class="swiper-wrapper">
+            <a class="logo" href="{{route('home')}}">
+                <img src="{{asset('img/main-logo.svg')}}" alt="Florida - Курск">
+            </a>
+            <x-main-menu></x-main-menu>
+            <x-messanger></x-messanger>
 
-                        @for ($i=0; $i<10; $i++)
-                            <div class="swiper-slide">
-                                <div class="hit_tovar_wrapper">
-                                    <div class="img_wrapper">
-                                        <img src="{{asset('img/tovar_min.jpg')}}" alt="">
-                                    </div>
-                                    <div class="tov_info">
-                                        <h3>Композиция "Оттенок нежности"</h3>
-                                        <div class="price">
-                                            2105<span class="rub_symbol">₽</span> <span class="old_price">3000<span class="rub_symbol">₽</span></span>
-                                        </div>
-                                    </div>
-
-                                    <div class="btn_cart"></div>
-                                </div>
-                            </div>
-                        @endfor
-
-                    </div>
-                </div>
-
-                <div id="hit_btn_left" class="btn_all btn_left"></div>
-                <div id="hit_btn_right" class="btn_all btn_right"></div>
+            <div class="footer_contacts">
+                <span class="adress">Курск, ул. Радищева 64</span>
+                <a href="" class="phone">+7 (4712) 545 545</a>
             </div>
-        </div>
-    </section>
 
+        </div>
+    </footer>
 @endsection

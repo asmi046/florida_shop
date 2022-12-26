@@ -9,10 +9,13 @@ export default defineConfig({
             input: [
                 'resources/css/app.css',
                 'public/css/main.css',
+                'public/css/tovar_filter.css',
 
                 'resources/js/app.js',
                 'public/js/sliders.js',
-                'public/js/delivery_zone.js'
+                'public/js/delivery_zone.js',
+                'public/js/filter.js',
+                'public/js/map.js'
             ],
             refresh: true,
         }),

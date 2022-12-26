@@ -6,12 +6,7 @@
 
         <a href="#" class="addres_head">Курск, ул. Радищева 64</a>
 
-        <ul class="main_menu">
-            <li><a href="#">Отзывы</a></li>
-            <li><a href="#">Блог</a></li>
-            <li><a href="#">Зоны доставки</a></li>
-            <li><a href="#">Контакты</a></li>
-        </ul>
+        <x-main-menu></x-main-menu>
 
         <a href="#" class="cabinet">Войти</a>
     </div>
