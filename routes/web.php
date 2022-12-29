@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\EasyPageController;
 use App\Http\Controllers\IndexController;
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\TovarController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -15,4 +17,6 @@ use App\Http\Controllers\IndexController;
 */
 
 Route::get('/', [IndexController::class, "show"])->name('home');
+Route::get('/catalog', [CategoryController::class, "show"])->name('category');
+Route::get('/tovar', [TovarController::class, "show"])->name('tovar');
 Route::get('/zone', [EasyPageController::class, "zone"])->name('zone');

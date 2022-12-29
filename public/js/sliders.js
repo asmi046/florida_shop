@@ -67,3 +67,23 @@ var salsesSlider = new Swiper(".sales_slider", {
       clickable: true,
     },
   });
+
+
+    var swiper_thumb = new Swiper(".tovar_thumbs_slider", {
+      spaceBetween: 10,
+      slidesPerView: 3,
+      loop: true,
+    });
+
+    var tovarSlider = new Swiper(".tovar_slider", {
+        slidesPerView: 1,
+        loop: true,
+        navigation: {
+            nextEl: ".tovar_slider .btn_right",
+            prevEl: ".tovar_slider .btn_left",
+        },
+
+        thumbs: {
+            swiper: swiper_thumb,
+         },
+    });

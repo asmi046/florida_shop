@@ -429,6 +429,7 @@ header ._wrapper {
     border: 1px solid #839F60;
     padding: 5px 15px;
     position: relative;
+    color: #757474;
 }
 
 #head_category ul a.more,
@@ -566,7 +567,7 @@ header ._wrapper {
     flex-direction: column;
 }
 
-.tov_info .price .old_price{
+.old_price{
     font-size: 12px;
     text-decoration: line-through;
     font-weight: normal;
@@ -623,17 +624,32 @@ header ._wrapper {
     background-color: #91B508;
 }
 
-.sales_tovar_wrapper .favorites {
+.tovar_blk_wrap .favorites{
+    right:10px;
+    top: 10px;
+    position: absolute;
+}
+
+.favorites {
     width:32px;
     height:32px;
     background-image: url(../img/icons/favorites.svg);
     background-position: center;
     background-repeat: no-repeat;
     background-size: contain;
-    position: absolute;
     z-index: 111;
-    right:10px;
-    top: 10px;
+    display: block;
+}
+
+.share {
+    width:32px;
+    height:32px;
+    background-image: url(../img/icons/share.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    z-index: 111;
+    display: block;
 }
 
 .tovar_blk_wrap {
@@ -871,6 +887,16 @@ footer ._wrapper{
 
 /*--------Общие стили----------*/
 
+.h1_page {
+    font-size: 48px;
+    font-weight: bold;
+    margin-bottom: 1em;
+}
+
+.margin_top_bottom {
+    padding: 24px 0;
+}
+
 footer,
 section {
     padding: 24px 0;
@@ -1028,6 +1054,7 @@ input {
 #uni_map {
     height: 520px;
     position: relative;
+    padding-bottom: 0px;
 }
 
 #uni_map .contacts{

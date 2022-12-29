@@ -10,6 +10,7 @@ export default defineConfig({
                 'resources/css/app.css',
                 'public/css/main.css',
                 'public/css/tovar_filter.css',
+                'public/css/tovar_page_content.css',
 
                 'resources/js/app.js',
                 'public/js/sliders.js',

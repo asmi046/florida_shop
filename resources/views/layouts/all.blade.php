@@ -1,8 +1,18 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-	<title> @yield('title') - Florida</title>
-    <meta name="description" content="Новый сайт">
+    <title>@yield('title') - Florida</title>
+    <meta name="description" content="@yield('description')">
+
+    <meta property="og:locale" content="ru_RU" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="@yield('title') />
+    <meta property="og:description" content="@yield('description')" />
+    <meta property="og:url" content="{{route('home')}}" />
+    <meta property="og:site_name" content="Магазин индийских товаров - Mini India" />
+    <meta property="og:image" content="{{asset('img/og_img.jpg')}}" />
+    <meta property="og:image:type" content="image/jpeg" />
+    <meta name="twitter:card" content="summary_large_image" />
 
 	<meta charset="UTF-8">
 	<meta name="format-detection" content="telephone=no">
@@ -27,6 +37,7 @@
         'resources/css/app.css',
         'public/css/main.css',
         'public/css/tovar_filter.css',
+        'public/css/tovar_page_content.css',
 
 
         'resources/js/app.js',
@@ -40,7 +51,15 @@
 
 <body>
 	<div class="wrapper" id="#global_app">
+
+        <x-header></x-header>
+        <x-header-control></x-header-control>
+        <x-header-category></x-header-category>
+
         @yield('content')
+
+        <x-footer-map></x-footer-map>
+        <x-footer></x-footer>
     </div>
 </body>
 

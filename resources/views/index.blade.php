@@ -1,13 +1,14 @@
 @extends('layouts.all')
 
-@section('title', "Главная страница")
+@php
+    $title = "Цветы с доставкой по Курску";
+    $description = "Цветы с доставкой по Курску откомпании Florida";
+@endphp
+
+@section('title', $title)
+@section('description', $description)
 
 @section('content')
-    <x-header></x-header>
-
-    <x-header-control></x-header-control>
-
-    <x-header-category></x-header-category>
 
     <x-main-banner></x-main-banner>
 
@@ -23,21 +24,4 @@
 
     <x-about-in-main></x-about-in-main>
 
-    <x-footer-map></x-footer-map>
-
-    <footer>
-        <div class="_wrapper">
-            <a class="logo" href="{{route('home')}}">
-                <img src="{{asset('img/main-logo.svg')}}" alt="Florida - Курск">
-            </a>
-            <x-main-menu></x-main-menu>
-            <x-messanger></x-messanger>
-
-            <div class="footer_contacts">
-                <span class="adress">Курск, ул. Радищева 64</span>
-                <a href="" class="phone">+7 (4712) 545 545</a>
-            </div>
-
-        </div>
-    </footer>
 @endsection
