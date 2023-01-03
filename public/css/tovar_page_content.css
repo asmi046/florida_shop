@@ -66,62 +66,11 @@
     margin-bottom: 30px;
 }
 
-.sales_control {
-    border-bottom: 1px solid #2A7D5A;
-    border-top: 1px solid #2A7D5A;
-    padding: 15px 0;
-    display: flex;
-    justify-content: space-between;
-}
-
-.sales_control .control {
-    display: flex;
-}
-
-.sales_control .control .all_control {
-    position: relative;
-    width:28px;
-    height:28px;
-    display: block;
-    margin:  0 10px;
-}
-
-.sales_control .control .all_control:before {
-    content: "";
-    position: absolute;
-    width:28px;
-    height:28px;
-    background-repeat: no-repeat;
-    background-size: contain;
-}
-
-.sales_control .control .favorites:before {
-    content: "";
-    width:31px;
-    background-image: url("../img/icons/like.svg");
-}
-
-.sales_control .control .favorites.active:before,
-.sales_control .control .favorites:hover:before {
-    content: "";
-    background-image: url("../img/icons/like_orange_fill.svg");
-}
-
-.sales_control .control .share:before {
-    content: "";
-    background-image: url("../img/icons/share.svg");
-}
-
-.sales_control .control .share:hover:before {
-    content: "";
-    background-image: url("../img/icons/share-orange.svg");
-}
-
 .price_in_page_wrapper {
     width: 100%;
     display: flex;
     flex-wrap: wrap;
-    padding: 0 0 30px 0;
+    padding: 0 0 20px 0;
 }
 
 .price_in_page_wrapper .like_blk{
@@ -134,7 +83,12 @@
 .price_in_page {
     width:100%;
     display: flex;
+    flex-direction: column;
     flex:1;
+}
+
+.price_in_page .price_cerrecter{
+    display: flex;
 }
 
 .price_in_page .old_price{
@@ -150,35 +104,24 @@
 }
 
 
-.btn_in_page_wrap .btn{
-    width:100%;
+.btn_in_page_wrap .quik_pricing_btn_wpap .btn{
+    width:47%;
 }
 
-.tovar_properties_wrap {
-    width:100%;
+.btn_in_page_wrap .quik_pricing_btn_wpap{
+    margin-top:20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.btn_in_page_wrap{
     display: flex;
     flex-direction: column;
-    padding: 20px 0;
+    margin-bottom: 20px               ;
 }
 
-.tovar_properties_wrap .properti{
-    margin: 10px 0;
-    display: flex;
-}
-
-.tovar_properties_wrap .properti .p_name{
-    margin: 0 auto 0 0;
-}
-
-.tovar_properties_wrap .properti .zap{
-    flex:1;
-    margin: 0 5px;
-    border-bottom: 1px solid #D2D1D1;
-}
-
-.tovar_properties_wrap .properti .p_value{
-    margin: 0 0 0 auto;
-    font-weight: bold;
+.btn_in_page_wrap .btn{
+    width:100%;
 }
 
 .calories_wrap {
@@ -208,6 +151,10 @@
 .calories_wrap .calories .calories_blk span{
     font-size: 26px;
     font-weight: bold;
+}
+
+.delivery_sens strong{
+    display: contents;
 }
 
 .pay_sens {
@@ -282,9 +229,108 @@
     border: 1px solid #839F60;
     margin-left: 10px;
     display: flex;
+    overflow: hidden;
 }
 
 /*-----Страница товара end-----*/
+
+.price_ndp {
+    width:100%;
+    margin-bottom: 10px;
+}
+
+.tov_param_section {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+.tov_param_section h2{
+    font-weight: normal;
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.param_blk {
+    display: flex;
+    justify-content: start;
+    margin-top: 5px;
+}
+
+.param_blk .param{
+    position: relative;
+    padding-left: 45px;
+    margin-right: 40px;
+}
+
+.param_blk .param_height::before{
+    background-image: url(../img/icons/param_height.svg);
+}
+
+.param_blk .param_diam::before{
+    background-image: url(../img/icons/param_diam.svg);
+}
+
+.param_blk .param::before{
+    content: "";
+    width:33px;
+    height:33px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.tovar_advantages {
+    display: flex;
+    justify-content: space-between;
+}
+
+.tovar_advantages .adv_tov_blk{
+    border: 1px solid #839F60;
+    border-radius: 70px;
+    display: flex;
+    width: 22%;
+}
+
+.tovar_advantages .adv_tov_blk .icon{
+    width:110px;
+    height:110px;
+    background-color: #839F60;
+    border-radius: 70px;
+    background-position: center;
+    background-size: 45%;
+    background-repeat: no-repeat;
+}
+
+.tovar_advantages .adv_tov_blk .icon.ai_delivery{
+    background-image: url(../img/icons/ai_delivery.svg);
+}
+
+.tovar_advantages .adv_tov_blk .icon.ai_delivery_24{
+    background-image: url(../img/icons/ai_delivery_24.svg);
+}
+
+.tovar_advantages .adv_tov_blk .icon.ai_sales{
+    background-image: url(../img/icons/ai_sales.svg);
+}
+
+.tovar_advantages .adv_tov_blk .icon.ai_oplata{
+    background-image: url(../img/icons/ai_oplata.svg);
+}
+
+.tovar_advantages .adv_tov_blk .text{
+    flex: 1;
+    display: flex;
+}
+
+.tovar_advantages .adv_tov_blk .text span{
+   margin: auto 20px;
+   font-size: 16px;
+}
+
 
 @media (max-width: 1024px) {
     .tovar_slider {

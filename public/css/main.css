@@ -725,7 +725,6 @@ header ._wrapper {
 
 .rew_head .btn{
     max-height: 40px;
-    line-height: 25px;
 }
 
 .rew_head {
@@ -830,6 +829,24 @@ header ._wrapper {
     font-size: 16px;
     font-weight: normal;
 }
+
+.text_blk li:before{
+    content: '';
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    top: calc(50% - 2px);
+    left: 0;
+    background-color: #839F60;
+}
+
+.text_blk li{
+    padding-left: 20px;
+    position: relative;
+    margin: 5px 0;
+}
+
+
 
 /*--------Оформление текстовых блоков end----------*/
 
@@ -967,12 +984,16 @@ input {
     border: 1px solid #839F60;
     border-radius: 20px;
     text-align: center;
-    padding: 5px 20px;
+    padding: 0 20px;
     transition: all .4s ease;
     font-weight: 500;
     font-size: 16px;
     position: relative;
+    display: block;
+    min-height: 35px;
+    line-height: 35px;
 }
+
 
 .btn:hover {
     color: white;
