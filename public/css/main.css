@@ -250,7 +250,6 @@ header ._wrapper {
     border-top: 1px solid #D2D1D1;
     border-bottom: 1px solid #D2D1D1;
     min-height: 100px;
-    padding: 24px 0;
 }
 
 #header_control ._wrapper{
@@ -353,7 +352,7 @@ header ._wrapper {
     height: 18px;
     background-image: url(../img/icons/whatsapp.svg);
     position: absolute;
-
+    left:-9px;
 }
 
 .messendger_head_blk .telegram::before {
@@ -362,6 +361,7 @@ header ._wrapper {
     height: 18px;
     background-image: url(../img/icons/telegram.svg);
     position: absolute;
+    left:-10px;
 }
 
 .messendger_head_blk .vk::before {
@@ -371,11 +371,13 @@ header ._wrapper {
     background-image: url(../img/icons/vk.svg);
     position: absolute;
     background-size: cover;
+    left:-13px;
 }
 
 .favorites_head {
     position: relative;
-    margin:  auto 10px auto auto;
+    margin:  auto;
+    padding-left: 50px;
 }
 
 .favorites_head::before {
@@ -387,7 +389,7 @@ header ._wrapper {
     background-position: center;
     background-repeat: no-repeat;
     background-size: contain;
-    left:-40px;
+    left:0;
     top:-7px
 }
 
@@ -430,6 +432,8 @@ header ._wrapper {
     padding: 5px 15px;
     position: relative;
     color: #757474;
+    white-space: nowrap;
+    display: block;
 }
 
 #head_category ul a.more,
@@ -630,6 +634,12 @@ header ._wrapper {
     position: absolute;
 }
 
+.sales_tovar_wrapper .favorites {
+    right:10px;
+    top:10px;
+    position: absolute;
+}
+
 .favorites {
     width:32px;
     height:32px;
@@ -799,6 +809,10 @@ header ._wrapper {
 
 #about_main ._wrapper{
     display: flex;
+}
+
+#about_main ._wrapper .img_wraper img{
+    object-fit: contain;
 }
 
 #about_main ._wrapper .img_wraper{
@@ -1133,9 +1147,143 @@ input {
 
 /*--------Общие стили end----------*/
 
+
+/*-----Скролбар-----*/
+
+::-webkit-scrollbar {
+    overflow-y: scroll;
+    width: 7px;
+    background-color: #f9f9fd;
+  }
+
+::-webkit-scrollbar-thumb {
+    background-color: grey;
+}
+
+.all_city_list::-webkit-scrollbar-thumb,
+.page__sidebar-navigation-menu::-webkit-scrollbar-thumb,
+.page__sidebar-navigation-body-menu-options::-webkit-scrollbar-thumb {
+  width: 5px;
+  border-radius: 2.5px;
+  background: #dde5ec;
+}
+
+/*-----Скролбар end-----*/
+
+
 @media (max-width: 1440px){
     ._wrapper {
         width:96%;
         margin: 0 2%;
+    }
+}
+
+@media (max-width: 1360px){
+    .adv_blk {
+        width:23%;
+    }
+
+    .tovar_blk_wrap .sales_tovar_wrapper {
+        min-width: 300px;
+    }
+}
+
+@media (max-width: 1280px){
+    .tovar_blk_wrap .sales_tovar_wrapper {
+        min-width: 290px;
+        max-width: 25%;
+    }
+}
+
+@media (max-width: 1024px){
+    .logo {
+        height: 50px;
+    }
+
+    footer *,
+    header *{
+        font-size: 14px;
+    }
+
+    .footer_contacts .phone::before{
+        width:17px;
+        height: 17px;
+        left:-25px
+    }
+
+    .footer_contacts .adress::before,
+    .addres_head::before {
+        width:14px;
+        height: 25px;
+        left: -25px;
+        top:-3px;
+    }
+
+    .cabinet::before {
+        width:23px;
+        height: 23px;
+        left:-35px;
+        top:-3px;
+    }
+
+    .favorites_head span{
+        display: none;
+    }
+
+    .favorites_head::before {
+        top:calc(50% - 15px);
+        left: calc(50% - 15px);
+    }
+
+    .catalog_btn {
+        font-size: 18px;
+        padding: 14px 25px 14px 66px;
+    }
+
+    .catalog_btn span::before {
+        left:-44px;
+        top:1px;
+    }
+
+    .header_search_form {
+        font-size: 18px;
+    }
+
+    .bascet_head {
+        padding: 14px 20px 14px 50px;
+    }
+
+    #head_category ul a{
+        margin-right: 10px;
+    }
+
+    #head_category ul {
+
+        overflow-x: auto;
+    }
+
+    #head_category ul::-webkit-scrollbar {
+        display: none;
+    }
+
+    .adv_blk .adv_description {
+        font-size: 18px;
+    }
+
+    .footer_contacts .phone,
+    .footer_contacts .adress {
+        font-size: 18px;
+    }
+
+    #uni_map .contacts {
+        left:5%;
+    }
+}
+
+@media (max-width: 912px){
+    #header_control .messendger_head_blk,
+    .phone_head_blk,
+    .main_menu {
+        display: none;
     }
 }

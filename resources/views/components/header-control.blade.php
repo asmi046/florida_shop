@@ -11,7 +11,7 @@
 
         <x-messanger></x-messanger>
 
-        <a href="#" class="favorites_head">Избранное</a>
+        <a href="#" class="favorites_head"><span>Избранное</span></a>
         <a href="#" class="bascet_head">Корзина</a>
     </div>
 </section>

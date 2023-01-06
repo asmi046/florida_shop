@@ -22,6 +22,18 @@ var hitSlider = new Swiper(".hit_slider", {
             slidesPerView: 4,
         },
 
+        1330:{
+            slidesPerView: 4,
+        },
+
+        1280:{
+            slidesPerView: 3,
+        },
+
+        1024:{
+            slidesPerView: 3,
+        },
+
         768: {
           slidesPerView: 2,
         }
