@@ -1,7 +1,7 @@
 ymaps.ready(init);
 
 function init () {
-    var myMap = new ymaps.Map("uni_map", {
+    var myMap = new ymaps.Map("render_map", {
         // Координаты центра карты
         center: [51.727245371240414,36.1819885],
         // Масштаб карты

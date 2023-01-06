@@ -181,6 +181,10 @@ header ._wrapper {
     font-weight: 600;
 }
 
+header .messendger_head_blk {
+    display: none;
+}
+
 .logo {
     width:auto;
     height: 70px;
@@ -249,7 +253,6 @@ header ._wrapper {
 #header_control {
     border-top: 1px solid #D2D1D1;
     border-bottom: 1px solid #D2D1D1;
-    min-height: 100px;
 }
 
 #header_control ._wrapper{
@@ -1092,6 +1095,14 @@ input {
     padding-bottom: 0px;
 }
 
+#render_map {
+    height: 520px;
+    width:100%;
+    position: absolute;
+    left: 0;
+    top:0;
+}
+
 #uni_map .contacts{
     width:400px;
     height: 80%;
@@ -1128,6 +1139,7 @@ input {
 
 #uni_map .messendger_head_blk {
     margin-top: 20px;
+    margin-left: 10px;
 }
 
 #uni_map .messendger_head_blk .whatsapp::before {
@@ -1285,5 +1297,193 @@ input {
     .phone_head_blk,
     .main_menu {
         display: none;
+    }
+
+    .adv_blk {
+        min-width: 250px;
+        margin-right: 20px;
+    }
+
+    .advantahes_wrapper {
+        overflow-x: auto;
+    }
+
+    .advantahes_wrapper::-webkit-scrollbar {
+        display: none;
+    }
+
+    #catalog_section ._wrapper {
+        flex-direction: column;
+    }
+
+    #catalog_section ._wrapper .tovars_blk {
+        margin-left: 0;
+        margin-top: 20px;
+    }
+
+    #catalog_section ._wrapper .sitebar {
+        max-width: 100%;
+    }
+
+    #catalog_section ._wrapper .sitebar h2 {
+        display: none;
+    }
+
+    .tovar_blk_wrap .sales_tovar_wrapper {
+        min-width: 279px;
+    }
+}
+
+@media (max-width: 768px){
+    .tovar_blk_wrap .sales_tovar_wrapper {
+        min-width: 48%;
+    }
+
+    #about_main ._wrapper .img_wraper {
+        display: none;
+    }
+
+    #about_main ._wrapper .text_blk {
+        margin-left: 0;
+    }
+
+    #uni_map #render_map,
+    #uni_map .contacts
+    {
+        position: unset;
+    }
+
+    #uni_map .contacts {
+        border-radius: 0;
+        width: 100%;
+    }
+
+    #uni_map #render_map {
+        height: 250px;
+    }
+
+    #uni_map {
+        height: auto;
+        display: flex;
+        flex-direction: column-reverse;
+    }
+}
+
+@media (max-width: 480px){
+    footer, section {
+        padding: 14px 0;
+    }
+
+    .addres_head {
+        display: none;
+    }
+
+    header ._wrapper {
+        min-height: unset;
+        padding: 10px 0;
+    }
+
+    .logo {
+        height: 40px;
+    }
+
+    header .messendger_head_blk {
+        display: flex;
+    }
+
+    .bascet_head,
+    .favorites_head,
+    .catalog_btn {
+        display: none;
+    }
+
+    .header_search_form {
+        flex: 1;
+    }
+
+    .banner_wrapper {
+        border-radius: 15px;
+    }
+
+    .banner_wrapper img {
+        min-height: 150px;
+        opacity: 0.9;
+    }
+
+    .banner_wrapper .text_blk {
+        top: calc(50% - 45px);
+    }
+
+    .banner_wrapper .text_blk h1 {
+        font-size: 32px;
+    }
+
+    .banner_wrapper .text_blk p {
+        font-size: 18px;
+        margin: 10px 0;
+    }
+
+    .adv_blk {
+        border-radius: 15px 0 15px 0;
+    }
+
+    section h2 {
+        font-size: 30px;
+        margin-bottom: 20px;
+    }
+
+    .swiper_obj .btn_all {
+        display: none;
+    }
+
+    .sales_slider .swiper-slide {
+        max-width: 80%;
+    }
+
+    .hit_slider .swiper-slide{
+        max-width: 80%;
+    }
+
+    .tovar_blk_wrap .sales_tovar_wrapper .img_wrapper {
+        min-height: unset;
+    }
+
+    .rew_head {
+        flex-direction: column;
+    }
+
+    .rew_head h2 {
+        margin-bottom: 20px;
+    }
+
+    .rew_head .btn {
+        max-width: 50%;
+    }
+
+    .rew_head {
+        margin-bottom: 20px;
+    }
+
+    footer ._wrapper {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    footer .logo {
+        margin:  0 auto 10px auto;
+    }
+
+    footer .messendger_head_blk {
+        margin: 20px auto;
+    }
+
+    .footer_contacts {
+        margin: 20px auto;
+        display: block;
+        width:50%;
+    }
+
+    .footer_contacts *{
+        display: inline-block;
     }
 }

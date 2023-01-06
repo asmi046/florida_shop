@@ -8,6 +8,8 @@
 
         <x-main-menu></x-main-menu>
 
+        <x-messanger></x-messanger>
+
         <a href="#" class="cabinet">Войти</a>
     </div>
 </header>

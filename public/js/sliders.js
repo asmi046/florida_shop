@@ -1,7 +1,7 @@
 
 var hitSlider = new Swiper(".hit_slider", {
 
-    slidesPerView: 1,
+    slidesPerView: "auto",
     spaceBetween: 30,
 
     loop: true,
@@ -43,7 +43,7 @@ var hitSlider = new Swiper(".hit_slider", {
 
 var salsesSlider = new Swiper(".sales_slider", {
 
-    slidesPerView: 1,
+    slidesPerView: "auto",
     spaceBetween: 30,
 
     loop: true,
@@ -65,19 +65,29 @@ var salsesSlider = new Swiper(".sales_slider", {
         },
 
         768: {
-          slidesPerView: 4,
+          slidesPerView: 3,
         }
     }
 
   });
 
   var brandSlider = new Swiper(".rew_slider", {
-    slidesPerView: 3,
+    slidesPerView: "auto",
     spaceBetween: 30,
     pagination: {
       el: ".banner_controll",
       clickable: true,
     },
+
+    breakpoints: {
+        768: {
+            slidesPerView: 2,
+        },
+
+        912:{
+            slidesPerView: 3,
+        },
+    }
   });
 
 

@@ -1,4 +1,7 @@
 <section id="uni_map">
+    <div id="render_map">
+
+    </div>
     <div class="contacts">
         <h2>Контакты</h2>
         <p>Адрес салона</p>

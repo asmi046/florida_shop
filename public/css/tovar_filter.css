@@ -120,14 +120,15 @@
 }
 
 .filter_mobile_panel.open {
-    background-color: #F18614;
+
+    border: 1px solid #839F60;
 }
 
 
 
 /*-----Фильтр end-----*/
 
-@media (max-width: 768px) {
+@media (max-width: 912px) {
 
     .filter_mobile_panel {
         display: block;

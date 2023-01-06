@@ -4,6 +4,10 @@ namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
 
+use App\Models\Option;
+use App\Models\Category;
+use Illuminate\Support\Facades\View;
+
 class AppServiceProvider extends ServiceProvider
 {
     /**
@@ -23,6 +27,15 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        // $all_options = Option::all();
+        // $categoryes = Category::all();
+
+        // $opt = [];
+
+        // foreach ($all_options as $otion) {
+        //     $opt[$otion['name']] = $otion['value'];
+        // }
+        // View::share('options', $opt);
+        // View::share('all_cat', $categoryes);
     }
 }
