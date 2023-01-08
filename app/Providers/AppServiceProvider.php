@@ -28,17 +28,19 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $all_options = Option::all();
-        $categoryes = Category::all();
-        $celebrations = Celebration::all();
+        if(\Schema::hasTable('options')) {
+            $all_options = Option::all();
+            $categoryes = Category::all();
+            $celebrations = Celebration::all();
 
-        $opt = [];
+            $opt = [];
 
-        foreach ($all_options as $otion) {
-            $opt[$otion['name']] = $otion['value'];
+            foreach ($all_options as $otion) {
+                $opt[$otion['name']] = $otion['value'];
+            }
+            View::share('options', $opt);
+            View::share('all_cat', $categoryes);
+            View::share('celebrations', $celebrations);
         }
-        View::share('options', $opt);
-        View::share('all_cat', $categoryes);
-        View::share('celebrations', $celebrations);
     }
 }
