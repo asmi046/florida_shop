@@ -41,6 +41,12 @@ class OptionSeeder extends Seeder
                 ],
 
                 [
+                    "name" => "adress",
+                    'title' => 'Адрес',
+                    "value" => "Карла Маркса, 72 корпус 18",
+                ],
+
+                [
                     "name" => "phone",
                     'title' => 'Телефон',
                     "value" => "+7 (4712) 545 545",

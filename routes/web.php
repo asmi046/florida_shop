@@ -17,6 +17,7 @@ use App\Http\Controllers\TovarController;
 */
 
 Route::get('/', [IndexController::class, "show"])->name('home');
-Route::get('/catalog', [CategoryController::class, "show"])->name('category');
+Route::get('/catalog', [CategoryController::class, "show"])->name('catalog');
+Route::get('/catalog/{slug}', [CategoryController::class, "show_cat"])->name('category');
 Route::get('/tovar', [TovarController::class, "show"])->name('tovar');
 Route::get('/zone', [EasyPageController::class, "zone"])->name('zone');

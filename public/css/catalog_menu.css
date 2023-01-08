@@ -20,21 +20,53 @@
 }
 
 .catalog_menu h2{
-    font-size: 22px;
-    font-weight: 600;
-    margin: 1em auto 1em 30px;
+    font-size: 28px;
+    font-weight: bold;
+    margin: 0  0 1em 0;
+}
+
+.catalog_menu h3{
+    font-size: 20px;
+    font-weight: bold;
+    margin: 1em 0;
+}
+
+.catalog_menu ul{
+    font-size: 16px;
+}
+
+.catalog_menu ul li{
+    margin-bottom: 10px;
 }
 
 .catalog_menu {
-    width: 320px;
+    width: 50vw;
     height: 100%;
     background-color: white;
     overflow-y: auto;
     overflow-x: hidden;
+    padding: 20px 40px;
+}
+
+.catclog_razdel_wrapper {
+    display: flex;
+    justify-content: start;
+}
+
+.catclog_razdel_wrapper .cat_razdel{
+    margin-right: 5%;
+    padding-right: 5%;
+    border-right: 1px solid  #F1F2F2;
+}
+
+.catclog_razdel_wrapper .cat_razdel:last-child{
+    margin-right: 0;
+    border-right: none;
 }
 
 .close_catalog:hover {
-    background-color: #F18614;
+    background-color: #839F60;
+    background-image: url("../img/icons/shop_icon/close_hover.svg");
 }
 
 .close_catalog {
@@ -45,7 +77,7 @@
     position: absolute;
     right: 10px;
     top: 10px;
-    background-image: url("../img/icons/close.svg");
+    background-image: url("../img/icons/shop_icon/close.svg");
     background-size: 50%;
     background-position: center;
     background-repeat: no-repeat;
