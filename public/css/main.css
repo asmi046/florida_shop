@@ -253,6 +253,10 @@ header .messendger_head_blk {
 #header_control {
     border-top: 1px solid #D2D1D1;
     border-bottom: 1px solid #D2D1D1;
+    position: sticky;
+    top: 0;
+    background-color: white;
+    z-index: 9999;
 }
 
 #header_control ._wrapper{

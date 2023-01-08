@@ -11,12 +11,15 @@ export default defineConfig({
                 'public/css/main.css',
                 'public/css/tovar_filter.css',
                 'public/css/tovar_page_content.css',
+                'public/css/catalog_menu.css',
+
 
                 'resources/js/app.js',
                 'public/js/sliders.js',
                 'public/js/delivery_zone.js',
                 'public/js/filter.js',
-                'public/js/map.js'
+                'public/js/map.js',
+                'public/js/catalog_menu.js'
             ],
             refresh: true,
         }),

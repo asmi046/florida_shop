@@ -1,0 +1,146 @@
+.catalog_menu_wrapper {
+    width:auto;
+    height: 100%;
+    position: fixed;
+    top:0;
+    left:0;
+    z-index: 100000;
+    display: none;
+}
+
+.catalog_menu_wrapper_zt {
+    background-color: #000000aa;
+    z-index: 90000;
+    position: fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height: 100%;
+    display: none;
+}
+
+.catalog_menu h2{
+    font-size: 22px;
+    font-weight: 600;
+    margin: 1em auto 1em 30px;
+}
+
+.catalog_menu {
+    width: 320px;
+    height: 100%;
+    background-color: white;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.close_catalog:hover {
+    background-color: #F18614;
+}
+
+.close_catalog {
+    background-color: white;
+    width: 30px;
+    height: 30px;
+    border-radius: 30px;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    background-image: url("../img/icons/close.svg");
+    background-size: 50%;
+    background-position: center;
+    background-repeat: no-repeat;
+    cursor:pointer;
+}
+
+.catalog_menu nav ul{
+    padding-top: 10px;
+}
+
+.catalog_menu nav a{
+    width:90%;
+    margin-right: 10%;
+    min-height: 40px;
+    line-height: 40px;
+    padding-left: 30px;
+    display: block;
+    font-size: 16px;
+    border-radius: 0 11px 11px 0;
+}
+
+.catalog_menu nav a.active,
+.catalog_menu nav a:hover{
+    background-color: #FFB400;
+    color:black
+}
+
+.sub_cat_menu_wrapper {
+    width:50%;
+    min-width:650px;
+    height: 100%;
+    background-color: #f2f3f5;
+    display: none;
+    flex-wrap: wrap;
+    padding: 0 1%;
+    flex-direction: column;
+}
+
+.sub_cat_menu_wrapper .puncts{
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.sub_cat_menu_wrapper .punkt h2{
+    font-size: 18px;
+    font-weight: 900;
+    line-height: 1;
+    margin: 10px 0;
+}
+
+.sub_cat_menu_wrapper .punkt{
+    width: 25%;
+    padding: 0 2%;
+}
+
+.sub_cat_menu_wrapper .punkt ul li{
+    margin: 5px 0;
+}
+
+
+.all_list_link {
+    width: 96%;
+    display: flex;
+    padding: 10px 2%;
+}
+
+.all_list_link a{
+    font-size: 16px;
+    color: #E13510;
+    display: flex;
+    line-height: 1.4;
+    border-bottom: 1px dashed #E1351000;
+}
+
+.all_list_link a:hover{
+    border-bottom: 1px dashed #E13510;
+}
+
+.all_list_link a::before{
+    font-size: 20px;
+    margin-right: 10px;
+    font-weight: bold;
+}
+
+@media (max-width: 768px) {
+    .close_catalog {
+        display: none;
+    }
+
+    .catalog_menu_wrapper {
+        width:100%;
+    }
+
+    .catalog_menu {
+        width:100%;
+    }
+}

@@ -1,6 +1,6 @@
 <section id="header_control">
     <div class="_wrapper">
-        <a href="" class="catalog_btn controll"><span>Каталог</span></a>
+        <a href="" class="catalog_btn controll open_cat_menu"><span>Каталог</span></a>
 
         <form class="header_search_form" action="">
             <button class="header_search_button" type="submit"></button>
