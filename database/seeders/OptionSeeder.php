@@ -65,6 +65,19 @@ class OptionSeeder extends Seeder
                 ],
 
                 [
+                    "name" => "main_h1",
+                    'title' => 'Заголовок главной страницы',
+                    "value" => "Доставка цветов в Курске на официальном сайте «Флорида»!",
+                ],
+
+
+                [
+                    "name" => "main_text",
+                    'title' => 'Текст на главной',
+                    "value" => file_get_contents(public_path('texts/main_text.txt')),
+                ],
+
+                [
                     "name" => "telegram_lnk",
                     'title' => 'Ссылка Telegram',
                     "value" => "#",
@@ -73,6 +86,12 @@ class OptionSeeder extends Seeder
                 [
                     "name" => "whatsapp_lnk",
                     'title' => 'Ссылка WhatsApp',
+                    "value" => "#",
+                ],
+
+                [
+                    "name" => "vk_lnk",
+                    'title' => 'Ссылка Vk',
                     "value" => "#",
                 ],
             ]);

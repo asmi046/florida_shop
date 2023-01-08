@@ -23,9 +23,9 @@ return new class extends Migration
         });
 
 
-        Schema::create('categories_product', function (Blueprint $table) {
+        Schema::create('category_product', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('categories_id')->constrained()->cascadeOnDelete()->cascadeOnUpdate();
+            $table->foreignId('category_id')->constrained()->cascadeOnDelete()->cascadeOnUpdate();
             $table->foreignId('product_id')->constrained()->cascadeOnDelete()->cascadeOnUpdate();
         });
     }
@@ -37,7 +37,7 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('categories_product');
+        Schema::dropIfExists('category_product');
         Schema::dropIfExists('categories');
     }
 };

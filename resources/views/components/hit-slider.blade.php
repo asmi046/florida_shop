@@ -4,23 +4,9 @@
         <div class="swiper_obj">
             <div class="swiper hit_slider">
                 <div class="swiper-wrapper">
-                    @for ($i=0; $i<10; $i++)
-                        <div class="swiper-slide">
-                            <div class="hit_tovar_wrapper">
-                                <div class="img_wrapper">
-                                    <img src="{{asset('img/tovar_min.jpg')}}" alt="">
-                                </div>
-                                <div class="tov_info">
-                                    <h3>Композиция "Оттенок нежности"</h3>
-                                    <div class="price">
-                                        2105<span class="rub_symbol">₽</span> <span class="old_price">3000<span class="rub_symbol">₽</span></span>
-                                    </div>
-                                </div>
-
-                                <div class="btn_cart"></div>
-                            </div>
-                        </div>
-                    @endfor
+                    @foreach ( $salesliders as $tovar)
+                        <x-tovar-card-hit :tovar="$tovar"></x-tovar-card-hit>
+                    @endforeach
 
                 </div>
             </div>

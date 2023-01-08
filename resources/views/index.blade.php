@@ -14,13 +14,13 @@
 
     <x-advantages></x-advantages>
 
-    <x-hit-slider></x-hit-slider>
+    <x-hit-slider :salesliders="$sales_liders"></x-hit-slider>
 
-    <x-sales-slider></x-sales-slider>
+    <x-sales-slider :sales="$sales"></x-sales-slider>
 
-    <x-catalog-in-main></x-catalog-in-main>
+    <x-catalog-in-main :allproduct="$all_product"></x-catalog-in-main>
 
-    <x-rew-in-main></x-rew-in-main>
+    <x-rew-in-main :reviews="$reviews"></x-rew-in-main>
 
     <x-about-in-main></x-about-in-main>
 

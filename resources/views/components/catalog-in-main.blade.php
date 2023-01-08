@@ -7,9 +7,10 @@
         </div>
         <div class="tovars_blk">
             <div class="tovar_blk_wrap">
-                @for ($i=0; $i<9; $i++)
-                    <x-tovar-card></x-tovar-card>
-                @endfor
+
+                @foreach ($allproduct as $tovar)
+                    <x-tovar-card :tovar="$tovar"></x-tovar-card>
+                @endforeach
             </div>
         </div>
     </div>

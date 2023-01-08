@@ -46,6 +46,7 @@
         'public/js/delivery_zone.js',
         'public/js/filter.js',
         'public/js/map.js',
+        'public/js/categories.js',
         'public/js/catalog_menu.js'
     ])
 

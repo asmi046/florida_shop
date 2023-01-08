@@ -43,12 +43,13 @@ class ProductSeeder extends Seeder
                     "</ul>",
 
                     'price' => 2500,
-                    'old_price' => 3000,
+                    'old_price' => 0,
                     'hit' => 1,
                     'new' => 0,
                     'category' => "",
                     'height' => '50 см',
                     'radius' => '60 см',
+                    'sales_count' => rand(0, 45),
                     'seo_title' => "Букет из розовых гипсофил",
                     'seo_description' => "Букет из розовых гипсофил в Курске"
                 ],
@@ -74,6 +75,7 @@ class ProductSeeder extends Seeder
                     'category' => "",
                     'height' => '45 см',
                     'radius' => '45 см',
+                    'sales_count' => rand(0, 45),
                     'seo_title' => "Букет из Герберы",
                     'seo_description' => "Букет из Герберы в Курске"
                 ],
@@ -94,12 +96,13 @@ class ProductSeeder extends Seeder
                     "</ul>",
 
                     'price' => 4500,
-                    'old_price' => 4800,
+                    'old_price' => 0,
                     'hit' => 0,
                     'new' => 1,
                     'category' => "",
                     'height' => '55 см',
                     'radius' => '45 см',
+                    'sales_count' => rand(0, 45),
                     'seo_title' => "Букет Герберы и Розы",
                     'seo_description' => "Букет Герберы и Розы в Курске"
                 ],
@@ -126,6 +129,7 @@ class ProductSeeder extends Seeder
                     'category' => "",
                     'height' => '55 см',
                     'radius' => '45 см',
+                    'sales_count' => rand(0, 45),
                     'seo_title' => "Букет Герберы, Розы Сантини",
                     'seo_description' => "Букет Герберы, Розы Сантини в Курске"
                 ],
@@ -153,6 +157,7 @@ class ProductSeeder extends Seeder
                     'category' => "",
                     'height' => '55 см',
                     'radius' => '40 см',
+                    'sales_count' => rand(0, 45),
                     'seo_title' => "Букет Герберы, Хризантемы",
                     'seo_description' => "Букет Герберы, Хризантемы в Курске"
                 ],
@@ -175,6 +180,136 @@ class ProductSeeder extends Seeder
                     'category' => "",
                     'height' => '55 см',
                     'radius' => '80 см',
+                    'sales_count' => rand(0, 45),
+                    'seo_title' => "Букет Эквадорская Роза",
+                    'seo_description' => "Букет Эквадорская Роза в Курске"
+                ],
+
+                [
+                    'sku' => 'boket_7',
+                    'title' => "Букет Герберы, Розы Сантини #7",
+                    'slug' => "",
+                    'img' => Storage::url("boket_4.jpg"),
+                    'description' =>
+                    "<ul>".
+                        "<li>Гербера</li>".
+                        "<li>Сантини</li>".
+                        "<li>Розы</li>".
+                        "<li>Альстромерия</li>".
+                        "<li>Эвкалипт</li>".
+                        "<li>Упаковка (пленка корейская)</li>".
+                    "</ul>",
+
+                    'price' => 2500,
+                    'old_price' => 0,
+                    'hit' => 1,
+                    'new' => 1,
+                    'category' => "",
+                    'height' => '55 см',
+                    'radius' => '45 см',
+                    'sales_count' => rand(0, 45),
+                    'seo_title' => "Букет Герберы, Розы Сантини",
+                    'seo_description' => "Букет Герберы, Розы Сантини в Курске"
+                ],
+
+                [
+                    'sku' => 'boket_8',
+                    'title' => "Букет Герберы, Хризантемы #8",
+                    'slug' => "",
+                    'img' => Storage::url("boket_5.jpg"),
+                    'description' =>
+                    "<ul>".
+                        "<li>Гербера</li>".
+                        "<li>Хризантема куст</li>".
+                        "<li>Аспидистра</li>".
+                        "<li>Эвкалипт</li>".
+                        "<li>Фисташка</li>".
+                        "<li>Топер</li>".
+                        "<li>Упаковка (пленка корейская)</li>".
+                    "</ul>",
+
+                    'price' => 3500,
+                    'old_price' => 3800,
+                    'hit' => 1,
+                    'new' => 0,
+                    'category' => "",
+                    'height' => '55 см',
+                    'radius' => '40 см',
+                    'sales_count' => rand(0, 45),
+                    'seo_title' => "Букет Герберы, Хризантемы",
+                    'seo_description' => "Букет Герберы, Хризантемы в Курске"
+                ],
+
+                [
+                    'sku' => 'boket_9',
+                    'title' => "Букет Эквадорская Роза #9",
+                    'slug' => "",
+                    'img' => Storage::url("boket_6.jpg"),
+                    'description' =>
+                    "<ul>".
+                        "<li>Эквадорская Роза</li>".
+                        "<li>Упаковка (пленка корейская)</li>".
+                    "</ul>",
+
+                    'price' => 5500,
+                    'old_price' => 6800,
+                    'hit' => 1,
+                    'new' => 1,
+                    'category' => "",
+                    'height' => '55 см',
+                    'radius' => '80 см',
+                    'sales_count' => rand(0, 45),
+                    'seo_title' => "Букет Эквадорская Роза",
+                    'seo_description' => "Букет Эквадорская Роза в Курске"
+                ],
+
+                [
+                    'sku' => 'boket_10',
+                    'title' => "Букет Герберы, Хризантемы #10",
+                    'slug' => "",
+                    'img' => Storage::url("boket_5.jpg"),
+                    'description' =>
+                    "<ul>".
+                        "<li>Гербера</li>".
+                        "<li>Хризантема куст</li>".
+                        "<li>Аспидистра</li>".
+                        "<li>Эвкалипт</li>".
+                        "<li>Фисташка</li>".
+                        "<li>Топер</li>".
+                        "<li>Упаковка (пленка корейская)</li>".
+                    "</ul>",
+
+                    'price' => 3500,
+                    'old_price' => 0,
+                    'hit' => 1,
+                    'new' => 0,
+                    'category' => "",
+                    'height' => '55 см',
+                    'radius' => '40 см',
+                    'sales_count' => rand(0, 45),
+                    'seo_title' => "Букет Герберы, Хризантемы",
+                    'seo_description' => "Букет Герберы, Хризантемы в Курске"
+                ],
+
+                [
+                    'sku' => 'boket_11',
+                    'title' => "Букет Эквадорская Роза #11",
+                    'slug' => "",
+                    'img' => Storage::url("boket_6.jpg"),
+                    'description' =>
+                    "<ul>".
+                        "<li>Эквадорская Роза</li>".
+                        "<li>Упаковка (пленка корейская)</li>".
+                    "</ul>",
+
+                    'price' => 5500,
+                    'old_price' => 0,
+                    'hit' => 1,
+                    'new' => 1,
+                    'category' => "",
+                    'height' => '55 см',
+                    'radius' => '80 см',
+                    'sales_count' => rand(0, 45),
                     'seo_title' => "Букет Эквадорская Роза",
                     'seo_description' => "Букет Эквадорская Роза в Курске"
                 ],

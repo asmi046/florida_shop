@@ -4,11 +4,12 @@
             <div class="swiper_obj">
                 <div class="swiper sales_slider">
                     <div class="swiper-wrapper">
-                        @for ($i=0; $i<10; $i++)
+
+                        @foreach ($sales as $tovar)
                             <div class="swiper-slide">
-                                <x-tovar-card></x-tovar-card>
+                                <x-tovar-card :tovar="$tovar"></x-tovar-card>
                             </div>
-                        @endfor
+                        @endforeach
 
                     </div>
                 </div>

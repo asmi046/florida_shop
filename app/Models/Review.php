@@ -15,7 +15,13 @@ class Review extends Model
     use AsSource;
     use Attachable;
 
-    public $fillable = ['slug', 'name', 'lnk', 'avatar', 'text'];
+    public $fillable = [
+        'slug',
+        'name',
+        'lnk',
+        'avatar',
+        'text'
+    ];
 
     protected static function boot() {
         parent::boot();

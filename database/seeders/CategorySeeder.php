@@ -53,5 +53,17 @@ class CategorySeeder extends Seeder
                 ],
             ]
         );
+
+        $cat_relation = [];
+
+        for($i = 0; $i < 25; $i++)
+            $cat_relation[] = [
+                'category_id' => rand(1,8),
+                'product_id' => rand(1,11),
+            ];
+
+        DB::table("category_product")->insert($cat_relation);
+
+
     }
 }
