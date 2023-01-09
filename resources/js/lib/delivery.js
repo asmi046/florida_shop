@@ -3,6 +3,8 @@ export default class Delivery {
     map = null
     map_dom_element = null
     map_dom_element_show = null
+    zones = null;
+
     constructor(element, show) {
         this.map_dom_element = element
         this.map_dom_element_show = show
@@ -13,6 +15,10 @@ export default class Delivery {
         this.map_dom_element.style.display = (show)?"block":"none"
 
         this.create()
+    }
+
+    getZoneCoord() {
+        return this.zones;
     }
 
     renderMap() {

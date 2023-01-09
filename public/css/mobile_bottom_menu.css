@@ -1,0 +1,121 @@
+.mobile_bottom_menu {
+    width:100%;
+    position: fixed;
+    z-index: 100000;
+    bottom: 0;
+    left: 0;
+    background-color: white;
+    box-shadow: 0 0 10px rgb(0 0 0 / 10%);
+    display: none;
+    min-height: 60px;
+    justify-content: space-between;
+    padding: 7px 2%;
+}
+
+.mobile_bottom_menu .bm_btn {
+    padding: 0 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-size: 12px;
+    width:25%;
+    text-align: center;
+}
+
+.mobile_bottom_menu .bm_btn {
+    border-right: 1px solid lightgray;
+}
+
+.mobile_bottom_menu .bm_btn:hover {
+    color:black;
+}
+
+.mobile_bottom_menu .bm_btn:last-child {
+    border-right: none;
+}
+
+.mobile_bottom_menu .bm_btn .icon.icon-ec_icon_abort{
+    font-size: 24px;
+    line-height: 1.5;
+}
+
+.mobile_bottom_menu .bm_btn .icon{
+   width:25px;
+   height:25px;
+   margin: 5px auto;
+   background-position: center;
+   background-size: cover;
+   background-repeat: no-repeat;
+   font-size: 28px;
+   color:#FFB400;
+   position: relative;
+}
+
+.bascet_blk {
+    position:relative;
+}
+
+.bascet_blk .bascet_counter {
+    position: absolute;
+    width: 13px;
+    height: 13px;
+    border-radius: 10px;
+    color: white;
+    background-color: #F18614;
+    font-size: 8px;
+    text-align: center;
+    line-height: 14px;
+    right: -5px;
+    top: 5px;
+}
+
+
+
+.bottom_menu_icon_catalog:before {
+    content: "";
+    background-image: url(../img/icons/menu-burger-green.svg);
+}
+
+.bottom_menu_icon_bascet:before {
+    content: "";
+    background-image: url(../img/icons/cart.svg);
+}
+
+.bottom_menu_icon_favorites:before {
+    content: "";
+    background-image: url(../img/icons/like_green.svg);
+}
+
+.bottom_menu_icon_home:before {
+    content: "";
+    background-image: url(../img/icons/home.svg);
+}
+
+.bottom_menu_icon_phone:before {
+    content: "";
+    background-image: url(../img/icons/phone.svg);
+    background-size: 88%!important;
+}
+
+.mobile_bottom_menu .bm_btn .icon::before{
+    content: "";
+    width: 25px;
+    height: 25px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+
+@media (max-width: 768px) {
+    .mobile_bottom_menu {
+        display: flex;
+    }
+
+    footer {
+        padding: 24px 0 80px 0;
+    }
+}

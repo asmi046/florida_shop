@@ -1,5 +1,5 @@
 
-<div class="sales_tovar_wrapper">
+<div @class(['sales_tovar_wrapper', 'swiper-slide' => $isslide])>
     <div class="tovar_label_wrapper">
         @if ($tovar['old_price'])
             <div class="tovar_label sale">sale</div>
@@ -17,9 +17,9 @@
 
     <a href="" class="favorites"></a>
 
-    <div class="img_wrapper">
+    <a href="" class="img_wrapper">
         <img src="{{$tovar['img']}}" alt="{{$tovar['title']}}<">
-    </div>
+    </a>
     <div class="tov_info">
         <div class="price">
             <span class="true_price">{{$tovar['price']}}<span class="rub_symbol">₽</span></span>
@@ -30,7 +30,7 @@
 
         </div>
         <h3>{{$tovar['title']}}</h3>
-        <a href="" class="btn">Купить</a>
     </div>
+    <a href="" class="btn btn_in_cart">Купить</a>
 </div>
 

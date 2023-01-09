@@ -6,9 +6,9 @@
                     <div class="swiper-wrapper">
 
                         @foreach ($sales as $tovar)
-                            <div class="swiper-slide">
-                                <x-tovar-card :tovar="$tovar"></x-tovar-card>
-                            </div>
+                            {{-- <div class="swiper-slide"> --}}
+                                <x-tovar-card :isslide="true" :tovar="$tovar"></x-tovar-card>
+                            {{-- </div> --}}
                         @endforeach
 
                     </div>

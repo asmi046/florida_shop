@@ -22,6 +22,8 @@
 
     <x-rew-in-main :reviews="$reviews"></x-rew-in-main>
 
+    <map-in-page></map-in-page>
+
     <x-about-in-main></x-about-in-main>
 
 @endsection

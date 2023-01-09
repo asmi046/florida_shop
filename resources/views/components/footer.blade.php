@@ -7,8 +7,8 @@
         <x-messanger></x-messanger>
 
         <div class="footer_contacts">
-            <span class="adress">Курск, ул. Радищева 64</span>
-            <a href="" class="phone">+7 (4712) 545 545</a>
+            <span class="adress">{{$options['adress']}}</span>
+            <a href="tel:{{str_replace(array('-', ' ', '(' , ')'), '', $options['phone'])}}" class="phone">{{$options['phone']}}</a>
         </div>
 
     </div>

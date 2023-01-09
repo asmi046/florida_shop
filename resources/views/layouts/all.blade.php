@@ -31,7 +31,7 @@
     <link rel="stylesheet" href="{{asset('js/lib/swiper/swiper-bundle.min.css')}}"/>
     <script src="{{asset('js/lib/swiper/swiper-bundle.min.js')}}"></script>
 
-    <script src="//api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"></script>
+    <script src="//api-maps.yandex.ru/2.1/?lang=ru_RU&coordorder=longlat&apikey=c38cf20b-9826-491c-abe0-0653932a0e17" type="text/javascript"></script>
 
     @vite([
         'resources/css/app.css',
@@ -39,6 +39,7 @@
         'public/css/tovar_filter.css',
         'public/css/tovar_page_content.css',
         'public/css/catalog_menu.css',
+        'public/css/mobile_bottom_menu.css',
 
 
         'resources/js/app.js',
@@ -54,7 +55,8 @@
 
 <body>
     <x-catalog-menu></x-catalog-menu>
-	<div class="wrapper" id="#global_app">
+    <x-mobile-bottom-menu></x-mobile-bottom-menu>
+	<div class="wrapper" id="global_app">
 
         <x-header></x-header>
         <x-header-control></x-header-control>

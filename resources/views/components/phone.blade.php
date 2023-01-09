@@ -1,4 +1,4 @@
 <div class="phone_head_blk">
     <span>Круглосуточьная доставка</span>
-    <a href="tel:+74712545545" class="phone">+7 (4712) 545 545</a>
+    <a href="tel:{{str_replace(array('-', ' ', '(' , ')'), '', $options['phone'])}}" class="phone">{{$options['phone']}}</a>
 </div>

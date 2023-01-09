@@ -584,6 +584,7 @@ header .messendger_head_blk {
 /*--------Слайдер для хитов продаж----------*/
 
 
+
 .hit_slider .swiper-slide{
     padding: 5px;
 }
@@ -650,6 +651,9 @@ header .messendger_head_blk {
 /*--------Слайдер для хитов продаж end----------*/
 
 /*--------Слайдер скидок и акций----------*/
+
+
+
 .tovar_label_wrapper {
     position: absolute;
     z-index: 111;
@@ -738,12 +742,14 @@ header .messendger_head_blk {
    overflow: hidden;
    position: relative;
    max-width: 340px;
+   height: auto;
 }
 
 .sales_tovar_wrapper .img_wrapper{
     width:100%;
     height: 210px;
 }
+
 
 .sales_tovar_wrapper .tov_info{
     display: flex;
@@ -754,6 +760,10 @@ header .messendger_head_blk {
 .sales_tovar_wrapper .tov_info h3{
     font-size: 16px;
     margin: 20px 0;
+}
+
+.btn_in_cart {
+    margin: auto 10px 10px 10px!important;
 }
 /*--------Слайдер скидок и акций end----------*/
 
@@ -1173,10 +1183,15 @@ input {
     color: white;
 }
 
+#uni_map .contacts h3 a{
+    color: white;
+}
+
 #uni_map .contacts h3{
-    font-size: 26px;
+    font-size: 22px;
     font-weight: 600;
     margin-bottom: 35px;
+
 }
 
 #uni_map .contacts p{
@@ -1240,7 +1255,7 @@ input {
 /*-----Скролбар end-----*/
 
 
-@media (max-width: 1440px){
+@media (max-width: 1480px){
     ._wrapper {
         width:96%;
         margin: 0 2%;
@@ -1397,6 +1412,14 @@ input {
 
     .tovar_blk_wrap .sales_tovar_wrapper {
         min-width: 279px;
+    }
+
+    .swiper_obj .btn_left {
+        left: 0;
+    }
+
+    .swiper_obj .btn_right {
+        right: 0;
     }
 }
 

@@ -47,7 +47,7 @@ var salsesSlider = new Swiper(".sales_slider", {
     spaceBetween: 30,
 
     loop: true,
-    loopFillGroupWithBlank: true,
+
 
     navigation: {
       nextEl: "#sale_btn_right",

@@ -5,10 +5,10 @@
     <div class="contacts">
         <h2>Контакты</h2>
         <p>Адрес салона</p>
-        <h3>Курск, ул. Радищева 64</h3>
+        <h3>{{$options['adress']}}</h3>
 
         <p>Адрес салона</p>
-        <h3>+7 (4712) 545 545</h3>
+        <h3><a href="tel:{{str_replace(array('-', ' ', '(' , ')'), '', $options['phone'])}}" class="phone">{{$options['phone']}}</a></h3>
 
         <a href="" class="btn btn_white">Помощь флориста</a>
 

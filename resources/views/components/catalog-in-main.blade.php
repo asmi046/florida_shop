@@ -9,7 +9,7 @@
             <div class="tovar_blk_wrap">
 
                 @foreach ($allproduct as $tovar)
-                    <x-tovar-card :tovar="$tovar"></x-tovar-card>
+                    <x-tovar-card :isslide="false" :tovar="$tovar"></x-tovar-card>
                 @endforeach
             </div>
         </div>
