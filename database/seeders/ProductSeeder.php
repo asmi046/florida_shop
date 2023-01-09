@@ -33,7 +33,7 @@ class ProductSeeder extends Seeder
                 [
                     'sku' => 'boket_1',
                     'title' => "Букет из розовых гипсофил",
-                    'slug' => "",
+                    'slug' => Str::slug("Букет из розовых гипсофил"),
                     'img' => Storage::url("boket_1.jpg"),
                     'description' =>
                     "<ul>".
@@ -57,7 +57,7 @@ class ProductSeeder extends Seeder
                 [
                     'sku' => 'boket_2',
                     'title' => "Букет из Герберы",
-                    'slug' => "",
+                    'slug' => Str::slug("Букет из Герберы"),
                     'img' => Storage::url("boket_1.jpg"),
                     'description' =>
                     "<ul>".
@@ -83,7 +83,7 @@ class ProductSeeder extends Seeder
                 [
                     'sku' => 'boket_3',
                     'title' => "Букет Герберы и Розы",
-                    'slug' => "",
+                    'slug' => Str::slug("Букет Герберы и Розы"),
                     'img' => Storage::url("boket_3.jpg"),
                     'description' =>
                     "<ul>".
@@ -110,7 +110,7 @@ class ProductSeeder extends Seeder
                 [
                     'sku' => 'boket_4',
                     'title' => "Букет Герберы, Розы Сантини",
-                    'slug' => "",
+                    'slug' => Str::slug("Букет Герберы, Розы Сантини"),
                     'img' => Storage::url("boket_4.jpg"),
                     'description' =>
                     "<ul>".
@@ -137,7 +137,7 @@ class ProductSeeder extends Seeder
                 [
                     'sku' => 'boket_5',
                     'title' => "Букет Герберы, Хризантемы",
-                    'slug' => "",
+                    'slug' => Str::slug("Букет Герберы, Хризантемы"),
                     'img' => Storage::url("boket_5.jpg"),
                     'description' =>
                     "<ul>".
@@ -165,7 +165,7 @@ class ProductSeeder extends Seeder
                 [
                     'sku' => 'boket_6',
                     'title' => "Букет Эквадорская Роза",
-                    'slug' => "",
+                    'slug' => Str::slug("Букет Эквадорская Роза"),
                     'img' => Storage::url("boket_6.jpg"),
                     'description' =>
                     "<ul>".
@@ -188,7 +188,7 @@ class ProductSeeder extends Seeder
                 [
                     'sku' => 'boket_7',
                     'title' => "Букет Герберы, Розы Сантини #7",
-                    'slug' => "",
+                    'slug' => Str::slug("Букет Герберы, Розы Сантини #7"),
                     'img' => Storage::url("boket_4.jpg"),
                     'description' =>
                     "<ul>".
@@ -215,7 +215,7 @@ class ProductSeeder extends Seeder
                 [
                     'sku' => 'boket_8',
                     'title' => "Букет Герберы, Хризантемы #8",
-                    'slug' => "",
+                    'slug' => Str::slug("Букет Герберы, Хризантемы #8"),
                     'img' => Storage::url("boket_5.jpg"),
                     'description' =>
                     "<ul>".
@@ -243,7 +243,7 @@ class ProductSeeder extends Seeder
                 [
                     'sku' => 'boket_9',
                     'title' => "Букет Эквадорская Роза #9",
-                    'slug' => "",
+                    'slug' => Str::slug("Букет Эквадорская Роза #9"),
                     'img' => Storage::url("boket_6.jpg"),
                     'description' =>
                     "<ul>".
@@ -266,7 +266,7 @@ class ProductSeeder extends Seeder
                 [
                     'sku' => 'boket_10',
                     'title' => "Букет Герберы, Хризантемы #10",
-                    'slug' => "",
+                    'slug' => Str::slug("Букет Герберы, Хризантемы #10"),
                     'img' => Storage::url("boket_5.jpg"),
                     'description' =>
                     "<ul>".
@@ -294,7 +294,7 @@ class ProductSeeder extends Seeder
                 [
                     'sku' => 'boket_11',
                     'title' => "Букет Эквадорская Роза #11",
-                    'slug' => "",
+                    'slug' => Str::slug("Букет Эквадорская Роза #11"),
                     'img' => Storage::url("boket_6.jpg"),
                     'description' =>
                     "<ul>".
@@ -314,5 +314,46 @@ class ProductSeeder extends Seeder
                     'seo_description' => "Букет Эквадорская Роза в Курске"
                 ],
             ]);
+
+            $images = [];
+
+            for ($i=1; $i<11; $i++) {
+                $images[] = [
+                    'product_id' => $i,
+                    'link' => Storage::url("boket_".rand(1, 6).".jpg"),
+                    'alt' => "Фото товара",
+                    'title' => "Фото товара"
+                ];
+
+                $images[] = [
+                    'product_id' => $i,
+                    'link' => Storage::url("boket_".rand(1, 6).".jpg"),
+                    'alt' => "Фото товара",
+                    'title' => "Фото товара"
+                ];
+
+                $images[] = [
+                    'product_id' => $i,
+                    'link' => Storage::url("boket_".rand(1, 6).".jpg"),
+                    'alt' => "Фото товара",
+                    'title' => "Фото товара"
+                ];
+
+                $images[] = [
+                    'product_id' => $i,
+                    'link' => Storage::url("boket_".rand(1, 6).".jpg"),
+                    'alt' => "Фото товара",
+                    'title' => "Фото товара"
+                ];
+
+                $images[] = [
+                    'product_id' => $i,
+                    'link' => Storage::url("boket_".rand(1, 6).".jpg"),
+                    'alt' => "Фото товара",
+                    'title' => "Фото товара"
+                ];
+            }
+
+            DB::table("product_images")->insert($images);
     }
 }

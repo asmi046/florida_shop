@@ -27,4 +27,8 @@ class Category extends Model
         else
             $this->attributes['slug'] =  $value;
     }
+
+    public function category_tovars() {
+        return $this->belongsToMany(Product::class);
+    }
 }

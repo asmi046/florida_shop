@@ -56,7 +56,12 @@
 <body>
     <x-catalog-menu></x-catalog-menu>
     <x-mobile-bottom-menu></x-mobile-bottom-menu>
+
+
+
 	<div class="wrapper" id="global_app">
+
+        <modal-window></modal-window>
 
         <x-header></x-header>
         <x-header-control></x-header-control>

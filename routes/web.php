@@ -8,6 +8,7 @@ use App\Http\Controllers\TovarController;
 
 use App\Http\Controllers\FavoriteController;
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\SenderController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,8 +24,10 @@ use App\Http\Controllers\CartController;
 Route::get('/', [IndexController::class, "show"])->name('home');
 Route::get('/catalog', [CategoryController::class, "show"])->name('catalog');
 Route::get('/catalog/{slug}', [CategoryController::class, "show_cat"])->name('category');
-Route::get('/tovar', [TovarController::class, "show"])->name('tovar');
+Route::get('/tovar/{slug}', [TovarController::class, "show"])->name('tovar');
 Route::get('/zone', [EasyPageController::class, "zone"])->name('zone');
+Route::get('/thencs', [SenderController::class, "show_thencs"])->name('thencs');
+Route::post('/send_consult', [SenderController::class, "send_consultation"])->name('send_consultation');
 
 Route::get('/bascet/thencs', [CartController::class, "thencs"])->name("bascet_thencs");
 Route::get('/bascet', [CartController::class, "index"])->name("bascet");

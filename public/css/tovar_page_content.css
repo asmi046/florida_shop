@@ -197,6 +197,10 @@
 
 }
 
+.galery_thumbs .swiper_obj .tovar_thumbs_slider .swiper-slide.swiper-slide-thumb-active{
+    border: 5px solid #839F60;
+}
+
 .galery_thumbs .swiper_obj .tovar_thumbs_slider .swiper-slide{
     border-radius: 9px;
     overflow: hidden;

@@ -94,6 +94,9 @@ var salsesSlider = new Swiper(".sales_slider", {
     var swiper_thumb = new Swiper(".tovar_thumbs_slider", {
       spaceBetween: 10,
       slidesPerView: 3,
+      loop: true,
+      freeMode: true,
+      watchSlidesProgress: true,
     });
 
     var tovarSlider = new Swiper(".tovar_slider", {
