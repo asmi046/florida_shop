@@ -48,12 +48,12 @@
     <div class="param_blk">
         <div class="param param_height">
             Высота:<br/>
-            <strong>40 см</strong>
+            <strong>{{$product['height']}}</strong>
         </div>
 
         <div class="param param_diam">
             Диаметр:<br/>
-            <strong>35 см</strong>
+            <strong>{{$product['radius']}}</strong>
         </div>
     </div>
 </div>
@@ -61,15 +61,8 @@
 <div class="tov_param_section">
     <h2>Состав:</h2>
     <div class="text_blk">
-        <ul>
-            <li>Анемон</li>
-            <li>Роза одноголовая</li>
-            <li>Гиперикум</li>
-            <li>Леукадендрон</li>
-            <li>Диантус</li>
-            <li>Эвкалипт</li>
-            <li>Упаковка</li>
-        </ul>
+        {!! $product['description'] !!}
+
     </div>
 
 </div>

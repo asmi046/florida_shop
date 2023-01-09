@@ -17,7 +17,7 @@
 
     <a href="" class="favorites"></a>
 
-    <a href="" class="img_wrapper">
+    <a href="{{route('tovar', $tovar['slug'])}}" class="img_wrapper">
         <img src="{{$tovar['img']}}" alt="{{$tovar['title']}}<">
     </a>
     <div class="tov_info">
@@ -29,7 +29,7 @@
             @endif
 
         </div>
-        <h3>{{$tovar['title']}}</h3>
+        <h3><a href="{{route('tovar', $tovar['slug'])}}">{{$tovar['title']}}</a></h3>
     </div>
     <a href="" class="btn btn_in_cart">Купить</a>
 </div>
