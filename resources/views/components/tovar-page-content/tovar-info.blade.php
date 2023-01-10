@@ -29,7 +29,7 @@
     </a>
 
     <div class="quik_pricing_btn_wpap">
-        <a href="" class="btn btn_white">Написать в WhatsApp</a>
+        <a href="#showModal" class="btn btn_white">Написать в WhatsApp</a>
         <a href="" class="btn btn_white">Быстрый заказ</a>
     </div>
 </div>

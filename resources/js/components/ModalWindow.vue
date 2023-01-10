@@ -2,7 +2,8 @@
     <div v-show="showModal" @click.self="closeWin()" class="popup_wrapper">
         <div class="popup">
             <div @click.prevent="closeWin()" class="popup__close" aria-label="Закрыть модальное окно"></div>
-            <h2 class="modal_h2">Помощь флориста</h2>
+            <h2 class="modal_h2">{{title}}</h2>
+            <p>{{subtitle}}</p>
             <form class="sending_form" action="/send_consult" method="POST">
                 <input type="hidden" name="_token" :value="_token">
                 <input type="text" name="name" placeholder="Имя">
@@ -23,17 +24,29 @@ export default {
         }
     },
 
+    props: ['rout', 'hesh', 'title', 'subtitle'],
+
     methods:{
         closeWin() {
             this.showModal = false
             history.pushState('', document.title, window.location.pathname+window.location.search)
+        },
+
+        openWin() {
+            if (location.hash === '#'+this.hesh) {
+                this.showModal = true
+            }
         }
     },
 
-    mounted() {
+    updated() {
+        console.log('Совершён переход по ссылке')
+    },
 
-        console.log(location.hash)
-        if (location.hash === '#showModal') {
+    mounted() {
+        window.addEventListener('hashchange', this.openWin)
+
+        if (location.hash === '#'+this.hesh) {
             this.showModal = true
         }
     }

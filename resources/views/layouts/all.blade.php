@@ -61,7 +61,8 @@
 
 	<div class="wrapper" id="global_app">
 
-        <modal-window></modal-window>
+        <modal-window rout="/send_consult" hesh="showModal" title="Помощь флориста" subtitle="Мы свяжемся с Вами в течении 15 минут"></modal-window>
+        <modal-window rout="/send_consult" hesh="showModal1" title="Помощь флориста1" subtitle="Мы свяжемся с Вами в течении 15 минут1"></modal-window>
 
         <x-header></x-header>
         <x-header-control></x-header-control>
