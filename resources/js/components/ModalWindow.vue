@@ -102,6 +102,7 @@ export default {
     .popup {
         width:50%;
         max-width: 600px;
+        min-width: 320px;
         height: auto;
         background-color: white;
         margin: auto;
@@ -183,5 +184,30 @@ export default {
         margin-bottom: 20px;
     }
 
+
+    @media (max-width: 480px){
+        .popup {
+            padding: 30px;
+        }
+
+        .modal_h2 {
+            font-size: 42px;
+        }
+    }
+
+    @media (max-width: 320px){
+        .popup {
+            padding: 20px;
+            min-width: 310px;
+        }
+
+        .modal_h2 {
+            font-size: 38px;
+        }
+
+        .modal_h2 {
+            margin-bottom: 0;
+        }
+    }
 
 </style>
