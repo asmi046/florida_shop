@@ -17,7 +17,7 @@ class SenderController extends Controller
 
         Mail::to("asmi046@gmail.com")->send(new ConsultMail($data));
 
-        return redirect(route('thencs'));
+        return ["Сообщение отправлено"];
     }
 
     public function show_thencs() {
