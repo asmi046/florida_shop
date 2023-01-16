@@ -13,7 +13,9 @@
                 </div>
             </div>
             <div class="all_side right">
-                <div @change="test" ref="mapInComponent" id="map" class="myMap"></div>
+                <div @change="test" ref="mapInComponent" id="map" class="myMap">
+                    <div class="zones__map-label"></div>
+                </div>
             </div>
         </div>
     </section>
@@ -70,6 +72,8 @@
         border-radius: 11px;
         overflow: hidden;
         border: 1px solid #D2D1D1;
+        position: relative;
+
     }
 
     .zones_history .zh_blk .text{
@@ -91,6 +95,23 @@
         margin-top: 30px;
         display: flex;
         flex-wrap: wrap;
+    }
+
+    .zones__map-label {
+        position: absolute;
+        left: 50%;
+        bottom: 20px;
+        -webkit-transform: translateX(-50%);
+        -ms-transform: translateX(-50%);
+        transform: translateX(-50%);
+        padding: 15px 30px;
+        background: #fff;
+        -webkit-box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.15);
+        box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.15);
+        border-radius: 5px;
+        line-height: 140%;
+        color: #414042;
+        z-index: 9;
     }
 
     @media (max-width: 912px){

@@ -38,12 +38,12 @@
         </div>
     </div>
 
-    <div class="galery_gift">
+    <a href="#" class="galery_gift">
         <div class="gift_inner_blk gift_img">
-            <img src="{{asset('img/gift.jpg')}}" alt="">
+            <img src="{{asset('img/gift.jpg')}}" alt="Добавить подарок" title="Добавить подарок">
         </div>
         <div class="gift_inner_blk gift_text">
             <span>Добавить<br/> подарок</span>
         </div>
-    </div>
+    </a>
 </div>

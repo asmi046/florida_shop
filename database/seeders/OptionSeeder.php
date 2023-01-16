@@ -49,7 +49,7 @@ class OptionSeeder extends Seeder
                 [
                     "name" => "phone",
                     'title' => 'Телефон',
-                    "value" => "+7 (4712) 545 545",
+                    "value" => "+7 (920) 710 25 55",
                 ],
 
                 [
@@ -80,19 +80,19 @@ class OptionSeeder extends Seeder
                 [
                     "name" => "telegram_lnk",
                     'title' => 'Ссылка Telegram',
-                    "value" => "#",
+                    "value" => "tg://resolve?domain=floridasfl",
                 ],
 
                 [
                     "name" => "whatsapp_lnk",
                     'title' => 'Ссылка WhatsApp',
-                    "value" => "#",
+                    "value" => "https://wa.me/792071025551",
                 ],
 
                 [
                     "name" => "vk_lnk",
                     'title' => 'Ссылка Vk',
-                    "value" => "#",
+                    "value" => "https://vk.com/florida46kursk",
                 ],
             ]);
     }

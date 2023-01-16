@@ -22,6 +22,7 @@ export default class Delivery {
     }
 
     renderMap() {
+        this.map_dom_element.querySelector('.zones__map-label').hidden = true;
         this.map = new ymaps.Map(this.map_dom_element, {
             center: [36.189709, 51.742988],
             zoom: 8,
@@ -62,15 +63,23 @@ export default class Delivery {
 
                         console.log(poligon.properties._data.description)
 
-                        if (this.location.querySelector('.zones__map-label')) {
-                            this.location.querySelector('.zones__map-label').hidden = false
-                            this.location.querySelector('.zones__map-label').innerHTML = poligon.properties._data.description
+
+
+                        if (this.map_dom_element.querySelector('.zones__map-label')) {
+
+                            console.log(this.map_dom_element.querySelector('.zones__map-label'))
+                            this.map_dom_element.querySelector('.zones__map-label').hidden = false
+
+                            this.map_dom_element.querySelector('.zones__map-label').hidden = false
+                            this.map_dom_element.querySelector('.zones__map-label').innerHTML = poligon.properties._data.description
                         }
+
 
                         let placemark = new ymaps.Placemark(coords, {}, {
                             preset: 'islands#icon',
                             iconColor: '#7F0FD6'
                         });
+
 
                         this.map.geoObjects.remove(this.current_placemark);
 

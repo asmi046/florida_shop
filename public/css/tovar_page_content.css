@@ -297,6 +297,7 @@
     border-radius: 70px;
     display: flex;
     width: 22%;
+    min-width: 275px;
 }
 
 .tovar_advantages .adv_tov_blk .icon{
@@ -336,10 +337,32 @@
 }
 
 
+@media (max-width: 1280px) {
+    .galery_gift .gift_inner_blk.gift_text {
+        display: none;
+    }
+
+    .galery_gift {
+        width:auto;
+    }
+
+    .tovar_advantages {
+        flex-wrap: wrap;
+    }
+
+    .tovar_advantages .adv_tov_blk {
+        margin-bottom: 20px;
+        margin-right: 20px;
+    }
+}
+
 @media (max-width: 1024px) {
     .tovar_slider {
         height: 420px;
     }
+
+
+
 }
 
 @media (max-width: 768px) {
@@ -366,6 +389,10 @@
     .tovar_page_photo_section {
         padding-top: 0;
     }
+
+    .price_in_page .price {
+        font-size: 36px;
+    }
 }
 
 @media (max-width: 480px) {
@@ -375,6 +402,35 @@
 
     .tovar_galery .swiper_obj {
         padding: 5px;
+    }
+
+    .tovar_advantages {
+        flex-wrap: nowrap;
+        overflow-x: auto;
+    }
+
+
+    .tovar_advantages::-webkit-scrollbar {
+        display: none;
+    }
+
+    .tovar_advantages .adv_tov_blk .icon {
+        width:80px;
+        height:80px;
+    }
+
+    .tovar_advantages .adv_tov_blk {
+        margin-bottom: 0;
+        margin-right: 20px;
+    }
+
+    .btn_in_page_wrap .quik_pricing_btn_wpap {
+        flex-direction: column;
+    }
+
+    .btn_in_page_wrap .quik_pricing_btn_wpap .btn {
+        width:100%;
+        margin-bottom: 20px;
     }
 }
 

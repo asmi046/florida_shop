@@ -1176,7 +1176,7 @@ input {
     position: absolute;
     background: #839F60;
     border-radius: 30px 0 30px 0;
-    z-index: 11111;
+    z-index: 1111;
     top:calc(20% / 2);
     left: 10%;
     padding: 30px 50px;
@@ -1574,5 +1574,19 @@ input {
 
     .footer_contacts *{
         display: inline-block;
+    }
+
+    .header_search_form {
+        min-height: 40px;
+        border-radius: 12px;
+    }
+
+    .header_search_form input{
+        min-height: 100%;
+        width:100%;
+    }
+
+    #header_control {
+        padding: 7px 0;
     }
 }
