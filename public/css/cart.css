@@ -1,0 +1,465 @@
+/* Значек карзины */
+
+.header__favorites .favorites_counter {
+    position: absolute;
+    width: 13px;
+    height: 13px;
+    border-radius: 10px;
+    color: white;
+    background-color: #6bb431;
+    font-size: 8px;
+    text-align: center;
+    line-height: 14px;
+    left: 10px;
+    top: -6px;
+}
+
+.header__bascket .bascet_counter {
+    position: absolute;
+    width: 13px;
+    height: 13px;
+    border-radius: 10px;
+    color: white;
+    background-color: #6bb431;
+    font-size: 8px;
+    text-align: center;
+    line-height: 14px;
+    left: 14px;
+    top: -4px;
+}
+
+.header__favorites,
+.header__bascket {
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    position: relative;
+  }
+
+.header__bascket:before {
+    content: "";
+    float: left;
+    width: 21px;
+    height: 21px;
+    margin-right: 8px;
+    background-size: 100%;
+    background-position: 0 0;
+    background-repeat: no-repeat;
+    background-image: url("../img/icons/bascet.svg");
+}
+
+/* Значек карзины end*/
+
+.header__bascket:hover:before {
+    background-image: url("../img/icons/bascet_hover.svg");
+}
+
+.bascet {
+    width: 100%;
+    display: flex;
+    min-height: 100px;
+}
+
+.bascet_lader {
+    width:100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: center;
+}
+
+.bascet_lader span{
+    width: 100%;
+    height: 80px;
+    background-image: url(../img/icons/loader.svg);
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin-bottom: 20px;
+}
+
+.bascet_tovar {
+
+    flex: 3;
+}
+
+/* форма карзины */
+
+.bascet_form {
+    flex:1;
+    max-width: 320px;
+    box-shadow: 0 0 30px rgb(0 0 0 / 10%);
+    margin-left: 40px;
+    padding: 20px;
+    border-radius: 11px;
+}
+
+.bascet_form h2{
+    font-size: 22px;
+    font-weight: 900;
+}
+
+.bascet_form form input,
+.bascet_form form textarea
+{
+    width:100%;
+    margin: 10px 0;
+}
+
+.bascet_form form textarea {
+    min-height: 100px;
+}
+
+.bascet_form form .policy a{
+    text-decoration: underline;
+
+}
+
+.bascet_form form .policy {
+    margin: 10px;
+    font-size: 12px;
+}
+
+.bascet_tovar .control{
+    width: 100%;
+    display: flex;
+}
+
+.errors_list {
+    width:100%;
+    padding: 10px 0;
+}
+
+.errors_list li{
+    margin: 10px 0;
+    padding: 5px 10px;
+    border-radius: 10px;
+    width:100%;
+    background-color: #a2182d;
+    color: white;
+}
+
+
+.bascet_tovar .control .clear_bascet_btn{
+    color:#839F60;
+    margin-left: auto;
+    position: relative;
+}
+
+.bascet_tovar .control .clear_bascet_btn:hover span{
+    border-bottom: 1px dashed #F18614;
+}
+
+.bascet_tovar .control .clear_bascet_btn:before{
+    content: "";
+    position: absolute;
+    left:-30px;
+    top: -4px;
+    background-position: 0 0;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    width: 21px;
+    height: 21px;
+    background-image: url(../img/icons/trash.svg);
+    background-size: cover;
+
+}
+
+/* Список товаров */
+
+.tovar_list {
+    width:100%;
+    display:flex;
+    flex-direction: column;
+    margin-top: 30px;
+}
+
+.tovar_list {
+    width: 100%;
+    min-height: 50px;
+    border-radius: 11px;
+    box-shadow: 0 0 30px rgb(0 0 0 / 10%);
+}
+
+.tovar_list .tovar{
+    display: flex;
+    padding: 20px;
+    justify-content: space-between;
+}
+
+.tovar_list .tovar .tovar_all_blk{
+    display: flex;
+}
+
+.tovar_list .tovar .tovar_all_blk *{
+    margin: auto 0 auto 0;
+}
+
+.tovar_list .tovar .picture_blk{
+    width:50px;
+    height:50px;
+}
+
+.tovar_list .tovar .dll_blk {
+    width:20px;
+    height:auto;
+}
+
+.tovar_list .tovar .dll_blk span{
+    width:15px;
+    height: 15px;
+    display: block;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: url(../img/icons/close.svg);
+    cursor:pointer;
+}
+
+.tovar_list .tovar .dll_blk span:hover{
+    background-image: url(../img/icons/close_hover.svg);
+}
+
+.tovar_list .tovar .picture_blk img{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    min-width: 45px;
+}
+
+.tovar_list .tovar .name_blk{
+    padding:  0 30px;
+    flex-direction: column;
+    text-align: center;
+    text-align: left;
+}
+
+.tovar_list .tovar .name_blk h2{
+    font-size: 18px;
+    font-weight: 900;
+    margin: auto 0 auto 0;
+}
+
+.tovar_list .tovar .name_blk p{
+    margin: auto 0 auto 0;
+}
+
+.tovar_list .tovar .price_blk{
+    width:100px;
+    margin: 0 0 0 auto;
+}
+
+.tovar_list .tovar .couint_blk{
+    width:85px;
+    margin: 0 0 0 0;
+    padding:  0 10px;
+}
+
+.tovar_list .tovar .couint_blk input{
+    width:100%;
+}
+
+.tovar_list .tovar .summ_blk{
+    width:100px;
+    margin: 0 0 0 0;
+    font-weight: bold;
+}
+
+/* Итог корзины */
+
+.itogo {
+    width:100%;
+    margin-top: 30px;
+    font-size: 18px;
+}
+
+.itogo .itogo_price_count{
+    width: 50%;
+    min-width: 320px;
+    min-height: 50px;
+    background-color: #f2f3f5;
+    border-radius: 11px;
+    padding: 20px;
+    margin: 0 0 0 auto;
+}
+
+.itogo .itogo_price_count .itogo_row_final{
+    font-size: 22px;
+    font-weight: 900;
+    text-transform: uppercase;
+}
+
+.itogo .itogo_price_count .itogo_row{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 0;
+}
+
+.itogo .itogo_price_count .itogo_row .text{
+    margin: 0 auto 0 0;
+}
+
+.itogo .itogo_price_count .itogo_row .text span{
+    font-weight: 900;
+}
+
+.itogo .itogo_price_count .itogo_row .razd{
+    border-bottom: 1px dotted gray;
+    flex-grow:1
+}
+
+.itogo .itogo_price_count .itogo_row .p_price{
+    margin: 0 0 auto 0;
+}
+
+.tl-side {
+    display: flex;
+}
+
+.btnLoaderCart,
+.btnLoader {
+    display: none;
+    width: 16px;
+    height: 16px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url(../img/icons/loader_green.svg);
+}
+
+.btnLoaderCart {
+    width: 26px;
+    height: 26px;
+    margin-left: 10px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url(../img/icons/loader_green.svg);
+    display: none;
+}
+.btnLoaderCart.active {
+    display: inline-block;
+}
+
+.btn_fill:hover .btnLoader {
+    background-image: url(../img/icons/loader_green.svg);
+}
+
+.card_bascet_btn {
+    display: none;
+}
+
+.tovar_wrap .bascet_count {
+    display: none;
+    background-color: #839F60;
+    color: #fff;
+    position: absolute;
+    top: 0;
+    left: calc(50% - 52px);
+    border-radius: 0 0 10px 10px;
+    font-size: 12px;
+    padding: 5px 10px;
+    cursor: pointer;
+    z-index: 11111;
+}
+
+.tovar_wrap.in-bascet .bascet_count {
+    display: block;
+}
+
+.number_wrapper {
+    border: 1px solid #f2f3f5;
+    border-radius: 6px;
+    display: flex;
+    max-height: 30px;
+    overflow: hidden;
+  }
+
+  .number_wrapper .number_btn {
+    background-color: #f2f3f5;
+    height: 100%;
+    display: block;
+    padding: 0 5px;
+    line-height: 30px;
+    cursor: pointer;
+
+  }
+
+  .number_wrapper .number_btn:hover {
+    background-color: #2A7D5A;
+    color:white
+  }
+
+  .number_wrapper input[type='number'] {
+    text-align: center;
+    border:none;
+    padding: 0;
+    min-height: auto;
+  }
+
+  .number_wrapper input[type='number']::-webkit-outer-spin-button,
+  .number_wrapper input[type='number']::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+  }
+
+  .empty_bascet {
+    width:100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .empty_bascet img{
+    width:170px;
+    height:170px;
+    margin: 0 auto;
+    object-fit: contain;
+  }
+
+  .empty_bascet p,
+  .empty_bascet h3{
+    margin: 0 auto 0 auto;
+  }
+
+@media (max-width: 768px) {
+    .bascet {
+        flex-direction: column;
+    }
+
+    .itogo .itogo_price_count {
+        width:100%;
+        min-width: 100%;
+    }
+
+    .bascet_tovar {
+        margin-bottom: 40px;
+    }
+
+    .bascet_form {
+        width: 100%;
+        margin-left: 0;
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .tovar_list .tovar {
+        flex-direction: column;
+    }
+
+    .tovar_list .tovar .price_blk {
+        margin: 0 auto 0 auto;
+        width:auto;
+    }
+
+    .tovar_list .tovar .couint_blk {
+        width:auto;
+        max-width: 100px;
+    }
+
+    .tovar_list .tovar .summ_blk {
+        width:auto;
+        margin: 0 auto 0 auto;
+    }
+
+    .tovar_list .tovar .name_blk h2 {
+        line-height: 1.4;
+    }
+}

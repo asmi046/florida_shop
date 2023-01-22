@@ -40,6 +40,7 @@
         'public/css/tovar_page_content.css',
         'public/css/catalog_menu.css',
         'public/css/mobile_bottom_menu.css',
+        'public/css/cart.css',
 
 
         'resources/js/app.js',
@@ -48,7 +49,8 @@
         'public/js/filter.js',
         'public/js/map.js',
         'public/js/categories.js',
-        'public/js/catalog_menu.js'
+        'public/js/catalog_menu.js',
+        'public/js/cart.js'
     ])
 
 </head>

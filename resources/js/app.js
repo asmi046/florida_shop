@@ -4,6 +4,7 @@ import {createApp} from 'vue/dist/vue.esm-bundler';
 
 import MapInPage from "./components/MapInPage.vue"
 import ModalWindow from "./components/ModalWindow.vue"
+import Bascet from "./components/bascet/Bascet.vue"
 
 import axios from 'axios'
 
@@ -14,7 +15,8 @@ import { VMaskDirective } from 'v-slim-mask'
 const global_app = createApp({
     components:{
         MapInPage,
-        ModalWindow
+        ModalWindow,
+        Bascet
     }
 })
 

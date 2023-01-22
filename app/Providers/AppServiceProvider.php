@@ -9,6 +9,8 @@ use App\Models\Category;
 use App\Models\Celebration;
 use Illuminate\Support\Facades\View;
 
+use DB;
+
 class AppServiceProvider extends ServiceProvider
 {
     /**
@@ -28,7 +30,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        if(\Schema::hasTable('options')) {
+        if (DB::connection()->getDatabaseName())  {
             $all_options = Option::all();
             $categoryes = Category::all();
             $celebrations = Celebration::all();

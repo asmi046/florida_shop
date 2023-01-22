@@ -1,5 +1,7 @@
 
-<div @class(['sales_tovar_wrapper', 'swiper-slide' => $isslide])>
+<div data-prodid="{{$tovar['sku']}}" @class(['sales_tovar_wrapper', 'main-prod-card', 'tovar_wrap','swiper-slide' => $isslide])>
+    <div class="bascet_count"> В корзине <span>1</span> шт </div>
+
     <div class="tovar_label_wrapper">
         @if ($tovar['old_price'])
             <div class="tovar_label sale">sale</div>
@@ -31,6 +33,12 @@
         </div>
         <h3><a href="{{route('tovar', $tovar['slug'])}}">{{$tovar['title']}}</a></h3>
     </div>
-    <a href="" class="btn btn_in_cart">Купить</a>
+    <a href="" data-prodid="{{$tovar['sku']}}" class="btn btn_in_cart card_to_bascet_btn to_bascet">
+        <span class="nadp">Купить</span>
+        <span class="btnLoader"></span>
+    </a>
+
+    <a href="{{route('bascet')}}" class="btn card_bascet_btn">Оформить</a>
+
 </div>
 
