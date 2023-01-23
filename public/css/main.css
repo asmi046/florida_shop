@@ -708,6 +708,37 @@ header .messendger_head_blk {
     display: block;
 }
 
+.favorites.active,
+.tovar_wrap.in-favorites .like,
+.tovar_wrap .like:hover
+{
+    background-image: url(../img/icons/favorites_hover.svg);
+}
+
+.empty_favorites {
+    width: 300px;
+    margin: 250px auto 0;
+    position: relative;
+    text-align: center;
+    display: none;
+}
+
+.empty_favorites:before {
+    content: "";
+    width: 200px;
+    height: 200px;
+    background-image: url(../img/icons/favorites_hover.svg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: absolute;
+    top: -220px;
+    left: calc(50% - 100px);
+}
+
+.favorites-page .tovar_wrap:not(.in-favorites) {
+    display: none;
+}
+
 .share {
     width:32px;
     height:32px;

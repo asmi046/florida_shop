@@ -50,7 +50,8 @@
         'public/js/map.js',
         'public/js/categories.js',
         'public/js/catalog_menu.js',
-        'public/js/cart.js'
+        'public/js/cart.js',
+        'public/js/favorites.js'
     ])
 
 </head>

@@ -17,7 +17,7 @@
 
     </div>
 
-    <a href="" class="favorites"></a>
+    <a href="" data-prodid="{{$tovar['sku']}}" class="favorites like to_favorites"></a>
 
     <a href="{{route('tovar', $tovar['slug'])}}" class="img_wrapper">
         <img src="{{$tovar['img']}}" alt="{{$tovar['title']}}<">

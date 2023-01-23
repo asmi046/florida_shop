@@ -11,7 +11,7 @@
 
         <x-messanger></x-messanger>
 
-        <a href="#" class="favorites_head"><span>Избранное</span></a>
+        <a href="{{route('favorites')}}" class="favorites_head"><span>Избранное | <span class="favorites_counter">0</span></span></a>
         <a href="{{route('bascet')}}" class="bascet_head">Корзина | <span class="bascet_counter">0</span> </a>
     </div>
 </section>
