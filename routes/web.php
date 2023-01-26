@@ -10,6 +10,9 @@ use App\Http\Controllers\FavoriteController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\SenderController;
 
+use App\Http\Controllers\CabinetController;
+use App\Http\Controllers\Auth\AuthController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -44,3 +47,22 @@ Route::get('/favorites/get', [FavoriteController::class, "get_all"])->name("favo
 Route::post('/favorites/add', [FavoriteController::class, "add"])->name("favorites_add");
 Route::delete('/favorites/delete', [FavoriteController::class, "delete"])->name("favorites_delete");
 Route::delete('/favorites/clear', [FavoriteController::class, "clear"])->name("favorites_clear");
+
+Route::middleware('auth')->group(function () {
+    Route::get('/cabinet', [CabinetController::class, "show_cabinet_main"])->name("cabinet.home");
+    Route::get('/cabinet/orders', [CabinetController::class, "show_cabinet_orders"])->name("cabinet.orders");
+
+    Route::get('/logout', [AuthController::class, "logout"])->name("logout");
+    Route::post('/save_user', [AuthController::class, "save_user_data"])->name("save_user_data");
+});
+
+Route::middleware('guest')->group(function () {
+    Route::get('/login', [AuthController::class, "show_login_form"])->name("login");
+    Route::post('/login_do', [AuthController::class, "login"])->name("login_do");
+
+    Route::get('/passrec', [AuthController::class, "show_passrec_form"])->name("passrec");
+    Route::post('/pass_rec_do', [AuthController::class, "pass_req"])->name("pass_rec_do");
+
+    Route::post('/register_do', [AuthController::class, "register"])->name("register_do");
+    Route::get('/register', [AuthController::class, "show_register_form"])->name("register");
+});

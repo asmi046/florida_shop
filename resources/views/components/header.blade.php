@@ -4,12 +4,21 @@
             <img src="{{asset('img/main-logo.svg')}}" alt="Florida - Курск">
         </a>
 
-        <a href="#" class="addres_head">{{$options['adress']}}</a>
+
+        <a  href="#" class="addres_head">{{$options['adress']}}</a>
+
+
 
         <x-main-menu></x-main-menu>
 
         <x-messanger></x-messanger>
 
-        <a href="#" class="cabinet">Войти</a>
+        @auth('web')
+            <a href="{{route('cabinet.home')}}" class="cabinet">{{ mb_strimwidth(Auth::user()["name"], 0, 20, '...' )}}</a>
+        @endauth
+
+        @guest
+            <a href="{{route('login')}}" class="cabinet">Войти</a>
+        @endguest
     </div>
 </header>

@@ -41,6 +41,8 @@
         'public/css/catalog_menu.css',
         'public/css/mobile_bottom_menu.css',
         'public/css/cart.css',
+        'public/css/auth.css',
+        'public/css/cabinet.css',
 
 
         'resources/js/app.js',

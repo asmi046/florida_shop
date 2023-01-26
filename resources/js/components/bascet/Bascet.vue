@@ -77,6 +77,7 @@
                 </ul>
 
                 <button @click.prevent="sendBascet()" class="btn" type="submit">Отправить</button> <span :class="{active: loadet }" class="btnLoaderCart shoved"></span>
+                <button @click.prevent="testDel()" class="btn" type="submit">Тест</button>
                 <p class="policy">Заполняя данную форму и отправляя заказ вы соглашаетесь с <a href="#">политикой конфиденциальности</a></p>
             </form>
         </div>
@@ -86,10 +87,12 @@
         <h3>Ваша корзина пуста</h3>
         <p>Жмите на значек корзиныи добавляйте товар!</p>
     </div>
-
+    <div ref="mapInComponent"> <div class="zones__map-label"></div> </div>
 </template>
 
 <script>
+import Delivery from '../../lib/delivery.js';
+
 export default {
     data() {
         return {
@@ -121,6 +124,11 @@ export default {
             .catch(error => console.log(error));
     },
     methods: {
+        testDel() {
+            let mapClass = new Delivery(this.$refs.mapInComponent, false)
+            console.log(mapClass.getDeliveryPrice('г. Курск ул. Олимпийская, д. 29'))
+        },
+
         sendBascet() {
 
             this.errorList = []

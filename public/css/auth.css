@@ -1,0 +1,37 @@
+.autch_form {
+    display: flex;
+    flex-direction: column;
+    max-width: 320px;
+    box-shadow: 0px 10px 20px 2px rgba(0, 0, 0, 0.25);
+    padding: 20px;
+    border-radius: 9px;
+}
+
+.autch_form a {
+    color:#2A7D5A;
+}
+
+.autch_form a:hover {
+    text-decoration: underline;
+}
+
+.form_error {
+    background-color: crimson;
+    padding: 5px 10px;
+    color:white;
+    border-radius: 5px;
+}
+
+.form_compleet {
+    background-color: #2A7D5A;
+    padding: 5px 10px;
+    color:white;
+    border-radius: 5px;
+}
+
+.autch_form a,
+.autch_form .btn,
+.autch_form input
+{
+    margin: 5px 0;
+}

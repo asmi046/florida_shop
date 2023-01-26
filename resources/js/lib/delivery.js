@@ -21,6 +21,17 @@ export default class Delivery {
         return this.zones;
     }
 
+    getDeliveryPrice(adress = '') {
+        if (adress == '') return 0;
+        const myGeocoder = ymaps.geocode(adress, {
+            results: 1,
+        });
+        myGeocoder.then((response) => {
+            console.log(response.geoObjects.get(0).geometry._coordinates)
+        })
+        return adress
+    }
+
     renderMap() {
         this.map_dom_element.querySelector('.zones__map-label').hidden = true;
         this.map = new ymaps.Map(this.map_dom_element, {

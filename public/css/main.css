@@ -171,6 +171,15 @@ body._lock {
     margin: 0 auto;
 }
 
+/* Подсветка при автозаполнении */
+
+input {outline: none;}
+input:-webkit-autofill {
+    -webkit-box-shadow: inset 0 0 0 50px #F4F4F4 !important; /* Цвет фона */
+    -webkit-text-fill-color: #000 !important; /* цвет текста */
+    color: #999 !important; /* цвет текста */
+}
+
 /*--------Шапка----------*/
 
 header ._wrapper {
