@@ -59,7 +59,9 @@ export default class Delivery {
     }
 
     renderMap() {
-        this.map_dom_element.querySelector('.zones__map-label').hidden = true;
+        if (this.map_dom_element.querySelector('.zones__map-label'))
+            this.map_dom_element.querySelector('.zones__map-label').hidden = true;
+
         this.map = new ymaps.Map(this.map_dom_element, {
             center: [36.189709, 51.742988],
             zoom: 8,

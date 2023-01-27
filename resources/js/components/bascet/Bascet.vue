@@ -77,16 +77,9 @@
                 <input v-model="bascetInfo.email" name="email" type="email" placeholder="e-mail">
                 <input v-model="bascetInfo.phone" v-mask="{mask: '+N (NNN) NNN-NN-NN', model: 'cpf' }" name="phone" type="text" placeholder="Телефон*">
                 <div class="adr_wrapper">
-                     <div class="pds_select_wrapper">
-                        <input v-model="bascetInfo.street" name="street" type="text" placeholder="Улица">
-                        <div class="streets_pds">
-                            <div class="list_scroller">
-                                <div v-for="item in cityFindetList" :key="item"  class="one_city">{{item}}</div>
-                            </div>
-                        </div>
-                     </div>
+                    <select-input @value-chenge="searchCity" :puncts="cityFindetList"></select-input>
 
-                     <input v-model="bascetInfo.home" name="home" type="text" placeholder="Дом">
+                    <input v-model="bascetInfo.home" name="home" type="text" placeholder="Дом">
                 </div>
                 <textarea v-model="bascetInfo.comment" name="comment" placeholder="Комментарий"></textarea>
                 <ul v-show="errorList.length != 0" class ="errors_list">
@@ -104,12 +97,12 @@
         <h3>Ваша корзина пуста</h3>
         <p>Жмите на значек корзиныи добавляйте товар!</p>
     </div>
-    <div ref="mapInComponent"> <div class="zones__map-label"></div> </div>
+    <div ref="mapInComponent"> </div>
 </template>
 
 <script>
-import Delivery from '../../lib/delivery.js';
-
+import Delivery from '../../lib/delivery.js'
+import SelectInput from '../selectInput.vue'
 export default {
     data() {
         return {
@@ -121,7 +114,7 @@ export default {
             deliveryPrice:0,
             show_bascet:false,
             errorList:[],
-            cityFindetList:["ивановская","Петровская", "ивановская ивановская ивановская", "Петровская", "ивановская","Петровская", "ивановская ивановская","Петровская" ],
+            cityFindetList:[ ],
             bascetInfo:{
                 fio:"",
                 email:"",
@@ -131,6 +124,10 @@ export default {
                 comment:"",
             }
         }
+    },
+
+    components:{
+        SelectInput
     },
 
     mounted: function() {
@@ -144,6 +141,41 @@ export default {
             .catch(error => console.log(error));
     },
     methods: {
+
+        searchCity(value) {
+            if (value.length > 7) {
+                axios.get('https://geocode-maps.yandex.ru/1.x/', {
+                    params: {
+                        apikey: 'c38cf20b-9826-491c-abe0-0653932a0e17',
+                        format: 'json',
+                        rspn: 1,
+                        bbox: '35.60239966406238,51.28389916951991~36.94273169531238,52.77458894685576',
+                        geocode: value
+                    }
+                }).then((response) => {
+                    console.log(response.data.response.GeoObjectCollection)
+                    let result
+                    response.data.response.GeoObjectCollection.featureMember.forEach(obj => {
+                                    this.cityFindetList.push(obj.GeoObject.description+", "+obj.GeoObject.name)
+                                })
+                })
+                // const myGeocoder = ymaps.geocode(value, {
+                //     // boundedBy:[[35.13548071874988,52.21974394226481],[37.34922583593738, 51.27873164208356]],
+                //     // strictBounds: true
+                //     // json:true,
+                //     results: 10,
+                // });
+
+                // myGeocoder.then( (response) => {
+                //     console.log(response.geoObjects.get(1).properties)
+                //     response.geoObjects.forEach(obj => {
+                //                     console.log(obj)
+                //                 })
+                // })
+
+            }
+        },
+
         testDel() {
             let mapClass = new Delivery(this.$refs.mapInComponent, false)
 
