@@ -54,10 +54,16 @@
                         <span class="p_price rub price_formator">{{Number(subtotal).toLocaleString('ru-RU')}}</span>
                     </div>
 
+                    <div v-show="deliveryPrice>0" class="itogo_row">
+                        <span class="text">Доставка ()</span>
+                        <span class="razd"></span>
+                        <span class="p_price rub price_formator">{{Number(deliveryPrice).toLocaleString('ru-RU')}}</span>
+                    </div>
+
                     <div class="itogo_row itogo_row_final">
                         <span class="text">Итого</span>
                         <span class="razd"></span>
-                        <span class="p_price rub price_formator">{{Number(subtotal).toLocaleString('ru-RU')}}</span>
+                        <span class="p_price rub price_formator">{{Number(subtotal + deliveryPrice).toLocaleString('ru-RU')}}</span>
                     </div>
                 </div>
             </div>
@@ -70,7 +76,18 @@
                 <input v-model="bascetInfo.fio" name="fio" type="text" placeholder="Фамилия, Имя*">
                 <input v-model="bascetInfo.email" name="email" type="email" placeholder="e-mail">
                 <input v-model="bascetInfo.phone" v-mask="{mask: '+N (NNN) NNN-NN-NN', model: 'cpf' }" name="phone" type="text" placeholder="Телефон*">
-                <textarea v-model="bascetInfo.adress" name="adress" placeholder="Адрес"></textarea>
+                <div class="adr_wrapper">
+                     <div class="pds_select_wrapper">
+                        <input v-model="bascetInfo.street" name="street" type="text" placeholder="Улица">
+                        <div class="streets_pds">
+                            <div class="list_scroller">
+                                <div v-for="item in cityFindetList" :key="item"  class="one_city">{{item}}</div>
+                            </div>
+                        </div>
+                     </div>
+
+                     <input v-model="bascetInfo.home" name="home" type="text" placeholder="Дом">
+                </div>
                 <textarea v-model="bascetInfo.comment" name="comment" placeholder="Комментарий"></textarea>
                 <ul v-show="errorList.length != 0" class ="errors_list">
                     <li v-for="item in errorList" :key="item">{{item}}</li>
@@ -101,13 +118,16 @@ export default {
             loadet:false,
             count:0,
             subtotal:0,
+            deliveryPrice:0,
             show_bascet:false,
             errorList:[],
+            cityFindetList:["ивановская","Петровская", "ивановская ивановская ивановская", "Петровская", "ивановская","Петровская", "ивановская ивановская","Петровская" ],
             bascetInfo:{
                 fio:"",
                 email:"",
                 phone:"",
-                adress:"",
+                street:"",
+                home:"",
                 comment:"",
             }
         }
@@ -126,7 +146,10 @@ export default {
     methods: {
         testDel() {
             let mapClass = new Delivery(this.$refs.mapInComponent, false)
-            console.log(mapClass.getDeliveryPrice('г. Курск ул. Олимпийская, д. 29'))
+
+            mapClass.getDeliveryPrice('г. Курск ул. Олимпийская, д. 29').then((data)=>{
+                console.log(data)
+            })
         },
 
         sendBascet() {

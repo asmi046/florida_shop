@@ -22,14 +22,40 @@ export default class Delivery {
     }
 
     getDeliveryPrice(adress = '') {
-        if (adress == '') return 0;
-        const myGeocoder = ymaps.geocode(adress, {
-            results: 1,
-        });
-        myGeocoder.then((response) => {
-            console.log(response.geoObjects.get(0).geometry._coordinates)
+
+        return new Promise((resolve, reject) => {
+            const myGeocoder = ymaps.geocode(adress, {
+                results: 1,
+            });
+
+            myGeocoder.then( (response) => {
+            this.poligons.forEach(poligon => {
+                    if (poligon.geometry.contains(response.geoObjects.get(0).geometry._coordinates))
+                    {
+                        resolve(poligon.properties._data)
+                    }
+                })
+            })
         })
-        return adress
+
+        // if (adress == '') return 0;
+        // const myGeocoder = ymaps.geocode(adress, {
+        //     results: 1,
+        // });
+
+        // myGeocoder.then( (response) => {
+        //     this.poligons.forEach(poligon => {
+        //         if (poligon.geometry.contains(response.geoObjects.get(0).geometry._coordinates))
+        //         {
+
+        //                     // console.log(poligon.properties._data.price)
+        //         }
+        //     })
+
+        //     // console.log(response.geoObjects.get(0).geometry._coordinates)
+        // })
+
+        // return adress
     }
 
     renderMap() {
