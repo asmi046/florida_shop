@@ -77,7 +77,7 @@
                 <input v-model="bascetInfo.email" name="email" type="email" placeholder="e-mail">
                 <input v-model="bascetInfo.phone" v-mask="{mask: '+N (NNN) NNN-NN-NN', model: 'cpf' }" name="phone" type="text" placeholder="Телефон*">
                 <div class="adr_wrapper">
-                    <select-input @value-chenge="searchCity" :puncts="cityFindetList"></select-input>
+                    <select-input v-model="bascetInfo.street" :puncts="cityFindetList"></select-input>
 
                     <input v-model="bascetInfo.home" name="home" type="text" placeholder="Дом">
                 </div>
@@ -130,6 +130,17 @@ export default {
         SelectInput
     },
 
+    watch: {
+        'bascetInfo.street'(value) {
+            if (value.length < 5) return;
+            if ((value.length % 2) == 0) {
+                console.log('ddd')
+                this.searchCity(value)
+            }
+
+        }
+    },
+
     mounted: function() {
         this.show_bascet = false;
         axios.get('/bascet/get')
@@ -143,37 +154,23 @@ export default {
     methods: {
 
         searchCity(value) {
-            if (value.length > 7) {
-                axios.get('https://geocode-maps.yandex.ru/1.x/', {
-                    params: {
-                        apikey: 'c38cf20b-9826-491c-abe0-0653932a0e17',
-                        format: 'json',
-                        rspn: 1,
-                        bbox: '35.60239966406238,51.28389916951991~36.94273169531238,52.77458894685576',
-                        geocode: value
-                    }
-                }).then((response) => {
-                    console.log(response.data.response.GeoObjectCollection)
-                    let result
-                    response.data.response.GeoObjectCollection.featureMember.forEach(obj => {
+                if (!value) return;
+
+                const myGeocoder = ymaps.geocode(value, {
+                    boundedBy:[[35.60239966406238,51.28389916951991],[36.94273169531238,52.77458894685576]],
+                    strictBounds: true,
+                    json:true,
+                });
+
+                myGeocoder.then( (response) => {
+                    console.log(response.GeoObjectCollection.featureMember)
+                    this.cityFindetList = []
+                    response.GeoObjectCollection.featureMember.forEach(obj => {
+                                    // console.log(obj.GeoObject.metaDataProperty.GeocoderMetaData.Address.Components['name'])
                                     this.cityFindetList.push(obj.GeoObject.description+", "+obj.GeoObject.name)
                                 })
                 })
-                // const myGeocoder = ymaps.geocode(value, {
-                //     // boundedBy:[[35.13548071874988,52.21974394226481],[37.34922583593738, 51.27873164208356]],
-                //     // strictBounds: true
-                //     // json:true,
-                //     results: 10,
-                // });
 
-                // myGeocoder.then( (response) => {
-                //     console.log(response.geoObjects.get(1).properties)
-                //     response.geoObjects.forEach(obj => {
-                //                     console.log(obj)
-                //                 })
-                // })
-
-            }
         },
 
         testDel() {

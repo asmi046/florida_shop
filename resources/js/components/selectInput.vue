@@ -1,6 +1,6 @@
 <template>
     <div class="pds_select_wrapper">
-        <input @keydown="chenge_value" v-model="street" name="street" type="text" placeholder="Улица">
+        <input v-model="value" name="street" type="text" placeholder="Улица">
         <div v-show="showList" class="list_pds">
             <div class="list_scroller">
                 <div @click="select_value(item)"  v-for="item in actualList" :key="item"  class="one_city">{{item}}</div>
@@ -14,34 +14,47 @@ export default {
     data() {
         return {
            showList:true,
-           street:'',
+           fixValue:false,
         }
     },
 
-    props:['puncts'],
+    props:['puncts', 'modelValue'],
+    emit:['update:modelValue'],
+
+    watch: {
+
+        modelValue(value) {
+            if (this.puncts.indexOf(value) > 0)
+                this.fixValue=false
+        }
+    },
 
     computed: {
-        actualList() {
 
-            if (this.puncts.length == 0) this.showList=false
+        value: {
+            get() {
+                return this.modelValue
+            },
+            set(value) {
+                this.$emit('update:modelValue', value)
+            }
+        },
+
+        actualList() {
+            if ((this.puncts.length == 0) || this.fixValue) this.showList=false
             else this.showList=true
 
-            return this.puncts;
+            return this.puncts
 
         }
     },
 
     methods:{
 
-        chenge_value() {
-            this.$emit('value-chenge', this.street)
-        },
-
         select_value(value) {
-            this.street = value
+            this.value = value
             this.showList = false
-
-            this.chenge_value()
+            this.fixValue = true
         }
     }
 }
