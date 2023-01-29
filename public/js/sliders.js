@@ -57,11 +57,11 @@ var salsesSlider = new Swiper(".sales_slider", {
 
     breakpoints: {
         1920:{
-            slidesPerView: 6,
+            slidesPerView: 5,
         },
 
         1440:{
-            slidesPerView: 6,
+            slidesPerView: 5,
         },
 
         768: {

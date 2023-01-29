@@ -78,6 +78,7 @@ class AuthController extends Controller
     public function register(Request $request) {
         $user_data = $request->validate([
             'name' => ['required', 'string'],
+            'phone' => ['required', 'string'],
             'email' => ['required', 'email', 'string', 'unique:users,email'],
             'password' => ['required','confirmed'],
         ]);
@@ -86,6 +87,7 @@ class AuthController extends Controller
             [
                 'name' => $user_data['name'],
                 'email' => $user_data['email'],
+                'phone' => $user_data['phone'],
                 'password' => bcrypt($user_data['password']),
             ]
         );

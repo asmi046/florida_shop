@@ -153,6 +153,10 @@ export default {
         this.show_bascet = false;
         axios.get('/bascet/get')
             .then((response) => {
+                console.log(response.data.user_info)
+                this.bascetInfo.fio = response.data.user_info.name
+                this.bascetInfo.phone = response.data.user_info.phone
+                this.bascetInfo.email = response.data.user_info.email
                 this.bascetList = response.data.position
                 this.updateBascet()
                 this.show_bascet = true

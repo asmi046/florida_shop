@@ -11,6 +11,8 @@ use Illuminate\Support\Facades\Mail;
 use App\Mail\BascetSend;
 use App\Http\Requests\BascetForm;
 
+use Illuminate\Support\Facades\Auth;
+
 class CartController extends Controller
 {
     public function index() {
@@ -28,7 +30,7 @@ class CartController extends Controller
 
     public function get_all() {
         $cart_product = Cart::with('tovar_data')->where("carts.session_id", session()->getId())->get();
-        return ["count" => Cart::cart_coun(), "position" => $cart_product] ;
+        return ["count" => Cart::cart_coun(), "user_info" => Auth::user(),  "position" => $cart_product] ;
     }
 
     public function clear() {

@@ -21,14 +21,18 @@ function bascet_to_page() {
 
             })
             .then((response) => {
+                console.log(response)
                 if (response.data.length == 0) return;
 
                     update_counter(response.data.count)
 
                     for (let element of response.data.position) {
-                        let card = document.querySelector('.main-prod-card[data-prodid="'+element.product_sku+'"]')
+
+                        let cards = document.querySelectorAll('.main-prod-card[data-prodid="'+element.product_sku+'"]')
+                        for (let card of cards)
                         if (card != undefined)
                         {
+                            console.log(card);
                             card.classList.add("in-bascet")
                             card.querySelector(".bascet_count span").innerHTML = element.quentity
                             card.querySelector(".card_to_bascet_btn").style.display = "none"
@@ -96,9 +100,7 @@ document.addEventListener("DOMContentLoaded", () => {
                             thisBtn.querySelector(".card_to_bascet_btn .nadp").style.display = "block"
                             thisBtn.querySelector(".card_to_bascet_btn .btnLoader").style.display = "none"
                         } else {
-                            main_card.classList.add("in-bascet")
-                            main_card.querySelector(".card_to_bascet_btn").style.display = "none"
-                            main_card.querySelector(".card_bascet_btn").style.display = "inline-block"
+                            bascet_to_page()
                         }
                     }
 

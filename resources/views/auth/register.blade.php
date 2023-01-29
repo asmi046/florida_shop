@@ -20,6 +20,11 @@
             <form class="autch_form" action="{{route('register_do')}}" method="post">
                 @csrf
 
+                <input name="phone" required type="tel" placeholder="Телефон*">
+                @error('phone')
+                    <p class="form_error">{{$message}}</p>
+                @enderror
+
                 <input name="email" required type="text" placeholder="e-mail*">
                 @error('email')
                     <p class="form_error">{{$message}}</p>
