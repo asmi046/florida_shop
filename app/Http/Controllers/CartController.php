@@ -59,7 +59,7 @@ class CartController extends Controller
 
         $order->orderProducts()->sync(array_column($request->input('tovars'), "id"));
 
-        Mail::to(["asmi046@gmail.com","lisa-fon@mail.ru"])->send(new BascetSend($request));
+        Mail::to(["asmi046@gmail.com","lisa-fon@mail.ru", "danilarepev@yandex.ru"])->send(new BascetSend($request));
     }
 
     public function thencs() {

@@ -13,6 +13,8 @@ use App\Http\Controllers\SenderController;
 use App\Http\Controllers\CabinetController;
 use App\Http\Controllers\Auth\AuthController;
 
+use App\Http\Controllers\SearchController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -47,6 +49,9 @@ Route::get('/favorites/get', [FavoriteController::class, "get_all"])->name("favo
 Route::post('/favorites/add', [FavoriteController::class, "add"])->name("favorites_add");
 Route::delete('/favorites/delete', [FavoriteController::class, "delete"])->name("favorites_delete");
 Route::delete('/favorites/clear', [FavoriteController::class, "clear"])->name("favorites_clear");
+
+Route::get('/search_pds', [SearchController::class, 'search_pds'])->name('search_pds');
+Route::get('/search', [SearchController::class, 'show_search_page'])->name('show_search_page');
 
 Route::middleware('auth')->group(function () {
     Route::get('/cabinet', [CabinetController::class, "show_cabinet_main"])->name("cabinet.home");

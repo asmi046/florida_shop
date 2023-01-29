@@ -24,7 +24,7 @@ export default {
     watch: {
 
         modelValue(value) {
-            if (this.puncts.indexOf(value) > 0)
+            if (value.length < 5)
                 this.fixValue=false
         }
     },
@@ -82,6 +82,7 @@ export default {
     border-bottom: 1px dotted lightgray;
     margin-right: 5px;
     cursor:pointer;
+    font-size: 16px;
 
 }
 

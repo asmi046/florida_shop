@@ -16,6 +16,7 @@ export default defineConfig({
                 'public/css/cart.css',
                 'public/css/auth.css',
                 'public/css/cabinet.css',
+                'public/css/mainsearch.css',
 
 
                 'resources/js/app.js',
@@ -27,6 +28,7 @@ export default defineConfig({
                 'public/js/catalog_menu.js',
                 'public/js/cart.js',
                 'public/js/favorites.js',
+                'public/js/mainsearch.js'
             ],
             refresh: true,
         }),

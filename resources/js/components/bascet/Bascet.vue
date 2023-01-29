@@ -21,7 +21,7 @@
                         </div>
                         <div class="tovar_all_blk name_blk">
                             <h2>{{item.tovar_data.title}}</h2>
-                            <p> Бренд: {{item.tovar_data.brand}} Артикул: {{item.product_sku}}</p>
+                            <p> Артикул: {{item.product_sku}}</p>
                         </div>
                     </div>
 
@@ -55,7 +55,7 @@
                     </div>
 
                     <div v-show="deliveryPrice>0" class="itogo_row">
-                        <span class="text">Доставка ()</span>
+                        <span class="text">Доставка (Зона {{deliveryZone}})</span>
                         <span class="razd"></span>
                         <span class="p_price rub price_formator">{{Number(deliveryPrice).toLocaleString('ru-RU')}}</span>
                     </div>
@@ -79,15 +79,14 @@
                 <div class="adr_wrapper">
                     <select-input v-model="bascetInfo.street" :puncts="cityFindetList"></select-input>
 
-                    <input v-model="bascetInfo.home" name="home" type="text" placeholder="Дом">
+                    <input v-model="bascetInfo.home" @keydown="calcDelivery" name="home" type="text" placeholder="Дом">
                 </div>
                 <textarea v-model="bascetInfo.comment" name="comment" placeholder="Комментарий"></textarea>
                 <ul v-show="errorList.length != 0" class ="errors_list">
                     <li v-for="item in errorList" :key="item">{{item}}</li>
                 </ul>
 
-                <button @click.prevent="sendBascet()" class="btn" type="submit">Отправить</button> <span :class="{active: loadet }" class="btnLoaderCart shoved"></span>
-                <button @click.prevent="testDel()" class="btn" type="submit">Тест</button>
+                <button @click.prevent="sendBascet()" class="btn bascetSendBtn" type="submit">Отправить</button> <span :class="{active: loadet }" class="btnLoaderCart shoved"></span>
                 <p class="policy">Заполняя данную форму и отправляя заказ вы соглашаетесь с <a href="#">политикой конфиденциальности</a></p>
             </form>
         </div>
@@ -112,6 +111,7 @@ export default {
             count:0,
             subtotal:0,
             deliveryPrice:0,
+            deliveryZone:'',
             show_bascet:false,
             errorList:[],
             cityFindetList:[ ],
@@ -120,6 +120,7 @@ export default {
                 email:"",
                 phone:"",
                 street:"",
+                adress:"",
                 home:"",
                 comment:"",
             }
@@ -132,12 +133,19 @@ export default {
 
     watch: {
         'bascetInfo.street'(value) {
+            if (value.length > 15) return;
             if (value.length < 5) return;
             if ((value.length % 2) == 0) {
-                console.log('ddd')
                 this.searchCity(value)
             }
 
+        }
+    },
+
+    computed: {
+        'bascetInfo.adress'() {
+            console.log(this.bascetInfo.street+", "+this.bascetInfo.home)
+            return this.bascetInfo.street+", "+this.bascetInfo.home;
         }
     },
 
@@ -155,7 +163,7 @@ export default {
 
         searchCity(value) {
                 if (!value) return;
-
+                console.log('do Query')
                 const myGeocoder = ymaps.geocode(value, {
                     boundedBy:[[35.60239966406238,51.28389916951991],[36.94273169531238,52.77458894685576]],
                     strictBounds: true,
@@ -173,11 +181,15 @@ export default {
 
         },
 
-        testDel() {
+        calcDelivery() {
             let mapClass = new Delivery(this.$refs.mapInComponent, false)
 
-            mapClass.getDeliveryPrice('г. Курск ул. Олимпийская, д. 29').then((data)=>{
+            mapClass.getDeliveryPrice(this.bascetInfo.street+", "+this.bascetInfo.home).then((data)=>{
                 console.log(data)
+                this.deliveryPrice=data.price
+                this.deliveryZone=data.description
+
+
             })
         },
 
@@ -199,7 +211,7 @@ export default {
                 fio: this.bascetInfo.fio,
                 email: this.bascetInfo.email,
                 phone: this.bascetInfo.phone,
-                adress: this.bascetInfo.adress,
+                adress:  this.bascetInfo.street+", "+this.bascetInfo.home,
                 comment: this.bascetInfo.comment,
                 tovars: this.bascetList,
             })

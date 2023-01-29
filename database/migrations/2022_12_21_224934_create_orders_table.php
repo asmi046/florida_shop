@@ -17,10 +17,10 @@ return new class extends Migration
             $table->id();
             $table->timestamps();
             $table->string('name');
-            $table->string('email');
+            $table->string('email')->nullable();
             $table->string('phone');
-            $table->string('adress');
-            $table->string('comment');
+            $table->string('adress')->nullable();
+            $table->string('comment')->nullable();
             $table->string('session_id');
             $table->integer('user_id');
         });

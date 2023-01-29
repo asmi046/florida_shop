@@ -311,6 +311,7 @@ header .messendger_head_blk {
     display: block;
     display: flex;
     margin: auto;
+    position: relative;
 }
 
 .header_search_button {

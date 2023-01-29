@@ -90,9 +90,7 @@
     flex:1;
     /* max-width: 320px; */
     box-shadow: 0 0 30px rgb(0 0 0 / 10%);
-    margin-left: 40px;
     margin-top: 40px;
-    max-width: 780px;
     padding: 20px;
     border-radius: 11px;
 }
@@ -436,6 +434,9 @@
     width:100px;
   }
 
+  .bascetSendBtn {
+    display: inline-block;
+  }
 
 @media (max-width: 768px) {
     .bascet {
