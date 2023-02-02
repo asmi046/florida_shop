@@ -19,6 +19,8 @@ use Illuminate\Support\Facades\Route;
 use Tabuna\Breadcrumbs\Trail;
 
 use App\Orchid\Screens\Revew\RevewListScreen;
+use App\Orchid\Screens\Options\OptionsList;
+use App\Orchid\Screens\Options\EditOptions;
 /*
 |--------------------------------------------------------------------------
 | Dashboard Routes
@@ -32,7 +34,21 @@ use App\Orchid\Screens\Revew\RevewListScreen;
 
 // Отзывы
 Route::screen('/revews', RevewListScreen::class)
-    ->name('platform.revews');
+    ->name('platform.revews')->breadcrumbs(fn (Trail $trail) => $trail
+    ->parent('platform.index')
+    ->push(__('Отзывы')));
+
+// Опции
+Route::screen('/options', OptionsList::class)
+    ->name('platform.options')
+    ->breadcrumbs(fn (Trail $trail) => $trail
+        ->parent('platform.index')
+        ->push(__('Опции'), route("platform.options")));
+
+Route::screen('/options/{id}/edit', EditOptions::class)
+    ->name('platform.options_edit')->breadcrumbs(fn (Trail $trail, $id) => $trail
+    ->parent('platform.options')
+    ->push(__('Редактирование опции'), route('platform.options_edit', $id)));
 
 // Main
 Route::screen('/main', PlatformScreen::class)

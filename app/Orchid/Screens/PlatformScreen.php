@@ -8,6 +8,10 @@ use Orchid\Screen\Actions\Link;
 use Orchid\Screen\Screen;
 use Orchid\Support\Facades\Layout;
 
+use App\Models\Review;
+use App\Models\Category;
+use App\Models\Product;
+
 class PlatformScreen extends Screen
 {
     /**
@@ -17,7 +21,14 @@ class PlatformScreen extends Screen
      */
     public function query(): iterable
     {
-        return [];
+        return [
+            'metrics' => [
+                'rew'    => ['value' => Review::all()->count()],
+                'tovars' => ['value' => Product::all()->count()],
+                'categorys'   => ['value' => Category::all()->count()],
+            ],
+
+        ];
     }
 
     /**
@@ -27,7 +38,7 @@ class PlatformScreen extends Screen
      */
     public function name(): ?string
     {
-        return 'Get Started';
+        return 'Florida 46';
     }
 
     /**
@@ -37,7 +48,7 @@ class PlatformScreen extends Screen
      */
     public function description(): ?string
     {
-        return 'Welcome to your Orchid application.';
+        return 'Магазин цветов в Курске Florida 46';
     }
 
     /**
@@ -48,17 +59,9 @@ class PlatformScreen extends Screen
     public function commandBar(): iterable
     {
         return [
-            Link::make('Website')
-                ->href('http://orchid.software')
+            Link::make('Перейти на сайт')
+                ->href(route("home"))
                 ->icon('globe-alt'),
-
-            Link::make('Documentation')
-                ->href('https://orchid.software/en/docs')
-                ->icon('docs'),
-
-            Link::make('GitHub')
-                ->href('https://github.com/orchidsoftware/platform')
-                ->icon('social-github'),
         ];
     }
 
@@ -70,7 +73,11 @@ class PlatformScreen extends Screen
     public function layout(): iterable
     {
         return [
-            Layout::view('platform::partials.welcome'),
+            Layout::metrics([
+                'Отзывов'    => 'metrics.rew',
+                'Товаров' => 'metrics.tovars',
+                'Категорий' => 'metrics.categorys',
+            ]),
         ];
     }
 }

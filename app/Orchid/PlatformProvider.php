@@ -32,7 +32,12 @@ class PlatformProvider extends OrchidServiceProvider
             Menu::make('Отзывы о магазине')
                 ->icon('like')
                 ->route('platform.revews')
-                ->title('Общие настройки'),
+                ->title('Контент сайта'),
+
+            Menu::make('Опции сайта')
+                ->icon('settings')
+                ->route('platform.options')
+                ->title('Настройки сайта'),
 
             // Menu::make('Example screen')
             //     ->icon('monitor')
