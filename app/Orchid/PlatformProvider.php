@@ -38,6 +38,10 @@ class PlatformProvider extends OrchidServiceProvider
                 ->icon('list')
                 ->route('platform.category'),
 
+            Menu::make('Товары')
+                ->icon('grid')
+                ->route('platform.product'),
+
             Menu::make('Опции сайта')
                 ->icon('settings')
                 ->route('platform.options')
