@@ -61,6 +61,9 @@ class EditOptions extends Screen
     {
         return [
             Layout::rows([
+
+                Input::make('type')->type('hidden')->value($this->option->type),
+
                 Input::make('name')
                     ->title('Имя опции')
                     ->value($this->option->name)
@@ -81,11 +84,19 @@ class EditOptions extends Screen
     }
 
     public function save_info(Option $option, Request $request) {
+
         $new_data = $request->validate([
+            'type' => ['required', 'string'],
             'name' => ['required', 'string'],
             'title' => ['required', 'string'],
             'value' => ['required', 'string']
         ]);
+
+
+        // dd($new_data, $option->type);
+
+        if ($option->type === 'plan')
+            $new_data["value"] = strip_tags($new_data["value"]);
 
         Option::where('id', $option->id)->update($new_data);
         Toast::info("Товар сохранен");

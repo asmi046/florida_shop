@@ -34,6 +34,10 @@ class PlatformProvider extends OrchidServiceProvider
                 ->route('platform.revews')
                 ->title('Контент сайта'),
 
+            Menu::make('Категории товара')
+                ->icon('list')
+                ->route('platform.category'),
+
             Menu::make('Опции сайта')
                 ->icon('settings')
                 ->route('platform.options')
