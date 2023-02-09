@@ -1376,6 +1376,60 @@ height: 30px;
 
 /*-----Страница отзывов end-----*/
 
+/*-----Страница блога-----*/
+
+.blog_in_page {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.blog_blk {
+    display: flex;
+    flex-direction: column;
+    width:31%;
+    margin-bottom: 30px;
+}
+
+.blog_blk:hover {
+    color: inherit;
+}
+
+.blog_blk .img_wrp {
+    max-height: 300px;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+.blog_blk h2{
+    font-size: 22px;
+    margin: 1em 0;
+}
+
+.blog_blk .data{
+    color: #8C8B8B;
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+.blog_blk .descr{
+    font-size: 16px;
+}
+
+@media (max-width: 1024px){
+    .blog_blk {
+        width: 48%;
+    }
+}
+
+@media (max-width: 580px){
+    .blog_blk {
+        width: 100%;
+    }
+}
+
+/*-----Страница блога end-----*/
+
 @media (max-width: 1480px){
     ._wrapper {
         width:96%;
