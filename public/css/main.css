@@ -1303,6 +1303,40 @@ textarea {
 
 /*-----Скролбар end-----*/
 
+/*-----Блок контактов на странице-----*/
+.contacts_wrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+.contacts_wrapper *{
+    margin-bottom: 5px;
+}
+
+.contacts_wrapper .sub_h{
+    color: #8C8B8B;
+    font-size: 14px;
+}
+
+.contacts_wrapper .param{
+    font-size: 22px;
+    color: #161615;
+    font-weight: 600;
+    margin-bottom: 40px;
+}
+
+.contacts_wrapper .messendger_head_blk  {
+margin:  0 auto 40px 0;
+height: 30px;
+}
+
+.contacts_wrapper .text_blk{
+    font-size: 14px;
+    font-weight: light;
+    line-height: 1.2;
+}
+
+/*-----Блок контактов на странице end-----*/
 
 @media (max-width: 1480px){
     ._wrapper {
