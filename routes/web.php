@@ -15,6 +15,10 @@ use App\Http\Controllers\Auth\AuthController;
 
 use App\Http\Controllers\SearchController;
 
+use App\Http\Controllers\ContactsController;
+use App\Http\Controllers\BlogController;
+use App\Http\Controllers\ReviewsController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -30,7 +34,14 @@ Route::get('/', [IndexController::class, "show"])->name('home');
 Route::get('/catalog', [CategoryController::class, "show"])->name('catalog');
 Route::get('/catalog/{slug}', [CategoryController::class, "show_cat"])->name('category');
 Route::get('/tovar/{slug}', [TovarController::class, "show"])->name('tovar');
-Route::get('/zone', [EasyPageController::class, "zone"])->name('zone');
+
+Route::get('/contacts', [ContactsController::class, "show"])->name('contacts');
+Route::get('/zones', [ContactsController::class, "show_zones"])->name('zones');
+Route::get('/blog', [BlogController::class, "show"])->name('blog');
+Route::get('/reviews', [ReviewsController::class, "show"])->name('reviews');
+
+// Route::get('/zone', [EasyPageController::class, "zone"])->name('zone');
+
 Route::get('/thencs', [SenderController::class, "show_thencs"])->name('thencs');
 Route::post('/send_consult', [SenderController::class, "send_consultation"])->name('send_consultation');
 
