@@ -42,6 +42,10 @@ class PlatformProvider extends OrchidServiceProvider
                 ->icon('grid')
                 ->route('platform.product'),
 
+            Menu::make('Блог')
+                ->icon('pencil')
+                ->route('platform.blog'),
+
             Menu::make('Опции сайта')
                 ->icon('settings')
                 ->route('platform.options')

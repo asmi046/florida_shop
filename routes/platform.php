@@ -22,6 +22,10 @@ use App\Orchid\Screens\Category\CategoryCreateScreen;
 use App\Orchid\Screens\Category\CategoryEditScreen;
 use App\Orchid\Screens\Category\CategoryListScreen;
 
+use App\Orchid\Screens\Blog\BlogCreateScreen;
+use App\Orchid\Screens\Blog\BlogEditScreen;
+use App\Orchid\Screens\Blog\BlogListScreen;
+
 use App\Orchid\Screens\Product\ProductCreateScreen;
 use App\Orchid\Screens\Product\ProductEditScreen;
 use App\Orchid\Screens\Product\ProductListScreen;
@@ -62,6 +66,25 @@ Route::screen('/categories/create', CategoryCreateScreen::class)
     ->name('platform.category_create')->breadcrumbs(fn (Trail $trail) => $trail
     ->parent('platform.category')
     ->push(__('Добавление категории'), route('platform.category_create')));
+
+
+//Блог
+
+Route::screen('/blog', BlogListScreen::class)
+    ->name('platform.blog')->breadcrumbs(fn (Trail $trail) => $trail
+    ->parent('platform.index')
+    ->push(__('Блог'), route('platform.blog')));
+
+Route::screen('/blog/{id}/edit', BlogEditScreen::class)
+    ->name('platform.blog_edit')->breadcrumbs(fn (Trail $trail, $id) => $trail
+    ->parent('platform.blog')
+    ->push(__('Редактирование статьи'), route('platform.blog_edit', $id)));
+
+Route::screen('/blog/create', BlogCreateScreen::class)
+    ->name('platform.blog_create')->breadcrumbs(fn (Trail $trail) => $trail
+    ->parent('platform.blog')
+    ->push(__('Добавление статьи'), route('platform.blog_create')));
+
 
 // Товары
 Route::screen('/products', ProductListScreen::class)
