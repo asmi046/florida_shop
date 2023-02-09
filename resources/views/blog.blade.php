@@ -16,13 +16,12 @@
         <h1 class="h1_page">{{$title}}</h1>
         <div class="blog_in_page">
             @foreach ($posts as $item)
-                <a href="" class="blog_blk">
+                <a href="{{route('blog_page',$item->slug)}}" class="blog_blk">
                     <div class="img_wrp">
                         <img src="{{$item->img}}" alt="">
                     </div>
                     <h2>{{$item->title}}</h2>
                     <p class="data">{{date("d.m.Y", strtotime($item->created_at))}}</p>
-                    {{-- {{date(strtotime($item->created_at),"d.m.Y")}} --}}
                     <p class="descr">{{mb_strimwidth($item->description, 0, 80, '...' )}}</p>
                 </a>
             @endforeach

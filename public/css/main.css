@@ -1431,6 +1431,20 @@ height: 30px;
 
 /*-----Страница блога end-----*/
 
+/*-----Страница статьи блога-----*/
+
+.page_img_wrapper {
+    width: 320px;
+    height: 320px;
+
+    padding: 5px;
+    border: 2px dashed #839F60;
+
+    margin-bottom: 30px;
+}
+
+/*-----Страница статьи блога end-----*/
+
 @media (max-width: 1480px){
     ._wrapper {
         width:96%;

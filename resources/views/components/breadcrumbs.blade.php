@@ -14,6 +14,10 @@
             @if (isset($title))
                 <span class="sep"> / </span> <span class="finish">{{ $title }}</span>
             @endif
+
+            @if (isset($blog))
+            <span class="sep"> / </span> <a href="{{route('blog')}}">Блог</a> <span class="sep"> / </span> <span class="finish">{{ $blog }}</span>
+            @endif
          </div>
     </div>
 </section>

@@ -38,6 +38,7 @@ Route::get('/tovar/{slug}', [TovarController::class, "show"])->name('tovar');
 Route::get('/contacts', [ContactsController::class, "show"])->name('contacts');
 Route::get('/zones', [ContactsController::class, "show_zones"])->name('zones');
 Route::get('/blog', [BlogController::class, "show"])->name('blog');
+Route::get('/blog/{slug}', [BlogController::class, "show_page"])->name('blog_page');
 Route::get('/reviews', [ReviewsController::class, "show"])->name('reviews');
 
 // Route::get('/zone', [EasyPageController::class, "zone"])->name('zone');
