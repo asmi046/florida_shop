@@ -31,6 +31,7 @@ class BlogPostSeeder extends Seeder
         DB::table("blog_posts")->insert(
             [
                 [
+                    'created_at' => date("y-m-d h:i:s"),
                     'title' => "Топ - 5 Экзотических цветов в сборных композициях",
                     'slug' => Str::slug("Топ - 5 Экзотических цветов в сборных композициях"),
                     'img' => Storage::url("boket_1_t.jpg"),
@@ -38,6 +39,7 @@ class BlogPostSeeder extends Seeder
                 ],
 
                 [
+                    'created_at' => date("y-m-d h:i:s"),
                     'title' => "Топ-5 видов зелени в букетах",
                     'slug' => Str::slug("Топ-5 видов зелени в букетах"),
                     'img' => Storage::url("boket_2_t.jpg"),
@@ -45,6 +47,7 @@ class BlogPostSeeder extends Seeder
                 ],
 
                 [
+                    'created_at' => date("y-m-d h:i:s"),
                     'title' => "Особенности осенних букетов и композиций",
                     'slug' => Str::slug("Особенности осенних букетов и композиций"),
                     'img' => Storage::url("boket_3_t.jpg"),
@@ -52,6 +55,7 @@ class BlogPostSeeder extends Seeder
                 ],
 
                 [
+                    'created_at' => date("y-m-d h:i:s"),
                     'title' => "Сиреневый оттенок в цветочных композициях",
                     'slug' => Str::slug("Сиреневый оттенок в цветочных композициях"),
                     'img' => Storage::url("boket_4_t.jpg"),
@@ -59,6 +63,7 @@ class BlogPostSeeder extends Seeder
                 ],
 
                 [
+                    'created_at' => date("y-m-d h:i:s"),
                     'title' => "Кому и когда дарят красные розы?",
                     'slug' => Str::slug("Кому и когда дарят красные розы?"),
                     'img' => Storage::url("boket_5_t.jpg"),
@@ -66,6 +71,7 @@ class BlogPostSeeder extends Seeder
                 ],
 
                 [
+                    'created_at' => date("y-m-d h:i:s"),
                     'title' => "Почему гипсофила популярна во флористике?",
                     'slug' => Str::slug("Почему гипсофила популярна во флористике?"),
                     'img' => Storage::url("boket_6_t.jpg"),
@@ -78,6 +84,7 @@ class BlogPostSeeder extends Seeder
 
 
                 [
+                    'created_at' => date("y-m-d h:i:s"),
                     'title' => "Топ - 5 Экзотических цветов в сборных композициях-1",
                     'slug' => Str::slug("Топ - 5 Экзотических цветов в сборных композициях-1"),
                     'img' => Storage::url("boket_1_t.jpg"),
@@ -85,6 +92,7 @@ class BlogPostSeeder extends Seeder
                 ],
 
                 [
+                    'created_at' => date("Y-m-d H:i:s"),
                     'title' => "Топ-5 видов зелени в букетах-1",
                     'slug' => Str::slug("Топ-5 видов зелени в букетах-1"),
                     'img' => Storage::url("boket_2_t.jpg"),
@@ -92,6 +100,7 @@ class BlogPostSeeder extends Seeder
                 ],
 
                 [
+                    'created_at' => date("y-m-d h:i:s"),
                     'title' => "Особенности осенних букетов и композиций-1",
                     'slug' => Str::slug("Особенности осенних букетов и композиций-1"),
                     'img' => Storage::url("boket_3_t.jpg"),
@@ -99,6 +108,7 @@ class BlogPostSeeder extends Seeder
                 ],
 
                 [
+                    'created_at' => date("Y-m-d H:i:s"),
                     'title' => "Сиреневый оттенок в цветочных композициях-1",
                     'slug' => Str::slug("Сиреневый оттенок в цветочных композициях-1"),
                     'img' => Storage::url("boket_4_t.jpg"),
@@ -106,6 +116,7 @@ class BlogPostSeeder extends Seeder
                 ],
 
                 [
+                    'created_at' => date("Y-m-d H:i:s"),
                     'title' => "Кому и когда дарят красные розы?-1",
                     'slug' => Str::slug("Кому и когда дарят красные розы?-1"),
                     'img' => Storage::url("boket_5_t.jpg"),
@@ -113,6 +124,7 @@ class BlogPostSeeder extends Seeder
                 ],
 
                 [
+                    'created_at' => date("Y-m-d H:i:s"),
                     'title' => "Почему гипсофила популярна во флористике?-1",
                     'slug' => Str::slug("Почему гипсофила популярна во флористике?-1"),
                     'img' => Storage::url("boket_6_t.jpg"),
@@ -124,6 +136,7 @@ class BlogPostSeeder extends Seeder
 
 
                 [
+                    'created_at' => date("Y-m-d H:i:s"),
                     'title' => "Топ - 5 Экзотических цветов в сборных композициях-2",
                     'slug' => Str::slug("Топ - 5 Экзотических цветов в сборных композициях-2"),
                     'img' => Storage::url("boket_1_t.jpg"),
@@ -131,6 +144,7 @@ class BlogPostSeeder extends Seeder
                 ],
 
                 [
+                    'created_at' => date("Y-m-d H:i:s"),
                     'title' => "Топ-5 видов зелени в букетах-2",
                     'slug' => Str::slug("Топ-5 видов зелени в букетах-2"),
                     'img' => Storage::url("boket_2_t.jpg"),
@@ -138,6 +152,7 @@ class BlogPostSeeder extends Seeder
                 ],
 
                 [
+                    'created_at' => date("Y-m-d H:i:s"),
                     'title' => "Особенности осенних букетов и композиций-2",
                     'slug' => Str::slug("Особенности осенних букетов и композиций-2"),
                     'img' => Storage::url("boket_3_t.jpg"),
@@ -145,6 +160,7 @@ class BlogPostSeeder extends Seeder
                 ],
 
                 [
+                    'created_at' => date("Y-m-d H:i:s"),
                     'title' => "Сиреневый оттенок в цветочных композициях-2",
                     'slug' => Str::slug("Сиреневый оттенок в цветочных композициях-2"),
                     'img' => Storage::url("boket_4_t.jpg"),
@@ -152,6 +168,7 @@ class BlogPostSeeder extends Seeder
                 ],
 
                 [
+                    'created_at' => date("Y-m-d H:i:s"),
                     'title' => "Кому и когда дарят красные розы?-2",
                     'slug' => Str::slug("Кому и когда дарят красные розы?-2"),
                     'img' => Storage::url("boket_5_t.jpg"),
@@ -159,6 +176,7 @@ class BlogPostSeeder extends Seeder
                 ],
 
                 [
+                    'created_at' => date("Y-m-d H:i:s"),
                     'title' => "Почему гипсофила популярна во флористике?-2",
                     'slug' => Str::slug("Почему гипсофила популярна во флористике?-2"),
                     'img' => Storage::url("boket_6_t.jpg"),

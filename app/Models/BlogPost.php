@@ -13,6 +13,7 @@ class BlogPost extends Model
     use AsSource;
 
     public $fillable = [
+        'created_at',
         'title',
         'slug',
         'img',
