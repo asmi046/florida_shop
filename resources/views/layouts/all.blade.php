@@ -45,6 +45,7 @@
         'public/css/auth.css',
         'public/css/cabinet.css',
         'public/css/mainsearch.css',
+        'public/css/pagination.css',
 
 
         'resources/js/app.js',

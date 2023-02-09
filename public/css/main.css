@@ -1338,6 +1338,44 @@ height: 30px;
 
 /*-----Блок контактов на странице end-----*/
 
+/*-----Страница отзывов-----*/
+.rew_in_page{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.rew_in_page .rew_blk{
+    width:32%;
+    padding: 70px 30px 20px 30px;
+    margin-bottom: 20px;
+    background-color: white;
+    color:#839F60;
+    border: 1px solid #839F60;
+}
+
+.rew_in_page .rew_blk a{
+   color:#839F60
+}
+
+.rew_in_page .rew_blk .foto_wrapper{
+    border: 4px solid #839F60;
+}
+
+@media (max-width: 1024px){
+    .rew_in_page .rew_blk {
+        width: 48%;
+    }
+}
+
+@media (max-width: 580px){
+    .rew_in_page .rew_blk {
+        width: 100%;
+    }
+}
+
+/*-----Страница отзывов end-----*/
+
 @media (max-width: 1480px){
     ._wrapper {
         width:96%;
