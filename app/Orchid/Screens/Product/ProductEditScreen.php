@@ -6,6 +6,7 @@ use Orchid\Screen\Screen;
 
 use App\Models\Product;
 use App\Models\Category;
+use App\Models\ProductImage;
 
 use Orchid\Support\Facades\Layout;
 use Orchid\Screen\Fields\Input;
@@ -17,6 +18,10 @@ use Orchid\Screen\Fields\Picture;
 use Orchid\Screen\Fields\Switcher;
 use Orchid\Screen\Fields\TextArea;
 use Orchid\Screen\Fields\Relation;
+use Orchid\Screen\Actions\ModalToggle;
+
+
+use App\Orchid\Layouts\Product\ProductImageTable;
 
 use Illuminate\Http\Request;
 
@@ -30,14 +35,17 @@ class ProductEditScreen extends Screen
 
      public $product;
      public $product_cat;
+     public $product_img;
 
     public function query($id): iterable
     {
         $product = Product::where('id',$id)->first();
         $cat = $product->tovar_categories;
+        $img = $product->product_images;
         return [
             "product" => $product,
-            "product_cat"=> $cat
+            "product_cat"=> $cat,
+            "product_img" => $img
         ];
     }
 
@@ -69,6 +77,18 @@ class ProductEditScreen extends Screen
     public function layout(): iterable
     {
         return [
+            Layout::modal('ImgLoadModal', [
+                Layout::rows([
+                    Picture::make('link')->title('Загрузить основное изображение')->targetRelativeUrl(),
+
+                    Input::make('alt')
+                        ->title('alt изображения'),
+
+                    Input::make('title')
+                        ->title('title изображения')
+                ]),
+            ]),
+
             Layout::rows([
 
                 Input::make('sku')
@@ -153,9 +173,52 @@ class ProductEditScreen extends Screen
             Layout::rows([
 
                 Picture::make('img')->title('Загрузить основное изображение записи')->targetRelativeUrl()->value($this->product->img),
+
                 Button::make('Сохранить')->method('save_info')->type(Color::SUCCESS())
-            ])->title('Изображения')
+            ])->title('Изображения'),
+
+            ProductImageTable::class,
+
+
+            Layout::rows([
+
+                ModalToggle::make('Добавить изображение')
+                ->modal('ImgLoadModal')
+                ->method('load_image')
+                ->icon('picture')
+                ->modalTitle('Добавить изображение'),
+
+            ])->title('Управление изображениями товара'),
         ];
+    }
+
+
+
+    public function load_image(Product $product, Request $request) {
+        // dd($request->all());
+
+        $new_data = $request->validate([
+            'link' => ['required', 'string'],
+            'alt' => [],
+            'title' => [],
+        ]);
+
+        $product->product_images()->create($new_data);
+
+        Toast::info("Изображение добавлено");
+    }
+
+    public function delete_image(Request $request) {
+        $dell_elem = ProductImage::where('id', $request->input("id"))->first();
+
+        // dd($dell_elem, $request->input("id"));
+
+        if ($dell_elem ) {
+            $dell_elem->delete();
+            Toast::info("Изображение удалено");
+        } else {
+            Toast::info("Ошибка при удалении");
+        }
     }
 
     public function save_info(Product $product, Request $request) {
