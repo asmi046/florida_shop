@@ -9,4 +9,8 @@ class EasyPageController extends Controller
     public function zone() {
         return view('test');
     }
+
+    public function show_policy() {
+        return view('policy');
+    }
 }
