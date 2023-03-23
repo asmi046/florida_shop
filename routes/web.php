@@ -18,6 +18,7 @@ use App\Http\Controllers\SearchController;
 use App\Http\Controllers\ContactsController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\ReviewsController;
+use App\Http\Controllers\PayController;
 
 /*
 |--------------------------------------------------------------------------
@@ -64,6 +65,8 @@ Route::delete('/favorites/clear', [FavoriteController::class, "clear"])->name("f
 
 Route::get('/search_pds', [SearchController::class, 'search_pds'])->name('search_pds');
 Route::get('/search', [SearchController::class, 'show_search_page'])->name('show_search_page');
+
+Route::get('/payinfo', [PayController::class, 'show_payinfo'])->name('show_payinfo');
 
 Route::middleware('auth')->group(function () {
     Route::get('/cabinet', [CabinetController::class, "show_cabinet_main"])->name("cabinet.home");
