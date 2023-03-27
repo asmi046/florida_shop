@@ -17,7 +17,7 @@
 
         <div class="contacts_wrapper">
             <p class="sub_h">Адрес магазина</p>
-            <p class="param">{{$options['adress']}}</p>
+            <p class="param">{{$options['adress_fk']}}</p>
 
             <p class="sub_h">Контактный телефон</p>
             <p class="param">{{$options['phone']}}</p>
@@ -27,10 +27,10 @@
 
             <p class="sub_h">Реквизиты</p>
             <div class="text_blk">
-                ИП Иванов И. И<br/>
-                Карла Маркса, 72 корпус 18<br/>
-                ИНН:<br/>
-                ОГРН:<br/>
+                {{$options['organization']}}<br/>
+                Юридический адрес: {{$options['adress_ur']}}<br/>
+                ИНН: {{$options['inn']}}<br/>
+                ОГРН: {{$options['ogrnip']}}<br/>
             </div>
         </div>
     </div>

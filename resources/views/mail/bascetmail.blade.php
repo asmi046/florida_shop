@@ -2,7 +2,7 @@
 <p><strong>Имя:</strong> {{$formData['fio']}}</p>
 <p><strong>Телефон:</strong> {{$formData['phone']}}</p>
 <p><strong>E-mail:</strong> {{$formData['email']}}</p>
-<p><strong>Адрес:</strong> {{$formData['adress']}}</p>
+<p><strong>Адрес:</strong> {{$formData['adress_fk']}}</p>
 <p><strong>Комментарий:</strong> {{$formData['comment']}}</p>
 <table style="width:100%; border-top:1px solid black; border-left:1px solid black; border-spacing: 0;">
     <thead style="text-align:left;">

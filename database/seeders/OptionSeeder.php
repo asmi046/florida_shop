@@ -44,10 +44,38 @@ class OptionSeeder extends Seeder
                 ],
 
                 [
-                    "name" => "adress",
+                    "name" => "organization",
                     "type" => "plan",
-                    'title' => 'Адрес',
-                    "value" => "Карла Маркса, 72 корпус 18",
+                    'title' => 'Организация',
+                    "value" => "ИП Арепьев И. М.",
+                ],
+
+                [
+                    "name" => "adress_ur",
+                    "type" => "plan",
+                    'title' => 'Адрес (Юридический)',
+                    "value" => "Курская область, Курский район, д.Зорино, ул. Пески, д.13",
+                ],
+
+                [
+                    "name" => "adress_fk",
+                    "type" => "plan",
+                    'title' => 'Адрес (Фактический)',
+                    "value" => "г. Курск, пр. Победы, 14",
+                ],
+
+                [
+                    "name" => "inn",
+                    "type" => "plan",
+                    'title' => 'ИНН',
+                    "value" => "463225653229",
+                ],
+
+                [
+                    "name" => "ogrnip",
+                    "type" => "plan",
+                    'title' => 'ОГРНИП',
+                    "value" => "311463210100023",
                 ],
 
                 [
