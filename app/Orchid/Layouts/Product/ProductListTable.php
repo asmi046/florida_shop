@@ -33,13 +33,14 @@ class ProductListTable extends Table
     protected function columns(): iterable
     {
         return [
-            TD::make('id', 'id'),
+            TD::make('id', 'id')->sort(),
             TD::make('img', 'Фото')->render(
                 function($element) {
                     return "<img width='50' height='50' src='".($element->img?$element->img:asset("img/noPhoto.jpg"))."'>";
                 }
             ),
-            TD::make('title', 'Заголовок'),
+            TD::make('sku', 'Артикул')->sort(),
+            TD::make('title', 'Заголовок')->sort()->filter(TD::FILTER_TEXT),
             TD::make('slug', 'Ссылка'),
             TD::make('description', 'Описание')->render(function($element) {
                 return  mb_strimwidth(strip_tags($element->description), 0, 30, "...");

@@ -11,6 +11,8 @@ use Orchid\Screen\Actions\Link;
 use Orchid\Support\Color;
 use Orchid\Support\Facades\Toast;
 
+use Orchid\Filter\Filterable;
+
 class ProductListScreen extends Screen
 {
     /**
@@ -21,7 +23,7 @@ class ProductListScreen extends Screen
     public function query(): iterable
     {
         return [
-            "products" => Product::paginate(15)
+            "products" => Product::filters()->defaultSort('id')->orderByDesc("created_at")->paginate(15)
         ];
     }
 

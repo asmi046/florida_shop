@@ -97,6 +97,17 @@ class ProductCreateScreen extends Screen
                     ->help('Slug категории')
                     ->horizontal(),
 
+
+                Input::make('height')
+                    ->title('Высота')
+                    ->help('Высота букета')
+                    ->horizontal(),
+
+                Input::make('radius')
+                    ->title('Диаметр')
+                    ->help('Диаметр букета')
+                    ->horizontal(),
+
                 Input::make('price')
                     ->title('Цена')
                     ->help('Действующая цена')
