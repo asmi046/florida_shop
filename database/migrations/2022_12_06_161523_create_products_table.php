@@ -22,14 +22,14 @@ return new class extends Migration
             $table->string('img')->nullable();
             $table->text('description')->nullable();
             $table->double('price', 10, 2);
-            $table->double('old_price', 10, 2);
+            $table->double('old_price', 10, 2)->default(0);
             $table->integer('sales_count')->default(0);
 
             $table->boolean("hit")->nullable();
             $table->boolean("new")->nullable();
 
-            $table->string('height');
-            $table->string('radius');
+            $table->string('height')->nullable();
+            $table->string('radius')->nullable();
 
             $table->string('category');
 

@@ -43,7 +43,7 @@ class ProductListScreen extends Screen
     public function commandBar(): iterable
     {
         return [
-            Link::make('Добавить товар')->route('platform.category_create')->type(Color::SUCCESS())
+            Link::make('Добавить товар')->route('platform.product_create')->type(Color::SUCCESS())
         ];
     }
 

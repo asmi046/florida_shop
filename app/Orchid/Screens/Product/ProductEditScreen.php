@@ -19,7 +19,7 @@ use Orchid\Screen\Fields\Switcher;
 use Orchid\Screen\Fields\TextArea;
 use Orchid\Screen\Fields\Relation;
 use Orchid\Screen\Actions\ModalToggle;
-
+use Illuminate\Validation\Rule;
 
 use App\Orchid\Layouts\Product\ProductImageTable;
 
@@ -95,24 +95,28 @@ class ProductEditScreen extends Screen
                     ->title('Артикул')
                     ->value($this->product->sku)
                     ->help('Артикул уникальный для каждого товара')
+                    ->required()
                     ->horizontal(),
 
                 Input::make('title')
                     ->title('Заголовок')
                     ->value($this->product->title)
                     ->help('Заголовок категории')
+                    ->required()
                     ->horizontal(),
 
                 Input::make('slug')
                     ->title('Окончание ссылки')
                     ->value($this->product->slug)
                     ->help('Slug категории')
+                    ->required()
                     ->horizontal(),
 
                 Input::make('price')
                     ->title('Цена')
                     ->value($this->product->price)
                     ->help('Действующая цена')
+                    ->required()
                     ->horizontal(),
 
                 Input::make('old_price')
@@ -123,7 +127,7 @@ class ProductEditScreen extends Screen
 
                 Input::make('sales_count')
                     ->title('Количество продаж')
-                    ->value($this->product->old_price)
+                    ->value($this->product->sales_count)
                     ->help('Цена до скидки')
                     ->horizontal(),
 
@@ -142,7 +146,7 @@ class ProductEditScreen extends Screen
                     ->help('Пометка new ')->horizontal(),
 
 
-                Relation::make('categories.')
+                Relation::make('category.')
                     ->fromModel(Category::class, 'title', 'id')
                     ->title('Категории товара')
                     ->value($this->product_cat)
@@ -211,11 +215,10 @@ class ProductEditScreen extends Screen
     public function delete_image(Request $request) {
         $dell_elem = ProductImage::where('id', $request->input("id"))->first();
 
-        // dd($dell_elem, $request->input("id"));
-
         if ($dell_elem ) {
             $dell_elem->delete();
             Toast::info("Изображение удалено");
+            // Alert::info("Изображение удалено");
         } else {
             Toast::info("Ошибка при удалении");
         }
@@ -223,12 +226,26 @@ class ProductEditScreen extends Screen
 
     public function save_info(Product $product, Request $request) {
 
+        // dd($request->get("category"));
+
         $new_data = $request->validate([
+            'sku' => ['required', 'string',  Rule::unique('products')->ignore($product->id)],
             'title' => ['required', 'string'],
             'slug' => ['required', 'string'],
-            'description' => ['string']
+            'img' => [],
+            'description' => [],
+            'price' => ['required'],
+            'old_price' => [],
+            'sales_count' => [],
+            'hit' => [],
+            'new' => [],
+            'height' => [],
+            'radius' => [],
+            'seo_title' => [],
+            'seo_description' => [],
         ]);
 
+        $product->tovar_categories()->sync($request->get("category"));
 
         Product::where('id', $product->id)->update($new_data);
         Toast::info("Продукт сохранен");
