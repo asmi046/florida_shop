@@ -109,7 +109,6 @@ class ProductEditScreen extends Screen
                     ->title('Окончание ссылки')
                     ->value($this->product->slug)
                     ->help('Slug категории')
-                    ->required()
                     ->horizontal(),
 
                 Input::make('price')
@@ -231,7 +230,7 @@ class ProductEditScreen extends Screen
         $new_data = $request->validate([
             'sku' => ['required', 'string',  Rule::unique('products')->ignore($product->id)],
             'title' => ['required', 'string'],
-            'slug' => ['required', 'string'],
+            'slug' => [],
             'img' => [],
             'description' => [],
             'price' => ['required'],

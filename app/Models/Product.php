@@ -29,7 +29,6 @@ class Product extends Model
         'sales_count',
         'hit',
         'new',
-        'category',
         'height',
         'radius',
         'seo_title',

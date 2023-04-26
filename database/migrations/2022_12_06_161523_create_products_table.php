@@ -31,8 +31,6 @@ return new class extends Migration
             $table->string('height')->nullable();
             $table->string('radius')->nullable();
 
-            $table->string('category');
-
             $table->string('seo_title')->nullable();
             $table->text('seo_description')->nullable();
         });

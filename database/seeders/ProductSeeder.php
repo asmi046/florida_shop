@@ -46,7 +46,7 @@ class ProductSeeder extends Seeder
                     'old_price' => 0,
                     'hit' => 1,
                     'new' => 0,
-                    'category' => "",
+
                     'height' => '50 см',
                     'radius' => '60 см',
                     'sales_count' => rand(0, 45),
@@ -72,7 +72,7 @@ class ProductSeeder extends Seeder
                     'old_price' => 3800,
                     'hit' => 1,
                     'new' => 1,
-                    'category' => "",
+
                     'height' => '45 см',
                     'radius' => '45 см',
                     'sales_count' => rand(0, 45),
@@ -99,7 +99,7 @@ class ProductSeeder extends Seeder
                     'old_price' => 0,
                     'hit' => 0,
                     'new' => 1,
-                    'category' => "",
+
                     'height' => '55 см',
                     'radius' => '45 см',
                     'sales_count' => rand(0, 45),
@@ -126,7 +126,7 @@ class ProductSeeder extends Seeder
                     'old_price' => 3800,
                     'hit' => 1,
                     'new' => 1,
-                    'category' => "",
+
                     'height' => '55 см',
                     'radius' => '45 см',
                     'sales_count' => rand(0, 45),
@@ -154,7 +154,7 @@ class ProductSeeder extends Seeder
                     'old_price' => 3800,
                     'hit' => 1,
                     'new' => 0,
-                    'category' => "",
+
                     'height' => '55 см',
                     'radius' => '40 см',
                     'sales_count' => rand(0, 45),
@@ -177,7 +177,7 @@ class ProductSeeder extends Seeder
                     'old_price' => 6800,
                     'hit' => 1,
                     'new' => 1,
-                    'category' => "",
+
                     'height' => '55 см',
                     'radius' => '80 см',
                     'sales_count' => rand(0, 45),
@@ -204,7 +204,7 @@ class ProductSeeder extends Seeder
                     'old_price' => 0,
                     'hit' => 1,
                     'new' => 1,
-                    'category' => "",
+
                     'height' => '55 см',
                     'radius' => '45 см',
                     'sales_count' => rand(0, 45),
@@ -232,7 +232,7 @@ class ProductSeeder extends Seeder
                     'old_price' => 3800,
                     'hit' => 1,
                     'new' => 0,
-                    'category' => "",
+
                     'height' => '55 см',
                     'radius' => '40 см',
                     'sales_count' => rand(0, 45),
@@ -255,7 +255,7 @@ class ProductSeeder extends Seeder
                     'old_price' => 6800,
                     'hit' => 1,
                     'new' => 1,
-                    'category' => "",
+
                     'height' => '55 см',
                     'radius' => '80 см',
                     'sales_count' => rand(0, 45),
@@ -283,7 +283,7 @@ class ProductSeeder extends Seeder
                     'old_price' => 0,
                     'hit' => 1,
                     'new' => 0,
-                    'category' => "",
+
                     'height' => '55 см',
                     'radius' => '40 см',
                     'sales_count' => rand(0, 45),
@@ -306,7 +306,7 @@ class ProductSeeder extends Seeder
                     'old_price' => 0,
                     'hit' => 1,
                     'new' => 1,
-                    'category' => "",
+
                     'height' => '55 см',
                     'radius' => '80 см',
                     'sales_count' => rand(0, 45),
