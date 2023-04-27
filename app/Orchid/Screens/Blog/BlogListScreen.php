@@ -22,7 +22,7 @@ class BlogListScreen extends Screen
     public function query(): iterable
     {
         return [
-            "posts" => BlogPost::paginate(15)
+            "posts" => BlogPost::orderByDesc("created_at")->paginate(15)
         ];
     }
 

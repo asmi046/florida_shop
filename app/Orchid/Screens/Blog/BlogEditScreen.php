@@ -75,6 +75,7 @@ class BlogEditScreen extends Screen
                     ->title('Заголовок')
                     ->value($this->post->title)
                     ->help('Заголовок категории')
+                    ->required()
                     ->horizontal(),
 
                 Input::make('slug')
@@ -83,7 +84,7 @@ class BlogEditScreen extends Screen
                     ->help('Slug категории')
                     ->horizontal(),
 
-                Quill::make('description')->title('Описание')->value($this->post->description),
+                Quill::make('description')->required()->title('Описание')->value($this->post->description),
 
                 Button::make('Сохранить')->method('save_info')->type(Color::SUCCESS())
             ])->title('Основные поля'),
@@ -105,7 +106,7 @@ class BlogEditScreen extends Screen
 
             Layout::rows([
 
-                Picture::make('img')->title('Загрузить основное изображение записи')->targetRelativeUrl()->value($this->post->img),
+                Picture::make('img')->required()->title('Загрузить основное изображение записи')->targetRelativeUrl()->value($this->post->img),
 
                 Button::make('Сохранить')->method('save_info')->type(Color::SUCCESS())
             ])->title('Изображения'),
@@ -117,12 +118,15 @@ class BlogEditScreen extends Screen
 
         $new_data = $request->validate([
             'title' => ['required', 'string'],
-            'slug' => ['required', 'string'],
-            'description' => ['string']
+            'slug' => [],
+            'description' => ['required', 'string'],
+            'img' => ['required', 'string'],
+            'seo_title' => [],
+            'seo_description' => []
         ]);
 
 
         BlogPost::where('id', $post->id)->update($new_data);
-        Toast::info("Продукт сохранен");
+        Toast::info("Статья сохранена");
     }
 }

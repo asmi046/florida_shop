@@ -66,6 +66,7 @@ class CategoryEditScreen extends Screen
                     ->title('Заголовок')
                     ->value($this->category->title)
                     ->help('Заголовок категории')
+                    ->required()
                     ->horizontal(),
 
                 Input::make('slug')
@@ -74,7 +75,7 @@ class CategoryEditScreen extends Screen
                     ->help('Slug категории')
                     ->horizontal(),
 
-                Quill::make('description')->title('Описание')->value($this->category->description),
+                Quill::make('description')->required()->title('Описание')->value($this->category->description),
 
                 Button::make('Сохранить')->method('save_info')->type(Color::SUCCESS())
             ])
