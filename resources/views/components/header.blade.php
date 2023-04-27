@@ -5,8 +5,7 @@
         </a>
 
 
-        <a  href="#" class="addres_head">{{$options['adress_fk']}}</a>
-
+        <a  href="{{route('contacts')}}" class="addres_head">{{$options['adress_fk']}}</a>
 
 
         <x-main-menu></x-main-menu>
