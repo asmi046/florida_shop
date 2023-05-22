@@ -9,6 +9,7 @@
         "composer_update": "ssh danila1s_asmi@danila1s.beget.tech \"cd florida46.ru/public_html && php8.1 composer.phar update\"",
         "pull_rep": "ssh danila1s_asmi@danila1s.beget.tech \"cd florida46.ru/public_html && git pull\"",
         "clean_rep": "ssh danila1s_asmi@danila1s.beget.tech \"cd florida46.ru/public_html && git clean -f\"",
+        "stash": "ssh danila1s_asmi@danila1s.beget.tech \"cd florida46.ru/public_html && git stash\"",
         "reset_rep": "ssh danila1s_asmi@danila1s.beget.tech \"cd florida46.ru/public_html && git reset --hard\"",
         "send_vite_build": "scp -C -r public/build danila1s_asmi@danila1s.beget.tech:florida46.ru/public_html/public",
         "migrate_rep": "ssh danila1s_asmi@danila1s.beget.tech \"cd florida46.ru/public_html && php8.1 artisan migrate\"",
