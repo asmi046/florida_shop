@@ -21,7 +21,7 @@ class CategoryListScreen extends Screen
     public function query(): iterable
     {
         return [
-            "categories" => Category::paginate(15)
+            "categories" => Category::orderByDesc("created_at")->paginate(15)
         ];
     }
 

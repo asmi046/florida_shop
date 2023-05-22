@@ -12,11 +12,13 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
 
 use Orchid\Screen\AsSource;
+use Orchid\Filters\Filterable;
 
 class Product extends Model
 {
     use HasFactory;
     use AsSource;
+    use Filterable;
 
     public $fillable = [
         'sku',
@@ -33,6 +35,12 @@ class Product extends Model
         'radius',
         'seo_title',
         'seo_description'
+    ];
+
+    protected $allowedSorts = [
+        'id',
+        'sku',
+        'title'
     ];
 
 

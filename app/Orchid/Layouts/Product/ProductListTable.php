@@ -9,6 +9,8 @@ use Orchid\Screen\Fields\Group;
 use Orchid\Screen\Actions\Link;
 use Orchid\Screen\Actions\Button;
 
+use Orchid\Screen\Actions\DropDown;
+
 use App\Models\Category;
 
 use Orchid\Support\Color;
@@ -33,24 +35,42 @@ class ProductListTable extends Table
     protected function columns(): iterable
     {
         return [
-            TD::make('id', 'id'),
+            TD::make('id', 'id')->sort(),
             TD::make('img', 'Фото')->render(
                 function($element) {
                     return "<img width='50' height='50' src='".($element->img?$element->img:asset("img/noPhoto.jpg"))."'>";
                 }
             ),
-            TD::make('title', 'Заголовок'),
+            TD::make('sku', 'Артикул')->sort(),
+            TD::make('title', 'Заголовок')->sort()->filter(TD::FILTER_TEXT),
             TD::make('slug', 'Ссылка'),
             TD::make('description', 'Описание')->render(function($element) {
                 return  mb_strimwidth(strip_tags($element->description), 0, 30, "...");
             }),
 
-            TD::make('action', 'Действие')->render(function($element) {
-                return  Group::make([
-                    Link::make('Редактировать')->route('platform.product_edit',$element->id),
-                    Button::make('Удалить')->method('delete_field', [$element->id])->type(Color::DANGER())
-                ]);
-            })
+            // TD::make('action', 'Действие')->render(function($element) {
+            //     return  Group::make([
+            //         Link::make('Редактировать')->route('platform.product_edit',$element->id),
+            //         Button::make('Удалить')->method('delete_field', [$element->id])->type(Color::DANGER())
+            //     ]);
+            // })
+
+            TD::make(__('Actions'))
+            ->align(TD::ALIGN_CENTER)
+            ->width('100px')
+            ->render(fn ($element) => DropDown::make()
+                ->icon('options-vertical')
+                ->list([
+
+                    Link::make('Редактировать')
+                        ->route('platform.product_edit',$element->id)
+                        ->icon('pencil'),
+
+                    Button::make('Удалить')
+                        ->icon('trash')
+                        ->confirm(__('Данный продукт будет удален навсегда! Вы согласны?'))
+                        ->method('delete_field', [$element->id]),
+                ])),
 
         ];
     }

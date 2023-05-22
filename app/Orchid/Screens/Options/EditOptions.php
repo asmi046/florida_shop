@@ -68,15 +68,17 @@ class EditOptions extends Screen
                     ->title('Имя опции')
                     ->value($this->option->name)
                     ->help('Описание опции')
+                    ->disabled()
                     ->horizontal(),
 
                 Input::make('title')
                     ->title('Описание')
                     ->value($this->option->title)
                     ->help('Описание опции')
+                    ->disabled()
                     ->horizontal(),
 
-                Quill::make('value')->title('Значение опции')->value($this->option->value),
+                Quill::make('value')->required()->title('Значение опции')->value($this->option->value),
 
                 Button::make('Сохранить')->method('save_info')->type(Color::SUCCESS())
             ])
@@ -86,9 +88,6 @@ class EditOptions extends Screen
     public function save_info(Option $option, Request $request) {
 
         $new_data = $request->validate([
-            'type' => ['required', 'string'],
-            'name' => ['required', 'string'],
-            'title' => ['required', 'string'],
             'value' => ['required', 'string']
         ]);
 

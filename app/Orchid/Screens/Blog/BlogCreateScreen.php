@@ -63,14 +63,16 @@ class BlogCreateScreen extends Screen
                 Input::make('title')
                     ->title('Заголовок')
                     ->help('Заголовок категории')
+                    ->required()
                     ->horizontal(),
 
                 Input::make('slug')
                     ->title('Окончание ссылки')
                     ->help('Slug категории')
+
                     ->horizontal(),
 
-                Quill::make('description')->title('Описание'),
+                Quill::make('description')->required()->title('Описание'),
 
                 Button::make('Добавить статьи')->method('save_info')->type(Color::SUCCESS())
             ])->title('Основные поля'),
@@ -90,7 +92,7 @@ class BlogCreateScreen extends Screen
 
             Layout::rows([
 
-                Picture::make('img')->title('Загрузить основное изображение записи')->targetRelativeUrl(),
+                Picture::make('img')->required()->title('Загрузить основное изображение записи')->targetRelativeUrl(),
 
                 Button::make('Сохранить')->method('save_info')->type(Color::SUCCESS())
             ])->title('Изображения'),
@@ -102,7 +104,10 @@ class BlogCreateScreen extends Screen
         $new_data = $request->validate([
             'title' => ['required', 'string'],
             'slug' => [],
-            'description' => []
+            'description' => ['required', 'string'],
+            'img' => ['required', 'string'],
+            'seo_title' => [],
+            'seo_description' => []
         ]);
 
 

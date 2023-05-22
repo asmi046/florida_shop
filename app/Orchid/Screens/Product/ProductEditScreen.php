@@ -111,6 +111,18 @@ class ProductEditScreen extends Screen
                     ->help('Slug категории')
                     ->horizontal(),
 
+                Input::make('height')
+                    ->title('Высота')
+                    ->value($this->product->height)
+                    ->help('Высота букета')
+                    ->horizontal(),
+
+                Input::make('radius')
+                    ->title('Диаметр')
+                    ->value($this->product->radius)
+                    ->help('Диаметр букета')
+                    ->horizontal(),
+
                 Input::make('price')
                     ->title('Цена')
                     ->value($this->product->price)

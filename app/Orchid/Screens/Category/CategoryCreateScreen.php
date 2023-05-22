@@ -61,6 +61,7 @@ class CategoryCreateScreen extends Screen
                 Input::make('title')
                     ->title('Заголовок')
                     ->help('Заголовок категории')
+                    ->required()
                     ->horizontal(),
 
                 Input::make('slug')
@@ -68,7 +69,7 @@ class CategoryCreateScreen extends Screen
                     ->help('Slug категории')
                     ->horizontal(),
 
-                Quill::make('description')->title('Описание'),
+                Quill::make('description')->required()->title('Описание'),
 
                 Button::make('Добавить категорию')->method('save_info')->type(Color::SUCCESS())
             ])

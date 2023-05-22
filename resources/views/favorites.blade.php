@@ -1,8 +1,8 @@
 @extends('layouts.all')
 
 @php
-    $title = "Ваша корзина";
-    $description = "Ваша корзина";
+    $title = "Избранное";
+    $description = "Понравившиеся товары (Избранное букеты Florida46)";
 @endphp
 
 @section('title', $title)
