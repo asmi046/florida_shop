@@ -81,10 +81,11 @@ class CartController extends Controller
         $order->orderProducts()->sync(array_column($request->input('tovars'), "id"));
 
 
-        // Mail::to(["asmi046@gmail.com","lisa-fon@mail.ru", "danilarepev@yandex.ru"])->send(new BascetSend($request));
+        Mail::to(["asmi046@gmail.com","lisa-fon@mail.ru", "danilarepev@yandex.ru"])->send(new BascetSend($request));
+
         $resSber = $this->registerOrder(200, $order->id, route("bascet_thencs"));
 
-        return ['pay_info' => $resSber, "l" => config('sber.sber_login'), "p" => config('sber.sber_password')];
+        return ['pay_info' => $resSber];
     }
 
     public function thencs() {

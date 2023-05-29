@@ -86,7 +86,7 @@
                     <li v-for="item in errorList" :key="item">{{item}}</li>
                 </ul>
 
-                <button @click.prevent="sendBascet()" class="btn bascetSendBtn" type="submit">Отправить</button> <span :class="{active: loadet }" class="btnLoaderCart shoved"></span>
+                <button @click.prevent="sendBascet()" class="btn bascetSendBtn" type="submit">Оформить заказ</button> <span :class="{active: loadet }" class="btnLoaderCart shoved"></span>
                 <p class="policy">Заполняя данную форму и отправляя заказ вы соглашаетесь с <a href="#">политикой конфиденциальности</a></p>
             </form>
         </div>
@@ -221,11 +221,14 @@ export default {
                 adress:  this.bascetInfo.street+", "+this.bascetInfo.home,
                 comment: this.bascetInfo.comment,
                 tovars: this.bascetList,
+                amount: this.subtotal,
+                count: this.count,
+                delivery: this.bascetInfo.street+" "+this.bascetInfo.home,
             })
             .then((response) => {
                 this.loadet = false;
                 console.log(response)
-                // document.location.href="/bascet/thencs"
+                document.location.href=response.data.pay_info.formUrl;
             })
             .catch(error => console.log(error));
         },
