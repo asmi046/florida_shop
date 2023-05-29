@@ -36,7 +36,7 @@ class ConsultMail extends Mailable
     public function envelope()
     {
         return new Envelope(
-            from: new Address("danilarepev@yandex.ru", "Florida 46"),
+            from: new Address("florida.magazin@yandex.ru", "Florida 46"),
             subject: 'Помощь флориста',
         );
     }
