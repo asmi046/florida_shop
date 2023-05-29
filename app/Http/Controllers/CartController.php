@@ -48,6 +48,25 @@ class CartController extends Controller
         return Cart::delete_tovar($product_id);
     }
 
+    protected function registerOrder($total, $order, $returnUrl){
+        $url = "https://securepayments.sberbank.ru/sbercredit/register.do?amount=".floatval($total)."00&currency=643&language=ru&orderNumber=".$order."&password=".config('sber.sber_password')."&userName=".config('sber.sber_login')."&returnUrl=".$returnUrl."&pageView=DESKTOP&sessionTimeoutSecs=1200";
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, $url);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+        $response = curl_exec($ch);
+        curl_close($ch);
+
+        if( $response ){
+
+            return json_decode($response, true);
+
+        }
+
+        return false;
+	}
+
+
     public function send(BascetForm $request) {
         $order = Order::create([
             'name' => $request->input('fio'),
@@ -61,7 +80,11 @@ class CartController extends Controller
 
         $order->orderProducts()->sync(array_column($request->input('tovars'), "id"));
 
-        Mail::to(["asmi046@gmail.com","lisa-fon@mail.ru", "danilarepev@yandex.ru"])->send(new BascetSend($request));
+
+        // Mail::to(["asmi046@gmail.com","lisa-fon@mail.ru", "danilarepev@yandex.ru"])->send(new BascetSend($request));
+        $resSber = $this->registerOrder(200, $order->id, route("bascet_thencs"));
+
+        return ['pay_info' => $resSber, "l" => config('sber.sber_login'), "p" => config('sber.sber_password')];
     }
 
     public function thencs() {

@@ -224,7 +224,8 @@ export default {
             })
             .then((response) => {
                 this.loadet = false;
-                document.location.href="/bascet/thencs"
+                console.log(response)
+                // document.location.href="/bascet/thencs"
             })
             .catch(error => console.log(error));
         },
