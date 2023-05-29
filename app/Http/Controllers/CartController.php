@@ -49,7 +49,7 @@ class CartController extends Controller
     }
 
     protected function registerOrder($total, $order, $returnUrl){
-        $url = "https://securepayments.sberbank.ru/sbercredit/register.do?amount=".floatval($total)."00&currency=643&language=ru&orderNumber=".$order."&password=".config('sber.sber_password')."&userName=".config('sber.sber_login')."&returnUrl=".$returnUrl."&pageView=DESKTOP&sessionTimeoutSecs=1200";
+        $url = "https://securepayments.sberbank.ru/payment/rest/register.do?amount=".floatval($total)."00&currency=643&language=ru&orderNumber=".$order."&password=".config('sber.sber_password')."&userName=".config('sber.sber_login')."&returnUrl=".$returnUrl."&pageView=DESKTOP&sessionTimeoutSecs=1200";
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL, $url);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
