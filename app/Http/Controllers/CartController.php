@@ -74,6 +74,9 @@ class CartController extends Controller
             'phone' => $request->input('phone'),
             'adress' => $request->input('adress'),
             'comment' => $request->input('comment'),
+            'amount' => $request->input('amount'),
+            'count' => $request->input('count'),
+            'delivery' => $request->input('delivery'),
             'session_id' => session()->getId(),
             'user_id' => ($request->user())?$request->user()->id:0,
         ]);
@@ -83,7 +86,7 @@ class CartController extends Controller
 
         Mail::to(["asmi046@gmail.com","lisa-fon@mail.ru", "danilarepev@yandex.ru"])->send(new BascetSend($request));
 
-        $resSber = $this->registerOrder(200, $order->id, route("bascet_thencs"));
+        $resSber = $this->registerOrder($request->input('amount'), $order->id, route("bascet_thencs"));
 
         return ['pay_info' => $resSber];
     }

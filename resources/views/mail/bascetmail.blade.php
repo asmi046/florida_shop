@@ -28,4 +28,6 @@
             @endforeach
     </tbody>
 </table>
+
+<h2>Итого {{$formData['count']}} товар(ов) на сумму {{$formData['amount']}} </h2>
 <hr/>
