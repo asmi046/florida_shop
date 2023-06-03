@@ -21,8 +21,8 @@ return new class extends Migration
                                         ->onDelete('cascade');
 
             $table->string('link');
-            $table->string('alt');
-            $table->string('title');
+            $table->string('alt')->nullable();
+            $table->string('title')->nullable();
         });
     }
 
