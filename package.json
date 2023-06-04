@@ -28,7 +28,8 @@
         "cache_clear": "ssh danila1s_asmi@danila1s.beget.tech \"cd florida46.ru/public_html && php8.1 artisan cache:clear\"",
         "optimize": "ssh danila1s_asmi@danila1s.beget.tech \"cd florida46.ru/public_html && php8.1 artisan optimize\"",
         "optimize_all": "npm run optimize && npm run cache_clear && npm run cache_view && npm run cache_route && npm run cache_config",
-        "orchid_user": "ssh danila1s_asmi@danila1s.beget.tech \"cd florida46.ru/public_html && php8.1 artisan orchid:admin admin asmi046@gmail.com 123\""
+        "orchid_user": "ssh danila1s_asmi@danila1s.beget.tech \"cd florida46.ru/public_html && php8.1 artisan orchid:admin admin asmi046@gmail.com 123\"",
+        "deploy_m": "vite build && npm run send_vite_build && npm run pull_rep && npm run optimize_all"
     },
     "devDependencies": {
         "axios": "^1.1.2",

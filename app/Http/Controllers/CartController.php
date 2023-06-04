@@ -93,6 +93,6 @@ class CartController extends Controller
 
     public function thencs() {
         Cart::cart_clear();
-        return view("thencs");
+        return view("thencscart");
     }
 }

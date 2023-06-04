@@ -1,12 +1,12 @@
 ymaps.ready(init);
 
 function init () {
-    let centerMap = [36.1819885,51.727245371240414]
+    let centerMap = [36.17530106745902, 51.777271793676064]
     var myMap = new ymaps.Map("render_map", {
         // Координаты центра карты
         center: centerMap,
         // Масштаб карты
-        zoom: 17,
+        zoom: 18,
         // Выключаем все управление картой
         controls: []
     });
@@ -15,8 +15,8 @@ function init () {
 
     // Указываем координаты метки
     myGeoObjects = new ymaps.Placemark(centerMap,{
-                                    hintContent: '<div class="map-hint">Авто профи, Курск, ул.Комарова, 16</div>',
-                                    balloonContent: '<div class="map-hint"></div>',
+                                    hintContent: '<div class="map-hint">Магазин цветов Florida</div>',
+                                    balloonContent: '<div class="map-hint"><b>Магазин цветов Florida</b> <br/> г. Курск, пр. Победы, 14</div>',
                                     }
                                     ,{
                                         iconLayout: 'default#image',
