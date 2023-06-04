@@ -164,7 +164,7 @@ class ProductCreateScreen extends Screen
 
             Layout::rows([
 
-                Picture::make('img')->title('Загрузить основное изображение записи')->targetRelativeUrl(),
+                Picture::make('img')->title('Загрузить основное изображение записи')->storage('public')->targetRelativeUrl(),
 
                 Button::make('Сохранить')->method('save_info')->type(Color::SUCCESS())
             ])->title('Изображения'),

@@ -187,7 +187,7 @@ class ProductEditScreen extends Screen
 
             Layout::rows([
 
-                Picture::make('img')->title('Загрузить основное изображение записи')->targetRelativeUrl()->value($this->product->img),
+                Picture::make('img')->title('Загрузить основное изображение записи')->storage('public')->targetRelativeUrl()->value($this->product->img),
 
                 Button::make('Сохранить')->method('save_info')->type(Color::SUCCESS())
             ])->title('Изображения'),
