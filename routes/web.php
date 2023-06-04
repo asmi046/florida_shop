@@ -20,6 +20,8 @@ use App\Http\Controllers\BlogController;
 use App\Http\Controllers\ReviewsController;
 use App\Http\Controllers\PayController;
 
+use App\Http\Controllers\TestController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -30,6 +32,8 @@ use App\Http\Controllers\PayController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+Route::get('/test_api', [TestController::class, "index"])->name('test_api');
 
 Route::get('/', [IndexController::class, "show"])->name('home');
 Route::get('/catalog', [CategoryController::class, "show"])->name('catalog');
