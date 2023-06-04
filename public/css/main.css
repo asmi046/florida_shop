@@ -1808,7 +1808,7 @@ height: 30px;
 }
 
 .policy_line {
-    background-color: #448048;
+    background-color: #E7BCC0;
     margin-top: 20px;
     text-align: center;
     font-size: 12px;
@@ -1816,7 +1816,7 @@ height: 30px;
 }
 
 .policy_line a{
-    color: white;
+    color: black;
 }
 
 .policy_line a:hover{
