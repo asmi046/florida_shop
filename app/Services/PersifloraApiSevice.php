@@ -39,11 +39,14 @@ class PersifloraApiSevice {
         return $result->data->attributes->accessToken;
     }
 
-    public function get_customers() {
+    public function get_customers($phone = "") {
 
         $authorization = "Authorization: Bearer ".$this->accessToken;
 
-        $ch = curl_init(config('persiflora.persiflora_url').'/api/v1/customers');
+        $search = (!empty($phone))?"?search=".$phone:"";
+
+
+        $ch = curl_init(config('persiflora.persiflora_url').'/api/v1/customers'.$search);
         curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "GET");
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 

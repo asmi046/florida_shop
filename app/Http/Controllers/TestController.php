@@ -11,7 +11,7 @@ class TestController extends Controller
 
         $token = $persiflora->create_session();
 
-        $customers = $persiflora->get_customers();
+        $customers = $persiflora->get_customers("9534409900");
 
         dd($token, $customers);
     }
