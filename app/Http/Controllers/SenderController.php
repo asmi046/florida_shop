@@ -6,14 +6,19 @@ use Illuminate\Http\Request;
 
 use Illuminate\Support\Facades\Mail;
 use App\Mail\ConsultMail;
+use App\Actions\TelegramSendAction;
 
 class SenderController extends Controller
 {
-    public function send_consultation(Request $request) {
+    public function send_consultation(Request $request, TelegramSendAction $tgsender) {
         $data = $request->validate([
             "name" => [],
             "phone" => ['required','string']
         ]);
+
+
+        $tmp = $tgsender->handle("<b>Консультация флориста</b>\n\rИмя: ".$data['name']."\n\rТелефон: ".$data['phone']);
+
 
         Mail::to("asmi046@gmail.com")->send(new ConsultMail($data));
 
