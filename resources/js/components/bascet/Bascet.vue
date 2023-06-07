@@ -27,7 +27,7 @@
 
                     <div class="tl-side right-side">
                         <div class="tovar_all_blk price_blk">
-                            <span class="rub price_formator">{{Number(item.price).toLocaleString('ru-RU')}}</span>
+                            <span class="rub price_formator">{{Number(item.price).toLocaleString('ru-RU')}} <span class="rub_symbol">₽</span></span>
                         </div>
                         <div class="tovar_all_blk couint_blk">
                             <div class="number_wrapper">
@@ -51,19 +51,19 @@
                     <div class="itogo_row">
                         <span class="text">Товары (<span>{{count}}</span>)</span>
                         <span class="razd"></span>
-                        <span class="p_price rub price_formator">{{Number(subtotal).toLocaleString('ru-RU')}}</span>
+                        <span class="p_price rub price_formator">{{Number(subtotal).toLocaleString('ru-RU')}} <span class="rub_symbol">₽</span></span>
                     </div>
 
                     <div v-show="deliveryPrice>0" class="itogo_row">
                         <span class="text">Доставка (Зона {{deliveryZone}})</span>
                         <span class="razd"></span>
-                        <span class="p_price rub price_formator">{{Number(deliveryPrice).toLocaleString('ru-RU')}}</span>
+                        <span class="p_price rub price_formator">{{Number(deliveryPrice).toLocaleString('ru-RU')}} <span class="rub_symbol">₽</span></span>
                     </div>
 
                     <div class="itogo_row itogo_row_final">
                         <span class="text">Итого</span>
                         <span class="razd"></span>
-                        <span class="p_price rub price_formator">{{Number(subtotal + deliveryPrice).toLocaleString('ru-RU')}}</span>
+                        <span class="p_price rub price_formator">{{Number(subtotal + deliveryPrice).toLocaleString('ru-RU')}} <span class="rub_symbol">₽</span></span>
                     </div>
                 </div>
             </div>
@@ -228,7 +228,12 @@ export default {
             .then((response) => {
                 this.loadet = false;
                 console.log(response)
-                document.location.href=response.data.pay_info.formUrl;
+                if (response.data.pay_info.formUrl !== undefined)
+                    document.location.href=response.data.pay_info.formUrl
+                else {
+                    console.log(response.data.pay_info)
+                    document.location.href = "/bascet/thencs"
+                }
             })
             .catch(error => console.log(error));
         },

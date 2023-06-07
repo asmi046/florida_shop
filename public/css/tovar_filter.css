@@ -121,7 +121,7 @@
 
 .filter_mobile_panel.open {
 
-    border: 1px solid #839F60;
+    border: 1px solid var(--main-color);
 }
 
 

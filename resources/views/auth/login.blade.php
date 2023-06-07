@@ -1,7 +1,7 @@
 @extends('layouts.all')
 
 @php
-    $title = "Авторизация в личьном кабинете"
+    $title = "Авторизация в личном кабинете"
 @endphp
 
 @section('title', $title)

@@ -11,6 +11,9 @@ use Illuminate\Support\Facades\Mail;
 use App\Mail\BascetSend;
 use App\Http\Requests\BascetForm;
 
+use App\Actions\BascetToTextAction;
+use App\Actions\TelegramSendAction;
+
 use Illuminate\Support\Facades\Auth;
 
 class CartController extends Controller
@@ -67,7 +70,7 @@ class CartController extends Controller
 	}
 
 
-    public function send(BascetForm $request) {
+    public function send(BascetForm $request, BascetToTextAction $to_text, TelegramSendAction $tgsender) {
         $order = Order::create([
             'name' => $request->input('fio'),
             'email' => $request->input('email'),
@@ -82,6 +85,10 @@ class CartController extends Controller
         ]);
 
         $order->orderProducts()->sync(array_column($request->input('tovars'), "id"));
+
+        $to_text = $to_text->handle($request);
+
+        $tmp = $tgsender->handle($to_text);
 
 
         Mail::to(["asmi046@gmail.com","lisa-fon@mail.ru", "danilarepev@yandex.ru"])->send(new BascetSend($request));

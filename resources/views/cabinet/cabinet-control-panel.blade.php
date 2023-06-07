@@ -3,7 +3,7 @@
         'cabinet_user_datd_btn',
         'active' => Request::route()->named('cabinet.home')
         ])
-        href="{{route('cabinet.home')}}">Личьные данные</a>
+        href="{{route('cabinet.home')}}">Личные данные</a>
 
     <a @class([
         'cabinet_orders_btn',

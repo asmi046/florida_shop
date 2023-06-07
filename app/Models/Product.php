@@ -43,6 +43,10 @@ class Product extends Model
         'title'
     ];
 
+    protected $allowedFilters  = [
+        'title'
+    ];
+
 
     public function scopeFilter(Builder $builder, QueryFilter $filter) {
         return $filter->apply($builder);

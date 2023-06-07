@@ -128,7 +128,7 @@
 }
 
 .catPreSearchElemLnk:hover {
-    color:#839F60
+    color:var(--main-color)
 }
 
 .catPreSearchElemLnk:hover:before {

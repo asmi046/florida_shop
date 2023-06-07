@@ -1,7 +1,7 @@
 @extends('layouts.all')
 
 @php
-    $title = "Личьный кабинет"
+    $title = "Личный кабинет"
 @endphp
 
 @section('title', $title)

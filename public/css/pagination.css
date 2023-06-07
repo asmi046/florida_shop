@@ -19,7 +19,7 @@
 }
 
 .pagination__numbers.current {
-    background-color: #839F60;
+    background-color: var(--main-color);
     color: white;
 }
 

@@ -198,7 +198,7 @@
 }
 
 .galery_thumbs .swiper_obj .tovar_thumbs_slider .swiper-slide.swiper-slide-thumb-active{
-    border: 5px solid #839F60;
+    border: 5px solid var(--main-color);
 }
 
 .galery_thumbs .swiper_obj .tovar_thumbs_slider .swiper-slide{
@@ -218,7 +218,7 @@
 .galery_gift .gift_inner_blk span{
     margin: auto;
     text-align: center;
-    color: #839F60;
+    color: var(--main-color);
     font-size: 18px;
 }
 
@@ -230,7 +230,7 @@
 .galery_gift {
     width: 280px;
     border-radius: 9px;
-    border: 1px solid #839F60;
+    border: 1px solid var(--main-color);
     margin-left: 10px;
     display: flex;
     overflow: hidden;
@@ -293,7 +293,7 @@
 }
 
 .tovar_advantages .adv_tov_blk{
-    border: 1px solid #839F60;
+    border: 1px solid var(--main-color);
     border-radius: 70px;
     display: flex;
     width: 22%;
@@ -303,7 +303,7 @@
 .tovar_advantages .adv_tov_blk .icon{
     width:110px;
     height:110px;
-    background-color: #839F60;
+    background-color: var(--main-color);
     border-radius: 70px;
     background-position: center;
     background-size: 45%;

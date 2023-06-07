@@ -142,7 +142,7 @@
 
 
 .bascet_tovar .control .clear_bascet_btn{
-    color:#839F60;
+    color:var(--main-color);
     margin-left: auto;
     position: relative;
 }
@@ -351,7 +351,7 @@
 
 .tovar_wrap .bascet_count {
     display: none;
-    background-color: #839F60;
+    background-color: var(--main-color);
     color: #fff;
     position: absolute;
     top: 0;

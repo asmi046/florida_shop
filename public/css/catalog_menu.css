@@ -65,7 +65,7 @@
 }
 
 .close_catalog:hover {
-    background-color: #839F60;
+    background-color: var(--main-color);
     background-image: url("../img/icons/shop_icon/close_hover.svg");
 }
 
