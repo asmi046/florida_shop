@@ -9,6 +9,7 @@ export default defineConfig({
             input: [
                 'resources/css/app.css',
                 'public/css/main.css',
+                'public/fonts/icons/style.css',
                 'public/css/tovar_filter.css',
                 'public/css/tovar_page_content.css',
                 'public/css/catalog_menu.css',

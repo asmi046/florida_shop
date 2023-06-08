@@ -5,7 +5,7 @@
         </a>
 
 
-        <a  href="{{route('contacts')}}" class="addres_head">{{$options['adress_fk']}}</a>
+        <a  href="{{route('contacts')}}" class="addres_head pi florida_map_pin">{{$options['adress_fk']}}</a>
 
 
         <x-main-menu></x-main-menu>
@@ -13,7 +13,7 @@
         <x-messanger></x-messanger>
 
         @auth('web')
-            <a href="{{route('cabinet.home')}}" class="cabinet">{{ mb_strimwidth(Auth::user()["name"], 0, 20, '...' )}}</a>
+            <a href="{{route('cabinet.home')}}" class="cabinet pi florida_cabinet">{{ mb_strimwidth(Auth::user()["name"], 0, 20, '...' )}}</a>
         @endauth
 
         @guest

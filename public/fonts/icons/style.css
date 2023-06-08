@@ -1,0 +1,103 @@
+@font-face {
+  font-family: 'florida';
+  src:  url('fonts/florida.eot?eylahf');
+  src:  url('fonts/florida.eot?eylahf#iefix') format('embedded-opentype'),
+    url('fonts/florida.ttf?eylahf') format('truetype'),
+    url('fonts/florida.woff?eylahf') format('woff'),
+    url('fonts/florida.svg?eylahf#florida') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+.pi_after::after,
+.pi::before {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'florida' !important;
+  color:var(--main-color);
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.florida_ai_delivery:after,
+.florida_ai_delivery:before {
+  content: "\e900";
+}
+.florida_ai_delivery_24:before {
+  content: "\e901";
+}
+.florida_ai_oplata:before {
+  content: "\e902";
+}
+.florida_ai_sales:before {
+  content: "\e903";
+}
+
+.florida_arrow:after,
+.florida_arrow:before {
+  content: "\e904";
+}
+.florida_cabinet:before {
+  content: "\e905";
+}
+.florida_cart:before {
+  content: "\e906";
+}
+.florida_close:before {
+  content: "\e907";
+}
+.florida_filter:before {
+  content: "\e908";
+}
+.florida_home:before {
+  content: "\e909";
+}
+.florida_like:before {
+  content: "\e90a";
+}
+.florida_lins:before {
+  content: "\e90b";
+}
+.florida_map_pin:before {
+  content: "\e90c";
+}
+.florida_menu_burger:before {
+  content: "\e90d";
+}
+.florida_param_diam:before {
+  content: "\e90e";
+}
+.florida_param_height:before {
+  content: "\e90f";
+}
+.florida_phone:before {
+  content: "\e910";
+}
+
+.florida_procent:after,
+.florida_procent:before {
+  content: "\e911";
+}
+.florida_share:before {
+  content: "\e912";
+}
+.florida_telegram:before {
+  content: "\e913";
+}
+.florida_trash:before {
+  content: "\e914";
+}
+.florida_vk:before {
+  content: "\e915";
+}
+.florida_whatsapp:before {
+  content: "\e916";
+}

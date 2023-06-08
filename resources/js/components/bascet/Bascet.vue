@@ -221,7 +221,7 @@ export default {
                 adress:  this.bascetInfo.street+", "+this.bascetInfo.home,
                 comment: this.bascetInfo.comment,
                 tovars: this.bascetList,
-                amount: this.subtotal,
+                amount: parseFloat(this.subtotal) + parseFloat(this.deliveryPrice),
                 count: this.count,
                 delivery: this.bascetInfo.street+" "+this.bascetInfo.home,
             })

@@ -5,8 +5,6 @@ class PersifloraApiSevice {
 
     public $accessToken = "";
 
-
-
     public function create_session() {
 
         $payload = [

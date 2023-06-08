@@ -13,6 +13,7 @@ use App\Http\Requests\BascetForm;
 
 use App\Actions\BascetToTextAction;
 use App\Actions\TelegramSendAction;
+use App\Services\SberApiServices;
 
 use Illuminate\Support\Facades\Auth;
 
@@ -51,26 +52,9 @@ class CartController extends Controller
         return Cart::delete_tovar($product_id);
     }
 
-    protected function registerOrder($total, $order, $returnUrl){
-        $url = "https://securepayments.sberbank.ru/payment/rest/register.do?amount=".floatval($total)."00&currency=643&language=ru&orderNumber=".$order."&password=".config('sber.sber_password')."&userName=".config('sber.sber_login')."&returnUrl=".$returnUrl."&pageView=DESKTOP&sessionTimeoutSecs=1200";
-        $ch = curl_init();
-        curl_setopt($ch, CURLOPT_URL, $url);
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
-        $response = curl_exec($ch);
-        curl_close($ch);
-
-        if( $response ){
-
-            return json_decode($response, true);
-
-        }
-
-        return false;
-	}
 
 
-    public function send(BascetForm $request, BascetToTextAction $to_text, TelegramSendAction $tgsender) {
+    public function send(BascetForm $request, BascetToTextAction $to_text, TelegramSendAction $tgsender, SberApiServices $sber) {
         $order = Order::create([
             'name' => $request->input('fio'),
             'email' => $request->input('email'),
@@ -90,16 +74,16 @@ class CartController extends Controller
 
         $tmp = $tgsender->handle($to_text);
 
-
         Mail::to(["asmi046@gmail.com","lisa-fon@mail.ru", "danilarepev@yandex.ru"])->send(new BascetSend($request));
 
-        $resSber = $this->registerOrder($request->input('amount'), $order->id, route("bascet_thencs"));
+        $resSber = $sber->registerOrder($request->input('amount'), $order->id, route("bascet_thencs"));
+
+        Cart::cart_clear();
 
         return ['pay_info' => $resSber];
     }
 
     public function thencs() {
-        Cart::cart_clear();
         return view("thencscart");
     }
 }

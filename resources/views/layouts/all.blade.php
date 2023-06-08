@@ -36,6 +36,7 @@
 
     @vite([
         'resources/css/app.css',
+        'public/fonts/icons/style.css',
         'public/css/main.css',
         'public/css/tovar_filter.css',
         'public/css/tovar_page_content.css',
