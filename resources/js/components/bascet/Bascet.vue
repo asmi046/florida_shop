@@ -228,12 +228,12 @@ export default {
             .then((response) => {
                 this.loadet = false;
                 console.log(response)
-                if (response.data.pay_info.formUrl !== undefined)
-                    document.location.href=response.data.pay_info.formUrl
-                else {
-                    console.log(response.data.pay_info)
-                    document.location.href = "/bascet/thencs"
-                }
+                // if (response.data.pay_info.formUrl !== undefined)
+                //     document.location.href=response.data.pay_info.formUrl
+                // else {
+                //     console.log(response.data.pay_info)
+                //     document.location.href = "/bascet/thencs"
+                // }
             })
             .catch(error => console.log(error));
         },

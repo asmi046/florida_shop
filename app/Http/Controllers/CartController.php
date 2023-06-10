@@ -14,6 +14,7 @@ use App\Http\Requests\BascetForm;
 use App\Actions\BascetToTextAction;
 use App\Actions\TelegramSendAction;
 use App\Services\SberApiServices;
+use App\Services\PersifloraApiSevice;
 
 use Illuminate\Support\Facades\Auth;
 
@@ -54,7 +55,7 @@ class CartController extends Controller
 
 
 
-    public function send(BascetForm $request, BascetToTextAction $to_text, TelegramSendAction $tgsender, SberApiServices $sber) {
+    public function send(BascetForm $request, BascetToTextAction $to_text, TelegramSendAction $tgsender, SberApiServices $sber, PersifloraApiSevice $persi) {
         $order = Order::create([
             'name' => $request->input('fio'),
             'email' => $request->input('email'),
@@ -71,8 +72,11 @@ class CartController extends Controller
         $order->orderProducts()->sync(array_column($request->input('tovars'), "id"));
 
         $to_text = $to_text->handle($request);
+        $tgsender->handle($to_text);
 
-        $tmp = $tgsender->handle($to_text);
+
+        $token = $persi->create_session();
+        $tmp = $persi->create_order($request, $order->id);
 
         Mail::to(["asmi046@gmail.com","lisa-fon@mail.ru", "danilarepev@yandex.ru"])->send(new BascetSend($request));
 
@@ -80,7 +84,7 @@ class CartController extends Controller
 
         Cart::cart_clear();
 
-        return ['pay_info' => $resSber];
+        return ['pay_info' => $resSber, "persi" => $tmp];
     }
 
     public function thencs() {
