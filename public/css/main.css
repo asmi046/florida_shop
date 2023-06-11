@@ -373,7 +373,7 @@ header .messendger_head_blk {
 .messendger_head_blk a::before {
     top:-8px;
 }
-
+/*
 .messendger_head_blk .whatsapp::before {
 
     width: 18px;
@@ -382,7 +382,7 @@ header .messendger_head_blk {
     position: absolute;
     left:-9px;
     font-size: 18px;
-}
+} */
 
 .messendger_head_blk .telegram::before {
     font-size: 18px;
@@ -1075,16 +1075,12 @@ footer ._wrapper{
 }
 
 .footer_contacts .adress::before{
-    content:"";
     position: absolute;
     width: 19px;
     height: 27px;
-    background-image: url(../img/icons/map-pin.svg);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: contain;
     left: -30px;
-    top: -5px;
+    top: -2px;
+    font-size: 27px;
 }
 
 .footer_contacts .adress{
@@ -1094,16 +1090,12 @@ footer ._wrapper{
 }
 
 .footer_contacts .phone::before{
-    content:"";
     position: absolute;
     width: 22px;
     height: 22px;
-    background-image: url(../img/icons/phone.svg);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: contain;
     left: -30px;
     top: 2px;
+    font-size: 22px;
 }
 
 .footer_contacts .phone{
@@ -1370,7 +1362,12 @@ textarea {
     margin-left: 10px;
 }
 
-#uni_map .messendger_head_blk .whatsapp::before {
+#uni_map .messendger_head_blk a::before {
+    color:white;
+    font-size: 18px;
+}
+
+/* #uni_map .messendger_head_blk .whatsapp::before {
     content: "";
     background-image: url(../img/icons/whatsapp-white.svg);
 }
@@ -1379,10 +1376,12 @@ textarea {
     content: "";
     background-image: url(../img/icons/telegram-white.svg);
 }
+*/
 
 #uni_map .messendger_head_blk .vk::before {
-    content: "";
-    background-image: url(../img/icons/vk-white.svg);
+    font-size: 25px;
+    height: 22px;
+    line-height: 17px;
 }
 
 /*--------Общие стили end----------*/

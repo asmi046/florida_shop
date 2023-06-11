@@ -7,8 +7,8 @@
         <x-messanger></x-messanger>
 
         <div class="footer_contacts">
-            <span class="adress">{{$options['adress_fk']}}</span>
-            <a href="tel:{{str_replace(array('-', ' ', '(' , ')'), '', $options['phone'])}}" class="phone">{{$options['phone']}}</a>
+            <span class="adress pi florida_map_pin">{{$options['adress_fk']}}</span>
+            <a href="tel:{{str_replace(array('-', ' ', '(' , ')'), '', $options['phone'])}}" class="phone pi florida_phone">{{$options['phone']}}</a>
         </div>
 
     </div>
