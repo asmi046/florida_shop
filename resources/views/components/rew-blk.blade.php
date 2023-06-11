@@ -1,7 +1,7 @@
 <div class="rew_blk">
     @if (empty($item['avatar']))
         <div class="foto_text_wrapper">
-            <span>{{mb_substr(md_strtoupper($item['name']), 0, 1)}}</span>
+            <span>{{mb_substr(mb_strtoupper($item['name']), 0, 1)}}</span>
         </div>
     @else
 
