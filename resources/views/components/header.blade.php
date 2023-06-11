@@ -17,7 +17,7 @@
         @endauth
 
         @guest
-            <a href="{{route('login')}}" class="cabinet">Войти</a>
+            <a href="{{route('login')}}" class="cabinet pi florida_cabinet">Войти</a>
         @endguest
     </div>
 </header>

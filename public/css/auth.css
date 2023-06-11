@@ -8,11 +8,12 @@
 }
 
 .autch_form a {
-    color:#2A7D5A;
+    color:var(--main-color);
 }
 
 .autch_form a:hover {
     text-decoration: underline;
+    color:var(--main-hover-color);
 }
 
 .form_error {
@@ -23,7 +24,7 @@
 }
 
 .form_compleet {
-    background-color: #2A7D5A;
+    background-color: var(--main-color);;
     padding: 5px 10px;
     color:white;
     border-radius: 5px;

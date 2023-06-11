@@ -13,6 +13,11 @@ class TestController extends Controller
 
         $customers = $persiflora->get_customers("9534409900");
 
-        dd($token, $customers);
+        // $customers_new = $persiflora->create_customer("Андрей Смирнов", "+7 (903) 633-08-01", "asmi046@gmail.com", "Создан при оформлении заказа");
+
+        // $customers_id = $persiflora->get_customer_id("Андрей Смирнов", "+7 (903) 633-08-01", "asmi046@gmail.com", "Создан при оформлении заказа");
+        $customers_id = $persiflora->get_customer_id("Абрамова полина", "+7 (953) 440-99-00", "asmi046@gmail.com", "Создан при оформлении заказа");
+
+        dd($token, $customers, $customers_id);
     }
 }

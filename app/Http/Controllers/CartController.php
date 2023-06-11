@@ -71,15 +71,26 @@ class CartController extends Controller
 
         $order->orderProducts()->sync(array_column($request->input('tovars'), "id"));
 
+        // отправка заказа в Telegram
         $to_text = $to_text->handle($request);
         $tgsender->handle($to_text);
 
 
+        // отправка заказа в CRM
         $token = $persi->create_session();
-        $tmp = $persi->create_order($request, $order->id);
+        $customer_id = $persi->get_customer_id(
+            $request->input('fio'),
+            $request->input('phone'),
+            $request->input('email'),
+            "Клиент создан при оформлении заказа на сайте");
+
+        $tmp = $persi->create_order($request, $customer_id);
+
+        // отправка заказа на почту
 
         Mail::to(["asmi046@gmail.com","lisa-fon@mail.ru", "danilarepev@yandex.ru"])->send(new BascetSend($request));
 
+        // Генерация заказа в сбере
         $resSber = $sber->registerOrder($request->input('amount'), $order->id, route("bascet_thencs"));
 
         Cart::cart_clear();

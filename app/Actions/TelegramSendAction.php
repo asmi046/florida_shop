@@ -7,6 +7,7 @@ class TelegramSendAction {
         $t_token = config('telegram.tg_token');
         $arr_chat = config('telegram.tg_coresp');
 
+        $output = "";
         if($arr_chat) {
 
             $output = "";
@@ -29,7 +30,7 @@ class TelegramSendAction {
                     )
                 );
 
-                $output .= curl_exec($ch);
+                $output = curl_exec($ch);
             }
         }
 
