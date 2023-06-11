@@ -15,6 +15,6 @@
     <div class="text_wrapper">
         <h3>{{$item['name']}}</h3>
         <p>{{$item['text']}}</p>
-        <a href="{{$item['lnk']}}">Читать далее...</a>
+        <a target="_blank" href="{{$item['lnk']}}">Читать далее...</a>
     </div>
 </div>
