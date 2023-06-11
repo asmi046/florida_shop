@@ -71,16 +71,29 @@
         </div>
 
         <div class="bascet_form">
-            <h2>Контактные данные</h2>
+
             <form action="GET">
+                <h2>Контактные данные</h2>
+
                 <input v-model="bascetInfo.fio" name="fio" type="text" placeholder="Фамилия, Имя*">
                 <input v-model="bascetInfo.email" name="email" type="email" placeholder="e-mail">
                 <input v-model="bascetInfo.phone" v-mask="{mask: '+N (NNN) NNN-NN-NN', model: 'cpf' }" name="phone" type="text" placeholder="Телефон*">
+
+                <h2>Адрес достаки</h2>
+
                 <div class="adr_wrapper">
                     <select-input v-model="bascetInfo.street" :puncts="cityFindetList"></select-input>
-
                     <input v-model="bascetInfo.home" @keydown="calcDelivery" name="home" type="text" placeholder="Дом">
                 </div>
+
+                <div class="adr_wrapper_2">
+                    <input v-model="bascetInfo.podezd" name="podezd" type="text" placeholder="Подъезд">
+                    <input v-model="bascetInfo.etazg" name="etazg" type="text" placeholder="Этаж">
+                    <input v-model="bascetInfo.kvartira" name="kvartira" type="text" placeholder="Квартира">
+                </div>
+
+                <h2>Комментарий</h2>
+
                 <textarea v-model="bascetInfo.comment" name="comment" placeholder="Комментарий"></textarea>
                 <ul v-show="errorList.length != 0" class ="errors_list">
                     <li v-for="item in errorList" :key="item">{{item}}</li>
@@ -92,7 +105,7 @@
         </div>
     </div>
     <div class="empty_bascet" v-show="show_bascet && bascetList.length == 0">
-        <img src="../../../../public/img/icons/cart.svg" alt="">
+        <div class="bascet_icon pi florida_cart"></div>
         <h3>Ваша корзина пуста</h3>
         <p>Жмите на значек корзиныи добавляйте товар!</p>
     </div>
@@ -122,6 +135,9 @@ export default {
                 street:"",
                 adress:"",
                 home:"",
+                podezd:"",
+                etazg:"",
+                kvartira:"",
                 comment:"",
             }
         }

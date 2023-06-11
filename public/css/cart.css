@@ -98,6 +98,7 @@
 .bascet_form h2{
     font-size: 22px;
     font-weight: 900;
+    margin: 20px 0;
 }
 
 .bascet_form form input,
@@ -408,17 +409,31 @@
     flex-direction: column;
   }
 
-  .empty_bascet img{
+  .empty_bascet .bascet_icon{
+        margin: 20px auto;
+
+  }
+
+  .empty_bascet .bascet_icon:before{
     width:170px;
     height:170px;
-    margin: 0 auto 20px auto;
-    object-fit: contain;
+    font-size: 170px;
   }
 
   .empty_bascet p,
   .empty_bascet h3{
     margin: 0 auto 0 auto;
   }
+
+  .adr_wrapper_2 {
+        display: flex;
+        justify-content: space-between;
+    }
+
+  .adr_wrapper_2 > input{
+        flex: 1;
+        max-width: 32%;
+   }
 
   .adr_wrapper {
     display: flex;
