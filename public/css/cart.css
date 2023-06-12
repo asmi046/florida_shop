@@ -319,6 +319,10 @@
     display: flex;
 }
 
+.form_btn_wrapper {
+    display: flex;
+}
+
 .btnLoaderCart,
 .btnLoader {
     display: none;
@@ -326,17 +330,22 @@
     height: 16px;
     background-position: center;
     background-repeat: no-repeat;
-    background-image: url(../img/icons/loader_green.svg);
+    background-image: url(../img/icons/loader_white.svg);
+    margin: 10px auto;
 }
 
 .btnLoaderCart {
-    width: 26px;
-    height: 26px;
-    margin-left: 10px;
+    width: 37px;
+    height: 37px;
+    margin: 0 0 0 10px;
     background-position: center;
     background-repeat: no-repeat;
-    background-image: url(../img/icons/loader_green.svg);
+    background-image: url(../img/icons/loader_white.svg);
+    background-size: 60%;
     display: none;
+    background-color: var(--main-color);
+    border-radius: 37px;
+
 }
 .btnLoaderCart.active {
     display: inline-block;

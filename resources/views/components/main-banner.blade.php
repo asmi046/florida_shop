@@ -4,7 +4,7 @@
             <img src="{{asset('img/banner.jpg')}}" alt="">
             <div class="text_blk">
                 <h1>Доставка цветов<br/>в Курске</h1>
-                <p>Быстро и качественно</p>
+                <p>Работаем с 1993 г.</p>
             </div>
         </div>
     </div>
