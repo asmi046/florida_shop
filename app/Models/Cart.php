@@ -34,6 +34,7 @@ class Cart extends Model
                 "session_id" => session()->getId(),
                 "user_id" => 0,
                 "product_sku" => $product_id,
+                "product_id" => $product->id,
                 "quentity" => 1,
                 "price" => $product->price
             ]);
