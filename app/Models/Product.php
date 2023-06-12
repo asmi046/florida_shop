@@ -21,6 +21,7 @@ class Product extends Model
     use Filterable;
 
     public $fillable = [
+        'id',
         'sku',
         'title',
         'slug',

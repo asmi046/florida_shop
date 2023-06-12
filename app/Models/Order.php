@@ -10,6 +10,7 @@ class Order extends Model
     use HasFactory;
 
     public $fillable = [
+        'id',
         'name',
         'email',
         'phone',
