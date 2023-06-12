@@ -137,10 +137,10 @@ class PersifloraApiSevice {
     public function get_customer_id($name, $phone, $email, $notes) {
         $customer_info = $this->get_customers(phone_format($phone));
 
-        if (empty($customer_info))
+        if (empty($customer_info->data))
         {
             $customers_new = $this->create_customer($name, $phone, $email, $notes);
-            return (!empty($customers_new))?$customers_new->data[0]->id:null;
+            return (!empty($customers_new))?$customers_new->data->id:null;
 
         } else {
             return $customer_info->data[0]->id;
