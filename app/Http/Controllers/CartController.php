@@ -69,7 +69,7 @@ class CartController extends Controller
             'user_id' => ($request->user())?$request->user()->id:0,
         ]);
 
-        // $order->orderProducts()->sync(array_column($request->input('tovars'), "id"));
+        $order->orderProducts()->sync(array_column($request->input('tovars'), "id"));
 
         // отправка заказа в Telegram
         $to_text = $to_text->handle($request);
