@@ -6,7 +6,7 @@
     <div  v-show="bascetList.length != 0" class="bascet">
         <div class="bascet_tovar">
             <div class="control">
-                <a @click.prevent="clearBascet()" class="clear_bascet_btn" href="#"><span>Очистить корзину</span></a>
+                <a @click.prevent="clearBascet()" class="clear_bascet_btn pi florida_trash" href="#"><span>Очистить корзину</span></a>
             </div>
 
             <div class="tovar_list">
@@ -248,12 +248,12 @@ export default {
             .then((response) => {
                 this.loadet = false;
                 console.log(response)
-                // if (response.data.pay_info.formUrl !== undefined)
-                //     document.location.href=response.data.pay_info.formUrl
-                // else {
-                //     console.log(response.data.pay_info)
-                //     document.location.href = "/bascet/thencs"
-                // }
+                if (response.data.pay_info.formUrl !== undefined)
+                    document.location.href=response.data.pay_info.formUrl
+                else {
+                    console.log(response.data.pay_info)
+                    document.location.href = "/bascet/thencs"
+                }
             })
             .catch(error => console.log(error));
         },

@@ -153,18 +153,13 @@
 }
 
 .bascet_tovar .control .clear_bascet_btn:before{
-    content: "";
     position: absolute;
     left:-30px;
     top: -4px;
-    background-position: 0 0;
-    background-size: 100%;
-    background-repeat: no-repeat;
+
     width: 21px;
     height: 21px;
-    background-image: url(../img/icons/trash.svg);
-    background-size: cover;
-
+    font-size: 21px;
 }
 
 /* Список товаров */
