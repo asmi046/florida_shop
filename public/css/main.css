@@ -1789,6 +1789,7 @@ height: 30px;
 
     .logo img{
         display: block;
+        height: 40px;
     }
 
     header .messendger_head_blk {
