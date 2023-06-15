@@ -1,7 +1,7 @@
 <header id="header">
     <div class="_wrapper">
         <a class="logo" href="{{route('home')}}">
-            <img src="{{asset('img/logo_main.svg')}}" alt="Florida - Курск">
+            <img src="{{asset('img/logo_main.png')}}" alt="Florida - Курск">
         </a>
 
 
