@@ -1787,6 +1787,10 @@ height: 30px;
         height: 40px;
     }
 
+    .logo img{
+        display: block;
+    }
+
     header .messendger_head_blk {
         display: flex;
     }
