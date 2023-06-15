@@ -1790,6 +1790,7 @@ height: 30px;
     .logo img{
         display: block;
         height: 40px;
+        object-fit: contain;
     }
 
     header .messendger_head_blk {
