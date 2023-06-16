@@ -47,6 +47,8 @@ Route::get('/blog/{slug}', [BlogController::class, "show_page"])->name('blog_pag
 Route::get('/reviews', [ReviewsController::class, "show"])->name('reviews');
 
 Route::get('/policy', [EasyPageController::class, "show_policy"])->name('policy');
+Route::get('/bonus_system', [EasyPageController::class, "show_bonus_system"])->name('bonus_system');
+Route::get('/about', [EasyPageController::class, "show_about"])->name('about');
 
 Route::get('/thencs', [SenderController::class, "show_thencs"])->name('thencs');
 Route::post('/send_consult', [SenderController::class, "send_consultation"])->name('send_consultation');

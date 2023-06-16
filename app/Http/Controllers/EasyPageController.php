@@ -13,4 +13,12 @@ class EasyPageController extends Controller
     public function show_policy() {
         return view('policy');
     }
+
+    public function show_bonus_system() {
+        return view('bonus-system');
+    }
+
+    public function show_about() {
+        return view('about');
+    }
 }

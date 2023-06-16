@@ -8,7 +8,7 @@
 
                 {!!$options['main_text']!!}
 
-                <a class="btn read_more btn_icon_after" href="#">Читать далее</a>
+                <a class="btn read_more btn_icon_after" href="{{route('about')}}">Читать далее</a>
             </div>
     </div>
 </section>
