@@ -72,33 +72,23 @@
 
 
 .bottom_menu_icon_catalog:before {
-    content: "";
-    background-image: url(../img/icons/menu-burger-green.svg);
 }
 
 .bottom_menu_icon_bascet:before {
-    content: "";
-    background-image: url(../img/icons/cart.svg);
 }
 
 .bottom_menu_icon_favorites:before {
-    content: "";
-    background-image: url(../img/icons/like_green.svg);
 }
 
 .bottom_menu_icon_home:before {
-    content: "";
-    background-image: url(../img/icons/home.svg);
 }
 
 .bottom_menu_icon_phone:before {
-    content: "";
-    background-image: url(../img/icons/phone.svg);
-    background-size: 88%!important;
+
 }
 
 .mobile_bottom_menu .bm_btn .icon::before{
-    content: "";
+
     width: 25px;
     height: 25px;
     background-size: contain;

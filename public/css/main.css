@@ -580,6 +580,15 @@ header .messendger_head_blk {
     position: relative;
 }
 
+.banner_wrapper .white_shadow{
+    position:absolute;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to right,#FFFFFFA1,#FFFFFF00);
+    z-index: 21;
+    height: 100%;
+}
+
 .banner_wrapper img {
     z-index: 11;
 }
@@ -1265,8 +1274,8 @@ textarea {
 }
 
 .btn_empty:hover {
-    background-color: #448048;
-    border: 1px solid #448048;
+    background-color: var(--main-hover-color);
+    border: 1px solid var(--main-hover-color);
     color: white;
 }
 

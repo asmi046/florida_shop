@@ -1,12 +1,12 @@
 <section id="main_advantages">
         <div class="_wrapper">
             <div class="advantahes_wrapper">
-                <a href="http://127.0.0.1:8000/#showModal" class="adv_blk">
+                <a href="{{route('bonus_system')}}" class="adv_blk">
                     <div class="img_wrapp">
                         <img src="{{asset('img/advantages/sale-5.jpg')}}" alt="">
                     </div>
                     <div class="adv_description">
-                        Скидка 5% <br/>на первый заказ
+                        Прогрессивная <br/>система скидок
                     </div>
                 </a>
 
@@ -15,7 +15,7 @@
                         <img src="{{asset('img/advantages/podbor_0.jpg')}}" alt="">
                     </div>
                     <div class="adv_description">
-                        Помощь в<br/>подборе букета
+                        Работаем<br/>с 1993 года
                     </div>
                 </a>
 

@@ -88,7 +88,7 @@ class CartController extends Controller
 
         // отправка заказа на почту
 
-        Mail::to(["asmi046@gmail.com","lisa-fon@mail.ru", "danilarepev@yandex.ru"])->send(new BascetSend($request));
+        Mail::to(explode(",",config('mailadresat.adresats')))->send(new BascetSend($request));
 
         // Генерация заказа в сбере
         $resSber = $sber->registerOrder($request->input('amount'), $order->id, route("bascet_thencs"));

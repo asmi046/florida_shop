@@ -244,6 +244,9 @@ export default {
                 amount: parseFloat(this.subtotal) + parseFloat(this.deliveryPrice),
                 count: this.count,
                 delivery: this.bascetInfo.street+" "+this.bascetInfo.home,
+                podezd:this.bascetInfo.podezd,
+                etazg:this.bascetInfo.etazg,
+                kvartira:this.bascetInfo.kvartira,
             })
             .then((response) => {
                 this.loadet = false;

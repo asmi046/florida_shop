@@ -20,7 +20,7 @@ class SenderController extends Controller
         $tmp = $tgsender->handle("<b>Консультация флориста</b>\n\rИмя: ".$data['name']."\n\rТелефон: ".$data['phone']);
 
 
-        Mail::to("asmi046@gmail.com")->send(new ConsultMail($data));
+        Mail::to(explode(",",config('mailadresat.adresats')))->send(new ConsultMail($data));
 
         return ["Сообщение отправлено"];
     }
