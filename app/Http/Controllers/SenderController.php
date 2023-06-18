@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use Illuminate\Support\Facades\Mail;
 use App\Mail\ReviewMail;
+use App\Mail\ConsultMail;
 use App\Actions\TelegramSendAction;
 
 class SenderController extends Controller
