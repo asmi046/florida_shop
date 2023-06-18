@@ -73,11 +73,17 @@
         <div class="bascet_form">
 
             <form action="GET">
-                <h2>Контактные данные</h2>
+                <h2>Заказчик</h2>
 
                 <input v-model="bascetInfo.fio" name="fio" type="text" placeholder="Фамилия, Имя*">
                 <input v-model="bascetInfo.email" name="email" type="email" placeholder="e-mail">
                 <input v-model="bascetInfo.phone" v-mask="{mask: '+N (NNN) NNN-NN-NN', model: 'cpf' }" name="phone" type="text" placeholder="Телефон*">
+
+                <h2>Получатель</h2>
+
+                <input v-model="bascetInfo.polname" name="polname" type="text" placeholder="Имя получателя">
+
+                <input v-model="bascetInfo.polphone" v-mask="{mask: '+N (NNN) NNN-NN-NN', model: 'cpf' }" name="polphone" type="text" placeholder="Телефон*">
 
                 <h2>Адрес достаки</h2>
 
@@ -133,15 +139,17 @@ export default {
             errorList:[],
             cityFindetList:[ ],
             bascetInfo:{
-                fio:"",
+                fio:"Тест",
                 email:"",
-                phone:"",
-                street:"",
+                phone:"+79036330801",
+                street:"Олимпийская",
                 adress:"",
-                home:"",
-                podezd:"",
-                etazg:"",
-                kvartira:"",
+                home:"29",
+                podezd:"1",
+                etazg:"2",
+                kvartira:"3",
+                polname:"Тестовый получатель",
+                polphone:"+79600000000",
                 comment:"",
             }
         }
@@ -244,19 +252,23 @@ export default {
                 amount: parseFloat(this.subtotal) + parseFloat(this.deliveryPrice),
                 count: this.count,
                 delivery: this.bascetInfo.street+" "+this.bascetInfo.home,
+                street:this.bascetInfo.street,
+                home:this.bascetInfo.home,
                 podezd:this.bascetInfo.podezd,
                 etazg:this.bascetInfo.etazg,
                 kvartira:this.bascetInfo.kvartira,
+                polname:this.bascetInfo.polname,
+                polphone:this.bascetInfo.polphone,
             })
             .then((response) => {
                 this.loadet = false;
                 console.log(response)
-                if (response.data.pay_info.formUrl !== undefined)
-                    document.location.href=response.data.pay_info.formUrl
-                else {
-                    console.log(response.data.pay_info)
-                    document.location.href = "/bascet/thencs"
-                }
+                // if (response.data.pay_info.formUrl !== undefined)
+                //     document.location.href=response.data.pay_info.formUrl
+                // else {
+                //     console.log(response.data.pay_info)
+                //     document.location.href = "/bascet/thencs"
+                // }
             })
             .catch(error => console.log(error));
         },

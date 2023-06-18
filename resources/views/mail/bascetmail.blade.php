@@ -2,7 +2,18 @@
 <p><strong>Имя:</strong> {{$formData['fio']}}</p>
 <p><strong>Телефон:</strong> {{$formData['phone']}}</p>
 <p><strong>E-mail:</strong> {{$formData['email']}}</p>
+
+<h2>Получатель</h2>
+<p><strong>Имя получателя:</strong> {{$formData['polname']}}</p>
+<p><strong>Телефон получателя:</strong> {{$formData['polphone']}}</p>
+
+<h2>Адрес доставки</h2>
 <p><strong>Адрес:</strong> {{$formData['adress_fk']}}</p>
+<p><strong>Подъезд:</strong> {{$formData['podezd']}}</p>
+<p><strong>Этаж:</strong> {{$formData['etazg']}}</p>
+<p><strong>Квартира:</strong> {{$formData['kvartira']}}</p>
+
+
 <p><strong>Комментарий:</strong> {{$formData['comment']}}</p>
 <table style="width:100%; border-top:1px solid black; border-left:1px solid black; border-spacing: 0;">
     <thead style="text-align:left;">
@@ -29,5 +40,5 @@
     </tbody>
 </table>
 
-<h2>Итого {{$formData['count']}} товар(ов) на сумму {{$formData['amount']}} </h2>
+<h2>Итого {{$formData['count']}} товар(ов) на сумму {{$formData['amount']}} ₽</h2>
 <hr/>

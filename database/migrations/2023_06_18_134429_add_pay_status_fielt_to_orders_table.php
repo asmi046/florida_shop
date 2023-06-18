@@ -14,7 +14,8 @@ return new class extends Migration
     public function up()
     {
         Schema::table('orders', function (Blueprint $table) {
-            $table->string('pay_order')->nullable()->comment("id оплаты СБЕР");
+            $table->integer('pay_status')->nullable()->comment("Статус оплаты СБЕР");
+            $table->string('pay_status_text')->nullable()->comment("Статус оплаты СБЕР Комеентарий");
         });
     }
 

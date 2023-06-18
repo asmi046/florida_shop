@@ -3,6 +3,8 @@ namespace App\Services;
 
 use App\Http\Requests\BascetForm;
 
+use App\Actions\BascetBodyToTextAction;
+
 class PersifloraApiSevice {
 
     public $accessToken = "";
@@ -57,25 +59,36 @@ class PersifloraApiSevice {
     }
 
     public function create_order(BascetForm $request, $customer_id) {
+
+        $to_text = new BascetBodyToTextAction();
+
+        $zak_text = $to_text->handle($request);
+
+        $zak_text .= "\n\rКомментарий к заказу:\n\r";
+
+        $zak_text .= $request->input('comment');
+
+        $zak_text = str_replace("\n\r", "<br>", $zak_text);
+
         $payload = [
             "data"=> [
                 "attributes" => [
-                    "budget" => 0,
+                    "budget" => $request->input('amount'),
                     "byBonuses" => false,
                     "date" => date("Y-m-d"),
                     "delivery" => true,
-                    "deliveryApartment" => "",
-                    "deliveryBuilding" => "",
-                    "deliveryCity" => "",
+                    "deliveryApartment" => $request->input('kvartira'),
+                    "deliveryBuilding" => $request->input('podezd'),
+                    "deliveryCity" => "Курск",
                     "deliveryComments" => "",
-                    "deliveryContact" => "",
-                    "deliveryHouse" => "",
-                    "deliveryPhoneCode" => "",
-                    "deliveryPhoneNumber" => "",
-                    "deliveryStreet" => "",
+                    "deliveryContact" => $request->input('polname'),
+                    "deliveryHouse" => $request->input('home'),
+                    "deliveryPhoneCode" => "7",
+                    "deliveryPhoneNumber" => phone_format( $request->input("polphone") ),
+                    "deliveryStreet" => $request->input('street'),
                     "deliveryTimeFrom" => null,
                     "deliveryTimeTo" => null,
-                    "description" => $request->input('comment'),
+                    "description" => $zak_text,
                     "dueTime" => null,
                     "fiscal" => false,
                     "status" => "new",

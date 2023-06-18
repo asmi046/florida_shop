@@ -20,6 +20,14 @@ class Order extends Model
         'user_id',
     ];
 
+    public static function update_order_status($orderId, $payId , $orderStatus, $orderStatusText) {
+        $element = self::where(["id" => $orderId])->first();
+        $element->pay_order = $payId;
+        $element->pay_status = $orderStatus;
+        $element->pay_status_text = $orderStatusText;
+        $element->save();
+    }
+
     public function orderProducts() {
         return $this->belongsToMany(Product::class);
     }

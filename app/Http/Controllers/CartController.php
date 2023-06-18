@@ -98,7 +98,23 @@ class CartController extends Controller
         return ['pay_info' => $resSber, "persi" => $tmp];
     }
 
-    public function thencs() {
+    public function thencs(Request $request, SberApiServices $sber, TelegramSendAction $tgsender) {
+        $orderId = $request->input("orderId");
+        if (!empty($orderId)) {
+            $orderInfo = $sber->getOrderStatus($orderId);
+
+            if (isset($orderInfo["orderStatus"]))
+            {
+                $orderStatusText = ($orderInfo["orderStatus"] == 2)?"Оплачен":"Не оплачен";
+                Order::update_order_status($orderInfo["orderNumber"], $orderId, $orderInfo["orderStatus"], $orderStatusText);
+
+                $pay_text = "<b>Заказ #".$orderInfo["orderNumber"]." ".$orderStatusText." </b>\n\r";
+                $pay_text .= "<b>ID Сбера: </b>".$orderId."\n\r";
+                $pay_text .= "<b>Сумма: </b>".(floatval($orderInfo["amount"])/100)." ₽\n\r";
+                $tgsender->handle($pay_text);
+            }
+        }
+
         return view("thencscart");
     }
 }
