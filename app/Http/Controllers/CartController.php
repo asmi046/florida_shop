@@ -91,7 +91,12 @@ class CartController extends Controller
         Mail::to(explode(",",config('mailadresat.adresats')))->send(new BascetSend($request));
 
         // Генерация заказа в сбере
-        $resSber = $sber->registerOrder($request->input('amount'), $order->id, route("bascet_thencs"));
+        $sber_order_number = date("d")."-".date("m")."-".$order->id;
+
+        $resSber = $sber->registerOrder($request->input('amount'), $sber_order_number, route("bascet_thencs"));
+
+        if (!empty($resSber) && isset($resSber["orderId"]))
+            Order::update_order_pay_id($order->id, $resSber["orderId"]);
 
         Cart::cart_clear();
 
@@ -106,7 +111,7 @@ class CartController extends Controller
             if (isset($orderInfo["orderStatus"]))
             {
                 $orderStatusText = ($orderInfo["orderStatus"] == 2)?"Оплачен":"Не оплачен";
-                Order::update_order_status($orderInfo["orderNumber"], $orderId, $orderInfo["orderStatus"], $orderStatusText);
+                Order::update_order_status($orderId, $orderInfo["orderStatus"], $orderStatusText);
 
                 $pay_text = "<b>Заказ #".$orderInfo["orderNumber"]." ".$orderStatusText." </b>\n\r";
                 $pay_text .= "<b>ID Сбера: </b>".$orderId."\n\r";
