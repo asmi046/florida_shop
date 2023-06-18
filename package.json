@@ -15,7 +15,7 @@
         "migrate_rep": "ssh danila1s_asmi@danila1s.beget.tech \"cd florida46.ru/public_html && php8.1 artisan migrate\"",
         "rollback_rep": "ssh danila1s_asmi@danila1s.beget.tech \"cd florida46.ru/public_html && php8.1 artisan migrate:rollback\"",
         "seed_rep": "ssh danila1s_asmi@danila1s.beget.tech \"cd florida46.ru/public_html && php8.1 artisan DB:seed\"",
-        "seed_rep_one": "ssh danila1s_asmi@danila1s.beget.tech \"cd florida46.ru/public_html && php8.1 artisan DB:seed BrandSeeder\"",
+        "seed_rep_one": "ssh danila1s_asmi@danila1s.beget.tech \"cd florida46.ru/public_html && php8.1 artisan DB:seed AboutAndBonusSeeder\"",
         "db_update": "npm run rollback_rep && npm run migrate_rep && npm run seed_rep",
         "db_update_total": "ssh danila1s_asmi@danila1s.beget.tech \"cd florida46.ru/public_html && php8.1 artisan migrate:refresh --seed\"",
         "optimized_rep": "ssh danila1s_asmi@danila1s.beget.tech \"cd florida46.ru/public_html && php8.1 composer.phar update --optimize-autoloader --no-dev\"",

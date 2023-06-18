@@ -22,6 +22,7 @@ class EasyPageController extends Controller
     }
 
     public function show_about() {
-        return view('about');
+        $sales_liders = Product::select()->orderBy('sales_count')->take(8)->get();
+        return view('about', ['sales_liders' => $sales_liders]);
     }
 }
