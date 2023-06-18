@@ -10,7 +10,7 @@
                     </div>
                 </a>
 
-                <a href="#showModal1" class="adv_blk">
+                <a href="#showModal" class="adv_blk">
                     <div class="img_wrapp">
                         <img src="{{asset('img/advantages/podbor_0.jpg')}}" alt="">
                     </div>

@@ -3,7 +3,7 @@
 
         <div class="rew_head">
             <h2>Отзывы покупателей</h2>
-            <a class="btn btn_empty" href="">Оставить отзыв</a>
+            <a class="btn btn_empty" href="#showModalRewiew">Оставить отзыв</a>
         </div>
 
         <div class="swiper_obj">

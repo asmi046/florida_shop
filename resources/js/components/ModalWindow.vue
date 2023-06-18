@@ -11,6 +11,10 @@
                 <div class="error_list_wrap">
                     <div v-for="(item, index) in errorList" :key="index" class="error">{{item}}</div>
                 </div>
+
+
+                <textarea v-if="showarea == 'true'" v-model="review" name="rewiew" placeholder="Ваш отзыв" rows="5"></textarea>
+
                 <p class="policy_descr">Заполняя данную форму и отправляя заявку вы соглашаетесь с <a href="#">политикой конфиденциальности</a></p>
                 <div class="control_wrap">
                     <button class="btn" @click.prevent="sendMsg()">Отправить</button> <div v-show="showLoader" class="loader"></div>
@@ -27,6 +31,7 @@ export default {
         return {
             name:"",
             phone:"",
+            review:"",
             showModal:false,
             showLoader:false,
             errorList:[],
@@ -34,7 +39,7 @@ export default {
         }
     },
 
-    props: ['rout', 'redirect', 'hesh', 'title', 'subtitle'],
+    props: ['rout', 'redirect', 'hesh', 'title', 'subtitle', 'showarea'],
 
     methods:{
         closeWin() {
@@ -62,6 +67,7 @@ export default {
                 _token: this._token,
                 name: this.name,
                 phone: this.phone,
+                review: this.review,
 
             })
             .then((response) => {
@@ -125,6 +131,8 @@ export default {
 
     .policy_descr,
     .sending_form button,
+
+    .sending_form textarea,
     .sending_form input{
         margin: 0 0 20px 0;
     }
@@ -165,10 +173,13 @@ export default {
         width:37px;
         height: 37px;
         margin-left: 10px;
-        background-image: url("data:image/svg+xml,%3Csvg version='1.1' id='L2' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' viewBox='0 0 100 100' enable-background='new 0 0 100 100' xml:space='preserve'%3E%3Ccircle fill='none' stroke='%23839F60' stroke-width='4' stroke-miterlimit='10' cx='50' cy='50' r='48'/%3E%3Cline fill='none' stroke-linecap='round' stroke='%232A7D5A' stroke-width='4' stroke-miterlimit='10' x1='50' y1='50' x2='85' y2='50.5'%3E%3CanimateTransform attributeName='transform' dur='2s' type='rotate' from='0 50 50' to='360 50 50' repeatCount='indefinite' /%3E%3C/line%3E%3Cline fill='none' stroke-linecap='round' stroke='%23839F60' stroke-width='4' stroke-miterlimit='10' x1='50' y1='50' x2='49.5' y2='74'%3E%3CanimateTransform attributeName='transform' dur='15s' type='rotate' from='0 50 50' to='360 50 50' repeatCount='indefinite' /%3E%3C/line%3E%3C/svg%3E");
-        background-size: cover;
+        background-image: url("data:image/svg+xml;base64,PHN2ZyB2ZXJzaW9uPSIxLjEiIGlkPSJMMiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeD0iMHB4IiB5PSIwcHgiDQogIHZpZXdCb3g9IjAgMCAxMDAgMTAwIiBlbmFibGUtYmFja2dyb3VuZD0ibmV3IDAgMCAxMDAgMTAwIiB4bWw6c3BhY2U9InByZXNlcnZlIj4NCjxjaXJjbGUgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjQiIHN0cm9rZS1taXRlcmxpbWl0PSIxMCIgY3g9IjUwIiBjeT0iNTAiIHI9IjQ4Ii8+DQo8bGluZSBmaWxsPSJub25lIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZT0iI2ZmZiIgc3Ryb2tlLXdpZHRoPSI0IiBzdHJva2UtbWl0ZXJsaW1pdD0iMTAiIHgxPSI1MCIgeTE9IjUwIiB4Mj0iODUiIHkyPSI1MC41Ij4NCiAgPGFuaW1hdGVUcmFuc2Zvcm0NCiAgICAgICBhdHRyaWJ1dGVOYW1lPSJ0cmFuc2Zvcm0iDQogICAgICAgZHVyPSIycyINCiAgICAgICB0eXBlPSJyb3RhdGUiDQogICAgICAgZnJvbT0iMCA1MCA1MCINCiAgICAgICB0bz0iMzYwIDUwIDUwIg0KICAgICAgIHJlcGVhdENvdW50PSJpbmRlZmluaXRlIiAvPg0KPC9saW5lPg0KPGxpbmUgZmlsbD0ibm9uZSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2U9IiNmZmYiIHN0cm9rZS13aWR0aD0iNCIgc3Ryb2tlLW1pdGVybGltaXQ9IjEwIiB4MT0iNTAiIHkxPSI1MCIgeDI9IjQ5LjUiIHkyPSI3NCI+DQogIDxhbmltYXRlVHJhbnNmb3JtDQogICAgICAgYXR0cmlidXRlTmFtZT0idHJhbnNmb3JtIg0KICAgICAgIGR1cj0iMTVzIg0KICAgICAgIHR5cGU9InJvdGF0ZSINCiAgICAgICBmcm9tPSIwIDUwIDUwIg0KICAgICAgIHRvPSIzNjAgNTAgNTAiDQogICAgICAgcmVwZWF0Q291bnQ9ImluZGVmaW5pdGUiIC8+DQo8L2xpbmU+DQo8L3N2Zz4NCg==");
+        background-size: 60%;
         background-position: center;
         background-repeat: no-repeat;
+        background-color: var(--main-color);
+        border-radius: 40px;
+
     }
 
     .error_list_wrap {

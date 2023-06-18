@@ -52,6 +52,7 @@ Route::get('/about', [EasyPageController::class, "show_about"])->name('about');
 
 Route::get('/thencs', [SenderController::class, "show_thencs"])->name('thencs');
 Route::post('/send_consult', [SenderController::class, "send_consultation"])->name('send_consultation');
+Route::post('/send_review', [SenderController::class, "send_review"])->name('send_review');
 
 Route::get('/bascet/thencs', [CartController::class, "thencs"])->name("bascet_thencs");
 Route::get('/bascet', [CartController::class, "index"])->name("bascet");
