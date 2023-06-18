@@ -91,7 +91,7 @@ class CartController extends Controller
         Mail::to(explode(",",config('mailadresat.adresats')))->send(new BascetSend($request));
 
         // Генерация заказа в сбере
-        $sber_order_number = date("d")."-".date("m")."-".$order->id;
+        $sber_order_number = date("d")."-".date("m")."№".$order->id;
 
         $resSber = $sber->registerOrder($request->input('amount'), $sber_order_number, route("bascet_thencs"));
 
