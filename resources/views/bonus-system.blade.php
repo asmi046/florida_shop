@@ -16,8 +16,8 @@
         <h1 class="h1_page">{{$title}}</h1>
         <div class="text_blk">
 
-            @if (isset($options['policy']))
-                {!! $options['policy'] !!}
+            @if (isset($options['bonus-system']))
+                {!! $options['bonus-system'] !!}
             @else
                 <h2>Раздел в разработке информация скоро появится...</h2>
             @endif
@@ -25,5 +25,13 @@
         </div>
     </div>
 </section>
+
+
+<x-advantages></x-advantages>
+
+<x-hit-slider :salesliders="$sales_liders"></x-hit-slider>
+
+<map-in-page></map-in-page>
+
 
 @endsection

@@ -26,4 +26,11 @@
     </div>
 </section>
 
+
+<x-advantages></x-advantages>
+
+<x-hit-slider :salesliders="$sales_liders"></x-hit-slider>
+
+<map-in-page></map-in-page>
+
 @endsection
