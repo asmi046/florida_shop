@@ -1,8 +1,8 @@
 @extends('layouts.all')
 
 @php
-    $title = $cat_info->title;
-    $description = $title."Цветы с доставкой по Курску откомпании Florida";
+    $title = "Акции и скики нашего магазина";
+    $description = "Акции и скики нашего магазина, мы предлагаем самые выгодные цены на букеты в Курске";
 @endphp
 
 @section('title', $title)

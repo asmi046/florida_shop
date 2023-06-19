@@ -1,8 +1,8 @@
 @extends('layouts.all')
 
 @php
-    $title = "Новинки нашего магазина";
-    $description = "Новинки нашего магазина, самые свежие букеты от наших флористов.";
+    $title = $cat_info->title;
+    $description = $title."Цветы с доставкой по Курску откомпании Florida";
 @endphp
 
 @section('title', $title)

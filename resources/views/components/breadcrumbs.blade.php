@@ -2,7 +2,10 @@
     <div class="_container">
         <div class="breadcrumbs">
             <a href="{{route('home')}}">Главная</a>
-            @if (Request::route()->named('category'))
+            @if ((Request::route()->named('category'))||(Request::route()->named('actions'))||(Request::route()->named('hits'))
+            ||(Request::route()->named('new_tovar'))
+            ||(Request::route()->named('celebration'))
+            )
                 <span class="sep"> / </span> <span class="finish">{{$category['title']}}</span>
             @endif
 

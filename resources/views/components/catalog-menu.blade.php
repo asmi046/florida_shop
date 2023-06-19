@@ -19,7 +19,7 @@
                 <h3>Праздник</h3>
                 <ul>
                     @foreach ($celebrations as $celebration)
-                        <li><a href="{{route('category', $celebration->slug)}}">{{$celebration->title}}</a></li>
+                        <li><a href="{{route('celebration', $celebration->slug)}}">{{$celebration->title}}</a></li>
                     @endforeach
 
                 </ul>

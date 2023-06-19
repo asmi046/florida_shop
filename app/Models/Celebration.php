@@ -26,4 +26,8 @@ class Celebration extends Model
         else
             $this->attributes['slug'] =  $value;
     }
+
+    public function celebration_tovars() {
+        return $this->belongsToMany(Product::class);
+    }
 }
