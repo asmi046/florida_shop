@@ -7,6 +7,7 @@ use Orchid\Screen\Screen;
 use App\Models\Product;
 use App\Models\Category;
 use App\Models\ProductImage;
+use App\Models\Celebration;
 
 use Orchid\Support\Facades\Layout;
 use Orchid\Screen\Fields\Input;
@@ -35,16 +36,19 @@ class ProductEditScreen extends Screen
 
      public $product;
      public $product_cat;
+     public $product_cel;
      public $product_img;
 
     public function query($id): iterable
     {
         $product = Product::where('id',$id)->first();
         $cat = $product->tovar_categories;
+        $cel = $product->tovar_celebration;
         $img = $product->product_images;
         return [
             "product" => $product,
             "product_cat"=> $cat,
+            "product_cel"=> $cel,
             "product_img" => $img
         ];
     }
@@ -164,6 +168,13 @@ class ProductEditScreen extends Screen
                     ->multiple()
                     ->help('Выберите категорию'),
 
+                Relation::make('сelebration.')
+                    ->fromModel(Celebration::class, 'title', 'id')
+                    ->title('Праздники')
+                    ->value($this->product_cel)
+                    ->multiple()
+                    ->help('Выберите праздник'),
+
 
                 Quill::make('description')->title('Описание')->value($this->product->description),
 
@@ -257,6 +268,7 @@ class ProductEditScreen extends Screen
         ]);
 
         $product->tovar_categories()->sync($request->get("category"));
+        $product->tovar_celebration()->sync($request->get("сelebration"));
 
         Product::where('id', $product->id)->update($new_data);
         Toast::info("Продукт сохранен");

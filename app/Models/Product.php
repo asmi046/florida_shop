@@ -66,7 +66,10 @@ class Product extends Model
     }
 
     public function tovar_categories() {
-        // return  $this->hasOne(Category::class, "title", "category");
         return $this->belongsToMany(Category::class);
+    }
+
+    public function tovar_celebration() {
+        return $this->belongsToMany(Celebration::class);
     }
 }
