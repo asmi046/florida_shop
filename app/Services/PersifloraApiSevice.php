@@ -52,6 +52,12 @@ class PersifloraApiSevice {
         return $result->data->attributes->accessToken;
     }
 
+    public function get_bonus_group($id = "") {
+        $result = $this->do_query('/api/v1/bonus-groups/'.$id, 'GET', null, true);
+        return $result;
+    }
+
+
     public function get_customers($phone = "") {
         $search = (!empty($phone))?"?search=".$phone:"";
         $result = $this->do_query('/api/v1/customers'.$search, 'GET', null, true);

@@ -78,6 +78,7 @@ Route::get('/payinfo', [PayController::class, 'show_payinfo'])->name('show_payin
 Route::middleware('auth')->group(function () {
     Route::get('/cabinet', [CabinetController::class, "show_cabinet_main"])->name("cabinet.home");
     Route::get('/cabinet/orders', [CabinetController::class, "show_cabinet_orders"])->name("cabinet.orders");
+    Route::get('/cabinet/bonuses', [CabinetController::class, "show_cabinet_bonuses"])->name("cabinet.bonuses");
 
     Route::get('/logout', [AuthController::class, "logout"])->name("logout");
     Route::post('/save_user', [AuthController::class, "save_user_data"])->name("save_user_data");

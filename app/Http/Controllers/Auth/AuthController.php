@@ -10,6 +10,8 @@ use App\Models\User;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\PassRecMail;
 
+use App\Services\PersifloraApiSevice;
+
 class AuthController extends Controller
 {
     public function show_login_form() {
@@ -75,7 +77,7 @@ class AuthController extends Controller
         return redirect(route('cabinet.home'));
     }
 
-    public function register(Request $request) {
+    public function register(Request $request, PersifloraApiSevice $persi) {
         $user_data = $request->validate([
             'name' => ['required', 'string'],
             'phone' => ['required', 'string'],
@@ -91,6 +93,13 @@ class AuthController extends Controller
                 'password' => bcrypt($user_data['password']),
             ]
         );
+
+        $token = $persi->create_session();
+        $customer_id = $persi->get_customer_id(
+            $user_data['name'],
+            $user_data['phone'],
+            $user_data['email'],
+            "Клиент создан при регистрации на сайте");
 
         if ($user) {
             auth('web')->login($user);

@@ -457,6 +457,24 @@
     display: inline-block;
   }
 
+  .bonus_sus_wrapper h2{
+    color: white;
+    font-size: 28px;
+    margin-bottom: 0;
+    line-height: 1.4;
+    font-weight: normal;
+  }
+
+  .bonus_sus_wrapper {
+    width:100%;
+    max-width: 320px;
+    min-height: 100px;
+    border-radius: 20px;
+    margin: 20px 0;
+    padding: 20px 30px;
+    background-color: var(--main-color);
+  }
+
 @media (max-width: 768px) {
     .bascet {
         flex-direction: column;

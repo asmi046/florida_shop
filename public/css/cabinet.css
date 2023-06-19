@@ -24,7 +24,7 @@
 }
 
 .cabinet_control_panel a.active{
-    background-color: #F18614;
+    background-color: var(--main-color);
     color:white;
 
 }
@@ -39,7 +39,7 @@
 .cabinet_control_panel a:before{
     content: "";
     position:relative;
-    color:#2A7D5A;
+    color:var(--main-color);
     position: absolute;
     left:20px;
 }
@@ -54,6 +54,10 @@
 
 .cabinet_control_panel a.cabinet_orders_btn::before{
     content: "\2752";
+}
+
+.cabinet_control_panel a.cabinet_bonuses_btn::before{
+    content: "\2714";
 }
 
 .cabinet_control_panel a.cabinet_exit_btn {
