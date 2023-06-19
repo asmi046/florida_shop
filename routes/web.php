@@ -20,6 +20,10 @@ use App\Http\Controllers\BlogController;
 use App\Http\Controllers\ReviewsController;
 use App\Http\Controllers\PayController;
 
+use App\Http\Controllers\ActionsController;
+use App\Http\Controllers\HitController;
+use App\Http\Controllers\NewTovarController;
+
 use App\Http\Controllers\TestController;
 
 /*
@@ -45,6 +49,10 @@ Route::get('/zones', [ContactsController::class, "show_zones"])->name('zones');
 Route::get('/blog', [BlogController::class, "show"])->name('blog');
 Route::get('/blog/{slug}', [BlogController::class, "show_page"])->name('blog_page');
 Route::get('/reviews', [ReviewsController::class, "show"])->name('reviews');
+
+Route::get('/actions', [ActionsController::class, "index"])->name('actions');
+Route::get('/hits', [HitController::class, "index"])->name('hits');
+Route::get('/new_tovar', [NewTovarController::class, "index"])->name('new_tovar');
 
 Route::get('/policy', [EasyPageController::class, "show_policy"])->name('policy');
 Route::get('/bonus_system', [EasyPageController::class, "show_bonus_system"])->name('bonus_system');

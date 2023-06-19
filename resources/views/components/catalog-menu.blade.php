@@ -28,9 +28,9 @@
             <div class="cat_razdel">
                 <h3>Особенности</h3>
                 <ul>
-                    <li><a href="#">Хит продаж</a></li>
-                    <li><a href="#">Новинка</a></li>
-                    <li><a href="#">Скидки</a></li>
+                    <li><a href="{{route('hits')}}">Хит продаж</a></li>
+                    <li><a href="{{route('new_tovar')}}">Новинка</a></li>
+                    <li><a href="{{route('actions')}}">Скидки</a></li>
                 </ul>
             </div>
         </div>
