@@ -19,13 +19,7 @@ function init () {
                                     balloonContent: '<div class="map-hint"><b>Магазин цветов Florida</b> <br/> г. Курск, пр. Победы, 14</div>',
                                     }
                                     ,{
-                                        iconLayout: 'default#image',
-                    // Путь до нашей картинки
-                    iconImageHref: '/img/icons/map-pin-fill.svg',
-                    // Размеры иконки
-                    iconImageSize: [62, 60],
-                    // Смещение верхнего угла относительно основания иконки
-                    iconImageOffset: [-31, -45]
+                                    color:'#3171a5'
                 });
 
     var clusterer = new ymaps.Clusterer({
