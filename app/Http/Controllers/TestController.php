@@ -9,6 +9,7 @@ class TestController extends Controller
 {
     public function index(Request $request, PersifloraApiSevice $persiflora) {
 
+        dd(date("Y-m-d\\TH:i:sP", strtotime("2023-07-06 12:25")));
         $token = $persiflora->create_session();
 
         $customers = $persiflora->get_customers("9534409900");

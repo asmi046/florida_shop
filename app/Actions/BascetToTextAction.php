@@ -22,6 +22,10 @@ class BascetToTextAction {
         $rez_text .= "<strong>Квартира:</strong> ".$request->input("kvartira")."\n\r";
         $rez_text .= "<strong>Комментарий:</strong> ".$request->input("comment")."\n\r";
 
+        $rez_text .= "\n\r\n\r<b>Время доставки</b>\n\r\n\r";
+        $rez_text .= "<strong>Дата доставки:</strong> ".$request->input("data")."\n\r";
+        $rez_text .= "<strong>Время доставки:</strong> ".$request->input("time")."\n\r";
+
         $rez_text .= "\n\r\n\r<b>Состав заказа</b>\n\r\n\r";
 
         foreach ($request->input('tovars') as $item) {

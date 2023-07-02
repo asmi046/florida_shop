@@ -29,7 +29,7 @@
     </a>
 
     <div class="quik_pricing_btn_wpap">
-        <a href="#showModal" class="btn btn_white">Написать в WhatsApp</a>
+        <a href="https://wa.me/{{str_replace(array('-', ' ', '(' , ')'), '', $options['phone'])}}" target="_blank" class="btn btn_whatsapp">Написать в WhatsApp</a>
         <a href="" class="btn btn_white">Быстрый заказ</a>
     </div>
 </div>
@@ -64,5 +64,11 @@
         {!! $product['description'] !!}
 
     </div>
+</div>
 
+<div class="ahtung">
+    <h2>Внимание <span>🛈</span></h2>
+    <p>
+        Упаковка букета может быть изменена, при этом стилистика и цветовая гамма останутся неизменными.
+    </p>
 </div>

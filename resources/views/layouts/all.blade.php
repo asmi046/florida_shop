@@ -53,6 +53,8 @@
     <noscript><div><img src="https://mc.yandex.ru/watch/94073132" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
     <!-- /Yandex.Metrika counter -->
 
+    <script src="//code.jivo.ru/widget/Ao9F1DsJ2t" async></script>
+
     @vite([
         'resources/css/app.css',
         'public/fonts/icons/style.css',

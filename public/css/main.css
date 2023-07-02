@@ -1256,6 +1256,17 @@ textarea {
     border-color:var(--main-hover-color);
 }
 
+.btn_whatsapp:hover {
+    background-color: #128c7e;
+    border-color: #128c7e;
+}
+
+.btn_whatsapp {
+    background-color: #25d366;
+    border-color: #25d366;
+    color: white
+}
+
 .btn_white {
     background-color: white;
     color: var(--main-color);

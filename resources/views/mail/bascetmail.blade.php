@@ -13,6 +13,9 @@
 <p><strong>Этаж:</strong> {{$formData['etazg']}}</p>
 <p><strong>Квартира:</strong> {{$formData['kvartira']}}</p>
 
+<h2>Время доставки</h2>
+<p><strong>Дата:</strong> {{$formData['data']}}</p>
+<p><strong>Время:</strong> {{$formData['time']}}</p>
 
 <p><strong>Комментарий:</strong> {{$formData['comment']}}</p>
 <table style="width:100%; border-top:1px solid black; border-left:1px solid black; border-spacing: 0;">

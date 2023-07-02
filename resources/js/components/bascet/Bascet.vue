@@ -98,6 +98,11 @@
                     <input v-model="bascetInfo.kvartira" name="kvartira" type="text" placeholder="Квартира">
                 </div>
 
+                <h2>Время и дата достаки</h2>
+
+                <input v-model="bascetInfo.data" type="date" placeholder="Дата доставки">
+                <input v-model="bascetInfo.time" type="time" placeholder="Время доставки">
+
                 <h2>Комментарий</h2>
 
                 <textarea v-model="bascetInfo.comment" name="comment" placeholder="Комментарий"></textarea>
@@ -148,6 +153,8 @@ export default {
                 podezd:"1",
                 etazg:"2",
                 kvartira:"3",
+                data:"",
+                time:"",
                 polname:"Тестовый получатель",
                 polphone:"+79600000000",
                 comment:"",
@@ -257,6 +264,8 @@ export default {
                 podezd:this.bascetInfo.podezd,
                 etazg:this.bascetInfo.etazg,
                 kvartira:this.bascetInfo.kvartira,
+                data:this.bascetInfo.data,
+                time:this.bascetInfo.time,
                 polname:this.bascetInfo.polname,
                 polphone:this.bascetInfo.polphone,
             })
@@ -264,7 +273,8 @@ export default {
                 this.loadet = false;
                 console.log(response)
                 if (response.data.pay_info.formUrl !== undefined)
-                    document.location.href=response.data.pay_info.formUrl
+                    // document.location.href=response.data.pay_info.formUrl
+                    console.log(response)
                 else {
                     console.log(response.data.pay_info)
                     document.location.href = "/bascet/thencs"

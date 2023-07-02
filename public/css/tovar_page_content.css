@@ -247,10 +247,27 @@
     margin-bottom: 20px;
 }
 
+.ahtung h2,
 .tov_param_section h2{
     font-weight: normal;
     font-size: 18px;
     margin-bottom: 10px;
+}
+
+.ahtung h2 span{
+    font-weight: normal;
+    color: var(--main-color);
+}
+
+.ahtung p {
+    border: 1px solid  var(--main-color);
+    border-radius: 12px;
+    padding: 10px 20px;
+    font-size: 14px;
+}
+
+.ahtung h2 {
+    font-weight: bold;
 }
 
 .param_blk {
