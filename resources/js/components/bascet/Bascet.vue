@@ -77,13 +77,13 @@
 
                 <input v-model="bascetInfo.fio" name="fio" type="text" placeholder="Фамилия, Имя*">
                 <input v-model="bascetInfo.email" name="email" type="email" placeholder="e-mail">
-                <input v-model="bascetInfo.phone" v-mask="{mask: '+N (NNN) NNN-NN-NN', model: 'cpf' }" name="phone" type="text" placeholder="Телефон*">
+                <input v-model="bascetInfo.phone" v-mask="{mask: '+7 (NNN) NNN-NN-NN', model: 'cpf' }" name="phone" type="text" placeholder="Телефон*">
 
                 <h2>Получатель</h2>
 
                 <input v-model="bascetInfo.polname" name="polname" type="text" placeholder="Имя получателя">
 
-                <input v-model="bascetInfo.polphone" v-mask="{mask: '+N (NNN) NNN-NN-NN', model: 'cpf' }" name="polphone" type="text" placeholder="Телефон*">
+                <input v-model="bascetInfo.polphone" v-mask="{mask: '+7 (NNN) NNN-NN-NN', model: 'cpf' }" name="polphone" type="text" placeholder="Телефон*">
 
                 <h2>Адрес достаки</h2>
 

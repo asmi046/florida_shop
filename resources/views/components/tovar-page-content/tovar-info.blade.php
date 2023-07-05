@@ -30,7 +30,7 @@
 
     <div class="quik_pricing_btn_wpap">
         <a href="https://wa.me/{{str_replace(array('-', ' ', '(' , ')'), '', $options['phone'])}}" target="_blank" class="btn btn_whatsapp">Написать в WhatsApp</a>
-        <a href="" class="btn btn_white">Быстрый заказ</a>
+        <a href="#ocbuy_{{$product->id}}" class="btn btn_white">Быстрый заказ</a>
     </div>
 </div>
 

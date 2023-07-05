@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Mail;
 use App\Mail\BascetSend;
 use App\Http\Requests\BascetForm;
 
-use App\Actions\BascetToTextAction;
+use App\Actions\OneClickToTextAction;
 use App\Actions\TelegramSendAction;
 use App\Services\SberApiServices;
 use App\Services\PersifloraApiSevice;
@@ -53,6 +53,44 @@ class CartController extends Controller
         return Cart::delete_tovar($product_id);
     }
 
+
+    public function send_oc(BascetForm $request, OneClickToTextAction $to_text, TelegramSendAction $tgsender, SberApiServices $sber, PersifloraApiSevice $persi) {
+        $order = Order::create([
+            'name' => "Аноним",
+            'phone' => $request->input('phone'),
+            'comment' => "Покупка в 1 клик",
+            'amount' => $request->input('tovar_position.price'),
+            'count' => 1,
+            'session_id' => session()->getId(),
+            'user_id' => ($request->user())?$request->user()->id:0,
+        ]);
+
+        $order->orderProducts()->sync(array($request->input('id')));
+
+        // отправка заказа в Telegram
+        $to_text = $to_text->handle($request);
+        $tgsender->handle($to_text);
+
+
+        // отправка заказа в CRM
+        $token = $persi->create_session();
+        $customer_id = $persi->get_customer_id(
+            "Аноним",
+            $request->input('phone'),
+            "anonim@pf.ru",
+            "Клиент создан при оформлении заказа на сайте в 1 клик");
+
+        $tmp = $persi->create_order($request, $customer_id);
+
+        // отправка заказа на почту
+
+        Mail::to(explode(",",config('mailadresat.adresats')))->send(new BascetSend($request));
+
+
+        return ["persi" => $tmp, "rq" =>$request->all() ];
+
+        // return ["rq" =>$request->all() ];
+    }
 
 
     public function send(BascetForm $request, BascetToTextAction $to_text, TelegramSendAction $tgsender, SberApiServices $sber, PersifloraApiSevice $persi) {

@@ -40,6 +40,8 @@ use App\Http\Controllers\CelebrationController;
 
 Route::get('/test_api', [TestController::class, "index"])->name('test_api');
 
+Route::get('/get_product_info/{id}', [TovarController::class, "getPriductById"])->name("get_product_info");
+
 Route::get('/', [IndexController::class, "show"])->name('home');
 Route::get('/catalog', [CategoryController::class, "show"])->name('catalog');
 Route::get('/celebrations/{slug}', [CelebrationController::class, "index"])->name('celebration');
@@ -72,6 +74,7 @@ Route::get('/bascet/get', [CartController::class, "get_all"])->name("bascet_get"
 Route::delete('/bascet/clear', [CartController::class, "clear"])->name("bascet_clear");
 Route::delete('/bascet/delete', [CartController::class, "delete"])->name("bascet_delete");
 Route::post('/bascet/send', [CartController::class, "send"])->name("bascet_send");
+Route::post('/bascet/ocsend', [CartController::class, "send_oc"])->name("bascet_oc_send");
 
 
 Route::get('/favorites', [FavoriteController::class, "index"])->name("favorites");

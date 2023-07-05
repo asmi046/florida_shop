@@ -31,7 +31,6 @@ export default defineConfig({
                 'public/js/cart.js',
                 'public/js/favorites.js',
                 'public/js/mainsearch.js',
-                'public/js/mssk.js',
             ],
             refresh: true,
         }),

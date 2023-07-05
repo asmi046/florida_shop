@@ -80,7 +80,6 @@
         'public/js/cart.js',
         'public/js/favorites.js',
         'public/js/mainsearch.js',
-        'public/js/mssk.js',
     ])
 
 </head>
@@ -95,6 +94,7 @@
 
         <modal-window rout="/send_consult" redirect="/thencs" hesh="showModal" title="Помощь флориста" subtitle="Мы свяжемся с Вами в течении 15 минут" showarea="false"></modal-window>
         <modal-window rout="/send_review" redirect="/thencs" hesh="showModalRewiew" title="Оставить отзыв" subtitle="Нам важно Ваше мнение! Ваш отзыв поможет нам стать лучьше!" showarea="true"></modal-window>
+        <one-click-buy-window></one-click-buy-window>
 
         <x-header></x-header>
         <x-header-control></x-header-control>

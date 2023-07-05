@@ -6,8 +6,22 @@ use Illuminate\Http\Request;
 
 use App\Models\Product;
 
+use Illuminate\Support\Facades\Storage;
+
 class TovarController extends Controller
 {
+
+    public function getPriductById($id) {
+        $prosuct = Product::with(['tovar_categories', 'product_images'])->where('id', $id)->first();
+
+        $main_img = asset('img/noPhoto.jpg');
+
+        if (!empty($prosuct->img))
+            $main_img = $prosuct->img;
+
+        return ["product" => $prosuct, "main_img" => $main_img];
+    }
+
     public function show($slug) {
 
         $prosuct = Product::with(['tovar_categories', 'product_images'])->where('slug', $slug)->first();
