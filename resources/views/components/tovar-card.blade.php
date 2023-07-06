@@ -33,10 +33,15 @@
         </div>
         <h3><a href="{{route('tovar', $tovar['slug'])}}">{{$tovar['title']}}</a></h3>
     </div>
-    <a href="" data-prodid="{{$tovar['sku']}}" class="btn btn_in_cart card_to_bascet_btn to_bascet">
-        <span class="nadp">Купить</span>
-        <span class="btnLoader"></span>
-    </a>
+
+    @if ($tovar->asc_nal)
+        <a href="#showModalNal" class="btn btn_in_cart card_to_bascet_btn">Уточнить наличие</a>
+    @else
+        <a href="" data-prodid="{{$tovar['sku']}}" class="btn btn_in_cart card_to_bascet_btn to_bascet">
+            <span class="nadp">Купить</span>
+            <span class="btnLoader"></span>
+        </a>
+    @endif
 
     <a href="{{route('bascet')}}" class="btn card_bascet_btn">Оформить</a>
 

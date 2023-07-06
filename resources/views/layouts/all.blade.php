@@ -94,6 +94,7 @@
 
         <modal-window rout="/send_consult" redirect="/thencs" hesh="showModal" title="Помощь флориста" subtitle="Мы свяжемся с Вами в течении 15 минут" showarea="false"></modal-window>
         <modal-window rout="/send_review" redirect="/thencs" hesh="showModalRewiew" title="Оставить отзыв" subtitle="Нам важно Ваше мнение! Ваш отзыв поможет нам стать лучьше!" showarea="true"></modal-window>
+        <modal-window rout="/send_consult" redirect="/thencs" hesh="showModalNal" title="Уточнить наличие" subtitle="Укажите ваше имя и телефон. В течение нескольких минут с вами свяжется наш флорист для уточнения наличия" showarea="false"></modal-window>
         <one-click-buy-window></one-click-buy-window>
 
         <x-header></x-header>

@@ -23,10 +23,18 @@
 </div>
 
 <div class="btn_in_page_wrap">
-    <a href="#" class="btn btn_fill card_to_bascet_btn to_bascet" data-prodid="{{$product['sku']}}">
-        <span class="nadp">Купить</span>
-        <span class="btnLoader"></span>
-    </a>
+
+    @if ($product->asc_nal)
+        <a href="#showModalNal" class="btn btn_fill card_to_bascet_btn">Уточнить наличие</a>
+    @else
+        <a href="#" class="btn btn_fill card_to_bascet_btn to_bascet" data-prodid="{{$product['sku']}}">
+            <span class="nadp">Купить</span>
+            <span class="btnLoader"></span>
+        </a>
+    @endif
+
+
+
 
     <div class="quik_pricing_btn_wpap">
         <a href="https://wa.me/{{str_replace(array('-', ' ', '(' , ')'), '', $options['phone'])}}" target="_blank" class="btn btn_whatsapp">Написать в WhatsApp</a>
