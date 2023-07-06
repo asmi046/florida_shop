@@ -79,29 +79,41 @@
                 <input v-model="bascetInfo.email" name="email" type="email" placeholder="e-mail">
                 <input v-model="bascetInfo.phone" v-mask="{mask: '+7 (NNN) NNN-NN-NN', model: 'cpf' }" name="phone" type="text" placeholder="Телефон*">
 
-                <h2>Получатель</h2>
+                <label class="radio_label" for="samovivoz">
+                    <input type="radio" id="samovivoz" checked name="delivery_type" value="Самовывоз"  v-model="deliveryType">
+                    <span>Самовывоз</span>
+                </label>
 
-                <input v-model="bascetInfo.polname" name="polname" type="text" placeholder="Имя получателя">
+                <label  class="radio_label" for="dostavka">
+                    <input type="radio"  id="dostavka"  name="delivery_type" value="Доставка" v-model="deliveryType" >
+                    <span>Доставка</span>
+                </label>
 
-                <input v-model="bascetInfo.polphone" v-mask="{mask: '+7 (NNN) NNN-NN-NN', model: 'cpf' }" name="polphone" type="text" placeholder="Телефон*">
+                <div v-if="deliveryType == 'Доставка'">
+                    <h2>Получатель</h2>
 
-                <h2>Адрес достаки</h2>
+                    <input v-model="bascetInfo.polname" name="polname" type="text" placeholder="Имя получателя">
+                    <input v-model="bascetInfo.polphone" v-mask="{mask: '+7 (NNN) NNN-NN-NN', model: 'cpf' }" name="polphone" type="text" placeholder="Телефон*">
 
-                <div class="adr_wrapper">
-                    <select-input v-model="bascetInfo.street" :puncts="cityFindetList"></select-input>
-                    <input v-model="bascetInfo.home" @keydown="calcDelivery" name="home" type="text" placeholder="Дом">
+
+                    <h2>Адрес достаки</h2>
+
+                    <div class="adr_wrapper">
+                        <select-input v-model="bascetInfo.street" :puncts="cityFindetList"></select-input>
+                        <input v-model="bascetInfo.home" @keydown="calcDelivery" name="home" type="text" placeholder="Дом">
+                    </div>
+
+                    <div class="adr_wrapper_2">
+                        <input v-model="bascetInfo.podezd" name="podezd" type="text" placeholder="Подъезд">
+                        <input v-model="bascetInfo.etazg" name="etazg" type="text" placeholder="Этаж">
+                        <input v-model="bascetInfo.kvartira" name="kvartira" type="text" placeholder="Квартира">
+                    </div>
+
+                    <h2>Время и дата достаки</h2>
+
+                    <input v-model="bascetInfo.data" type="date" placeholder="Дата доставки">
+                    <input v-model="bascetInfo.time" type="time" placeholder="Время доставки">
                 </div>
-
-                <div class="adr_wrapper_2">
-                    <input v-model="bascetInfo.podezd" name="podezd" type="text" placeholder="Подъезд">
-                    <input v-model="bascetInfo.etazg" name="etazg" type="text" placeholder="Этаж">
-                    <input v-model="bascetInfo.kvartira" name="kvartira" type="text" placeholder="Квартира">
-                </div>
-
-                <h2>Время и дата достаки</h2>
-
-                <input v-model="bascetInfo.data" type="date" placeholder="Дата доставки">
-                <input v-model="bascetInfo.time" type="time" placeholder="Время доставки">
 
                 <h2>Комментарий</h2>
 
@@ -140,6 +152,7 @@ export default {
             subtotal:0,
             deliveryPrice:0,
             deliveryZone:'',
+            deliveryType:'Самовывоз',
             show_bascet:false,
             errorList:[],
             cityFindetList:[ ],
@@ -273,8 +286,7 @@ export default {
                 this.loadet = false;
                 console.log(response)
                 if (response.data.pay_info.formUrl !== undefined)
-                    // document.location.href=response.data.pay_info.formUrl
-                    console.log(response)
+                    document.location.href=response.data.pay_info.formUrl
                 else {
                     console.log(response.data.pay_info)
                     document.location.href = "/bascet/thencs"

@@ -95,6 +95,13 @@ class ProductEditScreen extends Screen
 
             Layout::rows([
 
+                Switcher::make('asc_nal')
+                    ->value($this->product->asc_nal)
+                    ->sendTrueOrFalse()
+                    ->title('Уточнить наличие')
+                    ->placeholder('Уточнить наличие')
+                    ->help('Разрешить продажу или запросить уточнение')->horizontal(),
+
                 Input::make('sku')
                     ->title('Артикул')
                     ->value($this->product->sku)
@@ -261,6 +268,7 @@ class ProductEditScreen extends Screen
             'sales_count' => [],
             'hit' => [],
             'new' => [],
+            'asc_nal' => [],
             'height' => [],
             'radius' => [],
             'seo_title' => [],

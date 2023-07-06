@@ -1164,6 +1164,38 @@ input {
     padding: 0 15px;
 }
 
+.radio_label{
+    width:100%;
+    display: block;
+    margin: 10px 0;
+}
+
+.radio_label input{
+    display: none;
+
+}
+
+.radio_label input:checked ~ span:before{
+    content: "";
+    background-color: var(--main-color);
+    border: 3px solid #F4F4F4;
+}
+
+.radio_label span:before{
+    content: "";
+    border-radius: 30px;
+    background-color: #F4F4F4;
+    width: 18px;
+    height: 18px;
+    position: absolute;
+    left: 0;
+}
+
+.radio_label span{
+    padding-left: 30px;
+    position: relative;
+}
+
 textarea {
     padding-top: 10px;
 }
