@@ -7,7 +7,7 @@ use App\Http\Requests\BascetForm;
 class BascetToTextAction {
     public function handle(BascetForm $request, $zakaz_id) {
         $rez_text = "<b>Оформлен заказ</b>\n\r";
-        $rez_text .= "<b>№".$zakaz_id."</b>\n\r";
+        $rez_text .= "<b>".$zakaz_id."</b>\n\r";
 
         $rez_text .= "<strong>Имя:</strong> ".$request->input("fio")."\n\r";
         $rez_text .= "<strong>Телефон:</strong> ".$request->input("phone")."\n\r";

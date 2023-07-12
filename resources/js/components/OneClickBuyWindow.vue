@@ -130,6 +130,7 @@ export default {
                 id:this.tovarInfo.id,
                 phone: this.phone,
                 tovars: tovar_position,
+                comment: "Покупка в 1 клик"
             })
             .then((response) => {
                 this.loadet = false;

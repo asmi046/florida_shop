@@ -59,7 +59,7 @@ class CartController extends Controller
         $order = Order::create([
             'name' => "Аноним",
             'phone' => $request->input('phone'),
-            'comment' => "Покупка в 1 клик",
+            'comment' => $request->input('comment'),
             'amount' => $request->input('tovar_position.price'),
             'count' => 1,
             'session_id' => session()->getId(),
@@ -68,8 +68,11 @@ class CartController extends Controller
 
         $order->orderProducts()->sync(array($request->input('id')));
 
+        // Генерация номера заказа
+        $sber_order_number = "№".$order->id."_S".rand(100, 999);
+
         // отправка заказа в Telegram
-        $to_text = $to_text->handle($request);
+        $to_text = $to_text->handle($request, $sber_order_number);
         $tgsender->handle($to_text);
 
 
@@ -81,7 +84,7 @@ class CartController extends Controller
             "anonim@pf.ru",
             "Клиент создан при оформлении заказа на сайте в 1 клик");
 
-        $tmp = $persi->create_order($request, $customer_id);
+        $tmp = $persi->create_order($request, $customer_id, $sber_order_number);
 
         // отправка заказа на почту
 
@@ -110,10 +113,11 @@ class CartController extends Controller
             'user_id' => ($request->user())?$request->user()->id:0,
         ]);
 
+        $order->orderProducts()->sync(array_column($request->input('tovars'), "product_id"));
+
+
         // Генерация номера заказа
         $sber_order_number = "№".$order->id."_S".rand(100, 999);
-
-        $order->orderProducts()->sync(array_column($request->input('tovars'), "product_id"));
 
         // отправка заказа в Telegram
         $to_text = $to_text->handle($request, $sber_order_number);

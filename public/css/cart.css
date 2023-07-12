@@ -365,7 +365,7 @@
     font-size: 12px;
     padding: 5px 10px;
     cursor: pointer;
-    z-index: 11111;
+    z-index: 9998;
 }
 
 .tovar_wrap.in-bascet .bascet_count {
