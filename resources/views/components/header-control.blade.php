@@ -2,9 +2,9 @@
     <div class="_wrapper">
         <a href="" class="catalog_btn controll open_cat_menu"><span>Каталог</span></a>
 
-        <form class="header_search_form serch_form" action="">
+        <form class="header_search_form serch_form" action="{{route('show_search_page')}}">
             <button class="header_search_button pi florida_lins" type="submit"></button>
-            <input class="header_search_input search__input" placeholder="Поиск" type="text" name="" value="" id="">
+            <input class="header_search_input search__input" placeholder="Поиск" type="text" name="s" value="" id="">
             <div class="sub-load"></div>
             <div class="sub-sclose"></div>
             <div class="preSearchWrap"><div class="preSearchWrap_panel"></div></div>

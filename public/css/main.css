@@ -918,6 +918,7 @@ header .messendger_head_blk {
 
 #catalog_section ._wrapper .sitebar{
  max-width: 325px;
+ min-width: 270px;
 }
 
 #catalog_section ._wrapper .tovars_blk{

@@ -30,8 +30,8 @@ class TovarController extends Controller
 
         $images = $prosuct->product_images;
         // $up_sale = Product::where('category', $prosuct->category)->take(5)->get();
-        $up_sale = $prosuct->tovar_categories()->take(5)->get();
-
+        $up_sale_cat = $prosuct->tovar_categories()->first();
+        $up_sale = $up_sale_cat->category_tovars()->take(5)->get();
 
 
         return view('tovar', ['product' => $prosuct, "images" => $images, "upsale" => $up_sale]);

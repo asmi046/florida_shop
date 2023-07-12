@@ -12,7 +12,7 @@ class SearchController extends Controller
 {
 
     public function show_search_page(Request $request) {
-        $search_str = $request->get('search_str');
+        $search_str = $request->get('s');
 
         $tovars = Product::where('title', 'LIKE', "%".$search_str."%")
         ->orWhere('description', 'LIKE', "%".$search_str."%")

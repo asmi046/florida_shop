@@ -7,11 +7,11 @@
     <form action="{{url()->current()}}" method="GET" class="tovar_filter accordion">
         <input type="hidden" name="order" value="{{ value_check('order','',"Сначала дешевые") }}">
         <input type="hidden" name="brand" value="{{ value_check('brand','','%') }}">
-        <div class="acc_blk open">
-            <div class="acc_head">
+        <div class="acc_blk ">
+            <div class="acc_head open">
                 <span>Стоимость</span>
             </div>
-            <div class="acc_body">
+            <div class="acc_body open">
                 <div class="price_selector_wrapper">
                     <label class="price_start" for="price_start">
                         <span>От</span>
@@ -26,11 +26,11 @@
             </div>
         </div>
 
-        <div class="acc_blk open">
-            <div class="acc_head">
+        <div class="acc_blk ">
+            <div class="acc_head open">
                 <span>Особенности</span>
             </div>
-            <div class="acc_body">
+            <div class="acc_body open">
                 <label class="ch_label">
                     <input type="checkbox" value="Новинки" {{ value_check('osobennosti', 'Новинки')?"checked":""}} name="osobennosti[]">
                     <span>Новинки</span>
@@ -49,7 +49,7 @@
 
         <div class="filter_control_blk">
             <button name="filter" type="submit" class="btn ">Применить</button>
-            <a href="{{url()->current()}}" class="btn btn_empty">Сбросить фильтр</a>
+            <a href="{{route('catalog')}}" class="btn btn_empty">Сбросить фильтр</a>
         </div>
 
     </form>

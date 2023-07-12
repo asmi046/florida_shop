@@ -9,10 +9,11 @@ document.addEventListener("DOMContentLoaded", () => {
             if (tf) tf.classList.toggle("open")
         })
 
-    let acc_blk = document.querySelectorAll(".acc_blk ")
+    let acc_blk = document.querySelectorAll(".acc_head ")
     for (let elem of acc_blk ) {
         elem.addEventListener("click", function (e) {
             elem.classList.toggle("open")
+            elem.nextSibling.classList.toggle("open")
         })
     }
 });

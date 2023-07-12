@@ -35,6 +35,7 @@
     top:calc(50% - 3px)
 }
 
+
 .acc_blk .acc_body{
     width:100%;
     min-height: 40px;
@@ -43,10 +44,12 @@
     flex-direction: column;
 }
 
+.acc_body.open,
 .acc_blk.open .acc_body {
     display: flex;
 }
 
+.acc_head.open span::before,
 .acc_blk.open .acc_head span::before{
     content: "";
     transform: rotate(180deg);

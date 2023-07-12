@@ -43,7 +43,7 @@ Route::get('/test_api', [TestController::class, "index"])->name('test_api');
 Route::get('/get_product_info/{id}', [TovarController::class, "getPriductById"])->name("get_product_info");
 
 Route::get('/', [IndexController::class, "show"])->name('home');
-Route::get('/catalog', [CategoryController::class, "show"])->name('catalog');
+Route::get('/catalog', [CategoryController::class, "catalog"])->name('catalog');
 Route::get('/celebrations/{slug}', [CelebrationController::class, "index"])->name('celebration');
 Route::get('/catalog/{slug}', [CategoryController::class, "show_cat"])->name('category');
 Route::get('/tovar/{slug}', [TovarController::class, "show"])->name('tovar');
