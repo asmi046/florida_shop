@@ -19,7 +19,7 @@
                         <p class="sku_p">Артикул: {{ tovarInfo.sku }}</p>
                         <p>
                             {{ tovarInfo.price }} <span class="rub_symbol">₽</span>
-                            <span v-show="tovarInfo.old_price != 0" class="old_price">{{ tovarInfo.old_price }} <span class="rub_symbol">₽</span></span>
+                            <span v-show="tovarInfo.old_price > 0" class="old_price">{{ tovarInfo.old_price }} <span class="rub_symbol">₽</span></span>
                         </p>
                     </div>
                 </div>

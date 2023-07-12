@@ -22,6 +22,10 @@ use App\Orchid\Screens\Category\CategoryCreateScreen;
 use App\Orchid\Screens\Category\CategoryEditScreen;
 use App\Orchid\Screens\Category\CategoryListScreen;
 
+use App\Orchid\Screens\Celebration\CelebrationCreateScreen;
+use App\Orchid\Screens\Celebration\CelebrationEditScreen;
+use App\Orchid\Screens\Celebration\CelebrationListScreen;
+
 use App\Orchid\Screens\Blog\BlogCreateScreen;
 use App\Orchid\Screens\Blog\BlogEditScreen;
 use App\Orchid\Screens\Blog\BlogListScreen;
@@ -67,6 +71,23 @@ Route::screen('/categories/create', CategoryCreateScreen::class)
     ->parent('platform.category')
     ->push(__('Добавление категории'), route('platform.category_create')));
 
+
+
+// Праздники
+Route::screen('/celebration', CelebrationListScreen::class)
+    ->name('platform.celebration')->breadcrumbs(fn (Trail $trail) => $trail
+    ->parent('platform.index')
+    ->push(__('Праздники'), route('platform.celebration')));
+
+Route::screen('/celebration/{id}/edit', CelebrationEditScreen::class)
+    ->name('platform.celebration_edit')->breadcrumbs(fn (Trail $trail, $id) => $trail
+    ->parent('platform.celebration')
+    ->push(__('Редактирование праздника'), route('platform.celebration_edit', $id)));
+
+Route::screen('/celebration/create', CelebrationCreateScreen::class)
+    ->name('platform.celebration_create')->breadcrumbs(fn (Trail $trail) => $trail
+    ->parent('platform.celebration')
+    ->push(__('Добавление праздника'), route('platform.celebration_create')));
 
 //Блог
 

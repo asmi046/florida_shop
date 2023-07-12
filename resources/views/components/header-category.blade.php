@@ -8,7 +8,9 @@
             @endfor
 
             <li class="more_wrapper">
-                <a class="more pi_after florida_arrow" href="">Еще</a>
+                @if (count($all_cat) > 5)
+                    <a class="more pi_after florida_arrow" href="">Еще</a>
+                @endif
 
                 <div class="ower_cat">
                         @for ($i=5; $i<count($all_cat); $i++)
