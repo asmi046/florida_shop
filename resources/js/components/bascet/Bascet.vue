@@ -46,27 +46,7 @@
                 </div>
             </div>
 
-            <div class="itogo">
-                <div class="itogo_price_count">
-                    <div class="itogo_row">
-                        <span class="text">Товары (<span>{{count}}</span>)</span>
-                        <span class="razd"></span>
-                        <span class="p_price rub price_formator">{{Number(subtotal).toLocaleString('ru-RU')}} <span class="rub_symbol">₽</span></span>
-                    </div>
 
-                    <div v-show="deliveryPrice>0" class="itogo_row">
-                        <span class="text">Доставка (Зона {{deliveryZone}})</span>
-                        <span class="razd"></span>
-                        <span class="p_price rub price_formator">{{Number(deliveryPrice).toLocaleString('ru-RU')}} <span class="rub_symbol">₽</span></span>
-                    </div>
-
-                    <div class="itogo_row itogo_row_final">
-                        <span class="text">Итого</span>
-                        <span class="razd"></span>
-                        <span class="p_price rub price_formator">{{Number(subtotal + deliveryPrice).toLocaleString('ru-RU')}} <span class="rub_symbol">₽</span></span>
-                    </div>
-                </div>
-            </div>
 
         </div>
 
@@ -122,6 +102,28 @@
                     <li v-for="item in errorList" :key="item">{{item}}</li>
                 </ul>
 
+                <div class="itogo">
+                    <div class="itogo_price_count">
+                        <div class="itogo_row">
+                            <span class="text">Товары (<span>{{count}}</span>)</span>
+                            <span class="razd"></span>
+                            <span class="p_price rub price_formator">{{Number(subtotal).toLocaleString('ru-RU')}} <span class="rub_symbol">₽</span></span>
+                        </div>
+
+                        <div v-show="deliveryPrice>0" class="itogo_row">
+                            <span class="text">Доставка (Зона {{deliveryZone}})</span>
+                            <span class="razd"></span>
+                            <span class="p_price rub price_formator">{{Number(deliveryPrice).toLocaleString('ru-RU')}} <span class="rub_symbol">₽</span></span>
+                        </div>
+
+                        <div class="itogo_row itogo_row_final">
+                            <span class="text">Итого</span>
+                            <span class="razd"></span>
+                            <span class="p_price rub price_formator">{{Number(subtotal + deliveryPrice).toLocaleString('ru-RU')}} <span class="rub_symbol">₽</span></span>
+                        </div>
+                    </div>
+                </div>
+
                 <div class="form_btn_wrapper">
                     <button @click.prevent="sendBascet()" class="btn bascetSendBtn" type="submit">Оформить заказ</button>
                     <span :class="{active: loadet }" class="btnLoaderCart shoved"></span>
@@ -157,19 +159,19 @@ export default {
             errorList:[],
             cityFindetList:[ ],
             bascetInfo:{
-                fio:"Тест",
+                fio:"",
                 email:"",
-                phone:"+79036330801",
-                street:"Олимпийская",
+                phone:"",
+                street:"",
                 adress:"",
-                home:"29",
-                podezd:"1",
-                etazg:"2",
-                kvartira:"3",
+                home:"",
+                podezd:"",
+                etazg:"",
+                kvartira:"",
                 data:"",
                 time:"",
-                polname:"Тестовый получатель",
-                polphone:"+79600000000",
+                polname:"",
+                polphone:"",
                 comment:"",
             }
         }
@@ -271,6 +273,7 @@ export default {
                 tovars: this.bascetList,
                 amount: parseFloat(this.subtotal) + parseFloat(this.deliveryPrice),
                 count: this.count,
+                deliverytype:this.deliveryType,
                 delivery: this.bascetInfo.street+" "+this.bascetInfo.home,
                 street:this.bascetInfo.street,
                 home:this.bascetInfo.home,
@@ -285,8 +288,10 @@ export default {
             .then((response) => {
                 this.loadet = false;
                 console.log(response)
-                if (response.data.pay_info.formUrl !== undefined)
-                    document.location.href=response.data.pay_info.formUrl
+                if (response.data.pay_info.formUrl !== undefined){
+                     console.log(response.data.pay_info)
+                    // document.location.href=response.data.pay_info.formUrl
+                }
                 else {
                     console.log(response.data.pay_info)
                     document.location.href = "/bascet/thencs"

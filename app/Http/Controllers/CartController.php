@@ -95,6 +95,8 @@ class CartController extends Controller
 
 
     public function send(BascetForm $request, BascetToTextAction $to_text, TelegramSendAction $tgsender, SberApiServices $sber, PersifloraApiSevice $persi) {
+
+
         $order = Order::create([
             'name' => $request->input('fio'),
             'email' => $request->input('email'),
@@ -108,10 +110,13 @@ class CartController extends Controller
             'user_id' => ($request->user())?$request->user()->id:0,
         ]);
 
+        // Генерация номера заказа
+        $sber_order_number = "№".$order->id."_S".rand(100, 999);
+
         $order->orderProducts()->sync(array_column($request->input('tovars'), "product_id"));
 
         // отправка заказа в Telegram
-        $to_text = $to_text->handle($request);
+        $to_text = $to_text->handle($request, $sber_order_number);
         $tgsender->handle($to_text);
 
 
@@ -123,14 +128,13 @@ class CartController extends Controller
             $request->input('email'),
             "Клиент создан при оформлении заказа на сайте");
 
-        $tmp = $persi->create_order($request, $customer_id);
+        $tmp = $persi->create_order($request, $customer_id, $sber_order_number);
 
         // отправка заказа на почту
 
         Mail::to(explode(",",config('mailadresat.adresats')))->send(new BascetSend($request));
 
         // Генерация заказа в сбере
-        $sber_order_number = date("d")."-".date("m")."№".$order->id;
 
         $resSber = $sber->registerOrder($request->input('amount'), $sber_order_number, route("bascet_thencs"));
 

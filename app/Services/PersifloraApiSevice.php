@@ -64,7 +64,7 @@ class PersifloraApiSevice {
         return $result;
     }
 
-    public function create_order(BascetForm $request, $customer_id) {
+    public function create_order(BascetForm $request, $customer_id, $docNo) {
 
         $to_text = new BascetBodyToTextAction();
 
@@ -82,7 +82,7 @@ class PersifloraApiSevice {
                     "budget" => $request->input('amount'),
                     "byBonuses" => false,
                     "date" => date("Y-m-d"),
-                    "delivery" => true,
+                    "delivery" => ($request->input('deliverytype') == "Самовывоз")?false:true,
                     "deliveryApartment" => $request->input('kvartira'),
                     "deliveryBuilding" => $request->input('podezd'),
                     "deliveryCity" => "Курск",
@@ -98,7 +98,8 @@ class PersifloraApiSevice {
                     "dueTime" => date("Y-m-d\\TH:i:sP", strtotime($request->input('time')." ".$request->input('data'))),
                     "fiscal" => false,
                     "status" => "new",
-                    "docNo" => "site".rand(100, 9999999),
+                    "docNo" => $docNo,
+                    // "docNo" => "site".rand(100, 9999999),
                 ],
                 "type" => "orders",
                 "relationships" => [
