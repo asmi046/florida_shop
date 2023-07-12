@@ -290,7 +290,7 @@ export default {
                 console.log(response)
                 if (response.data.pay_info.formUrl !== undefined){
                      console.log(response.data.pay_info)
-                    // document.location.href=response.data.pay_info.formUrl
+                    document.location.href=response.data.pay_info.formUrl
                 }
                 else {
                     console.log(response.data.pay_info)
