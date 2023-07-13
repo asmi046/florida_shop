@@ -4,7 +4,7 @@
         <span class="filter_icon"></span> Фильтры
     </div>
 
-    <form action="{{url()->current()}}" method="GET" class="tovar_filter accordion">
+    <form action="{{route('catalog')}}" method="GET" class="tovar_filter accordion">
         <input type="hidden" name="order" value="{{ value_check('order','',"Сначала дешевые") }}">
         <input type="hidden" name="brand" value="{{ value_check('brand','','%') }}">
         <div class="acc_blk ">
