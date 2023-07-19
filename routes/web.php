@@ -27,6 +27,8 @@ use App\Http\Controllers\NewTovarController;
 use App\Http\Controllers\TestController;
 use App\Http\Controllers\CelebrationController;
 
+use App\Http\Controllers\FeedController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -87,6 +89,8 @@ Route::get('/search_pds', [SearchController::class, 'search_pds'])->name('search
 Route::get('/search', [SearchController::class, 'show_search_page'])->name('show_search_page');
 
 Route::get('/payinfo', [PayController::class, 'show_payinfo'])->name('show_payinfo');
+
+Route::get('/yml-feed/{slug}', [FeedController::class, "yml_actegory"])->name('yml_actegory');
 
 Route::middleware('auth')->group(function () {
     Route::get('/cabinet', [CabinetController::class, "show_cabinet_main"])->name("cabinet.home");
