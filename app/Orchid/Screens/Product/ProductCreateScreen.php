@@ -80,7 +80,6 @@ class ProductCreateScreen extends Screen
 
             Layout::rows([
                 Switcher::make('asc_nal')
-                    ->value($this->product->asc_nal)
                     ->sendTrueOrFalse()
                     ->title('Уточнить наличие')
                     ->placeholder('Уточнить наличие')
