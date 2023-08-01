@@ -27,6 +27,8 @@
                     <picture>{{((!empty($_SERVER['HTTPS'])) ? 'https' : 'http') ."://". $_SERVER['HTTP_HOST']}}{{Storage::url('public/products_galery/'.$item->img)}}</picture>
                 @endif
 
+                <picture>{{url().$item->price_old}}</picture>
+
                 <price>{{$item->price}}</price>
 
                 @if (!empty($item->price_old))
