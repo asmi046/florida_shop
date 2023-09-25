@@ -20,7 +20,7 @@
     <offers>
         @foreach ($cat_product as $item)
             <offer id="{{$item->sku}}" available="{{($item->insklad > 0)?"true":"false"}}">
-                <name>{{$item->name}}</name>
+                <name>{{$item->title}}</name>
                 <url>{{route('tovar', $item->slug)}}</url>
 
                 @if(Storage::disk('local')->exists('public/products_galery/'.$item->img))
@@ -38,9 +38,9 @@
                 <description>{{$item->description}}</description>
                 <currencyId>RUR</currencyId>
                 <categoryId>{{$category->id}}</categoryId>
-                <delivery>truee</delivery>
-                <store>truee</store>
-                <pickup>truee</pickup>
+                <delivery>true</delivery>
+                <store>true</store>
+                <pickup>true</pickup>
             </offer>
         @endforeach
     </offers>
