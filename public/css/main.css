@@ -437,6 +437,16 @@ header .messendger_head_blk {
     margin:  auto 0 auto auto;
 }
 
+.bascet_head.active::before {
+    color: white;
+}
+
+.bascet_head.active {
+    color: white;
+    border: var(--main-hover-color);
+    background-color: var(--main-hover-color);
+}
+
 .bascet_head::before {
     position: absolute;
     width:18px;

@@ -3,6 +3,7 @@ import './bootstrap';
 import {createApp} from 'vue/dist/vue.esm-bundler';
 
 import BascetCounter from "./components/bascet/BascetCounter.vue"
+import BascetAndCounter from "./components/bascet/BascetAndCounter.vue"
 import MapInPage from "./components/MapInPage.vue"
 import ModalWindow from "./components/ModalWindow.vue"
 import Bascet from "./components/bascet/Bascet.vue"
@@ -26,6 +27,7 @@ const global_app = createApp({
         Bascet,
         OneClickBuyWindow,
         BascetCounter,
+        BascetAndCounter,
         ToBascetBtnPage
     },
 
