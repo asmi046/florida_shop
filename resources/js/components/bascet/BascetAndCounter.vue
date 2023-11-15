@@ -1,6 +1,6 @@
 
 <template>
-   <a href="/bascet" :class="{ active: count>0 }"  class="bascet_head pi florida_cart">Корзина | <span class="bascet_counter">{{count}}</span>
+   <a href="/bascet" v-bind:class="{ 'active': active }"  class="bascet_head pi florida_cart">Корзина | <span class="bascet_counter">{{count}}</span>
 </a>
 
 </template>
@@ -16,7 +16,8 @@ export default {
         const store = useStore()
 
         return {
-            count:computed(() => store.getters.cartCount)
+            count:computed(() => store.getters.cartCount),
+            active:computed(() => store.getters.cartCount > 0)
         }
     }
 }
