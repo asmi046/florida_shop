@@ -144,6 +144,7 @@
 <script>
 import Delivery from '../../lib/delivery.js'
 import SelectInput from '../selectInput.vue'
+
 export default {
     data() {
         return {
@@ -325,6 +326,9 @@ export default {
                 this.count+=this.bascetList[i].quentity
                 this.subtotal+=parseFloat(this.bascetList[i].quentity)*parseFloat(this.bascetList[i].price)
             }
+
+
+            this.$store.dispatch('initialBascet')
         },
 
         clearBascet() {
@@ -338,6 +342,7 @@ export default {
                 this.show_bascet = true
             })
             .catch(error => console.log(error));
+            this.$store.dispatch('initialBascet')
         },
 
         deleteElement(item,index) {
