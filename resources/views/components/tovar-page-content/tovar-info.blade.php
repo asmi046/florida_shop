@@ -27,10 +27,12 @@
     @if ($product->asc_nal)
         <a href="#showModalNal" class="btn btn_fill card_to_bascet_btn">Уточнить наличие</a>
     @else
-        <a href="#" class="btn btn_fill card_to_bascet_btn to_bascet" data-prodid="{{$product['sku']}}">
+        {{-- <a href="#" class="btn btn_fill card_to_bascet_btn to_bascet" data-prodid="{{$product['sku']}}">
             <span class="nadp">Купить</span>
             <span class="btnLoader"></span>
-        </a>
+        </a> --}}
+
+        <to-bascet-btn-page sku="{{$product['sku']}}"  :bascet="'/bascet'"></to-bascet-btn-page>
     @endif
 
 

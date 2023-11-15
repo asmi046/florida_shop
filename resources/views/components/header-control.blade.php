@@ -15,6 +15,6 @@
         <x-messanger></x-messanger>
 
         <a href="{{route('favorites')}}" class="favorites_head pi florida_like"><span>Избранное | <span class="favorites_counter">0</span></span></a>
-        <a href="{{route('bascet')}}" class="bascet_head pi florida_cart">Корзина | <span class="bascet_counter">0</span> </a>
+        <a href="{{route('bascet')}}" class="bascet_head pi florida_cart">Корзина | <bascet-counter></bascet-counter> </a>
     </div>
 </section>

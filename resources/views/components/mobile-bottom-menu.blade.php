@@ -12,7 +12,8 @@
 
     <a href="{{route('bascet')}}" class="bm_btn">
         <div class="icon bascet_blk bottom_menu_icon_bascet pi florida_cart">
-            <span class="bascet_counter">0</span>
+            {{-- <span class="bascet_counter">0</span> --}}
+            <bascet-counter></bascet-counter>
         </div>
         <p>Корзина</p>
     </a>
