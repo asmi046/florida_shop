@@ -35,7 +35,7 @@ function bascet_to_page() {
                             console.log(card);
                             card.classList.add("in-bascet")
                             card.querySelector(".bascet_count span").innerHTML = element.quentity
-                            card.querySelector(".card_to_bascet_btn").style.display = "none"
+                            // card.querySelector(".card_to_bascet_btn").style.display = "none"
                             card.querySelector(".card_bascet_btn").style.display = "inline-block"
                         }
                     }

@@ -37,13 +37,11 @@
     @if ($tovar->asc_nal)
         <a href="#showModalNal" class="btn btn_in_cart card_to_bascet_btn">Уточнить наличие</a>
     @else
-        <a href="" data-prodid="{{$tovar['sku']}}" class="btn btn_in_cart card_to_bascet_btn to_bascet">
-            <span class="nadp">Купить</span>
-            <span class="btnLoader"></span>
-        </a>
+
+        <to-bascet-btn-page sku="{{$tovar['sku']}}"  :bascet="'/bascet'"></to-bascet-btn-page>
     @endif
 
-    <a href="{{route('bascet')}}" class="btn card_bascet_btn">Оформить</a>
+    {{-- <a href="{{route('bascet')}}" class="btn card_bascet_btn">Оформить</a> --}}
 
 </div>
 
