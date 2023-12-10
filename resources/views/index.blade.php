@@ -22,7 +22,9 @@
 
     <x-rew-in-main :reviews="$reviews"></x-rew-in-main>
 
-    <map-in-page></map-in-page>
+    {{-- <map-in-page></map-in-page> --}}
+
+    <x-yandex-delivery></x-yandex-delivery>
 
     <x-about-in-main></x-about-in-main>
 
