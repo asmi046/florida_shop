@@ -79,8 +79,13 @@
                     <h2>Адрес достаки</h2>
 
                     <div class="adr_wrapper">
-                        <select-input v-model="bascetInfo.street" :puncts="cityFindetList"></select-input>
-                        <input v-model="bascetInfo.home" @keydown="calcDelivery" name="home" type="text" placeholder="Дом">
+                        <!-- <select-input v-model="bascetInfo.street" :puncts="cityFindetList"></select-input> -->
+
+                        <div class="pds_select_wrapper">
+                            <input v-model="bascetInfo.street" style="width:100%" name="home" type="text" placeholder="Улица">
+                        </div>
+
+                        <input v-model="bascetInfo.home" name="home" type="text" placeholder="Дом">
                     </div>
 
                     <div class="adr_wrapper_2">
