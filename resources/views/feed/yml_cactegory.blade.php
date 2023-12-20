@@ -54,6 +54,8 @@
 
                 <categoryId>{{ $cat }}</categoryId>
 
+                <consist name="Роза красная" unit="шт">5</consist>
+                <consist name="Роза белая" unit="шт">4</consist>
 
                 <delivery>true</delivery>
                 <store>true</store>
