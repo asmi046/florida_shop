@@ -41,10 +41,10 @@ class ProductListTable extends Table
                     return "<img width='50' height='50' src='".($element->img?$element->img:asset("img/noPhoto.jpg"))."'>";
                 }
             ),
-            TD::make('sku', 'Артикул')->sort(),
-            TD::make('title', 'Заголовок')->sort()->filter(TD::FILTER_TEXT),
-            TD::make('slug', 'Ссылка'),
-            TD::make('description', 'Описание')->render(function($element) {
+            TD::make('sku', 'Артикул')->width("5%")->sort(),
+            TD::make('title', 'Заголовок')->width("25%")->sort()->filter(TD::FILTER_TEXT),
+            TD::make('slug', 'Ссылка')->width("25%"),
+            TD::make('description', 'Описание')->width("25%")->render(function($element) {
                 return  mb_strimwidth(strip_tags($element->description), 0, 30, "...");
             }),
 

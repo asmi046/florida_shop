@@ -18,6 +18,7 @@ use Orchid\Support\Color;
 use Orchid\Screen\Fields\Picture;
 use Orchid\Screen\Fields\Switcher;
 use Orchid\Screen\Fields\TextArea;
+use Orchid\Screen\Fields\Matrix;
 use Orchid\Screen\Fields\Relation;
 use Orchid\Screen\Actions\ModalToggle;
 use Illuminate\Validation\Rule;
@@ -182,6 +183,20 @@ class ProductEditScreen extends Screen
                     ->multiple()
                     ->help('Выберите праздник'),
 
+                Matrix::make('consist')
+                    ->title('Состав букета')
+                    ->help('Состав букета (ингридиент, количество в штуках)')
+                    ->value($this->product->consist)
+                    ->columns([
+                        'Имя',
+                        'Количество'
+                    ])
+                    ->fields([
+                        'Имя'   => Input::make()->type('text'),
+                        'Количество' => Input::make()->type('number'),
+                    ]),
+
+
 
                 Quill::make('description')->title('Описание')->value($this->product->description),
 
@@ -263,6 +278,7 @@ class ProductEditScreen extends Screen
             'slug' => [],
             'img' => [],
             'description' => [],
+            'consist' => [],
             'price' => ['required'],
             'old_price' => [],
             'sales_count' => [],
@@ -274,6 +290,8 @@ class ProductEditScreen extends Screen
             'seo_title' => [],
             'seo_description' => [],
         ]);
+
+        $new_data['consist'] = isset($new_data['consist'])?$new_data['consist']:null;
 
         $product->tovar_categories()->sync($request->get("category"));
         $product->tovar_celebration()->sync($request->get("сelebration"));

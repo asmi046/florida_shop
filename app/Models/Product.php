@@ -35,8 +35,14 @@ class Product extends Model
         'asc_nal',
         'height',
         'radius',
+        'consist',
         'seo_title',
         'seo_description'
+    ];
+
+
+    protected $casts = [
+        'consist' => 'array'
     ];
 
     protected $allowedSorts = [
