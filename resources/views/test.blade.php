@@ -27,7 +27,7 @@
     <body id = "global_app" class="antialiased">
         <h1>Зона доставки</h1>
 
-        <map-in-page></map-in-page>
+        {{-- <map-in-page></map-in-page> --}}
 
     </body>
 </html>

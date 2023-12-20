@@ -16,7 +16,7 @@
     </div>
 </section>
 
-<map-in-page></map-in-page>
+<x-yandex-delivery></x-yandex-delivery>
 
 <section>
     <div class="_wrapper">

@@ -32,7 +32,7 @@
     <script src="{{asset('js/lib/swiper/swiper-bundle.min.js')}}"></script>
     <script src="{{asset('js/lib/imask.js')}}"></script>
 
-    <script src="//api-maps.yandex.ru/2.1/?lang=ru_RU&coordorder=longlat&apikey=c38cf20b-9826-491c-abe0-0653932a0e17" type="text/javascript"></script>
+    <script src="//api-maps.yandex.ru/2.1/?lang=ru_RU&coordorder=longlat" type="text/javascript"></script>
 
     <!-- Yandex.Metrika counter -->
     <script type="text/javascript" >
@@ -54,6 +54,7 @@
     <!-- /Yandex.Metrika counter -->
 
     <script src="//code.jivo.ru/widget/Ao9F1DsJ2t" async></script>
+    <script src="//cdn.callibri.ru/callibri.js" type="text/javascript" charset="utf-8"></script>
 
     @vite([
         'resources/css/app.css',

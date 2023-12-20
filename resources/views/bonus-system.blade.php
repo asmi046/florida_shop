@@ -31,7 +31,7 @@
 
 <x-hit-slider :salesliders="$sales_liders"></x-hit-slider>
 
-<map-in-page></map-in-page>
+{{-- <map-in-page></map-in-page> --}}
 
 
 @endsection
