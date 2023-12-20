@@ -19,6 +19,20 @@
 
     <offers>
         @foreach ($cat_product as $item)
+            @php
+
+                if (empty($category)) {
+                    $cat = $item->tovar_categories()->first();
+                    if (!empty($cat))
+                        $cat = $cat["id"];
+                    else
+                        continue;
+                } else {
+                    $cat = $category->id;
+                }
+
+            @endphp
+
             <offer id="{{$item->sku}}" available="{{($item->insklad > 0)?"true":"false"}}">
                 <name>{{$item->title}}</name>
                 <url>{{route('tovar', $item->slug)}}</url>
@@ -37,7 +51,10 @@
 
                 <description>{{$item->description}}</description>
                 <currencyId>RUR</currencyId>
-                <categoryId>{{$category->id}}</categoryId>
+
+                <categoryId>{{ $cat }}</categoryId>
+
+
                 <delivery>true</delivery>
                 <store>true</store>
                 <pickup>true</pickup>

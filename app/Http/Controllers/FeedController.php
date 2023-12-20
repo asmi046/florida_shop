@@ -12,13 +12,20 @@ use App\Models\Product;
 class FeedController extends Controller
 {
     public function yml_actegory($slug) {
-        $categoryInfo = Category::where('slug', $slug)->first();
+        if ($slug === 'all')
+        {
+                $catProducts = Product::all();
+                $categoryInfo = null;
+        }
+        else
+        {
+            $categoryInfo = Category::where('slug', $slug)->first();
+            if($categoryInfo->isDirty()) abort('404');
+            $catProducts = $categoryInfo->category_tovars()->get();
+        }
 
 
 
-        if($categoryInfo->isDirty()) abort('404');
-
-        $catProducts = $categoryInfo->category_tovars()->get();
 
         $all_categories = Category::all();
 
