@@ -60,7 +60,9 @@ Route::get('/actions', [ActionsController::class, "index"])->name('actions');
 Route::get('/hits', [HitController::class, "index"])->name('hits');
 Route::get('/new_tovar', [NewTovarController::class, "index"])->name('new_tovar');
 
+Route::get('/uhod_instruction', [EasyPageController::class, "uhod_instruction"])->name('uhod_instruction');
 Route::get('/policy', [EasyPageController::class, "show_policy"])->name('policy');
+
 Route::get('/bonus_system', [EasyPageController::class, "show_bonus_system"])->name('bonus_system');
 Route::get('/about', [EasyPageController::class, "show_about"])->name('about');
 

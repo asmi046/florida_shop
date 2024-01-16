@@ -16,6 +16,10 @@ class EasyPageController extends Controller
         return view('policy');
     }
 
+    public function uhod_instruction() {
+        return view('uhod-instructionlicy');
+    }
+
     public function show_bonus_system() {
         $sales_liders = Product::select()->orderBy('sales_count')->take(8)->get();
         return view('bonus-system', ['sales_liders' => $sales_liders]);
