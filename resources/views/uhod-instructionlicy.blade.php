@@ -19,7 +19,7 @@
             <p>Чтобы радость от подаренных вам цветов оставалась яркой и долгой, мы подготовили для вас небольшую памятку по уходу за разными видами цветов. Следуя этим рекомендациям, вы сможете наслаждаться красотой наших букетов дольше.</p>
 
             <div class="М">
-                <iframe id="vk_frame" src="https://vk.com/video_ext.php?oid=-81186664&id=456239361&hd=2" width="100%" allow="autoplay; encrypted-media; fullscreen; picture-in-picture;" frameborder="0" allowfullscreen></iframe>
+                <iframe id="vk_frame" src="https://vk.com/video_ext.php?oid=-81186664&id=456239361&hd=2" allow="autoplay; encrypted-media; fullscreen; picture-in-picture;" frameborder="0" allowfullscreen></iframe>
             </div>
 
             <style>
