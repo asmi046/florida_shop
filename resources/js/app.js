@@ -44,11 +44,3 @@ global_app.use(store)
 global_app.directive('mask', VMaskDirective)
 global_app.mount("#global_app");
 
-
-var iframe = document.getElementById("vk_frame");
-
-if (iframe) {
-    iframe.onload = function(){
-        iframe.style.height = iframe.contentWindow.document.body.scrollHeight + 'px';
-    }
-}
