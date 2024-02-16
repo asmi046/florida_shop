@@ -1092,6 +1092,9 @@ header .messendger_head_blk {
     margin: 5px 0;
 }
 
+.text_blk a {
+    color:var(--main-color)
+}
 
 
 /*--------Оформление текстовых блоков end----------*/
