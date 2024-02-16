@@ -1065,6 +1065,13 @@ header .messendger_head_blk {
     margin-bottom: 40px;
 }
 
+.text_blk h3{
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
 .text_blk .read_more{
     margin-top: 20px;
     display: inline-block;
@@ -1081,7 +1088,7 @@ header .messendger_head_blk {
     position: absolute;
     width: 4px;
     height: 4px;
-    top: calc(50% - 2px);
+    top: 5px;
     left: 0;
     background-color: var(--main-color);
 }
