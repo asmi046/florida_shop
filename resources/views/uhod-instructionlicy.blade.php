@@ -22,23 +22,6 @@
                 <iframe id="vk_frame" src="https://vk.com/video_ext.php?oid=-81186664&id=456239361&hd=2" allow="autoplay; encrypted-media; fullscreen; picture-in-picture;" frameborder="0" allowfullscreen></iframe>
             </div>
 
-            <style>
-            .thumb-wrap {
-  position: relative;
-  padding-bottom: 56.25%; /* задаёт высоту контейнера для 16:9 (если 4:3 — поставьте 75%) */
-  height: 0;
-  overflow: hidden;
-}
-.thumb-wrap iframe {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  border-width: 0;
-  outline-width: 0;
-}
-            </style>
             <p><strong>В ролике посмотрите наглядный пример подрезки и ухода за розами, гортензиями, хризантемами, букетом из разных цветов или композицией.</strong></p>
             <p><strong>Об уходе за другими цветами читайте в нашей памятке ниже.</strong></p>
 
