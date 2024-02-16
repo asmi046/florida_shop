@@ -6,12 +6,12 @@
 
     <meta property="og:locale" content="ru_RU" />
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="@yield('title') />
+    <meta property="og:title" content="@yield('title')" />
     <meta property="og:description" content="@yield('description')" />
     <meta property="og:url" content="{{route('home')}}" />
-    <meta property="og:site_name" content="Магазин индийских товаров - Mini India" />
-    <meta property="og:image" content="{{asset('img/og_img.jpg')}}" />
-    <meta property="og:image:type" content="image/jpeg" />
+    <meta property="og:site_name" content="Магазин цветов Florida 46" />
+    <meta property="og:image" content="{{asset('img/favicons/icon256.png')}}" />
+    <meta property="og:image:type" content="image/png" />
     <meta name="twitter:card" content="summary_large_image" />
 
 	<meta charset="UTF-8">
