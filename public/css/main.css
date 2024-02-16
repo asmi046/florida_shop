@@ -1830,6 +1830,23 @@ height: 30px;
         display: flex;
         flex-direction: column-reverse;
     }
+
+
+.thumb-wrap {
+    position: relative;
+    padding-bottom: 56.25%; /* задаёт высоту контейнера для 16:9 (если 4:3 — поставьте 75%) */
+    height: 0;
+    overflow: hidden;
+  }
+  .thumb-wrap iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-width: 0;
+    outline-width: 0;
+  }
 }
 
 @media (max-width: 480px){
@@ -2028,18 +2045,3 @@ height: 30px;
     font-size: 170px;
 }
 
-.thumb-wrap {
-    position: relative;
-    padding-bottom: 56.25%; /* задаёт высоту контейнера для 16:9 (если 4:3 — поставьте 75%) */
-    height: 0;
-    overflow: hidden;
-  }
-  .thumb-wrap iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    border-width: 0;
-    outline-width: 0;
-  }
