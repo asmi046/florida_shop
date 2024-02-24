@@ -43,10 +43,10 @@
         <a href="#ocbuy_{{$product->id}}" class="btn btn_white">Быстрый заказ</a>
     </div>
 </div>
-
+{{--
 <p class="delivery_sens">
     Доставка по Курску: <strong>от 3 000 <span class="rub_symbol">₽</span></strong> - бесплатно
-</p>
+</p> --}}
 
 <div class="pay_sens">
     <span>Принимаем к оплате:</span>
