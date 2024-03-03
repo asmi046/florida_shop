@@ -1,8 +1,8 @@
 <div class="tovar_advantages">
-    <div class="adv_tov_blk">
+    {{-- <div class="adv_tov_blk">
         <div class="icon ai_delivery"></div>
         <div class="text"><span>Бесплатная доставка от 3000 руб.</span></div>
-    </div>
+    </div> --}}
 
     <div class="adv_tov_blk">
         <div class="icon ai_sales"></div>
