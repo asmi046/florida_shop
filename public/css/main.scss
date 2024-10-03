@@ -1,202 +1,9 @@
 
 @charset "UTF-8";
 
-@font-face {
-  font-family: "Lato";
-  src: url("../fonts/Lato-Light.eot");
-  src: local("☺"), url("../fonts/Lato-Light.woff") format("woff"), url("../fonts/Lato-Light.ttf") format("truetype"), url("../fonts/Lato-Light.svg") format("svg");
-  font-weight: 300;
-  font-style: normal;
-}
-@font-face {
-  font-family: "Lato";
-  src: url("../fonts/Lato-Regular.eot");
-  src: local("☺"), url("../fonts/Lato-Regular.woff") format("woff"), url("../fonts/Lato-Regular.ttf") format("truetype"), url("../fonts/Lato-Regular.svg") format("svg");
-  font-weight: 400;
-  font-style: normal;
-}
-@font-face {
-  font-family: "Lato";
-  src: url("../fonts/Lato-Medium.eot");
-  src: local("☺"), url("../fonts/Lato-Medium.woff") format("woff"), url("../fonts/Lato-Medium.ttf") format("truetype"), url("../fonts/Lato-Medium.svg") format("svg");
-  font-weight: 500;
-  font-style: normal;
-}
-@font-face {
-  font-family: "Lato";
-  src: url("../fonts/Lato-Semibold.eot");
-  src: local("☺"), url("../fonts/Lato-Semibold.woff") format("woff"), url("../fonts/Lato-Semibold.ttf") format("truetype"), url("../fonts/Lato-Semibold.svg") format("svg");
-  font-weight: 600;
-  font-style: normal;
-}
-@font-face {
-  font-family: "Lato";
-  src: url("fonts/Lato-Bold.eot");
-  src: local("☺"), url("../fonts/Lato-Bold.woff") format("woff"), url("../fonts/Lato-Bold.ttf") format("truetype"), url("../fonts/Lato-Bold.svg") format("svg");
-  font-weight: 700;
-  font-style: normal;
-}
-@font-face {
-  font-family: "Lato";
-  src: url("../fonts/Lato-Heavy.eot");
-  src: local("☺"), url("../fonts/Lato-Heavy.woff") format("woff"), url("../fonts/Lato-Heavy.ttf") format("truetype"), url("../fonts/Lato-Heavy.svg") format("svg");
-  font-weight: 900;
-  font-style: normal;
-}
+@import 'fonts';
+@import 'null';
 
-:root {
-    --main-old-color:#839F60;
-    --main-black-color: #161615;
-    --main-blue-color: #3171a5;
-    --main-gray-color: #C7D0CC;
-    --main-color:#3171a5;
-    --main-hover-color:  #42AAFF;
-}
-
-
-* {
-  padding: 0px;
-  margin: 0px;
-  border: 0px;
-}
-
-*,
-*:before,
-*:after {
-  -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
-}
-
-aside,
-nav,
-footer,
-header,
-section {
-  display: block;
-}
-
-html {
-  font-size: 18px;
-}
-
-html,
-body {
-  height: 100%;
-  min-width: 320px;
-  color: #161615;
-  font-weight: 300;
-  font-family: "Lato";
-
-}
-
-body {
-  line-height: 1;
-  font-family: "Lato";
-  -ms-text-size-adjust: 100%;
-  -moz-text-size-adjust: 100%;
-  -webkit-text-size-adjust: 100%;
-}
-
-input,
-button,
-textarea {
-  font-family: "Lato";
-  font-size: inherit;
-  outline: none;
-}
-
-input::-ms-clear {
-  display: none;
-}
-
-button {
-  cursor: pointer;
-  background-color: inherit;
-}
-
-button::-moz-focus-inner {
-  padding: 0;
-  border: 0;
-}
-
-a,
-a:visited {
-  text-decoration: none;
-  transition: all .4s ease;
-}
-
-a:hover::before,
-a:hover {
-  text-decoration: none;
-  color: var(--main-hover-color);
-}
-
-ul li {
-  list-style: none;
-}
-
-img {
-  vertical-align: top;
-  max-width: 100%;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-weight: inherit;
-  font-size: inherit;
-}
-
-table {
-  border-collapse: collapse;
-  border-spacing: 0;
-}
-
-table td {
-  padding: 0;
-  margin: 0;
-}
-
-/*
-&::-webkit-scrollbar {
-	display: none;
-}
-*/
-body {
-  font-weight: 300;
-  color: #161615;
-  font-weight: normal;
-}
-body a {
-  font-family: "Lato";
-  color: #161615;
-  font-weight: normal;
-}
-body._lock {
-  overflow: hidden;
-  touch-action: none;
-}
-
-._wrapper {
-    width:1440px;
-    margin: 0 auto;
-}
-
-/* Подсветка при автозаполнении */
-
-input {outline: none;}
-input:-webkit-autofill {
-    -webkit-box-shadow: inset 0 0 0 50px #F4F4F4 !important; /* Цвет фона */
-    -webkit-text-fill-color: #000 !important; /* цвет текста */
-    color: #999 !important; /* цвет текста */
-}
 
 /*--------Шапка----------*/
 
@@ -237,7 +44,7 @@ header .messendger_head_blk {
 }
 
 .main_menu {
-    margin: auto;
+    margin: auto 0 20px auto;
 }
 
 .cabinet {
@@ -260,7 +67,7 @@ header .messendger_head_blk {
 }
 
 .main_menu a{
-    margin-right: 20px;
+    margin-left: 20px;
 }
 
 .main_menu ul:last-child a{
@@ -322,8 +129,9 @@ header .messendger_head_blk {
     min-height: 50px;
     display: block;
     display: flex;
-    margin: auto;
+    margin: auto 20px;
     position: relative;
+    flex: 1;
 }
 
 .header_search_button::before {
@@ -344,7 +152,7 @@ header .messendger_head_blk {
     display: flex;
     flex-direction: column;
     text-align: right;
-    margin: auto;
+    margin: auto 20px auto 0;
 }
 
 .phone_head_blk span {
@@ -407,6 +215,7 @@ header .messendger_head_blk {
     position: relative;
     margin:  auto;
     padding-left: 50px;
+    display: none;
 }
 
 .favorites_head::before {
@@ -610,7 +419,6 @@ header .messendger_head_blk {
 
 .banner_wrapper .text_blk h1{
     font-size: 58px;
-    font-weight: bold;
     margin-bottom: 10px;
 }
 
@@ -1162,7 +970,6 @@ footer ._wrapper{
     padding: 24px 0;
 }
 
-footer,
 section {
     padding: 24px 0;
 }
@@ -1441,8 +1248,20 @@ textarea {
     margin-top: 30px;
 }
 
-#uni_map .messendger_head_blk a {
-    margin: auto 40px auto 0;
+#uni_map .messendger_head_blk {
+    .sprite_icon {
+        width: 20px;
+        height: 20px;
+    }
+
+    .sprite_icon.vk_icon {
+        width: 23px;
+    }
+
+    a {
+        margin: auto 40px auto 0;
+        fill: white;
+    }
 }
 
 #uni_map .messendger_head_blk {
@@ -1860,7 +1679,10 @@ height: 30px;
 }
 
 @media (max-width: 480px){
-    footer, section {
+    footer {
+        padding-top: 0;
+    }
+    section {
         padding: 14px 0;
     }
 
@@ -1886,6 +1708,7 @@ height: 30px;
 
     header .messendger_head_blk {
         display: flex;
+        margin: auto 0 0 auto;
     }
 
     .bascet_head,
@@ -2019,7 +1842,7 @@ height: 30px;
 
 .policy_line {
     background-color: var(--main-gray-color);
-    margin-top: 20px;
+
     text-align: center;
     font-size: 12px;
     padding: 3px;
@@ -2055,3 +1878,5 @@ height: 30px;
     font-size: 170px;
 }
 
+@import "social";
+@import "header-line";

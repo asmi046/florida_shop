@@ -8,7 +8,7 @@ export default defineConfig({
         laravel({
             input: [
                 'resources/css/app.css',
-                'public/css/main.css',
+                'public/css/main.scss',
                 'public/fonts/icons/style.css',
                 'public/css/tovar_filter.css',
                 'public/css/tovar_page_content.css',

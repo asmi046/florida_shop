@@ -59,7 +59,7 @@
     @vite([
         'resources/css/app.css',
         'public/fonts/icons/style.css',
-        'public/css/main.css',
+        'public/css/main.scss',
         'public/css/tovar_filter.css',
         'public/css/tovar_page_content.css',
         'public/css/catalog_menu.css',
@@ -86,6 +86,7 @@
 </head>
 
 <body>
+    @include("allicon")
     <x-catalog-menu></x-catalog-menu>
     <x-mobile-bottom-menu></x-mobile-bottom-menu>
 

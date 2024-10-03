@@ -1,0 +1,19 @@
+.social_line {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 250px;
+    a {
+        display: block;
+        width:20px;
+        margin: auto 5px;
+        border: none!important;
+    }
+    .sprite_icon.vk_icon {
+        width:17px;
+    }
+
+    .sprite_icon {
+        width:15px;
+        height: 15px;
+    }
+}

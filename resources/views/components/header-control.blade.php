@@ -12,7 +12,7 @@
 
         <x-phone></x-phone>
 
-        <x-messanger></x-messanger>
+        {{-- <x-messanger></x-messanger> --}}
 
         <a href="{{route('favorites')}}" class="favorites_head pi florida_like"><span>Избранное | <span class="favorites_counter">0</span></span></a>
         <bascet-and-counter></bascet-and-counter>

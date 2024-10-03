@@ -26,7 +26,7 @@ return new class extends Migration
     public function down()
     {
         Schema::table('celebrations_product', function (Blueprint $table) {
-            //
+            $table->renameColumn('celebration_id', 'celebrations_id');
         });
     }
 };

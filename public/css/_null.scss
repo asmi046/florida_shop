@@ -1,0 +1,154 @@
+:root {
+    --main-old-color:#839F60;
+    --main-black-color: #161615;
+    --main-blue-color: #3171a5;
+    --main-gray-color: #C7D0CC;
+    --main-color:#3171a5;
+    // --main-color:#f1f5fb;
+    --main-hover-color:  #42AAFF;
+}
+
+
+* {
+  padding: 0px;
+  margin: 0px;
+  border: 0px;
+}
+
+*,
+*:before,
+*:after {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+aside,
+nav,
+footer,
+header,
+section {
+  display: block;
+}
+
+html {
+  font-size: 18px;
+}
+
+html,
+body {
+  height: 100%;
+  min-width: 320px;
+  color: #161615;
+  font-weight: 300;
+  font-family: "Evolventa";
+
+}
+
+body {
+  line-height: 1;
+  font-family: "Evolventa";
+  -ms-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+
+input,
+button,
+textarea {
+    font-family: "Evolventa";
+  font-size: inherit;
+  outline: none;
+}
+
+input::-ms-clear {
+  display: none;
+}
+
+button {
+  cursor: pointer;
+  background-color: inherit;
+}
+
+button::-moz-focus-inner {
+  padding: 0;
+  border: 0;
+}
+
+a,
+a:visited {
+  text-decoration: none;
+  transition: all .4s ease;
+}
+
+a:hover::before,
+a:hover {
+  text-decoration: none;
+  color: var(--main-hover-color);
+}
+
+ul li {
+  list-style: none;
+}
+
+img {
+  vertical-align: top;
+  max-width: 100%;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: inherit;
+  font-size: inherit;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+table td {
+  padding: 0;
+  margin: 0;
+}
+
+/*
+&::-webkit-scrollbar {
+	display: none;
+}
+*/
+body {
+  font-weight: 300;
+  color: #161615;
+  font-weight: normal;
+}
+body a {
+    font-family: "Evolventa";
+  color: #161615;
+  font-weight: normal;
+}
+body._lock {
+  overflow: hidden;
+  touch-action: none;
+}
+
+._wrapper {
+    width:1440px;
+    margin: 0 auto;
+}
+
+/* Подсветка при автозаполнении */
+
+input {outline: none;}
+input:-webkit-autofill {
+    -webkit-box-shadow: inset 0 0 0 50px #F4F4F4 !important; /* Цвет фона */
+    -webkit-text-fill-color: #000 !important; /* цвет текста */
+    color: #999 !important; /* цвет текста */
+}
