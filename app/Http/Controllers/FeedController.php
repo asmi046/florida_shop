@@ -16,6 +16,7 @@ class FeedController extends Controller
         {
                 $catProducts = Product::all();
                 $categoryInfo = null;
+                dd($catProducts);
         }
         else
         {
