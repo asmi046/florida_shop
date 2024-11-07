@@ -3,6 +3,7 @@
 
 @import 'fonts';
 @import 'null';
+@import 'icon-a';
 @import 'new_head';
 
 
@@ -19,12 +20,6 @@ header ._wrapper {
 
 header .messendger_head_blk {
     display: none;
-}
-
-.logo {
-    width:auto;
-    height: 70px;
-    margin: auto auto auto 0;
 }
 
 
@@ -45,10 +40,6 @@ header .messendger_head_blk {
     line-height: 27px
 }
 
-.main_menu {
-    margin: auto 0 20px auto;
-}
-
 .cabinet {
     margin: auto 0 auto auto;
     position: relative;
@@ -61,19 +52,6 @@ header .messendger_head_blk {
     left: -40px;
     top: -5px;
     font-size: 27px;
-}
-
-.main_menu {
-    display: flex;
-    justify-content: space-between;
-}
-
-.main_menu a{
-    margin-left: 20px;
-}
-
-.main_menu ul:last-child a{
-    margin-right: 0;
 }
 
 /*--------Шапка end----------*/

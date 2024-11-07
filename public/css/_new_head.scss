@@ -1,0 +1,61 @@
+.header {
+
+    background-image: url(../img/banner_new.jpg);
+    background-position: top center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    min-height: 580px;
+    font-size: 14px;
+    color:white;
+
+    font-family: "Tenor Sans", sans-serif;
+
+    h1 {
+        font-weight: normal;
+        font-size: 64px;
+    }
+    ._wrapper {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 100%;
+    }
+
+    .logo {
+        width: 79px;
+        height: 58px;
+    }
+
+    a {
+        color:white;
+    }
+
+    .top {
+        padding: 10px 0;
+        width: 100%;
+        display: flex;
+    }
+    .bottom {
+        flex:1;
+        height: auto;
+    }
+}
+
+.shop_control {
+    display: flex;
+    margin: auto 0 10px auto;
+}
+
+.main_menu {
+    display: flex;
+    margin: auto auto 10px auto;
+    justify-content: space-between;
+
+    a{
+        margin-left: 20px;
+    }
+
+    ul:last-child a{
+        margin-right: 0;
+    }
+}

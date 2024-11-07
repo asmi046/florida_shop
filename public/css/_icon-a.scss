@@ -1,0 +1,15 @@
+.icon_a {
+    display: flex;
+    margin-left: 10px;
+    justify-content: start;
+    flex-wrap: wrap;
+    & > * {
+        margin: auto 5px;
+    }
+    svg {
+        width: 23px;
+        height: 23px;
+
+        fill: white;
+    }
+}
