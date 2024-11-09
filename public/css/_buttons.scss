@@ -1,11 +1,17 @@
 .button {
-    border: 1px solid;
+    border: 1px solid $main_color;
     padding: 10px 30px;
     cursor: pointer;
     transition: all .5s ease;
     display: inline-block;
     line-height: 1;
     text-align: center;
+
+    &:hover {
+        border-color: $sub_color;
+        background-color: $sub_color;
+        color: white;
+    }
 }
 
 .button_white {
@@ -38,5 +44,59 @@
 
     &:hover {
         background-color: $sub_color;
+    }
+}
+
+.price_button {
+    background-color: $main_color;
+    color: white;
+    padding: 7px 25px;
+    font-size: 16px;
+}
+
+.tag_wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap:10px;
+}
+
+.tag_button {
+    border:1px solid $main_color;
+    padding: 5px 10px 5px 10px;
+    border-radius: 5px;
+    display: inline-block;
+    font-size: 16px;
+    gap:10px;
+    display: flex;
+    & > * {
+        margin: auto;
+    }
+    .icon {
+        width:23px;
+        height:23px;
+        border-radius: 20px;
+        border:1px solid $main_color;
+        display: flex;
+    }
+    .sprite_icon {
+        margin: auto;
+        width:12px;
+        height:12px;
+        stroke: $main_color;
+    }
+    &:hover {
+        background-color: $main_color;
+        color: white;
+
+        .icon {
+            border-color: white;
+
+        }
+
+        .sprite_icon {
+            transform: rotate(-90deg);
+            stroke:white;
+            fill: white;
+        }
     }
 }

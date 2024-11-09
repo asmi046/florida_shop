@@ -14,9 +14,27 @@
 
     <x-advantages></x-advantages> --}}
 
-    <x-hit-slider :salesliders="$sales_liders"></x-hit-slider>
+    <section class="tag_main_section">
+        <div class="_wrapper">
+            <h2>Возможно Вас заинтересует</h2>
+            <x-tegs-main></x-tegs-main>
+        </div>
+    </section>
 
-    <x-sales-slider :sales="$sales"></x-sales-slider>
+    <section class="sales_hits_section">
+        <div class="_wrapper">
+            <h2>Популярные букеты и Акции</h2>
+            <div class="tovar_wrapper">
+                @foreach ($sales as $tovar)
+                    <x-cards.tovar-card :isslide="true" :tovar="$tovar"></x-cards.tovar-card>
+                @endforeach
+            </div>
+        </div>
+    </section>
+
+    {{-- <x-hit-slider :salesliders="$sales_liders"></x-hit-slider> --}}
+
+    {{-- <x-sales-slider :sales="$sales"></x-sales-slider> --}}
 
     <x-catalog-in-main :allproduct="$all_product"></x-catalog-in-main>
 

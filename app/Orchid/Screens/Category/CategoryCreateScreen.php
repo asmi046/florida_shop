@@ -2,18 +2,19 @@
 
 namespace App\Orchid\Screens\Category;
 
-use Orchid\Screen\Screen;
-
 use App\Models\Category;
 
-use Orchid\Support\Facades\Layout;
+use Orchid\Screen\Screen;
+
+use Orchid\Support\Color;
+use Illuminate\Http\Request;
 use Orchid\Screen\Fields\Input;
 use Orchid\Screen\Fields\Quill;
-use Orchid\Support\Facades\Toast;
 use Orchid\Screen\Actions\Button;
-use Orchid\Support\Color;
+use Orchid\Screen\Fields\Picture;
 
-use Illuminate\Http\Request;
+use Orchid\Support\Facades\Toast;
+use Orchid\Support\Facades\Layout;
 
 class CategoryCreateScreen extends Screen
 {
@@ -64,12 +65,20 @@ class CategoryCreateScreen extends Screen
                     ->required()
                     ->horizontal(),
 
+                Input::make('showed_title')
+                    ->title('Заголовок выводимый')
+                    ->value($this->category->title)
+                    ->help('Заголовок категории выводимый')
+                    ->horizontal(),
+
                 Input::make('slug')
                     ->title('Окончание ссылки')
                     ->help('Slug категории')
                     ->horizontal(),
 
-                Quill::make('description')->required()->title('Описание'),
+                Picture::make('img')->title('Изображение')->storage('public')->targetRelativeUrl(),
+
+                Quill::make('description')->title('Описание'),
 
                 Button::make('Добавить категорию')->method('save_info')->type(Color::SUCCESS())
             ])
@@ -80,7 +89,9 @@ class CategoryCreateScreen extends Screen
 
         $new_data = $request->validate([
             'title' => ['required', 'string'],
-            'slug' => [],
+            'slug' => ['required', 'string'],
+            'img' => [],
+            'showed_title' => [],
             'description' => []
         ]);
 

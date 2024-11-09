@@ -64,5 +64,9 @@
         <path d="M8 1.16L1.48 7.68C0.71 8.45 0.71 9.71 1.48 10.48L8 17" stroke="white" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
     </symbol>
 
+    <symbol id="arrow_green" viewBox="0 0 10 5" fill="none">
+        <path d="M1.46997 0.73999L4.99997 4.25999L8.52997 0.73999"  stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </symbol>
+
 
   </svg>

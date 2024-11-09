@@ -7,9 +7,8 @@
 @endpush
 
 <p class="h2 n-m font-thin v-center">
-    <img src="{{asset('img/favicons/logo-mini.svg')}}" alt="">
+    <img src="{{asset('img/logo_new_white.svg')}}" alt="">
     <span class="m-l d-none d-sm-block">
-        Florida
-        <small class="v-top opacity">46</small>
+
     </span>
 </p>

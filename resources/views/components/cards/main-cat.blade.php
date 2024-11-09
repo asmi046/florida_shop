@@ -1,5 +1,7 @@
-<div class="cat_blk">
+
+
+<a href="{{ route('category', $item->slug) }}" class="cat_blk">
     <div class="shadow"></div>
-    <img src="{{ asset('img/cat_tmp.jpg') }}" alt="Тест">
-    <h3>Сборные букеты</h3>
-</div>
+    <img src="{{ (!$item->img)?asset('img/cat_tmp.jpg'):$item->img }}" alt="{{ $item->title }}">
+    <h3>{!! ($item->showed_title)?$item->showed_title:$item->title !!}</h3>
+</a>

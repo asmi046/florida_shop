@@ -2,12 +2,11 @@
     <div class="_wrapper">
         <h2>Популярные категории</h2>
         <swiper-container init="false" id="main_cat_slider">
-            <swiper-slide><x-cards.main-cat></x-cards.main-cat></swiper-slide>
-            <swiper-slide><x-cards.main-cat></x-cards.main-cat></swiper-slide>
-            <swiper-slide><x-cards.main-cat></x-cards.main-cat></swiper-slide>
-            <swiper-slide><x-cards.main-cat></x-cards.main-cat></swiper-slide>
-            <swiper-slide><x-cards.main-cat></x-cards.main-cat></swiper-slide>
-            <swiper-slide><x-cards.main-cat></x-cards.main-cat></swiper-slide>
+            @foreach ($all_cat as $item)
+                <swiper-slide>
+                    <x-cards.main-cat :item="$item"></x-cards.main-cat>
+                </swiper-slide>
+            @endforeach
         </swiper-container>
 
         <div class="slider_btn_wrapper">
