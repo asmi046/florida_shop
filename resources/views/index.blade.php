@@ -10,9 +10,9 @@
 
 @section('content')
 
-    <x-main-banner></x-main-banner>
+    {{-- <x-main-banner></x-main-banner>
 
-    <x-advantages></x-advantages>
+    <x-advantages></x-advantages> --}}
 
     <x-hit-slider :salesliders="$sales_liders"></x-hit-slider>
 

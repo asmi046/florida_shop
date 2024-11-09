@@ -100,7 +100,7 @@
         <one-click-buy-window></one-click-buy-window>
 
         <x-header></x-header>
-        <x-header-control></x-header-control>
+
         <x-header-category></x-header-category>
 
         @yield('content')

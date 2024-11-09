@@ -15,6 +15,8 @@ import axios from 'axios'
 
 import VueAxios from 'vue-axios'
 
+import './sliders.js'
+
 import { VMaskDirective } from 'v-slim-mask'
 
 import { store } from "./storage"

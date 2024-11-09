@@ -8,11 +8,13 @@
     font-size: 14px;
     color:white;
 
-    font-family: "Tenor Sans", sans-serif;
+
 
     h1 {
+        font-family: "Tenor Sans", sans-serif;
         font-weight: normal;
-        font-size: 64px;
+        font-size: 58px;
+        margin: 20px 0px;
     }
     ._wrapper {
         display: flex;
@@ -38,6 +40,55 @@
     .bottom {
         flex:1;
         height: auto;
+        display: flex;
+        flex-direction: column;
+        margin-top: 40px;
+        margin-bottom: 40px;
+    }
+
+    .subtitle {
+        margin: 20px 0;
+        font-size: 18px;
+        line-height: 1.3;
+    }
+
+    .plash  {
+        margin:  20px auto 10px 0;
+        transform: rotate(-3deg);
+    }
+
+    .button_white {
+        margin-right:auto;
+
+    }
+
+}
+
+.utp {
+    text-align: center;
+    margin-bottom: 5px;
+
+    & > * {
+        margin: 0  auto;
+    }
+    .utp_top {
+        line-height: 1;
+        display: flex;
+        margin-bottom: 5px;
+        p {
+            text-transform: uppercase;
+            padding: 5px 10px 3px 10px;
+            border: 1px solid white;
+            border-radius: 7px;
+            margin-left: auto;
+            margin-right: auto;
+            font-weight: bold;
+            font-size: 14px;
+        }
+    }
+
+    p {
+        font-size: 12px;
     }
 }
 
@@ -58,4 +109,19 @@
     ul:last-child a{
         margin-right: 0;
     }
+}
+
+
+.bascet_counter_new {
+    font-size: 8px;
+    color:black;
+    background-color: white;
+    width:15px;
+    height:15px;
+    border-radius: 15px;
+    line-height: 17px;
+    text-align: center;
+    position: absolute;
+    left:15px;
+    top:-4px;
 }

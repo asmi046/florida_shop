@@ -9,4 +9,5 @@
         <use xlink:href="#{{ $icon }}"></use>
     </svg>
     <span>{{$ancor}}</span>
+    {{ $slot }}
 </a>

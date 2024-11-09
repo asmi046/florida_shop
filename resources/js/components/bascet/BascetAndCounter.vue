@@ -1,8 +1,6 @@
 
 <template>
-   <a href="/bascet" v-bind:class="{ 'active': active }"  class="bascet_head pi florida_cart">Корзина | <span class="bascet_counter">{{count}}</span>
-</a>
-
+    <span class="bascet_counter_new">{{count}}</span>
 </template>
 
 <script>

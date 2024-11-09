@@ -1,0 +1,50 @@
+.head_category_new {
+    ._wrapper {
+        margin-right: 0;
+    }
+
+    .cat_blk {
+        width:90%;
+        max-width: 360px;
+        height: 210px;
+        position: relative;
+        color: white;
+        display: flex;
+        font-family: "Tenor Sans", sans-serif;
+        img {
+            position: absolute;
+            left: 0;
+            top: 0;
+            z-index: 10;
+        }
+
+        .shadow {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            left: 0;
+            top: 0;
+            z-index: 20;
+            background-color: #00000099;
+        }
+
+        h3{
+            text-transform: uppercase;
+            text-align: center;
+            position: relative;
+            z-index: 30;
+            font-size: 32px;
+            width:60%;
+            margin: auto auto 20px auto;
+        }
+    }
+}
+
+@media (max-width: 1480px) {
+    .head_category_new {
+        ._wrapper {
+            width: 98%;
+            margin: 0  0 0 2%;
+        }
+    }
+}

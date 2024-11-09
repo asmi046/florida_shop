@@ -42,6 +42,7 @@
     "dependencies": {
         "@vitejs/plugin-vue": "^4.0.0",
         "sourcemap-codec": "^1.4.8",
+        "swiper": "^11.1.14",
         "v-slim-mask": "^1.0.24",
         "vue": "^3.2.45",
         "vue-axios": "^3.5.2",

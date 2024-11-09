@@ -2,20 +2,45 @@
 @charset "UTF-8";
 
 @import 'fonts';
+@import 'vars';
 @import 'null';
+@import 'buttons';
 @import 'icon-a';
 @import 'new_head';
+@import 'head_category_new';
 
 
+.plash  {
+    background-color: white;
+    border-radius: 20px;
+    padding: 5px 35px;
+    color:black;
+}
+
+.d_flex {
+    display: flex;
+}
+
+.f_c {
+    flex-direction: column;
+}
+
+.j_sb {
+    justify-content: space-between;
+}
+
+.g20 {
+    gap:20px
+}
+
+.g40 {
+    gap:40px
+}
 
 /*--------Шапка----------*/
 
 header ._wrapper {
-    display: flex;
-    min-height: 90px;
-    justify-content: space-between;
-    font-size: 18px;
-    font-weight: 600;
+
 }
 
 header .messendger_head_blk {
@@ -959,9 +984,9 @@ footer {
 }
 
 section h2 {
-    font-size: 48px;
-    font-weight: bold;
-    margin-bottom: 40px;
+    font-size: 32px;
+    font-weight: normal;
+    margin-bottom: 30px;
 }
 
 textarea,

@@ -3,6 +3,8 @@
     margin-left: 10px;
     justify-content: start;
     flex-wrap: wrap;
+    position: relative;
+
     & > * {
         margin: auto 5px;
     }

@@ -1,0 +1,42 @@
+.button {
+    border: 1px solid;
+    padding: 10px 30px;
+    cursor: pointer;
+    transition: all .5s ease;
+    display: inline-block;
+    line-height: 1;
+    text-align: center;
+}
+
+.button_white {
+    background-color: white;
+    border-color: white;
+    padding: 20px 40px;
+    color: black!important;
+}
+
+
+.slider_btn_wrapper {
+    margin-top: 20px;
+    display: flex;
+    gap: 15px;
+}
+
+.slider_btn.slider_next {
+    transform: rotate(180deg);
+}
+.slider_btn {
+    width: 35px;
+    height: 35px;
+    background-color: $main_color;
+    display: flex;
+    .sprite_icon {
+        margin: auto;
+        width: 70%;
+        height: 60%;
+    }
+
+    &:hover {
+        background-color: $sub_color;
+    }
+}

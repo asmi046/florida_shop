@@ -1,6 +1,29 @@
-<section id="head_category">
+<section class="head_category_new" id="head_category_new">
     <div class="_wrapper">
-        <ul>
+        <h2>Популярные категории</h2>
+        <swiper-container init="false" id="main_cat_slider">
+            <swiper-slide><x-cards.main-cat></x-cards.main-cat></swiper-slide>
+            <swiper-slide><x-cards.main-cat></x-cards.main-cat></swiper-slide>
+            <swiper-slide><x-cards.main-cat></x-cards.main-cat></swiper-slide>
+            <swiper-slide><x-cards.main-cat></x-cards.main-cat></swiper-slide>
+            <swiper-slide><x-cards.main-cat></x-cards.main-cat></swiper-slide>
+            <swiper-slide><x-cards.main-cat></x-cards.main-cat></swiper-slide>
+        </swiper-container>
+
+        <div class="slider_btn_wrapper">
+            <button id="main_cat_slider_btn_prev" class="slider_btn slider_prev">
+                <svg class="sprite_icon">
+                    <use xlink:href="#arrow"></use>
+                </svg>
+            </button>
+
+            <button id="main_cat_slider_btn_next" class="slider_btn slider_next">
+                <svg class="sprite_icon">
+                    <use xlink:href="#arrow"></use>
+                </svg>
+            </button>
+        </div>
+        {{-- <ul>
             <li><a class="action pi_after florida_procent" href="{{route('actions')}}">Акции</a></li>
 
             @for ($i=0; $i<count($all_cat); $i++)
@@ -20,6 +43,6 @@
             </li>
 
 
-        </ul>
+        </ul> --}}
     </div>
 </section>
