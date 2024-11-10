@@ -125,3 +125,52 @@
     left:15px;
     top:-4px;
 }
+
+
+@media (max-width: 480px) {
+    .header {
+        background-image: url(../img/banner_new_mob.jpg);
+
+        .search_lnk,
+        .cabinet_lnk,
+        .bascet_lnk
+        {
+            display: none;
+        }
+
+        .tel_lnk svg{
+            width: 19px;
+            height: 19px;
+            margin-right: 0;
+        }
+
+        .utp_wrapper {
+            gap:10px;
+            .utp {
+                width: 100%;
+                p {
+                    font-size: 12px;
+                }
+            }
+        }
+
+        .shop_control {
+            margin: auto 0 auto auto;
+        }
+
+        .bottom {
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+
+        h1 {
+            font-size: 42px;
+            margin-top: 10px;
+        }
+
+        .button_white {
+            margin-right: auto;
+            margin-top: 30px;
+        }
+    }
+}

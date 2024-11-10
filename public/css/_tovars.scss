@@ -56,3 +56,33 @@
         }
     }
 }
+
+
+@media (max-width: 768px){
+    .tovar_card_new {
+        max-width: 220px;
+        .img_wrapper {
+            height: 280px;
+        }
+    }
+}
+
+@media (max-width: 480px){
+    .tovar_card_new {
+        max-width: 45%;
+        .img_wrapper {
+            height: 220px;
+        }
+        p {
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+        .price {
+            flex-direction: column;
+            .button {
+                margin-top: 10px;
+                font-size: 14px;
+            }
+        }
+    }
+}

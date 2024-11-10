@@ -1,33 +1,34 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\EasyPageController;
-use App\Http\Controllers\IndexController;
-use App\Http\Controllers\CategoryController;
-use App\Http\Controllers\TovarController;
-
-use App\Http\Controllers\FavoriteController;
-use App\Http\Controllers\CartController;
-use App\Http\Controllers\SenderController;
-
-use App\Http\Controllers\CabinetController;
-use App\Http\Controllers\Auth\AuthController;
-
-use App\Http\Controllers\SearchController;
-
-use App\Http\Controllers\ContactsController;
-use App\Http\Controllers\BlogController;
-use App\Http\Controllers\ReviewsController;
-use App\Http\Controllers\PayController;
-
-use App\Http\Controllers\ActionsController;
 use App\Http\Controllers\HitController;
-use App\Http\Controllers\NewTovarController;
-
-use App\Http\Controllers\TestController;
-use App\Http\Controllers\CelebrationController;
+use App\Http\Controllers\PayController;
+use App\Http\Controllers\BlogController;
+use App\Http\Controllers\CartController;
 
 use App\Http\Controllers\FeedController;
+use App\Http\Controllers\TestController;
+use App\Http\Controllers\IndexController;
+
+use App\Http\Controllers\TovarController;
+use App\Http\Controllers\SearchController;
+
+use App\Http\Controllers\SenderController;
+
+use App\Http\Controllers\ActionsController;
+use App\Http\Controllers\CabinetController;
+use App\Http\Controllers\ReviewsController;
+use App\Http\Controllers\CategoryController;
+
+use App\Http\Controllers\ContactsController;
+use App\Http\Controllers\EasyPageController;
+use App\Http\Controllers\FavoriteController;
+
+use App\Http\Controllers\NewTovarController;
+use App\Http\Controllers\Auth\AuthController;
+
+use App\Http\Controllers\CelebrationController;
+use App\Http\Controllers\NewFeedbackController;
 
 /*
 |--------------------------------------------------------------------------
@@ -93,6 +94,8 @@ Route::get('/search', [SearchController::class, 'show_search_page'])->name('show
 Route::get('/payinfo', [PayController::class, 'show_payinfo'])->name('show_payinfo');
 
 Route::get('/yml-feed/{slug}', [FeedController::class, "yml_actegory"])->name('yml_actegory');
+
+Route::get('/all_rewiews', [NewFeedbackController::class, "index"])->name('rewiews');
 
 Route::middleware('auth')->group(function () {
     Route::get('/cabinet', [CabinetController::class, "show_cabinet_main"])->name("cabinet.home");

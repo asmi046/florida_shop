@@ -104,8 +104,4 @@
     .mobile_bottom_menu {
         display: flex;
     }
-
-    footer {
-        padding: 24px 0 80px 0;
-    }
 }

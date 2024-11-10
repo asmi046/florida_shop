@@ -1,0 +1,1199 @@
+[
+    {
+        "id": "120040377",
+        "region_id": 73,
+        "text": "Купил розы,сделали все как и сказала продавец ,но на утро обнаружили увядшие цветы ,создаётся мнение что качество цветов не самое лучшее,зато цена прям не самая дешёвая ....так что три звезды",
+        "rating": 3,
+        "provider": "2gis",
+        "source": null,
+        "is_hidden": false,
+        "hiding_type": null,
+        "hiding_reason": null,
+        "url": "",
+        "likes_count": 0,
+        "comments_count": 0,
+        "date_created": "2024-11-05T00:35:04.978151+07:00",
+        "date_edited": null,
+        "object": {
+            "id": "70000001036185620",
+            "type": "branch"
+        },
+        "user": {
+            "id": "27568712",
+            "reviews_count": 15,
+            "first_name": "Алексей Швыряев",
+            "last_name": null,
+            "name": "Алексей Швыряев",
+            "provider": "2gis",
+            "photo_preview_urls": {
+                "1920x": "",
+                "320x": "",
+                "640x": "",
+                "64x64": "",
+                "url": ""
+            },
+            "url": "",
+            "additional_data": {
+                "email": null
+            },
+            "public_id": "8b772902e99e4dd687955e57decb854c"
+        },
+        "official_answer": null,
+        "photos": [],
+        "additional_data": {
+            "status_history": [],
+            "has_unresolved_complaints": false,
+            "pin_status": "none",
+            "ip": "",
+            "user_agent": "",
+            "external_id": null,
+            "filtered_facts": null,
+            "is_unrated_permanently": null,
+            "is_liked": null,
+            "from_friend": false
+        },
+        "on_moderation": false,
+        "is_rated": true,
+        "is_verified": false
+    },
+    {
+        "id": "88477368",
+        "region_id": 73,
+        "text": "Замечательная букетная мастерская! Чудесные флористы, благодаря им букеты стоят по 2 недели",
+        "rating": 5,
+        "provider": "2gis",
+        "source": null,
+        "is_hidden": false,
+        "hiding_type": null,
+        "hiding_reason": null,
+        "url": "",
+        "likes_count": 0,
+        "comments_count": 0,
+        "date_created": "2024-06-28T21:58:20.631591+07:00",
+        "date_edited": null,
+        "object": {
+            "id": "70000001036185620",
+            "type": "branch"
+        },
+        "user": {
+            "id": "20417057",
+            "reviews_count": 10,
+            "first_name": "Дмитрий Артемьев",
+            "last_name": null,
+            "name": "Дмитрий Артемьев",
+            "provider": "2gis",
+            "photo_preview_urls": {
+                "1920x": "https://i8.photo.2gis.com/images/profile/844424974541458_bff8_1920x.jpg",
+                "320x": "https://i8.photo.2gis.com/images/profile/844424974541458_bff8_320x.jpg",
+                "640x": "https://i8.photo.2gis.com/images/profile/844424974541458_bff8_640x.jpg",
+                "64x64": "https://i8.photo.2gis.com/images/profile/844424974541458_bff8_64x64.jpg",
+                "url": "https://i8.photo.2gis.com/images/profile/844424974541458_bff8.jpg"
+            },
+            "url": "",
+            "additional_data": {
+                "email": null
+            },
+            "public_id": "41eadb10264b4e37a209a03aa4730fbd"
+        },
+        "official_answer": null,
+        "photos": [],
+        "additional_data": {
+            "status_history": [],
+            "has_unresolved_complaints": false,
+            "pin_status": "none",
+            "ip": "",
+            "user_agent": "",
+            "external_id": null,
+            "filtered_facts": null,
+            "is_unrated_permanently": null,
+            "is_liked": null,
+            "from_friend": false
+        },
+        "on_moderation": false,
+        "is_rated": true,
+        "is_verified": false
+    },
+    {
+        "id": "37778657",
+        "region_id": 73,
+        "text": "Всегда заказываю у них букеты на Дни рождения или торжественные мероприятия. Собирают со вкусом и по доступной цене. \nСпасибо флористу Кристине за всегда оперативные ответы и помощь с подготовкой букета даже среди ночи 😃🙏🏻🙏🏻🙏🏻",
+        "rating": 5,
+        "provider": "2gis",
+        "source": null,
+        "is_hidden": false,
+        "hiding_type": null,
+        "hiding_reason": null,
+        "url": "",
+        "likes_count": 1,
+        "comments_count": 0,
+        "date_created": "2022-10-02T02:15:32.023074+07:00",
+        "date_edited": null,
+        "object": {
+            "id": "70000001036185620",
+            "type": "branch"
+        },
+        "user": {
+            "id": "26978478",
+            "reviews_count": 5,
+            "first_name": "Дарина Стакротская",
+            "last_name": null,
+            "name": "Дарина Стакротская",
+            "provider": "2gis",
+            "photo_preview_urls": {
+                "1920x": "https://i9.photo.2gis.com/images/profile/30258560090316471_c2e3_1920x.jpg",
+                "320x": "https://i9.photo.2gis.com/images/profile/30258560090316471_c2e3_320x.jpg",
+                "640x": "https://i9.photo.2gis.com/images/profile/30258560090316471_c2e3_640x.jpg",
+                "64x64": "https://i9.photo.2gis.com/images/profile/30258560090316471_c2e3_64x64.jpg",
+                "url": "https://i9.photo.2gis.com/images/profile/30258560090316471_c2e3.jpg"
+            },
+            "url": "",
+            "additional_data": {
+                "email": null
+            },
+            "public_id": "676c39266da74872bbff3293cf465666"
+        },
+        "official_answer": null,
+        "photos": [],
+        "additional_data": {
+            "status_history": [],
+            "has_unresolved_complaints": false,
+            "pin_status": "none",
+            "ip": "",
+            "user_agent": "",
+            "external_id": null,
+            "filtered_facts": null,
+            "is_unrated_permanently": null,
+            "is_liked": null,
+            "from_friend": false
+        },
+        "on_moderation": false,
+        "is_rated": true,
+        "is_verified": false
+    },
+    {
+        "id": "34669330",
+        "region_id": 73,
+        "text": "Хорошее место,сделали замечательный Букет.",
+        "rating": 5,
+        "provider": "2gis",
+        "source": null,
+        "is_hidden": false,
+        "hiding_type": null,
+        "hiding_reason": null,
+        "url": "",
+        "likes_count": 1,
+        "comments_count": 0,
+        "date_created": "2022-07-30T01:18:52.497944+07:00",
+        "date_edited": null,
+        "object": {
+            "id": "70000001036185620",
+            "type": "branch"
+        },
+        "user": {
+            "id": "22508185",
+            "reviews_count": 4,
+            "first_name": "Ruslan Tulenev",
+            "last_name": null,
+            "name": "Ruslan Tulenev",
+            "provider": "2gis",
+            "photo_preview_urls": {
+                "1920x": "https://i8.photo.2gis.com/images/profile/844424979593928_609b_1920x.jpg",
+                "320x": "https://i8.photo.2gis.com/images/profile/844424979593928_609b_320x.jpg",
+                "640x": "https://i8.photo.2gis.com/images/profile/844424979593928_609b_640x.jpg",
+                "64x64": "https://i8.photo.2gis.com/images/profile/844424979593928_609b_64x64.jpg",
+                "url": "https://i8.photo.2gis.com/images/profile/844424979593928_609b.jpg"
+            },
+            "url": "",
+            "additional_data": {
+                "email": null
+            },
+            "public_id": "b153d3dc93bd4e559d83d04d95071e3f"
+        },
+        "official_answer": null,
+        "photos": [],
+        "additional_data": {
+            "status_history": [],
+            "has_unresolved_complaints": false,
+            "pin_status": "none",
+            "ip": "",
+            "user_agent": "",
+            "external_id": null,
+            "filtered_facts": null,
+            "is_unrated_permanently": null,
+            "is_liked": null,
+            "from_friend": false
+        },
+        "on_moderation": false,
+        "is_rated": true,
+        "is_verified": false
+    },
+    {
+        "id": "23125695",
+        "region_id": 73,
+        "text": "Спасибо, очень быстро и качественно исполнен заказ. Реально выручили, удалось поздравить близкого человека вовремя, хотя сама я была в другом регионе. Такое обыкновенное чудо - и при этом необыкновенно красивое. Молодцы!",
+        "rating": 5,
+        "provider": "2gis",
+        "source": null,
+        "is_hidden": false,
+        "hiding_type": null,
+        "hiding_reason": null,
+        "url": "",
+        "likes_count": 1,
+        "comments_count": 0,
+        "date_created": "2021-08-19T23:58:25.694494+07:00",
+        "date_edited": null,
+        "object": {
+            "id": "70000001036185620",
+            "type": "branch"
+        },
+        "user": {
+            "id": "1906208",
+            "reviews_count": 2,
+            "first_name": "Наталья Коврова",
+            "last_name": null,
+            "name": "Наталья Коврова",
+            "provider": "2gis",
+            "photo_preview_urls": {
+                "1920x": "https://i9.photo.2gis.com/images/profile/30258560077370004_9698_1920x.jpg",
+                "320x": "https://i9.photo.2gis.com/images/profile/30258560077370004_9698_320x.jpg",
+                "640x": "https://i9.photo.2gis.com/images/profile/30258560077370004_9698_640x.jpg",
+                "64x64": "https://i9.photo.2gis.com/images/profile/30258560077370004_9698_64x64.jpg",
+                "url": "https://i9.photo.2gis.com/images/profile/30258560077370004_9698.jpg"
+            },
+            "url": "",
+            "additional_data": {
+                "email": null
+            },
+            "public_id": "4483a54bbd6f465780768cdef643c43d"
+        },
+        "official_answer": null,
+        "photos": [],
+        "additional_data": {
+            "status_history": [],
+            "has_unresolved_complaints": false,
+            "pin_status": "none",
+            "ip": "",
+            "user_agent": "",
+            "external_id": null,
+            "filtered_facts": null,
+            "is_unrated_permanently": null,
+            "is_liked": null,
+            "from_friend": false
+        },
+        "on_moderation": false,
+        "is_rated": true,
+        "is_verified": false
+    },
+    {
+        "id": "12743480",
+        "region_id": 73,
+        "text": "Заказал розы ,доставили в срок )доверяю букеты только Вам.Спасибо)",
+        "rating": 5,
+        "provider": "2gis",
+        "source": null,
+        "is_hidden": false,
+        "hiding_type": null,
+        "hiding_reason": null,
+        "url": "",
+        "likes_count": 1,
+        "comments_count": 0,
+        "date_created": "2019-11-24T03:30:03.648341+07:00",
+        "date_edited": null,
+        "object": {
+            "id": "70000001036185620",
+            "type": "branch"
+        },
+        "user": {
+            "id": "21445246",
+            "reviews_count": 2,
+            "first_name": "Egor Olegovich",
+            "last_name": null,
+            "name": "Egor Olegovich",
+            "provider": "2gis",
+            "photo_preview_urls": {
+                "1920x": "https://i2.photo.2gis.com/images/profile/844424968422920_59a8_1920x.jpg",
+                "320x": "https://i2.photo.2gis.com/images/profile/844424968422920_59a8_320x.jpg",
+                "640x": "https://i2.photo.2gis.com/images/profile/844424968422920_59a8_640x.jpg",
+                "64x64": "https://i2.photo.2gis.com/images/profile/844424968422920_59a8_64x64.jpg",
+                "url": "https://i2.photo.2gis.com/images/profile/844424968422920_59a8.jpg"
+            },
+            "url": "",
+            "additional_data": {
+                "email": null
+            },
+            "public_id": "ad09409b97cc4558a13e204650f2f4df"
+        },
+        "official_answer": null,
+        "photos": [],
+        "additional_data": {
+            "status_history": [],
+            "has_unresolved_complaints": false,
+            "pin_status": "none",
+            "ip": "",
+            "user_agent": "",
+            "external_id": null,
+            "filtered_facts": null,
+            "is_unrated_permanently": null,
+            "is_liked": null,
+            "from_friend": false
+        },
+        "on_moderation": false,
+        "is_rated": true,
+        "is_verified": false
+    },
+    {
+        "id": "12743449",
+        "region_id": 73,
+        "text": "Замечательное обслуживание ,всегда свежие цветы ,заказывала доставку по Курску ,букет доставили во время ,всё свежее )Спасибо Флорида",
+        "rating": 5,
+        "provider": "2gis",
+        "source": null,
+        "is_hidden": false,
+        "hiding_type": null,
+        "hiding_reason": null,
+        "url": "",
+        "likes_count": 1,
+        "comments_count": 0,
+        "date_created": "2019-11-24T03:23:46.325351+07:00",
+        "date_edited": null,
+        "object": {
+            "id": "70000001036185620",
+            "type": "branch"
+        },
+        "user": {
+            "id": "21445209",
+            "reviews_count": 1,
+            "first_name": "Олечка Машошина",
+            "last_name": null,
+            "name": "Олечка Машошина",
+            "provider": "2gis",
+            "photo_preview_urls": {
+                "1920x": "https://i2.photo.2gis.com/images/profile/844424977148982_1a37_1920x.jpg",
+                "320x": "https://i2.photo.2gis.com/images/profile/844424977148982_1a37_320x.jpg",
+                "640x": "https://i2.photo.2gis.com/images/profile/844424977148982_1a37_640x.jpg",
+                "64x64": "https://i2.photo.2gis.com/images/profile/844424977148982_1a37_64x64.jpg",
+                "url": "https://i2.photo.2gis.com/images/profile/844424977148982_1a37.jpg"
+            },
+            "url": "",
+            "additional_data": {
+                "email": null
+            },
+            "public_id": "7b7b1e2201874d63ae274c7c778a80b1"
+        },
+        "official_answer": null,
+        "photos": [],
+        "additional_data": {
+            "status_history": [],
+            "has_unresolved_complaints": false,
+            "pin_status": "none",
+            "ip": "",
+            "user_agent": "",
+            "external_id": null,
+            "filtered_facts": null,
+            "is_unrated_permanently": null,
+            "is_liked": null,
+            "from_friend": false
+        },
+        "on_moderation": false,
+        "is_rated": true,
+        "is_verified": false
+    },
+    {
+        "id": "10227208",
+        "region_id": 73,
+        "text": "Отличный выбор, приветливый персонал. Встретили с улыбкой, отвечали на вопросы грамотно и не раздражаясь. Обслуживание на высшем уровне. Да, и цветы, как мне потом сказали, стояли очень долго и радовали глаз! ВЫСШИЙ БАЛЛ!",
+        "rating": 5,
+        "provider": "2gis",
+        "source": null,
+        "is_hidden": false,
+        "hiding_type": null,
+        "hiding_reason": null,
+        "url": "",
+        "likes_count": 1,
+        "comments_count": 0,
+        "date_created": "2019-05-31T22:52:11.28369+07:00",
+        "date_edited": null,
+        "object": {
+            "id": "70000001036185620",
+            "type": "branch"
+        },
+        "user": {
+            "id": "19007056",
+            "reviews_count": 1,
+            "first_name": "Маргарита Игнатова",
+            "last_name": null,
+            "name": "Маргарита Игнатова",
+            "provider": "2gis",
+            "photo_preview_urls": {
+                "1920x": "https://i3.photo.2gis.com/images/profile/844424971681453_cfb9_1920x.jpg",
+                "320x": "https://i3.photo.2gis.com/images/profile/844424971681453_cfb9_320x.jpg",
+                "640x": "https://i3.photo.2gis.com/images/profile/844424971681453_cfb9_640x.jpg",
+                "64x64": "https://i3.photo.2gis.com/images/profile/844424971681453_cfb9_64x64.jpg",
+                "url": "https://i3.photo.2gis.com/images/profile/844424971681453_cfb9.jpg"
+            },
+            "url": "",
+            "additional_data": {
+                "email": null
+            },
+            "public_id": "90eaefcd65fc4b2c8d26aedec7d98692"
+        },
+        "official_answer": null,
+        "photos": [],
+        "additional_data": {
+            "status_history": [],
+            "has_unresolved_complaints": false,
+            "pin_status": "none",
+            "ip": "",
+            "user_agent": "",
+            "external_id": null,
+            "filtered_facts": null,
+            "is_unrated_permanently": null,
+            "is_liked": null,
+            "from_friend": false
+        },
+        "on_moderation": false,
+        "is_rated": true,
+        "is_verified": false
+    },
+    {
+        "id": "10216971",
+        "region_id": 73,
+        "text": "Богатый выбор цветов, всё быстро, качественно, на высшем уровне, всем советую!",
+        "rating": 5,
+        "provider": "2gis",
+        "source": null,
+        "is_hidden": false,
+        "hiding_type": null,
+        "hiding_reason": null,
+        "url": "",
+        "likes_count": 1,
+        "comments_count": 0,
+        "date_created": "2019-05-31T01:38:53.065507+07:00",
+        "date_edited": null,
+        "object": {
+            "id": "70000001036185620",
+            "type": "branch"
+        },
+        "user": {
+            "id": "18996113",
+            "reviews_count": 1,
+            "first_name": "Камал Ибадов",
+            "last_name": null,
+            "name": "Камал Ибадов",
+            "provider": "2gis",
+            "photo_preview_urls": {
+                "1920x": "https://i1.photo.2gis.com/images/profile/844424968423752_ac22_1920x.jpg",
+                "320x": "https://i1.photo.2gis.com/images/profile/844424968423752_ac22_320x.jpg",
+                "640x": "https://i1.photo.2gis.com/images/profile/844424968423752_ac22_640x.jpg",
+                "64x64": "https://i1.photo.2gis.com/images/profile/844424968423752_ac22_64x64.jpg",
+                "url": "https://i1.photo.2gis.com/images/profile/844424968423752_ac22.jpg"
+            },
+            "url": "",
+            "additional_data": {
+                "email": null
+            },
+            "public_id": "3083904fb98c461bb4475ec165552ba4"
+        },
+        "official_answer": null,
+        "photos": [],
+        "additional_data": {
+            "status_history": [],
+            "has_unresolved_complaints": false,
+            "pin_status": "none",
+            "ip": "",
+            "user_agent": "",
+            "external_id": null,
+            "filtered_facts": null,
+            "is_unrated_permanently": null,
+            "is_liked": null,
+            "from_friend": false
+        },
+        "on_moderation": false,
+        "is_rated": true,
+        "is_verified": false
+    },
+    {
+        "id": "10216579",
+        "region_id": 73,
+        "text": "Хороший магазин, с отличным выбором цветов и мастерами своего дела, взял букет, все красиво!",
+        "rating": 5,
+        "provider": "2gis",
+        "source": null,
+        "is_hidden": false,
+        "hiding_type": null,
+        "hiding_reason": null,
+        "url": "",
+        "likes_count": 0,
+        "comments_count": 0,
+        "date_created": "2019-05-31T00:45:42.877748+07:00",
+        "date_edited": null,
+        "object": {
+            "id": "70000001036185620",
+            "type": "branch"
+        },
+        "user": {
+            "id": "18995690",
+            "reviews_count": 1,
+            "first_name": "Никита Проскурин",
+            "last_name": null,
+            "name": "Никита Проскурин",
+            "provider": "2gis",
+            "photo_preview_urls": {
+                "1920x": "https://i6.photo.2gis.com/images/profile/844424971656076_0121_1920x.jpg",
+                "320x": "https://i6.photo.2gis.com/images/profile/844424971656076_0121_320x.jpg",
+                "640x": "https://i6.photo.2gis.com/images/profile/844424971656076_0121_640x.jpg",
+                "64x64": "https://i6.photo.2gis.com/images/profile/844424971656076_0121_64x64.jpg",
+                "url": "https://i6.photo.2gis.com/images/profile/844424971656076_0121.jpg"
+            },
+            "url": "",
+            "additional_data": {
+                "email": null
+            },
+            "public_id": "a0504dde77a7441fa755e839a32d9094"
+        },
+        "official_answer": null,
+        "photos": [],
+        "additional_data": {
+            "status_history": [],
+            "has_unresolved_complaints": false,
+            "pin_status": "none",
+            "ip": "",
+            "user_agent": "",
+            "external_id": null,
+            "filtered_facts": null,
+            "is_unrated_permanently": null,
+            "is_liked": null,
+            "from_friend": false
+        },
+        "on_moderation": false,
+        "is_rated": true,
+        "is_verified": false
+    },
+    {
+        "id": "10124747",
+        "region_id": 73,
+        "text": "Топовые цветы. И недорого",
+        "rating": 5,
+        "provider": "2gis",
+        "source": null,
+        "is_hidden": false,
+        "hiding_type": null,
+        "hiding_reason": null,
+        "url": "",
+        "likes_count": 0,
+        "comments_count": 0,
+        "date_created": "2019-05-22T23:25:21.353153+07:00",
+        "date_edited": null,
+        "object": {
+            "id": "70000001036185620",
+            "type": "branch"
+        },
+        "user": {
+            "id": "18899459",
+            "reviews_count": 2,
+            "first_name": "Вячеслав Харитонов",
+            "last_name": null,
+            "name": "Вячеслав Харитонов",
+            "provider": "2gis",
+            "photo_preview_urls": {
+                "1920x": "https://i4.photo.2gis.com/images/profile/844424971439674_b4f7_1920x.jpg",
+                "320x": "https://i4.photo.2gis.com/images/profile/844424971439674_b4f7_320x.jpg",
+                "640x": "https://i4.photo.2gis.com/images/profile/844424971439674_b4f7_640x.jpg",
+                "64x64": "https://i4.photo.2gis.com/images/profile/844424971439674_b4f7_64x64.jpg",
+                "url": "https://i4.photo.2gis.com/images/profile/844424971439674_b4f7.jpg"
+            },
+            "url": "",
+            "additional_data": {
+                "email": null
+            },
+            "public_id": "ba7336d21d794ec3bf6c25cd29917c50"
+        },
+        "official_answer": null,
+        "photos": [],
+        "additional_data": {
+            "status_history": [],
+            "has_unresolved_complaints": false,
+            "pin_status": "none",
+            "ip": "",
+            "user_agent": "",
+            "external_id": null,
+            "filtered_facts": null,
+            "is_unrated_permanently": null,
+            "is_liked": null,
+            "from_friend": false
+        },
+        "on_moderation": false,
+        "is_rated": true,
+        "is_verified": false
+    },
+    {
+        "id": "10080964",
+        "region_id": 73,
+        "text": "Все на самом высоком уровне, огромное спасибо!!!",
+        "rating": 5,
+        "provider": "2gis",
+        "source": null,
+        "is_hidden": false,
+        "hiding_type": null,
+        "hiding_reason": null,
+        "url": "",
+        "likes_count": 0,
+        "comments_count": 0,
+        "date_created": "2019-05-19T02:23:15.844175+07:00",
+        "date_edited": null,
+        "object": {
+            "id": "70000001036185620",
+            "type": "branch"
+        },
+        "user": {
+            "id": "18830019",
+            "reviews_count": 2,
+            "first_name": "Евгений Ильин",
+            "last_name": null,
+            "name": "Евгений Ильин",
+            "provider": "2gis",
+            "photo_preview_urls": {
+                "1920x": "https://i6.photo.2gis.com/images/profile/844424971293516_4c9b_1920x.jpg",
+                "320x": "https://i6.photo.2gis.com/images/profile/844424971293516_4c9b_320x.jpg",
+                "640x": "https://i6.photo.2gis.com/images/profile/844424971293516_4c9b_640x.jpg",
+                "64x64": "https://i6.photo.2gis.com/images/profile/844424971293516_4c9b_64x64.jpg",
+                "url": "https://i6.photo.2gis.com/images/profile/844424971293516_4c9b.jpg"
+            },
+            "url": "",
+            "additional_data": {
+                "email": null
+            },
+            "public_id": "c30b4f9fcccc47ca8c1296661fd138cf"
+        },
+        "official_answer": null,
+        "photos": [],
+        "additional_data": {
+            "status_history": [],
+            "has_unresolved_complaints": false,
+            "pin_status": "none",
+            "ip": "",
+            "user_agent": "",
+            "external_id": null,
+            "filtered_facts": null,
+            "is_unrated_permanently": null,
+            "is_liked": null,
+            "from_friend": false
+        },
+        "on_moderation": false,
+        "is_rated": true,
+        "is_verified": false
+    },
+    {
+        "id": "10062230",
+        "region_id": 73,
+        "text": "Огромное спасибо флористу-Кристине за умение слышать и чувствовать желание покупателя, очень талантливый флорист и четко знает своё дело! В магазине огромный выбор свежих, шикарных цветов на любой вкус и цвет ! В общем, остался в восторге! Быстро, качественно и приемлемо по деньгам ! Так же выдали скидочную карту, так как являюсь постоянным клиентом в этом цветочном магазине, за что тоже большое спасибо !",
+        "rating": 5,
+        "provider": "2gis",
+        "source": null,
+        "is_hidden": false,
+        "hiding_type": null,
+        "hiding_reason": null,
+        "url": "",
+        "likes_count": 0,
+        "comments_count": 0,
+        "date_created": "2019-05-17T14:21:05.87584+07:00",
+        "date_edited": null,
+        "object": {
+            "id": "70000001036185620",
+            "type": "branch"
+        },
+        "user": {
+            "id": "18833844",
+            "reviews_count": 1,
+            "first_name": "Ростислав Витязь",
+            "last_name": null,
+            "name": "Ростислав Витязь",
+            "provider": "2gis",
+            "photo_preview_urls": {
+                "1920x": "https://i4.photo.2gis.com/images/profile/844424971301474_734c_1920x.jpg",
+                "320x": "https://i4.photo.2gis.com/images/profile/844424971301474_734c_320x.jpg",
+                "640x": "https://i4.photo.2gis.com/images/profile/844424971301474_734c_640x.jpg",
+                "64x64": "https://i4.photo.2gis.com/images/profile/844424971301474_734c_64x64.jpg",
+                "url": "https://i4.photo.2gis.com/images/profile/844424971301474_734c.jpg"
+            },
+            "url": "",
+            "additional_data": {
+                "email": null
+            },
+            "public_id": "f60e3e91b2c941d5a0fab317e1ef7ad7"
+        },
+        "official_answer": null,
+        "photos": [],
+        "additional_data": {
+            "status_history": [],
+            "has_unresolved_complaints": false,
+            "pin_status": "none",
+            "ip": "",
+            "user_agent": "",
+            "external_id": null,
+            "filtered_facts": null,
+            "is_unrated_permanently": null,
+            "is_liked": null,
+            "from_friend": false
+        },
+        "on_moderation": false,
+        "is_rated": true,
+        "is_verified": false
+    },
+    {
+        "id": "10058704",
+        "region_id": 73,
+        "text": "Хорошее обслуживание, учли все мои пожелания. И букеты сделали очень красивые моя девушка была в восторге. Всем рекомендую.",
+        "rating": 5,
+        "provider": "2gis",
+        "source": null,
+        "is_hidden": false,
+        "hiding_type": null,
+        "hiding_reason": null,
+        "url": "",
+        "likes_count": 0,
+        "comments_count": 0,
+        "date_created": "2019-05-17T04:14:00.689682+07:00",
+        "date_edited": null,
+        "object": {
+            "id": "70000001036185620",
+            "type": "branch"
+        },
+        "user": {
+            "id": "18830019",
+            "reviews_count": 2,
+            "first_name": "Евгений Ильин",
+            "last_name": null,
+            "name": "Евгений Ильин",
+            "provider": "2gis",
+            "photo_preview_urls": {
+                "1920x": "https://i6.photo.2gis.com/images/profile/844424971293516_4c9b_1920x.jpg",
+                "320x": "https://i6.photo.2gis.com/images/profile/844424971293516_4c9b_320x.jpg",
+                "640x": "https://i6.photo.2gis.com/images/profile/844424971293516_4c9b_640x.jpg",
+                "64x64": "https://i6.photo.2gis.com/images/profile/844424971293516_4c9b_64x64.jpg",
+                "url": "https://i6.photo.2gis.com/images/profile/844424971293516_4c9b.jpg"
+            },
+            "url": "",
+            "additional_data": {
+                "email": null
+            },
+            "public_id": "c30b4f9fcccc47ca8c1296661fd138cf"
+        },
+        "official_answer": null,
+        "photos": [],
+        "additional_data": {
+            "status_history": [],
+            "has_unresolved_complaints": false,
+            "pin_status": "none",
+            "ip": "",
+            "user_agent": "",
+            "external_id": null,
+            "filtered_facts": null,
+            "is_unrated_permanently": null,
+            "is_liked": null,
+            "from_friend": false
+        },
+        "on_moderation": false,
+        "is_rated": true,
+        "is_verified": false
+    },
+    {
+        "id": "10058701",
+        "region_id": 73,
+        "text": "Очень хороший и большой выбор ,всегда свежие цветы ,вежливые продавцы))",
+        "rating": 5,
+        "provider": "2gis",
+        "source": null,
+        "is_hidden": false,
+        "hiding_type": null,
+        "hiding_reason": null,
+        "url": "",
+        "likes_count": 0,
+        "comments_count": 0,
+        "date_created": "2019-05-17T04:13:05.81829+07:00",
+        "date_edited": null,
+        "object": {
+            "id": "70000001036185620",
+            "type": "branch"
+        },
+        "user": {
+            "id": "15365736",
+            "reviews_count": 1,
+            "first_name": "Дмитрий Петров",
+            "last_name": null,
+            "name": "Дмитрий Петров",
+            "provider": "2gis",
+            "photo_preview_urls": {
+                "1920x": "https://i8.photo.2gis.com/images/profile/844424964375478_d03a_1920x.jpg",
+                "320x": "https://i8.photo.2gis.com/images/profile/844424964375478_d03a_320x.jpg",
+                "640x": "https://i8.photo.2gis.com/images/profile/844424964375478_d03a_640x.jpg",
+                "64x64": "https://i8.photo.2gis.com/images/profile/844424964375478_d03a_64x64.jpg",
+                "url": "https://i8.photo.2gis.com/images/profile/844424964375478_d03a.jpg"
+            },
+            "url": "",
+            "additional_data": {
+                "email": null
+            },
+            "public_id": "74350bb2780d4e4bb0e4010838da2ec1"
+        },
+        "official_answer": null,
+        "photos": [],
+        "additional_data": {
+            "status_history": [],
+            "has_unresolved_complaints": false,
+            "pin_status": "none",
+            "ip": "",
+            "user_agent": "",
+            "external_id": null,
+            "filtered_facts": null,
+            "is_unrated_permanently": null,
+            "is_liked": null,
+            "from_friend": false
+        },
+        "on_moderation": false,
+        "is_rated": true,
+        "is_verified": false
+    },
+    {
+        "id": "10058373",
+        "region_id": 73,
+        "text": "Быстрое и хорошее обслуживание, большой выбор цветов и букетов, удобное расположение.",
+        "rating": 5,
+        "provider": "2gis",
+        "source": null,
+        "is_hidden": false,
+        "hiding_type": null,
+        "hiding_reason": null,
+        "url": "",
+        "likes_count": 0,
+        "comments_count": 0,
+        "date_created": "2019-05-17T02:43:07.13315+07:00",
+        "date_edited": null,
+        "object": {
+            "id": "70000001036185620",
+            "type": "branch"
+        },
+        "user": {
+            "id": "18829597",
+            "reviews_count": 1,
+            "first_name": "Дмитрий Леденев",
+            "last_name": null,
+            "name": "Дмитрий Леденев",
+            "provider": "2gis",
+            "photo_preview_urls": {
+                "1920x": "https://i1.photo.2gis.com/images/profile/844424971292811_c34e_1920x.jpg",
+                "320x": "https://i1.photo.2gis.com/images/profile/844424971292811_c34e_320x.jpg",
+                "640x": "https://i1.photo.2gis.com/images/profile/844424971292811_c34e_640x.jpg",
+                "64x64": "https://i1.photo.2gis.com/images/profile/844424971292811_c34e_64x64.jpg",
+                "url": "https://i1.photo.2gis.com/images/profile/844424971292811_c34e.jpg"
+            },
+            "url": "",
+            "additional_data": {
+                "email": null
+            },
+            "public_id": "bb8e592c49224435b765704519bd28ab"
+        },
+        "official_answer": null,
+        "photos": [],
+        "additional_data": {
+            "status_history": [],
+            "has_unresolved_complaints": false,
+            "pin_status": "none",
+            "ip": "",
+            "user_agent": "",
+            "external_id": null,
+            "filtered_facts": null,
+            "is_unrated_permanently": null,
+            "is_liked": null,
+            "from_friend": false
+        },
+        "on_moderation": false,
+        "is_rated": true,
+        "is_verified": false
+    },
+    {
+        "id": "10058361",
+        "region_id": 73,
+        "text": "Отличные свежие цветы, индивидуальный подход, профессиональные рекомендации, красивые букеты, приемлемая цена по городу.",
+        "rating": 5,
+        "provider": "2gis",
+        "source": null,
+        "is_hidden": false,
+        "hiding_type": null,
+        "hiding_reason": null,
+        "url": "",
+        "likes_count": 0,
+        "comments_count": 0,
+        "date_created": "2019-05-17T02:41:49.912003+07:00",
+        "date_edited": null,
+        "object": {
+            "id": "70000001036185620",
+            "type": "branch"
+        },
+        "user": {
+            "id": "18829584",
+            "reviews_count": 1,
+            "first_name": "Александр Александров",
+            "last_name": null,
+            "name": "Александр Александров",
+            "provider": "2gis",
+            "photo_preview_urls": {
+                "1920x": "https://i4.photo.2gis.com/images/profile/844424971292794_8efc_1920x.jpg",
+                "320x": "https://i4.photo.2gis.com/images/profile/844424971292794_8efc_320x.jpg",
+                "640x": "https://i4.photo.2gis.com/images/profile/844424971292794_8efc_640x.jpg",
+                "64x64": "https://i4.photo.2gis.com/images/profile/844424971292794_8efc_64x64.jpg",
+                "url": "https://i4.photo.2gis.com/images/profile/844424971292794_8efc.jpg"
+            },
+            "url": "",
+            "additional_data": {
+                "email": null
+            },
+            "public_id": "9ca0887a01fe4ee3ac69259704bf3472"
+        },
+        "official_answer": null,
+        "photos": [],
+        "additional_data": {
+            "status_history": [],
+            "has_unresolved_complaints": false,
+            "pin_status": "none",
+            "ip": "",
+            "user_agent": "",
+            "external_id": null,
+            "filtered_facts": null,
+            "is_unrated_permanently": null,
+            "is_liked": null,
+            "from_friend": false
+        },
+        "on_moderation": false,
+        "is_rated": true,
+        "is_verified": false
+    },
+    {
+        "id": "10058318",
+        "region_id": 73,
+        "text": "Красивое оформление букетов, всегда учитываются пожелания, приемлимые цены, доставка без опоздания😊",
+        "rating": 5,
+        "provider": "2gis",
+        "source": null,
+        "is_hidden": false,
+        "hiding_type": null,
+        "hiding_reason": null,
+        "url": "",
+        "likes_count": 0,
+        "comments_count": 0,
+        "date_created": "2019-05-17T02:32:49.875695+07:00",
+        "date_edited": null,
+        "object": {
+            "id": "70000001036185620",
+            "type": "branch"
+        },
+        "user": {
+            "id": "18829479",
+            "reviews_count": 1,
+            "first_name": "Леночка Шереметьева",
+            "last_name": null,
+            "name": "Леночка Шереметьева",
+            "provider": "2gis",
+            "photo_preview_urls": {
+                "1920x": "https://i2.photo.2gis.com/images/profile/844424971292612_38a7_1920x.jpg",
+                "320x": "https://i2.photo.2gis.com/images/profile/844424971292612_38a7_320x.jpg",
+                "640x": "https://i2.photo.2gis.com/images/profile/844424971292612_38a7_640x.jpg",
+                "64x64": "https://i2.photo.2gis.com/images/profile/844424971292612_38a7_64x64.jpg",
+                "url": "https://i2.photo.2gis.com/images/profile/844424971292612_38a7.jpg"
+            },
+            "url": "",
+            "additional_data": {
+                "email": null
+            },
+            "public_id": "a28296816dab4c0ba4510221e7d8ab96"
+        },
+        "official_answer": null,
+        "photos": [],
+        "additional_data": {
+            "status_history": [],
+            "has_unresolved_complaints": false,
+            "pin_status": "none",
+            "ip": "",
+            "user_agent": "",
+            "external_id": null,
+            "filtered_facts": null,
+            "is_unrated_permanently": null,
+            "is_liked": null,
+            "from_friend": false
+        },
+        "on_moderation": false,
+        "is_rated": true,
+        "is_verified": false
+    },
+    {
+        "id": "10058273",
+        "region_id": 73,
+        "text": "Большой ассортимент цветов, и не абы каких, свежие, ценник приемлемый.",
+        "rating": 5,
+        "provider": "2gis",
+        "source": null,
+        "is_hidden": false,
+        "hiding_type": null,
+        "hiding_reason": null,
+        "url": "",
+        "likes_count": 0,
+        "comments_count": 0,
+        "date_created": "2019-05-17T02:22:02.136977+07:00",
+        "date_edited": null,
+        "object": {
+            "id": "70000001036185620",
+            "type": "branch"
+        },
+        "user": {
+            "id": "18829460",
+            "reviews_count": 1,
+            "first_name": "Даниил Самойлов",
+            "last_name": null,
+            "name": "Даниил Самойлов",
+            "provider": "2gis",
+            "photo_preview_urls": {
+                "1920x": "https://i9.photo.2gis.com/images/profile/844424971292569_b7ad_1920x.jpg",
+                "320x": "https://i9.photo.2gis.com/images/profile/844424971292569_b7ad_320x.jpg",
+                "640x": "https://i9.photo.2gis.com/images/profile/844424971292569_b7ad_640x.jpg",
+                "64x64": "https://i9.photo.2gis.com/images/profile/844424971292569_b7ad_64x64.jpg",
+                "url": "https://i9.photo.2gis.com/images/profile/844424971292569_b7ad.jpg"
+            },
+            "url": "",
+            "additional_data": {
+                "email": null
+            },
+            "public_id": "4bdd029dcaa24fc7911a0d95f575c71b"
+        },
+        "official_answer": null,
+        "photos": [],
+        "additional_data": {
+            "status_history": [],
+            "has_unresolved_complaints": false,
+            "pin_status": "none",
+            "ip": "",
+            "user_agent": "",
+            "external_id": null,
+            "filtered_facts": null,
+            "is_unrated_permanently": null,
+            "is_liked": null,
+            "from_friend": false
+        },
+        "on_moderation": false,
+        "is_rated": true,
+        "is_verified": false
+    },
+    {
+        "id": "10058271",
+        "region_id": 73,
+        "text": "Очень большой выбор, всегда свежие цветы и приветливые продавцы!",
+        "rating": 5,
+        "provider": "2gis",
+        "source": null,
+        "is_hidden": false,
+        "hiding_type": null,
+        "hiding_reason": null,
+        "url": "",
+        "likes_count": 0,
+        "comments_count": 0,
+        "date_created": "2019-05-17T02:21:07.478801+07:00",
+        "date_edited": null,
+        "object": {
+            "id": "70000001036185620",
+            "type": "branch"
+        },
+        "user": {
+            "id": "18829457",
+            "reviews_count": 1,
+            "first_name": "Артур Шорохов",
+            "last_name": null,
+            "name": "Артур Шорохов",
+            "provider": "2gis",
+            "photo_preview_urls": {
+                "1920x": "https://i4.photo.2gis.com/images/profile/844424971292564_ccf2_1920x.jpg",
+                "320x": "https://i4.photo.2gis.com/images/profile/844424971292564_ccf2_320x.jpg",
+                "640x": "https://i4.photo.2gis.com/images/profile/844424971292564_ccf2_640x.jpg",
+                "64x64": "https://i4.photo.2gis.com/images/profile/844424971292564_ccf2_64x64.jpg",
+                "url": "https://i4.photo.2gis.com/images/profile/844424971292564_ccf2.jpg"
+            },
+            "url": "",
+            "additional_data": {
+                "email": null
+            },
+            "public_id": "ca168dd99dc741deb4b0526b37e388bc"
+        },
+        "official_answer": null,
+        "photos": [],
+        "additional_data": {
+            "status_history": [],
+            "has_unresolved_complaints": false,
+            "pin_status": "none",
+            "ip": "",
+            "user_agent": "",
+            "external_id": null,
+            "filtered_facts": null,
+            "is_unrated_permanently": null,
+            "is_liked": null,
+            "from_friend": false
+        },
+        "on_moderation": false,
+        "is_rated": true,
+        "is_verified": false
+    },
+    {
+        "id": "10057177",
+        "region_id": 73,
+        "text": "цветы без посредников,добрые и внимательные продавцы!!!",
+        "rating": 5,
+        "provider": "2gis",
+        "source": null,
+        "is_hidden": false,
+        "hiding_type": null,
+        "hiding_reason": null,
+        "url": "",
+        "likes_count": 0,
+        "comments_count": 0,
+        "date_created": "2019-05-17T00:01:39.338545+07:00",
+        "date_edited": null,
+        "object": {
+            "id": "70000001036185620",
+            "type": "branch"
+        },
+        "user": {
+            "id": "18828336",
+            "reviews_count": 1,
+            "first_name": "даниил ломакин",
+            "last_name": null,
+            "name": "даниил ломакин",
+            "provider": "2gis",
+            "photo_preview_urls": {
+                "1920x": "https://i0.photo.2gis.com/images/profile/844424968444020_3ddb_1920x.jpg",
+                "320x": "https://i0.photo.2gis.com/images/profile/844424968444020_3ddb_320x.jpg",
+                "640x": "https://i0.photo.2gis.com/images/profile/844424968444020_3ddb_640x.jpg",
+                "64x64": "https://i0.photo.2gis.com/images/profile/844424968444020_3ddb_64x64.jpg",
+                "url": "https://i0.photo.2gis.com/images/profile/844424968444020_3ddb.jpg"
+            },
+            "url": "",
+            "additional_data": {
+                "email": null
+            },
+            "public_id": "1baa1cdfe195412bb191ba620df1e5a9"
+        },
+        "official_answer": null,
+        "photos": [],
+        "additional_data": {
+            "status_history": [],
+            "has_unresolved_complaints": false,
+            "pin_status": "none",
+            "ip": "",
+            "user_agent": "",
+            "external_id": null,
+            "filtered_facts": null,
+            "is_unrated_permanently": null,
+            "is_liked": null,
+            "from_friend": false
+        },
+        "on_moderation": false,
+        "is_rated": true,
+        "is_verified": false
+    }
+]

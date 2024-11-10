@@ -25,7 +25,12 @@
                 {{ $tovar->old_price }}₽
             </span>
         </div>
-        <a href="#" class="button price_button">Купить</a>
+
+        @if ($tovar->asc_nal)
+            <a href="#showModalNal" class="button price_button">Уточнить наличие</a>
+        @else
+            <to-bascet-btn-page sku="{{$tovar['sku']}}"  :bascet="'/bascet'"></to-bascet-btn-page>
+        @endif
     </div>
 </div>
 

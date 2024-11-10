@@ -1,0 +1,3413 @@
+[
+    {
+        "id": "ratingOverall",
+        "type": "/ugc/rating",
+        "rating": {}
+    },
+    {
+        "id": "PTwimTw7owuVqZcSmGQlA_CJZDk6jKIx",
+        "type": "/ugc/review",
+        "time": 1729410412712,
+        "author": {
+            "name": "АДК",
+            "pic": "31078/FjsxOiBY4eJxiz9okwdH26TolQ-1",
+            "signPrivacy": "NAME",
+            "pkPath": "/user/awq2fkm9pe3qdqy5m4r3qjx74m",
+            "professionLevel": "Знаток города 9 уровня",
+            "professionLevelNum": 9,
+            "isSubscribed": false,
+            "publicId": "awq2fkm9pe3qdqy5m4r3qjx74m",
+            "reviewsCount": 46,
+            "verified": false
+        },
+        "text": "Если вы хотите подарить чудо, а не просто букет цветов то вам сюда. Отличный персонал, подход к клиенту, сделали всё и даже больше. Учли всё пожелания, сделали доставку и что меня удивило больше всего минута в минуту. Заранее прислали фото готового букета. В общем, я часто пользовался доставкой цветов, но что-то типа (пчёлок) если вы поняли о ком я и рядом не стояли. ",
+        "rating": {
+            "val": 5,
+            "max": 5
+        },
+        "object": {
+            "id": "/sprav/46390727127",
+            "type": "Org"
+        },
+        "meta": {
+            "moderated": true,
+            "blocked": false,
+            "publicRating": true
+        },
+        "reactions": {
+            "likesCount": 0,
+            "dislikesCount": 0,
+            "myReaction": "NONE"
+        },
+        "photos": [
+            {
+                "id": "12810232_2a00000192a8e4b27e57d173bb8529761157",
+                "url": "/get-altay/12810232/2a00000192a8e4b27e57d173bb8529761157/orig",
+                "createTime": 1729410414596,
+                "width": "1200",
+                "height": "1600",
+                "review": true,
+                "status": "ACCEPTED"
+            }
+        ],
+        "views": [
+            {
+                "id": "usMJwjymQz5ZnP1OhHjj70obCLdewbt",
+                "type": "/ugc/comment",
+                "time": 1730414390486,
+                "text": "Благодарим за приятный отзыв! Для нас очень важно чтобы цветы всегда были свежими, доставка по Курску быстрой и эмоции у адресата от полученных цветов всегда были невероятными. Кажется, у нас это классно получается)) Спасибо Вам!",
+                "object": {
+                    "id": "/sprav/46390727127"
+                },
+                "meta": {
+                    "moderated": true,
+                    "blocked": false
+                }
+            }
+        ],
+        "rating10": {
+            "val": 10,
+            "max": 10
+        },
+        "textLanguage": "RU"
+    },
+    {
+        "id": "FrhyFck7Yssn7dyaWuVsLHDjdZlVHfcQ",
+        "type": "/ugc/review",
+        "time": 1729584000323,
+        "author": {
+            "name": "Сергей Н.",
+            "pic": "25817/76viceu7uXVyoTenFilr48qvA-1",
+            "signPrivacy": "NAME",
+            "pkPath": "/user/3vc0t12refu7gakdz9hwj77cyg",
+            "professionLevel": "Знаток города 11 уровня",
+            "professionLevelNum": 11,
+            "isSubscribed": false,
+            "publicId": "3vc0t12refu7gakdz9hwj77cyg",
+            "reviewsCount": 44,
+            "verified": false
+        },
+        "text": "Сам нахожусь в Челябинске, именинница в Курске. Долго выбирал , смотрел сайты. И остановил свой взгляд на Флориде. И не пожалел.\nПодобрали шикарный, сочный букет. Собрали очень быстро. Сделали доставку в нужное время.\nДевушка в восторге! \nСпасибо огромное! ",
+        "rating": {
+            "val": 5,
+            "max": 5
+        },
+        "object": {
+            "id": "/sprav/46390727127",
+            "type": "Org"
+        },
+        "meta": {
+            "moderated": true,
+            "blocked": false,
+            "publicRating": true
+        },
+        "reactions": {
+            "likesCount": 0,
+            "dislikesCount": 0,
+            "myReaction": "NONE"
+        },
+        "photos": [
+            {
+                "id": "14064514_2a00000192b33d6ee8cbeeb046455f864201",
+                "url": "/get-altay/14064514/2a00000192b33d6ee8cbeeb046455f864201/orig",
+                "createTime": 1729584001976,
+                "width": "1200",
+                "height": "1600",
+                "review": true,
+                "status": "ACCEPTED"
+            },
+            {
+                "id": "14190752_2a00000192b33d766f99567f650d9d8f42b7",
+                "url": "/get-altay/14190752/2a00000192b33d766f99567f650d9d8f42b7/orig",
+                "createTime": 1729584004073,
+                "width": "1200",
+                "height": "1600",
+                "review": true,
+                "status": "ACCEPTED"
+            }
+        ],
+        "views": [
+            {
+                "id": "pwgC6J2FvQiKQohqqKwufMwPrcBL7UQ",
+                "type": "/ugc/comment",
+                "time": 1730414235430,
+                "text": "Спасибо за приятный отклик, Сергей! Мы очень ценим наших покупателей, в особенности, когда нам доверяют самое ценное не зная нас лично. Благодарим за заказ. Безгранично рады, что именинница оценила букет. Работаем 24/7 и всегда готовы радовать вас и важных для вас людей приятными впечатлениями!",
+                "object": {
+                    "id": "/sprav/46390727127"
+                },
+                "meta": {
+                    "moderated": true,
+                    "blocked": false
+                }
+            }
+        ],
+        "rating10": {
+            "val": 10,
+            "max": 10
+        },
+        "textLanguage": "RU"
+    },
+    {
+        "id": "I2LXQHI0-YxNq3oIGKvz-Kz7SDTWuv",
+        "type": "/ugc/review",
+        "time": 1726032509068,
+        "author": {
+            "name": "Марина Ременная",
+            "pic": "",
+            "signPrivacy": "NAME",
+            "pkPath": "/user/n7jb50cdv2uw9kfa3n3bycx9a4",
+            "professionLevel": "Знаток города 3 уровня",
+            "professionLevelNum": 3,
+            "isSubscribed": false,
+            "publicId": "n7jb50cdv2uw9kfa3n3bycx9a4",
+            "reviewsCount": 2,
+            "verified": false
+        },
+        "text": "Отличное место,профессиональные флористы.Заказала букетик на день рождения подруги ,все сделали быстро и качественно. Очень довольна,обязательно закажу ещё. ",
+        "rating": {
+            "val": 5,
+            "max": 5
+        },
+        "object": {
+            "id": "/sprav/46390727127",
+            "type": "Org"
+        },
+        "meta": {
+            "moderated": true,
+            "blocked": false,
+            "publicRating": true
+        },
+        "reactions": {
+            "likesCount": 1,
+            "dislikesCount": 0,
+            "myReaction": "NONE"
+        },
+        "photos": [
+            {
+                "id": "11487452_2a00000191df8dfc4234da8f5a9af54844bb",
+                "url": "/get-altay/11487452/2a00000191df8dfc4234da8f5a9af54844bb/orig",
+                "createTime": 1726032511107,
+                "width": "960",
+                "height": "1280",
+                "review": true,
+                "status": "ACCEPTED"
+            }
+        ],
+        "views": [
+            {
+                "id": "V7f4GxMVu9lGCg_kN8HiSPMJBODNLO",
+                "type": "/ugc/comment",
+                "time": 1727427097670,
+                "text": "Большое спасибо за ваш отзыв! Мы рады, что вам понравился букет нашего цветочного магазина \"Florida\". Наши флористы всегда стараются сделать всё на высшем уровне. Будем с нетерпением ждать ваших новых заказов!",
+                "object": {
+                    "id": "/sprav/46390727127"
+                },
+                "meta": {
+                    "moderated": true,
+                    "blocked": false
+                }
+            }
+        ],
+        "rating10": {
+            "val": 10,
+            "max": 10
+        },
+        "textLanguage": "RU"
+    },
+    {
+        "id": "cVkokE1KKobfLL8Kh4_QP_bKk60wMn",
+        "type": "/ugc/review",
+        "time": 1727936323869,
+        "author": {
+            "name": "Алексей Толстопятых",
+            "pic": "43473/roGWjDwb8R1RtlytxHyhEankC2Y-1",
+            "signPrivacy": "NAME",
+            "pkPath": "/user/91ezre6061ku9jndvawdcwgc6w",
+            "professionLevel": "Знаток города 3 уровня",
+            "professionLevelNum": 3,
+            "isSubscribed": false,
+            "publicId": "91ezre6061ku9jndvawdcwgc6w",
+            "reviewsCount": 1,
+            "verified": false
+        },
+        "text": "Качественно и быстро обслуживают, каждый раз приятно обращаться, всегда довольны при обращении, сильно облегчают жизнь при заказе из другого города,  большое спасибо за Ваш труд!",
+        "rating": {
+            "val": 5,
+            "max": 5
+        },
+        "object": {
+            "id": "/sprav/46390727127",
+            "type": "Org"
+        },
+        "meta": {
+            "moderated": true,
+            "blocked": false,
+            "publicRating": true
+        },
+        "reactions": {
+            "likesCount": 0,
+            "dislikesCount": 0,
+            "myReaction": "NONE"
+        },
+        "views": [
+            {
+                "id": "hoI8UX-QxseUDAXdL8I58JqtW1v1px",
+                "type": "/ugc/comment",
+                "time": 1730414936069,
+                "text": "Спасибо за оценку нашей работы! Особенно ценно, что Вы доверились нам, чтоб осуществить доставку цветов для дорогого Вам человека находясь в другом городе. Мы доставляем цветы по Курску и области 24/7 и всегда рады собрать букет или композицию к любому поводу.",
+                "object": {
+                    "id": "/sprav/46390727127"
+                },
+                "meta": {
+                    "moderated": true,
+                    "blocked": false
+                }
+            }
+        ],
+        "rating10": {
+            "val": 10,
+            "max": 10
+        },
+        "textLanguage": "RU"
+    },
+    {
+        "id": "4YX4blraGnVNjqjiAdmGYpWze5GZfxu0",
+        "type": "/ugc/review",
+        "time": 1719460698411,
+        "author": {
+            "name": "Виктория В",
+            "pic": "",
+            "signPrivacy": "NAME",
+            "pkPath": "/user/y7uwm3j5dc0hj7tb0zp80majp0",
+            "professionLevel": "Знаток города 6 уровня",
+            "professionLevelNum": 6,
+            "isSubscribed": false,
+            "publicId": "y7uwm3j5dc0hj7tb0zp80majp0",
+            "reviewsCount": 7,
+            "verified": false
+        },
+        "text": "Заказала букет,композицию которая у них на сайте,то что на первом фото.Реальность второе фото. Мне кажется без комментариев даже....При этом курьер опоздал на 40 минут, доставка у них платная,но меня уговорили на бесплатную в итоге и привезли вот эту мини версию за 4300. Вообщем,испорченное настроение.Если решите заказать букет из того что у них представленно на сайте, знайте что Вас будет ждать на самом деле! ",
+        "rating": {
+            "val": 2,
+            "max": 5
+        },
+        "object": {
+            "id": "/sprav/46390727127",
+            "type": "Org"
+        },
+        "meta": {
+            "moderated": true,
+            "blocked": false,
+            "publicRating": true
+        },
+        "reactions": {
+            "likesCount": 0,
+            "dislikesCount": 0,
+            "myReaction": "NONE"
+        },
+        "photos": [
+            {
+                "id": "914620_2a0000019057d24a96cb2aa34a48145ab6b4",
+                "url": "/get-altay/914620/2a0000019057d24a96cb2aa34a48145ab6b4/orig",
+                "createTime": 1719460320269,
+                "width": "3000",
+                "height": "4000",
+                "review": true,
+                "status": "ACCEPTED"
+            }
+        ],
+        "rating10": {
+            "val": 4,
+            "max": 10
+        },
+        "textLanguage": "RU"
+    },
+    {
+        "id": "HKwqaHJhe-H64Jj_k-HcBkWz926A1dji",
+        "type": "/ugc/review",
+        "time": 1706193509179,
+        "author": {
+            "name": "Алевтина Д.",
+            "pic": "63032/eYAx83c0UEHwlvUbtBObY4BACI-1",
+            "signPrivacy": "NAME",
+            "pkPath": "/user/dr9xq3j4um3g1e0jtb34ydw9z0",
+            "professionLevel": "Знаток города 5 уровня",
+            "professionLevelNum": 5,
+            "isSubscribed": false,
+            "publicId": "dr9xq3j4um3g1e0jtb34ydw9z0",
+            "reviewsCount": 3,
+            "verified": false
+        },
+        "text": "Девочки , огромные молодцы , все сделано на высшем уровне 👍🏻👏🏼🥰Нужен был букет в другой город , и девочки все проконтролировали😍очень приятно , что все сделано быстро и качественно 😊Большое спасибо ☺️ ",
+        "rating": {
+            "val": 5,
+            "max": 5
+        },
+        "object": {
+            "id": "/sprav/46390727127",
+            "type": "Org"
+        },
+        "meta": {
+            "moderated": true,
+            "blocked": false,
+            "publicRating": true
+        },
+        "reactions": {
+            "likesCount": 1,
+            "dislikesCount": 1,
+            "myReaction": "NONE"
+        },
+        "views": [
+            {
+                "id": "wsIGrN_i65RJ-5zMK8Au_r-P6yGUO8d",
+                "type": "/ugc/comment",
+                "time": 1727428232302,
+                "text": "Огромное спасибо за такой теплый отзыв! 💐 Мы рады, что смогли вам помочь и все прошло на высшем уровне. Очень приятно, что вы остались довольны! Мы всегда готовы проконтролировать все до мельчайших деталей, чтобы наши букеты радовали получателей даже за пределами Курска. Ждем вас снова! 😊🙏🏻",
+                "object": {
+                    "id": "/sprav/46390727127"
+                },
+                "meta": {
+                    "moderated": true,
+                    "blocked": false
+                }
+            }
+        ],
+        "rating10": {
+            "val": 10,
+            "max": 10
+        },
+        "textLanguage": "RU"
+    },
+    {
+        "id": "c-e0yORbzMjqq6WeVxi8LxsUGkiNmx-hQ",
+        "type": "/ugc/review",
+        "time": 1726506953502,
+        "author": {
+            "name": "Антонина Анненкова",
+            "pic": "45131/TzT3URZCo7LbUB7MBmVOS0yTbHo-1572940819",
+            "signPrivacy": "NAME",
+            "pkPath": "/user/p83ejgnycmzwqcd0ujtka7ujag",
+            "professionLevel": "Знаток города 4 уровня",
+            "professionLevelNum": 4,
+            "isSubscribed": false,
+            "publicId": "p83ejgnycmzwqcd0ujtka7ujag",
+            "reviewsCount": 3,
+            "verified": false
+        },
+        "text": "Отличный цветочный магазин. Перед заказом мы всё обсудили с флористом, девочки собрали красивый букет и доставили его получателю  вовремя. ",
+        "rating": {
+            "val": 5,
+            "max": 5
+        },
+        "object": {
+            "id": "/sprav/46390727127",
+            "type": "Org"
+        },
+        "meta": {
+            "moderated": true,
+            "blocked": false,
+            "publicRating": true
+        },
+        "reactions": {
+            "likesCount": 0,
+            "dislikesCount": 0,
+            "myReaction": "NONE"
+        },
+        "photos": [
+            {
+                "id": "12728107_2a00000191fbd55fea62c79aed6465cf32df",
+                "url": "/get-altay/12728107/2a00000191fbd55fea62c79aed6465cf32df/orig",
+                "createTime": 1726506952486,
+                "width": "1200",
+                "height": "1600",
+                "review": true,
+                "status": "ACCEPTED"
+            }
+        ],
+        "views": [
+            {
+                "id": "bVKUXdDJuBeTCGyNz3Li3M1f8NjibtI",
+                "type": "/ugc/comment",
+                "time": 1727264802160,
+                "text": "Спасибо за заказ в нашем цветочном магазине! Будем рады видеть Вас вновь, либо вы можете воспользоваться доставкой цветов в Курске!",
+                "object": {
+                    "id": "/sprav/46390727127"
+                },
+                "meta": {
+                    "moderated": true,
+                    "blocked": false
+                }
+            }
+        ],
+        "rating10": {
+            "val": 10,
+            "max": 10
+        },
+        "textLanguage": "RU"
+    },
+    {
+        "id": "tAPJL4jK4P-ETp1qJQRW_BDzc2HTD_7xV",
+        "type": "/ugc/review",
+        "time": 1728122254209,
+        "author": {
+            "name": "Тимофей Р.",
+            "pic": "",
+            "signPrivacy": "NAME",
+            "pkPath": "/user/kvgq2rb4ztef3xpdt9xjwahga8",
+            "professionLevel": "Знаток города 4 уровня",
+            "professionLevelNum": 4,
+            "isSubscribed": false,
+            "publicId": "kvgq2rb4ztef3xpdt9xjwahga8",
+            "reviewsCount": 5,
+            "verified": false
+        },
+        "text": "Очень красивый букет, все цветы свежие, упаковано аккуратно. Доставили быстро, даже с утра, когда город стоит. ",
+        "rating": {
+            "val": 5,
+            "max": 5
+        },
+        "object": {
+            "id": "/sprav/46390727127",
+            "type": "Org"
+        },
+        "meta": {
+            "moderated": true,
+            "blocked": false,
+            "publicRating": true
+        },
+        "reactions": {
+            "likesCount": 0,
+            "dislikesCount": 0,
+            "myReaction": "NONE"
+        },
+        "photos": [
+            {
+                "id": "13970739_2a000001925c1cfe2a673a24aec6eaac489d",
+                "url": "/get-altay/13970739/2a000001925c1cfe2a673a24aec6eaac489d/orig",
+                "createTime": 1728122259207,
+                "width": "3072",
+                "height": "4096",
+                "review": true,
+                "status": "ACCEPTED"
+            },
+            {
+                "id": "14093322_2a000001925c1d10061b99e9160c695245ad",
+                "url": "/get-altay/14093322/2a000001925c1d10061b99e9160c695245ad/orig",
+                "createTime": 1728122263491,
+                "width": "3072",
+                "height": "4096",
+                "review": true,
+                "status": "ACCEPTED"
+            }
+        ],
+        "views": [
+            {
+                "id": "oYHonXKIQ2T5oFUSIyjUt6x8tpJjdHvWL",
+                "type": "/ugc/comment",
+                "time": 1730414992000,
+                "text": "Здравствуйте! Благодарим за теплый отзыв! Всегда рады видеть Вас в нашем магазине по адресу город Курск, проспект Победы, 14!))",
+                "object": {
+                    "id": "/sprav/46390727127"
+                },
+                "meta": {
+                    "moderated": true,
+                    "blocked": false
+                }
+            }
+        ],
+        "rating10": {
+            "val": 10,
+            "max": 10
+        },
+        "textLanguage": "RU"
+    },
+    {
+        "id": "OF-IAKyHCEnM7k8GJ66NtdwoGmNf9SG",
+        "type": "/ugc/review",
+        "time": 1729852223843,
+        "author": {
+            "name": "Ангелина Полякова",
+            "pic": "",
+            "signPrivacy": "NAME",
+            "pkPath": "/user/tn688kfpm3mv0f741uf4aj3mm4",
+            "professionLevel": "Знаток города 2 уровня",
+            "professionLevelNum": 2,
+            "isSubscribed": false,
+            "publicId": "tn688kfpm3mv0f741uf4aj3mm4",
+            "reviewsCount": 1,
+            "verified": false
+        },
+        "text": " ☺️спасибо огромное за шикарный букет 💐 именинница была приятно удивлена ❤️🌹\nКак всегда на высоте 🔥🌷😻",
+        "rating": {
+            "val": 5,
+            "max": 5
+        },
+        "object": {
+            "id": "/sprav/46390727127",
+            "type": "Org"
+        },
+        "meta": {
+            "moderated": true,
+            "blocked": false,
+            "publicRating": true
+        },
+        "reactions": {
+            "likesCount": 0,
+            "dislikesCount": 0,
+            "myReaction": "NONE"
+        },
+        "views": [
+            {
+                "id": "jd5n4n9TuaarqrLMr8KN_QhR_GwJlz7GE",
+                "type": "/ugc/comment",
+                "time": 1730414110641,
+                "text": "Благодарим за ваш отзыв. Мы всегда готовы сделать букет к любому поводу и доставить к нужному времени по Курску! Будем снова рады видеть Вас в нашей мастерской!",
+                "object": {
+                    "id": "/sprav/46390727127"
+                },
+                "meta": {
+                    "moderated": true,
+                    "blocked": false
+                }
+            }
+        ],
+        "rating10": {
+            "val": 10,
+            "max": 10
+        },
+        "textLanguage": "RU"
+    },
+    {
+        "id": "ilIbYuPL3DWboyLQ6v31LT5rLrBFfb",
+        "type": "/ugc/review",
+        "time": 1722553169443,
+        "author": {
+            "name": "Беговой клуб \"Гермес\"",
+            "pic": "37154/GAxu6lmFKhxU9kfcGuY0oAqYzE-1",
+            "signPrivacy": "NAME",
+            "pkPath": "/user/d9dn3zg2dzdecbmn0776hgexk0",
+            "professionLevel": "Знаток города 17 уровня",
+            "professionLevelNum": 17,
+            "isSubscribed": false,
+            "publicId": "d9dn3zg2dzdecbmn0776hgexk0",
+            "reviewsCount": 119,
+            "verified": false
+        },
+        "text": "Отличный собрали букет, доволен качеством и скоростью изготовления и цена вполне приемлемая ",
+        "rating": {
+            "val": 5,
+            "max": 5
+        },
+        "object": {
+            "id": "/sprav/46390727127",
+            "type": "Org"
+        },
+        "meta": {
+            "moderated": true,
+            "blocked": false,
+            "publicRating": true
+        },
+        "reactions": {
+            "likesCount": 0,
+            "dislikesCount": 0,
+            "myReaction": "NONE"
+        },
+        "views": [
+            {
+                "id": "fHuUCk0O_q24QcWY0QeuZ-o99olnxcuo",
+                "type": "/ugc/comment",
+                "time": 1727427177200,
+                "text": "Спасибо за ваш отзыв! Очень приятно слышать, что вы остались довольны качеством, скоростью и ценой наших букетов. Будем рады снова помочь вам с выбором букета!",
+                "object": {
+                    "id": "/sprav/46390727127"
+                },
+                "meta": {
+                    "moderated": true,
+                    "blocked": false
+                }
+            }
+        ],
+        "rating10": {
+            "val": 10,
+            "max": 10
+        },
+        "textLanguage": "RU"
+    },
+    {
+        "id": "k95Ssp-71qPcpOka70ocyGQtMVR1k_",
+        "type": "/ugc/review",
+        "time": 1729447079763,
+        "author": {
+            "name": "Анастасия Архипова",
+            "pic": "61207/0g-4",
+            "signPrivacy": "NAME",
+            "pkPath": "/user/825rw46409cac0ze1585mwhvbm",
+            "professionLevel": "Знаток города 3 уровня",
+            "professionLevelNum": 3,
+            "isSubscribed": false,
+            "publicId": "825rw46409cac0ze1585mwhvbm",
+            "reviewsCount": 1,
+            "verified": false
+        },
+        "text": "Букет просто бесподобный.Чувствуется, что создан с любовью.Спасибо флористам букетной мастерской Флорида за прекрасные букеты.",
+        "rating": {
+            "val": 5,
+            "max": 5
+        },
+        "object": {
+            "id": "/sprav/46390727127",
+            "type": "Org"
+        },
+        "meta": {
+            "moderated": true,
+            "blocked": false,
+            "publicRating": true
+        },
+        "reactions": {
+            "likesCount": 0,
+            "dislikesCount": 0,
+            "myReaction": "NONE"
+        },
+        "photos": [
+            {
+                "id": "14021276_2a00000192ab1425d18e7929d16b2192fec8",
+                "url": "/get-altay/14021276/2a00000192ab1425d18e7929d16b2192fec8/orig",
+                "createTime": 1729447079151,
+                "width": "1737",
+                "height": "3088",
+                "review": true,
+                "status": "ACCEPTED"
+            }
+        ],
+        "views": [
+            {
+                "id": "lRCZaIXH9zsymWYV0XCy3DMu-6Bpmt4",
+                "type": "/ugc/comment",
+                "time": 1730414287725,
+                "text": "Спасибо за приятный отклик, Анастасия! Очень рады были видеть Вас в нашем цветочном магазине по адресу проспект Победы, 14. Забегайте снова за чудесными эмоциями!",
+                "object": {
+                    "id": "/sprav/46390727127"
+                },
+                "meta": {
+                    "moderated": true,
+                    "blocked": false
+                }
+            }
+        ],
+        "rating10": {
+            "val": 10,
+            "max": 10
+        },
+        "textLanguage": "RU"
+    },
+    {
+        "id": "5HJAolmwobtKiyWkeKc_l47sj7gbH7r",
+        "type": "/ugc/review",
+        "time": 1727875658515,
+        "author": {
+            "name": "Владимир Ш.",
+            "pic": "",
+            "signPrivacy": "NAME",
+            "pkPath": "/user/c5uvb6kxh4xje8yfj9m0x1r7rw",
+            "professionLevel": "Знаток города 3 уровня",
+            "professionLevelNum": 3,
+            "isSubscribed": false,
+            "publicId": "c5uvb6kxh4xje8yfj9m0x1r7rw",
+            "reviewsCount": 1,
+            "verified": false
+        },
+        "text": "Заказал букет цветов онлайн, помогли собрать букет, доставили во время. Букет оказался еще лучше чем на сайте, огромное спасибо ",
+        "rating": {
+            "val": 5,
+            "max": 5
+        },
+        "object": {
+            "id": "/sprav/46390727127",
+            "type": "Org"
+        },
+        "meta": {
+            "moderated": true,
+            "blocked": false,
+            "publicRating": true
+        },
+        "reactions": {
+            "likesCount": 1,
+            "dislikesCount": 0,
+            "myReaction": "NONE"
+        },
+        "views": [
+            {
+                "id": "qiR5UbPrPhyN3lDRZMOgf-VIKUZaJZwKj",
+                "type": "/ugc/comment",
+                "time": 1730414489131,
+                "text": "Спасибо за приятный отклик! Для нас очень важны качество и эмоции, которые мы доставляем. Будем рады видеть Вас и офлайн по адресу проспект Победы, 14))",
+                "object": {
+                    "id": "/sprav/46390727127"
+                },
+                "meta": {
+                    "moderated": true,
+                    "blocked": false
+                }
+            }
+        ],
+        "rating10": {
+            "val": 10,
+            "max": 10
+        },
+        "textLanguage": "RU"
+    },
+    {
+        "id": "O2Bi260Xt4FmWejuzmumfvGiIu_nwmK",
+        "type": "/ugc/review",
+        "time": 1701463626971,
+        "author": {
+            "name": "Инкогнито 3153",
+            "pic": "",
+            "signPrivacy": "NAME",
+            "pkPath": "/user/8j0b47xf6b7a7n5zcecnw89qbg",
+            "professionLevel": "Знаток города 3 уровня",
+            "professionLevelNum": 3,
+            "isSubscribed": false,
+            "publicId": "8j0b47xf6b7a7n5zcecnw89qbg",
+            "reviewsCount": 10,
+            "verified": false
+        },
+        "text": "Отличный магазин!!!всегда большой,я бы даже сказал огромный🙂,выбор цветом отличного качества!!!удобное месторасположения, приветливый и профессиональный персонал!Всем советую,не пожалеете!!!",
+        "rating": {
+            "val": 5,
+            "max": 5
+        },
+        "object": {
+            "id": "/sprav/46390727127",
+            "type": "Org"
+        },
+        "meta": {
+            "moderated": true,
+            "blocked": false,
+            "publicRating": true
+        },
+        "reactions": {
+            "likesCount": 1,
+            "dislikesCount": 1,
+            "myReaction": "NONE"
+        },
+        "views": [
+            {
+                "id": "KJXMAyUHP7m0teTLT2OBLXk4N4XChcRH",
+                "type": "/ugc/comment",
+                "time": 1727428720199,
+                "text": "Большое спасибо за ваш отзыв! 😊 Нам очень приятно, что вы оценили наши рекомендации и качество цветов. Всегда стараемся радовать наших клиентов свежими цветами, большим выбором букетов и композиций! Будем рады видеть вас снова! 🌸",
+                "object": {
+                    "id": "/sprav/46390727127"
+                },
+                "meta": {
+                    "moderated": true,
+                    "blocked": false
+                }
+            }
+        ],
+        "rating10": {
+            "val": 10,
+            "max": 10
+        },
+        "textLanguage": "RU"
+    },
+    {
+        "id": "528sriO2MdwFpOeeE6ZW5aELRFKQ0EVRE",
+        "type": "/ugc/review",
+        "time": 1702489053938,
+        "author": {
+            "name": "Василиса Меринова",
+            "pic": "",
+            "signPrivacy": "NAME",
+            "pkPath": "/user/9pear27nzvp8351ab9nzfb0pum",
+            "professionLevel": "Знаток города 3 уровня",
+            "professionLevelNum": 3,
+            "isSubscribed": false,
+            "publicId": "9pear27nzvp8351ab9nzfb0pum",
+            "reviewsCount": 1,
+            "verified": false
+        },
+        "text": "Обслуживание на высшем уровне , персонал очень вежливый и внимательный. Композиция выполнена с учетом всех пожеланий , к качеству ассортимента нет никаких претензий. 🌺 Настоятельно рекомендую эту мастерскую!!🥰",
+        "rating": {
+            "val": 5,
+            "max": 5
+        },
+        "object": {
+            "id": "/sprav/46390727127",
+            "type": "Org"
+        },
+        "meta": {
+            "moderated": true,
+            "blocked": false,
+            "publicRating": true
+        },
+        "reactions": {
+            "likesCount": 1,
+            "dislikesCount": 1,
+            "myReaction": "NONE"
+        },
+        "photos": [
+            {
+                "id": "11187599_2a0000018c64415c34a99db21bf01b9fb2f2",
+                "url": "/get-altay/11187599/2a0000018c64415c34a99db21bf01b9fb2f2/orig",
+                "createTime": 1702489055154,
+                "width": "576",
+                "height": "768",
+                "review": true,
+                "status": "ACCEPTED"
+            }
+        ],
+        "views": [
+            {
+                "id": "h1hGs-xScffT71r6xBFaPqcBBvI_cnE",
+                "type": "/ugc/comment",
+                "time": 1727428504379,
+                "text": "Огромное спасибо за такой приятный отзыв! 🌸 Нам очень важно, чтобы каждый клиент остался доволен, и мы рады, что смогли учесть все ваши пожелания. Будем счастливы видеть вас снова и создавать для вас новые цветочные шедевры в нашей цветочной мастерской \"Florida\" в городе Курск! 😊🙏",
+                "object": {
+                    "id": "/sprav/46390727127"
+                },
+                "meta": {
+                    "moderated": true,
+                    "blocked": false
+                }
+            }
+        ],
+        "rating10": {
+            "val": 10,
+            "max": 10
+        },
+        "textLanguage": "RU"
+    },
+    {
+        "id": "6GlVvRhtWhX_M9pQ2CFIDSMmXp9_Jkda",
+        "type": "/ugc/review",
+        "time": 1700564245130,
+        "author": {
+            "name": "Александр С.",
+            "pic": "15430/KelAzrGcMXKoFrJ11Q1TFpZXKs-1",
+            "signPrivacy": "NAME",
+            "pkPath": "/user/8x12xh89d5xc1uj8zryy4e1y44",
+            "professionLevel": "Знаток города 3 уровня",
+            "professionLevelNum": 3,
+            "isSubscribed": false,
+            "publicId": "8x12xh89d5xc1uj8zryy4e1y44",
+            "reviewsCount": 2,
+            "verified": false
+        },
+        "text": "Покупал у вас букет пару недель назад. Собрали очень красивый букет из роз. Жене очень понравился. Простоял где-то неделю. Удобно, что есть онлайн заказ. По телефону заранее заказал чтобы не ждать, оставил предоплату, приехал, забрал (живу рядом:). Очень удобно. Спасибо!",
+        "rating": {
+            "val": 5,
+            "max": 5
+        },
+        "object": {
+            "id": "/sprav/46390727127",
+            "type": "Org"
+        },
+        "meta": {
+            "moderated": true,
+            "blocked": false,
+            "publicRating": true
+        },
+        "reactions": {
+            "likesCount": 2,
+            "dislikesCount": 1,
+            "myReaction": "NONE"
+        },
+        "photos": [
+            {
+                "id": "10648814_2a0000018bf187140c340019912ecc69037b",
+                "url": "/get-altay/10648814/2a0000018bf187140c340019912ecc69037b/orig",
+                "createTime": 1700564244577,
+                "width": "952",
+                "height": "1280",
+                "review": true,
+                "status": "ACCEPTED"
+            }
+        ],
+        "views": [
+            {
+                "id": "_ZbXIw8D2P8G5BBBQlwNQc1qYnN0val",
+                "type": "/ugc/comment",
+                "time": 1701426247578,
+                "text": "Благодарим Вас за отзыв! Будем рады снова видеть Вас в нашем магазине!",
+                "object": {
+                    "id": "/sprav/46390727127"
+                },
+                "meta": {
+                    "moderated": true,
+                    "blocked": false
+                }
+            }
+        ],
+        "rating10": {
+            "val": 10,
+            "max": 10
+        },
+        "textLanguage": "RU"
+    },
+    {
+        "id": "8wITKixYbaC4O8sZhnFk1yXC87Qrm8",
+        "type": "/ugc/review",
+        "time": 1677153121112,
+        "author": {
+            "name": "Анастасия Кир",
+            "pic": "",
+            "signPrivacy": "NAME",
+            "pkPath": "/user/vqzz3q7uhzrvzt2zyt355wg0xm",
+            "professionLevel": "Знаток города 3 уровня",
+            "professionLevelNum": 3,
+            "isSubscribed": false,
+            "publicId": "vqzz3q7uhzrvzt2zyt355wg0xm",
+            "reviewsCount": 3,
+            "verified": false
+        },
+        "text": "Большое спасибо флористам в магазине на Проспекте Победы 14  за то, что собрали бесподобный букет на юбилей моей мамы. Мама была в восторге, с букетом получились классные фотографии. Самое главное, что он очень долго стоял и радовал своей красотой и нежным запахом. Скоро свадьба моей подруги, теперь я знаю, куда идти за красивым нежным букетиком.😻😻😻💖",
+        "rating": {
+            "val": 5,
+            "max": 5
+        },
+        "object": {
+            "id": "/sprav/46390727127",
+            "type": "Org"
+        },
+        "meta": {
+            "moderated": true,
+            "blocked": false,
+            "publicRating": true
+        },
+        "reactions": {
+            "likesCount": 1,
+            "dislikesCount": 0,
+            "myReaction": "NONE"
+        },
+        "photos": [
+            {
+                "id": "yOqOjI3G17B_yklxFlsc3Zf15oHrYmoK",
+                "url": "/get-altay/787110/2a000001867e1dc124efe1aadb24d6275271/orig",
+                "createTime": 1677153125872,
+                "width": "960",
+                "height": "1280",
+                "review": true,
+                "status": "ACCEPTED"
+            }
+        ],
+        "rating10": {
+            "val": 10,
+            "max": 10
+        },
+        "textLanguage": "RU"
+    },
+    {
+        "id": "xPxNsq_zLw2Q5lBCbkcGlNls6knBwS",
+        "type": "/ugc/review",
+        "time": 1695142380105,
+        "author": {
+            "name": "Александр Дамиров",
+            "pic": "",
+            "signPrivacy": "NAME",
+            "pkPath": "/user/1t99mv4e69yxbd8eb7fm2y67c0",
+            "professionLevel": "Знаток города 3 уровня",
+            "professionLevelNum": 3,
+            "isSubscribed": false,
+            "publicId": "1t99mv4e69yxbd8eb7fm2y67c0",
+            "reviewsCount": 1,
+            "verified": false
+        },
+        "text": "Вчера купил белые розы 9 шт. (Жене на годовщину, но сюрприз не совсем получился) купил За 250 рублей за штуку. Сегодня вечером 4 из них завяли 😒. Пришел в магазин поделится с ними этой ситуацией, продавщица была другая она позвонила кому то и человек по телефону начал задавать глупые вопросы: \n- а в какую вазу вы их поставили? \n У меня так как не было вазы я поставил их в 3-х литровую банку, набрал почти полной воды и кинул лëд (по советам продавцов этой цветочной лавки)\n- не мало ли набрали воды? \n- разматывали вы ленточку? \nНет не разматывал. \n- подрезали ли вы концы роз? \nДа подрезал, ( и при мне подрезал продавец при упаковке) \n- может их 9 роз 4 штучки не доставали до воды? \nВообщем мне  надоел этот глупый опрос, акцент был сделан на то что это МОЯ ВИНА и Я ВО ВСЕМ ВИНОВАТ! Мол поставка роз была свежая и такого быть не может! \nЯ больше не буду покупать что либо в этой цветочной лавке. Никого  не призываю отказываться  от этой цветочной лавки но имейте ввиду что в ответственный  момент они могут вас подвести как и меня... ",
+        "rating": {
+            "val": 1,
+            "max": 5
+        },
+        "object": {
+            "id": "/sprav/46390727127",
+            "type": "Org"
+        },
+        "meta": {
+            "moderated": true,
+            "blocked": false,
+            "publicRating": true
+        },
+        "reactions": {
+            "likesCount": 2,
+            "dislikesCount": 1,
+            "myReaction": "NONE"
+        },
+        "photos": [
+            {
+                "id": "10141118_2a0000018aae57fb5247f1d8bfd56428dc4a",
+                "url": "/get-altay/10141118/2a0000018aae57fb5247f1d8bfd56428dc4a/orig",
+                "createTime": 1695142118531,
+                "width": "2976",
+                "height": "3968",
+                "review": true,
+                "status": "ACCEPTED"
+            },
+            {
+                "id": "9728306_2a0000018aae57dccfca3387a80c0f6306de",
+                "url": "/get-altay/9728306/2a0000018aae57dccfca3387a80c0f6306de/orig",
+                "createTime": 1695142110312,
+                "width": "2976",
+                "height": "3968",
+                "review": true,
+                "status": "ACCEPTED"
+            }
+        ],
+        "rating10": {
+            "val": 2,
+            "max": 10
+        },
+        "textLanguage": "RU"
+    },
+    {
+        "id": "dCi9JdzBqUtyQHrnZf4POPncfIUFH2XB",
+        "type": "/ugc/review",
+        "time": 1698561132162,
+        "author": {
+            "name": "Елена К.",
+            "pic": "27232/SSqK43xYgVXFvywiF3UELMRm0Y-1",
+            "signPrivacy": "NAME",
+            "pkPath": "/user/ym6be5m02gb5p6ewxnpm6b456g",
+            "professionLevel": "Знаток города 3 уровня",
+            "professionLevelNum": 3,
+            "isSubscribed": false,
+            "publicId": "ym6be5m02gb5p6ewxnpm6b456g",
+            "reviewsCount": 3,
+            "verified": false
+        },
+        "text": "Огромное спасибо салону Florida за оперативную доставку очень красивого букета.Учли пожелания и по качеству, и по цене, доставили максимально быстро, точно в желаемое время!",
+        "rating": {
+            "val": 5,
+            "max": 5
+        },
+        "object": {
+            "id": "/sprav/46390727127",
+            "type": "Org"
+        },
+        "meta": {
+            "moderated": true,
+            "blocked": false,
+            "publicRating": true
+        },
+        "reactions": {
+            "likesCount": 1,
+            "dislikesCount": 1,
+            "myReaction": "NONE"
+        },
+        "views": [
+            {
+                "id": "GwQWry2hg50uBN9vrC9GFUH9Ekuu4VdeG",
+                "type": "/ugc/comment",
+                "time": 1701426388988,
+                "text": "Благодарим за приятный отклик! Будем рады новым заказам! Прекрасного Вам дня!\n",
+                "object": {
+                    "id": "/sprav/46390727127"
+                },
+                "meta": {
+                    "moderated": true,
+                    "blocked": false
+                }
+            }
+        ],
+        "rating10": {
+            "val": 10,
+            "max": 10
+        },
+        "textLanguage": "RU"
+    },
+    {
+        "id": "-dgaXEBdZy3pcoJantzntlSKTZlhXAP",
+        "type": "/ugc/review",
+        "time": 1687974951161,
+        "author": {
+            "name": "ООО СК ОЛИМП",
+            "pic": "54535/14D3GTHtj0ZhDOyZjTo7XkpK6o-1",
+            "signPrivacy": "NAME",
+            "pkPath": "/user/zx15v6tn759bc8cpj1ne6dny9c",
+            "professionLevel": "Знаток города 3 уровня",
+            "professionLevelNum": 3,
+            "isSubscribed": false,
+            "publicId": "zx15v6tn759bc8cpj1ne6dny9c",
+            "reviewsCount": 2,
+            "verified": false
+        },
+        "text": "Огромное спасибо Екатерине , сделали удаленно заказ с доставкой , на юбилей сестре . ПОСТОРАЛАСЬ  сделала очень красивый букет , быстро и с доставкой все хорошо , отправила . Сестра получила букет и аж прослезилась , от счастья . Большое вам спасибо 🙏 ",
+        "rating": {
+            "val": 5,
+            "max": 5
+        },
+        "object": {
+            "id": "/sprav/46390727127",
+            "type": "Org"
+        },
+        "meta": {
+            "moderated": true,
+            "blocked": false,
+            "publicRating": true
+        },
+        "reactions": {
+            "likesCount": 1,
+            "dislikesCount": 1,
+            "myReaction": "NONE"
+        },
+        "photos": [
+            {
+                "id": "YK6ym393aF1b9LWE6L4Yz_RKbhrWOZycp",
+                "url": "/get-altay/9753788/2a000001890325aa66c890372554882ac569/orig",
+                "createTime": 1687974948200,
+                "width": "655",
+                "height": "608",
+                "review": true,
+                "status": "ACCEPTED"
+            }
+        ],
+        "views": [
+            {
+                "id": "gdDDlSeXckD35L0jOsn-BnQxzwnjjDjm",
+                "type": "/ugc/comment",
+                "time": 1727429712784,
+                "text": "Спасибо за приятный отзыв. Нам важно делать нашу работу качественно всегда! Именно поэтому мы одни из лучших цветочных магазинов в городе Курск. Принимаем заказы онлайн и доставляем букеты и композиции бесплатно и круглосуточно!",
+                "object": {
+                    "id": "/sprav/46390727127"
+                },
+                "meta": {
+                    "moderated": true,
+                    "blocked": false
+                }
+            }
+        ],
+        "rating10": {
+            "val": 10,
+            "max": 10
+        },
+        "textLanguage": "RU"
+    },
+    {
+        "id": "G1JRWl8DQW5X5x3WeXC4zcZHq_tv9h",
+        "type": "/ugc/review",
+        "time": 1676929478069,
+        "author": {
+            "name": "Никита Г.",
+            "pic": "",
+            "signPrivacy": "NAME",
+            "pkPath": "/user/t3u0qky05uy16nzuhq5k9zgfz0",
+            "professionLevel": "Знаток города 2 уровня",
+            "professionLevelNum": 2,
+            "isSubscribed": false,
+            "publicId": "t3u0qky05uy16nzuhq5k9zgfz0",
+            "reviewsCount": 1,
+            "verified": false
+        },
+        "text": "Очень удобный и качественный сервис. Находясь долгое время в другом городе, всегда знал, что могу положиться на данный магазин и порадовать в любой праздник свою маму и девушку доставкой. После не раз уже сам приезжал и забирал такую красоту, которая вызывала всегда положительные эмоции у родных. Всегда и везде буду рекомендовать Вас.",
+        "rating": {
+            "val": 5,
+            "max": 5
+        },
+        "object": {
+            "id": "/sprav/123759245121",
+            "type": "Org"
+        },
+        "meta": {
+            "moderated": true,
+            "blocked": false,
+            "publicRating": true
+        },
+        "reactions": {
+            "likesCount": 1,
+            "dislikesCount": 0,
+            "myReaction": "NONE"
+        },
+        "rating10": {
+            "val": 10,
+            "max": 10
+        },
+        "textLanguage": "RU"
+    },
+    {
+        "id": "RESqzsNm1Dmw2ASiBYKrf2kR5DY9JtM53",
+        "type": "/ugc/review",
+        "time": 1677226153352,
+        "author": {
+            "name": "Юра П.",
+            "pic": "",
+            "signPrivacy": "NAME",
+            "pkPath": "/user/91aznxhknxvdnqhqkpvcc00hf4",
+            "professionLevel": "Знаток города 4 уровня",
+            "professionLevelNum": 4,
+            "isSubscribed": false,
+            "publicId": "91aznxhknxvdnqhqkpvcc00hf4",
+            "reviewsCount": 9,
+            "verified": false
+        },
+        "text": "Всегда покупаю цветы во Флориде на Победе, большой выбор цветов, квалифицированный персонал, можно узнать ассортимент через мессенджеры. Цветы свежие, последний раз покупал тюльпаны жене и дочке на 14 февраля, сегодня, спустя 10 дней, всё ещё радуют глаз, рекомендую. ",
+        "rating": {
+            "val": 5,
+            "max": 5
+        },
+        "object": {
+            "id": "/sprav/46390727127",
+            "type": "Org"
+        },
+        "meta": {
+            "moderated": true,
+            "blocked": false,
+            "publicRating": true
+        },
+        "reactions": {
+            "likesCount": 3,
+            "dislikesCount": 1,
+            "myReaction": "NONE"
+        },
+        "photos": [
+            {
+                "id": "jzv1fCn4yUQi0-1Pp9h8KEgjThk8txe",
+                "url": "/get-altay/1546166/2a0000018682780b01facc1a7dea7b9d286a/orig",
+                "createTime": 1677226151324,
+                "width": "768",
+                "height": "1024",
+                "review": true,
+                "status": "ACCEPTED"
+            }
+        ],
+        "rating10": {
+            "val": 10,
+            "max": 10
+        },
+        "textLanguage": "RU"
+    },
+    {
+        "id": "xGU9yzMnSwAm9cQlFGckDB7235qkXutr",
+        "type": "/ugc/review",
+        "time": 1690563139841,
+        "author": {
+            "name": "Олег Федоскин",
+            "pic": "25358/voVDiOxm5RGzxKHGDB7KiWSEYY-1573163174",
+            "signPrivacy": "NAME",
+            "pkPath": "/user/9zdeactc0n3t73uvfage5w2ygg",
+            "professionLevel": "Знаток города 11 уровня",
+            "professionLevelNum": 11,
+            "isSubscribed": false,
+            "publicId": "9zdeactc0n3t73uvfage5w2ygg",
+            "reviewsCount": 63,
+            "verified": false
+        },
+        "text": "Приезжал в Курск по делам. Нужен был букет.... Почитал отзывы о салонах цветов и выбрал Флориду.\nНе пожалел. Девочка продавец умница, подобрала шикарный букет, быстро и по нормальной цене.\nБольшое спасибо.",
+        "rating": {
+            "val": 5,
+            "max": 5
+        },
+        "object": {
+            "id": "/sprav/46390727127",
+            "type": "Org"
+        },
+        "meta": {
+            "moderated": true,
+            "blocked": false,
+            "publicRating": true
+        },
+        "reactions": {
+            "likesCount": 2,
+            "dislikesCount": 0,
+            "myReaction": "NONE"
+        },
+        "views": [
+            {
+                "id": "_U0upEK-U36BUfdapy87gIpu48Bzjmu",
+                "type": "/ugc/comment",
+                "time": 1727429592326,
+                "text": "Спасибо что доверились именно нам в выборе букета! Очень приятно читать, что вы остались довольны. Будем рады снова видеть Вас в Курске и при необходимости помочь с выбором букета! ",
+                "object": {
+                    "id": "/sprav/46390727127"
+                },
+                "meta": {
+                    "moderated": true,
+                    "blocked": false
+                }
+            }
+        ],
+        "rating10": {
+            "val": 10,
+            "max": 10
+        },
+        "textLanguage": "RU"
+    },
+    {
+        "id": "JwcY2m_m1woi210ir28XPw_FOf3Qj0",
+        "type": "/ugc/review",
+        "time": 1693225123881,
+        "author": {
+            "name": "Савельев К.",
+            "pic": "",
+            "signPrivacy": "NAME",
+            "pkPath": "/user/1x8w1p6nghvmcfn44xu6hq1z2m",
+            "professionLevel": "Знаток города 14 уровня",
+            "professionLevelNum": 14,
+            "isSubscribed": false,
+            "publicId": "1x8w1p6nghvmcfn44xu6hq1z2m",
+            "reviewsCount": 150,
+            "verified": false
+        },
+        "text": "Очень понравился магазин. Прекрасные букеты, отличные работники, великолепное качество, высокий профессионализм. Эмоции только положительные... ",
+        "rating": {
+            "val": 5,
+            "max": 5
+        },
+        "object": {
+            "id": "/sprav/46390727127",
+            "type": "Org"
+        },
+        "meta": {
+            "moderated": true,
+            "blocked": false,
+            "publicRating": true
+        },
+        "reactions": {
+            "likesCount": 2,
+            "dislikesCount": 0,
+            "myReaction": "NONE"
+        },
+        "views": [
+            {
+                "id": "87v_i6xdFiTHDlOV1gO0eYNdaRCchfVC",
+                "type": "/ugc/comment",
+                "time": 1727429332696,
+                "text": "Большое спасибо за ваш отзыв! 😊 Мы рады, что вам понравились наши букеты и качество сервиса. Всегда стараемся радовать наших клиентов в Курске и предлагаем круглосуточную доставку цветов, чтобы ваши эмоции всегда были положительными! 🌸 Будем рады помочь вам снова!",
+                "object": {
+                    "id": "/sprav/46390727127"
+                },
+                "meta": {
+                    "moderated": true,
+                    "blocked": false
+                }
+            }
+        ],
+        "rating10": {
+            "val": 10,
+            "max": 10
+        },
+        "textLanguage": "RU"
+    },
+    {
+        "id": "LSMhkLzvzEQKVzmQWBP7Nu0XU46oNJ",
+        "type": "/ugc/review",
+        "time": 1698058534151,
+        "author": {
+            "name": "Полина К.",
+            "pic": "36777/Xh5clwT4kgcTAEeTplk16Lj4bwE-1",
+            "signPrivacy": "NAME",
+            "pkPath": "/user/01mq0b6j35j1nq7mty3zqwbqg4",
+            "professionLevel": "Знаток города 4 уровня",
+            "professionLevelNum": 4,
+            "isSubscribed": false,
+            "publicId": "01mq0b6j35j1nq7mty3zqwbqg4",
+            "reviewsCount": 2,
+            "verified": false
+        },
+        "text": "Идеальное место для заказа цветов на свадьбу. У вас букеты заказывали 2 мои подруги годами ранее, теперь пришла и моя очередь! С учетом того, сколько букет прожил без воды на съемке, он еще и несколько дней оставался живым! Благодарю вас от всего сердца. вы дарите счастье. 🫶",
+        "rating": {
+            "val": 5,
+            "max": 5
+        },
+        "object": {
+            "id": "/sprav/46390727127",
+            "type": "Org"
+        },
+        "meta": {
+            "moderated": true,
+            "blocked": false,
+            "publicRating": true
+        },
+        "reactions": {
+            "likesCount": 1,
+            "dislikesCount": 1,
+            "myReaction": "NONE"
+        },
+        "photos": [
+            {
+                "id": "10702157_2a0000018b5c2ce3083706acbec592898c7b",
+                "url": "/get-altay/10702157/2a0000018b5c2ce3083706acbec592898c7b/orig",
+                "createTime": 1698058529778,
+                "width": "3024",
+                "height": "4032",
+                "review": true,
+                "status": "ACCEPTED"
+            },
+            {
+                "id": "11072941_2a0000018b5c2cea0abf40be09161cbe3f99",
+                "url": "/get-altay/11072941/2a0000018b5c2cea0abf40be09161cbe3f99/orig",
+                "createTime": 1698058531393,
+                "width": "2268",
+                "height": "4032",
+                "review": true,
+                "status": "ACCEPTED"
+            }
+        ],
+        "views": [
+            {
+                "id": "c28lm5SvTazc3xe95iRs-ArHfrMqM9H",
+                "type": "/ugc/comment",
+                "time": 1701426425599,
+                "text": "Спасибо за приятный отзыв! Для нас это огромная радость и честь!",
+                "object": {
+                    "id": "/sprav/46390727127"
+                },
+                "meta": {
+                    "moderated": true,
+                    "blocked": false
+                }
+            }
+        ],
+        "rating10": {
+            "val": 10,
+            "max": 10
+        },
+        "textLanguage": "RU"
+    },
+    {
+        "id": "dnyONRmB78Y9soXSrK87-ZONj2RC_tn",
+        "type": "/ugc/review",
+        "time": 1730539887069,
+        "author": {
+            "name": "Михаил Д.",
+            "pic": "",
+            "signPrivacy": "NAME",
+            "pkPath": "/user/wegpz3827mtq9pn5b1m65gpy9w",
+            "professionLevel": "Знаток города 3 уровня",
+            "professionLevelNum": 3,
+            "isSubscribed": false,
+            "publicId": "wegpz3827mtq9pn5b1m65gpy9w",
+            "reviewsCount": 3,
+            "verified": false
+        },
+        "text": "Букет шикарный! Благодарю Данила за его ответственный подход к своему делу!",
+        "rating": {
+            "val": 5,
+            "max": 5
+        },
+        "object": {
+            "id": "/sprav/46390727127",
+            "type": "Org"
+        },
+        "meta": {
+            "moderated": true,
+            "blocked": false,
+            "publicRating": true
+        },
+        "reactions": {
+            "likesCount": 0,
+            "dislikesCount": 0,
+            "myReaction": "NONE"
+        },
+        "photos": [
+            {
+                "id": "13790728_2a00000192ec3733a027e49fc93a07d6ed16",
+                "url": "/get-altay/13790728/2a00000192ec3733a027e49fc93a07d6ed16/orig",
+                "createTime": 1730539895433,
+                "width": "1920",
+                "height": "2560",
+                "review": true,
+                "status": "ACCEPTED"
+            }
+        ],
+        "rating10": {
+            "val": 10,
+            "max": 10
+        },
+        "textLanguage": "RU"
+    },
+    {
+        "id": "ZSld4RWZrJi4-GT2edyT8CvCTt26sY",
+        "type": "/ugc/review",
+        "time": 1684960327878,
+        "author": {
+            "name": "Наталья Б.",
+            "pic": "",
+            "signPrivacy": "NAME",
+            "pkPath": "/user/4rj4ga4yfu0cvpyqb2eg53uc18",
+            "professionLevel": "Знаток города 2 уровня",
+            "professionLevelNum": 2,
+            "isSubscribed": false,
+            "publicId": "4rj4ga4yfu0cvpyqb2eg53uc18",
+            "reviewsCount": 1,
+            "verified": false
+        },
+        "text": "Впервые обратилась в преддверии 8-го марта во Флориду на проспекте Победы 14, несмотря на большое количество людей, работа была слаженной, а флористы настолько талантливы и вежливы, находили подход к каждому, стараясь учесть все пожелания!☝🏽цветочки всегда свежие, ассортимент огромный, доверия заслуживают🧡",
+        "rating": {
+            "val": 5,
+            "max": 5
+        },
+        "object": {
+            "id": "/sprav/46390727127",
+            "type": "Org"
+        },
+        "meta": {
+            "moderated": true,
+            "blocked": false,
+            "publicRating": true
+        },
+        "reactions": {
+            "likesCount": 1,
+            "dislikesCount": 1,
+            "myReaction": "NONE"
+        },
+        "views": [
+            {
+                "id": "OVL4Yr5CN40lSrIDl1TRG1IbiJR1aj24-",
+                "type": "/ugc/comment",
+                "time": 1727430297469,
+                "text": "Огромное спасибо за такой теплый отзыв! 💐 Мы рады, что смогли вам помочь и все прошло на высшем уровне. Очень приятно, что вы остались довольны! Мы всегда готовы проконтролировать все до мельчайших деталей. Ждем вас снова в нашей цветочной мастерской! 😊🙏🏻",
+                "object": {
+                    "id": "/sprav/46390727127"
+                },
+                "meta": {
+                    "moderated": true,
+                    "blocked": false
+                }
+            }
+        ],
+        "rating10": {
+            "val": 10,
+            "max": 10
+        },
+        "textLanguage": "RU"
+    },
+    {
+        "id": "QrQuYix-xmTV-0xVIL207XGEQvzV5n2",
+        "type": "/ugc/review",
+        "time": 1676963071250,
+        "author": {
+            "name": "Ольга Золоторева",
+            "pic": "",
+            "signPrivacy": "NAME",
+            "pkPath": "/user/hzh8qf26gv1nc4thc7u87v2fh8",
+            "professionLevel": "Знаток города 3 уровня",
+            "professionLevelNum": 3,
+            "isSubscribed": false,
+            "publicId": "hzh8qf26gv1nc4thc7u87v2fh8",
+            "reviewsCount": 2,
+            "verified": false
+        },
+        "text": "Просто потрясающий магазин, шикарный выбор цветов, удивил выбор цветов в горшочках, очень вежливый персонал, ребята творят просто чудесные букеты. Я просто в восторге.",
+        "rating": {
+            "val": 5,
+            "max": 5
+        },
+        "object": {
+            "id": "/sprav/46390727127",
+            "type": "Org"
+        },
+        "meta": {
+            "moderated": true,
+            "blocked": false,
+            "publicRating": true
+        },
+        "reactions": {
+            "likesCount": 0,
+            "dislikesCount": 0,
+            "myReaction": "NONE"
+        },
+        "photos": [
+            {
+                "id": "qrtAPgeAmWYql7o-EPewOdRUYb2Bp3x",
+                "url": "/get-altay/1335362/2a0000018672c9bf57e06b740a5334783891/orig",
+                "createTime": 1676963071018,
+                "width": "1215",
+                "height": "2160",
+                "review": true,
+                "status": "ACCEPTED"
+            }
+        ],
+        "rating10": {
+            "val": 10,
+            "max": 10
+        },
+        "textLanguage": "RU"
+    },
+    {
+        "id": "H1GykFtdyV1-KIRh64553jF2HlyDyPTm",
+        "type": "/ugc/review",
+        "time": 1678538850688,
+        "author": {
+            "name": "ок ок",
+            "pic": "",
+            "signPrivacy": "NAME",
+            "pkPath": "/user/1jw9vc6cjwue338py84e7n9zj4",
+            "professionLevel": "Знаток города 4 уровня",
+            "professionLevelNum": 4,
+            "isSubscribed": false,
+            "publicId": "1jw9vc6cjwue338py84e7n9zj4",
+            "reviewsCount": 2,
+            "verified": false
+        },
+        "text": "Огромная благодарность. Вашему персоналу. Процветания Вашему магазину. И благодарных покупателей. Делала доставку из далёкого Хабаровска. Маме на 8е марта. Всё супер. Теперь только к Вам. Тюльпаны свежие, красивый букет. Мама была в восторге.\n",
+        "rating": {
+            "val": 5,
+            "max": 5
+        },
+        "object": {
+            "id": "/sprav/46390727127",
+            "type": "Org"
+        },
+        "meta": {
+            "moderated": true,
+            "blocked": false,
+            "publicRating": true
+        },
+        "reactions": {
+            "likesCount": 3,
+            "dislikesCount": 0,
+            "myReaction": "NONE"
+        },
+        "views": [
+            {
+                "id": "RdaQ9AIMxfb6akB0vATLO2cfNrLd3s",
+                "type": "/ugc/comment",
+                "time": 1727430471944,
+                "text": "Благодарим за ваш отзыв и приятные пожелания нашему цветочному магазину. Мы всегда рады принимать заказы онлайн и офлайн, а так же делать все, чтобы близкие вам люби были приятно удивлены и тронуты вашим вниманием!",
+                "object": {
+                    "id": "/sprav/46390727127"
+                },
+                "meta": {
+                    "moderated": true,
+                    "blocked": false
+                }
+            }
+        ],
+        "rating10": {
+            "val": 10,
+            "max": 10
+        },
+        "textLanguage": "RU"
+    },
+    {
+        "id": "51MmdLBqoeA4VUSNelmKHfcOSaQ5QIiZq",
+        "type": "/ugc/review",
+        "time": 1676928996739,
+        "author": {
+            "name": "Александр Бурцев",
+            "pic": "",
+            "signPrivacy": "NAME",
+            "pkPath": "/user/ega6vtq83xg9u0zr5bk8bt831m",
+            "professionLevel": "Знаток города 4 уровня",
+            "professionLevelNum": 4,
+            "isSubscribed": false,
+            "publicId": "ega6vtq83xg9u0zr5bk8bt831m",
+            "reviewsCount": 3,
+            "verified": false
+        },
+        "text": "Отличный магазин цветов,всегда большой выбор,в нашей семье не один праздник не обходится без их композиций.отдельное спасибо персаналу магазина,всегда готовы помочь с выбором или собрать букет при Вас.Всем советую",
+        "rating": {
+            "val": 5,
+            "max": 5
+        },
+        "object": {
+            "id": "/sprav/46390727127",
+            "type": "Org"
+        },
+        "meta": {
+            "moderated": true,
+            "blocked": false,
+            "publicRating": true
+        },
+        "reactions": {
+            "likesCount": 0,
+            "dislikesCount": 1,
+            "myReaction": "NONE"
+        },
+        "rating10": {
+            "val": 10,
+            "max": 10
+        },
+        "textLanguage": "RU"
+    },
+    {
+        "id": "pLG6QisXZr4x1Nfs4MFJXNYw9KNqFCbD",
+        "type": "/ugc/review",
+        "time": 1677144158177,
+        "author": {
+            "name": "Лиза Губина",
+            "pic": "27503/r6OZeks1CwH5Q7YLkCRWPG5bc4-1",
+            "signPrivacy": "NAME",
+            "pkPath": "/user/52qdxcmcw3m17g7gjar3cvxgv8",
+            "professionLevel": "Знаток города 2 уровня",
+            "professionLevelNum": 2,
+            "isSubscribed": false,
+            "publicId": "52qdxcmcw3m17g7gjar3cvxgv8",
+            "reviewsCount": 1,
+            "verified": false
+        },
+        "text": "Очень хорошие свежие Цветы, приемлемые цены! Доставка всегда во время. Хорошие вежливые продавцы, профессиональный подход!Отличный магазим,прияиные продовцы!",
+        "rating": {
+            "val": 5,
+            "max": 5
+        },
+        "object": {
+            "id": "/sprav/46390727127",
+            "type": "Org"
+        },
+        "meta": {
+            "moderated": true,
+            "blocked": false,
+            "publicRating": true
+        },
+        "reactions": {
+            "likesCount": 1,
+            "dislikesCount": 0,
+            "myReaction": "NONE"
+        },
+        "rating10": {
+            "val": 10,
+            "max": 10
+        },
+        "textLanguage": "RU"
+    },
+    {
+        "id": "3JSC1HqwG66ee2cSuDLr86E1gylkqtzK",
+        "type": "/ugc/review",
+        "time": 1677086828941,
+        "author": {
+            "name": "Дарина Стакротская",
+            "pic": "58107/YwKPzMVusffTXBJSjniQzO5Zknk-1",
+            "signPrivacy": "NAME",
+            "pkPath": "/user/pbb02yehy580f7qpurx00v3n1m",
+            "professionLevel": "Знаток города 7 уровня",
+            "professionLevelNum": 7,
+            "isSubscribed": false,
+            "publicId": "pbb02yehy580f7qpurx00v3n1m",
+            "reviewsCount": 16,
+            "verified": false
+        },
+        "text": "Обожаю ваш магазин ❤️ всегда свежие цветочки, всегда улыбчивые флористы, всегда красивые букеты в наличии! \nСпасибо за то, что делаете людей счастливыми 😍",
+        "rating": {
+            "val": 5,
+            "max": 5
+        },
+        "object": {
+            "id": "/sprav/46390727127",
+            "type": "Org"
+        },
+        "meta": {
+            "moderated": true,
+            "blocked": false,
+            "publicRating": true
+        },
+        "reactions": {
+            "likesCount": 4,
+            "dislikesCount": 0,
+            "myReaction": "NONE"
+        },
+        "rating10": {
+            "val": 10,
+            "max": 10
+        },
+        "textLanguage": "RU"
+    },
+    {
+        "id": "vqsfGQEdxgrlDkcY-9EggTc_ICdPKl5K8",
+        "type": "/ugc/review",
+        "time": 1727450265246,
+        "author": {
+            "name": "Alex B.",
+            "pic": "",
+            "signPrivacy": "NAME",
+            "professionLevel": "Знаток города 3 уровня",
+            "professionLevelNum": 3,
+            "isSubscribed": false,
+            "publicId": "2apkfr8wgev66mybc57h1mr724",
+            "reviewsCount": 1,
+            "verified": false
+        },
+        "text": "Вчера купил данный будет маме в подарок и о чудо они завяли на следующее утро. За что я отдавал деньги? Если делаете такие будеты,то делайте из свежих цветов,цена данных букетов не маленькая .",
+        "rating": {
+            "val": 1,
+            "max": 5
+        },
+        "object": {
+            "id": "/sprav/46390727127",
+            "type": "Org"
+        },
+        "meta": {
+            "moderated": true,
+            "blocked": false,
+            "publicRating": true
+        },
+        "reactions": {
+            "likesCount": 0,
+            "dislikesCount": 1,
+            "myReaction": "NONE"
+        },
+        "photos": [
+            {
+                "id": "13530753_2a00000192340f2aecd0c209dff2cddbbef0",
+                "url": "/get-altay/13530753/2a00000192340f2aecd0c209dff2cddbbef0/orig",
+                "createTime": 1727450264383,
+                "width": "3060",
+                "height": "4080",
+                "review": true,
+                "status": "ACCEPTED"
+            }
+        ],
+        "views": [
+            {
+                "id": "U9_N1xFPDlVvf1AqvWFZtQ8cXrpvm5",
+                "type": "/ugc/comment",
+                "time": 1729159297192,
+                "text": "Здравствуйте! Подскажите номер Вашего заказа, время и место где Вы покупали этот букет.",
+                "object": {
+                    "id": "/sprav/46390727127"
+                },
+                "meta": {
+                    "moderated": true,
+                    "blocked": false
+                }
+            }
+        ],
+        "rating10": {
+            "val": 2,
+            "max": 10
+        },
+        "textLanguage": "RU"
+    },
+    {
+        "id": "kykUSha08HWF53sSY7XhsFesdHCfH1Ml",
+        "type": "/ugc/review",
+        "time": 1677142251108,
+        "author": {
+            "name": "Алина Лепаева",
+            "pic": "",
+            "signPrivacy": "NAME",
+            "pkPath": "/user/qpj6z6bu0n66rwm167dx7ee73m",
+            "professionLevel": "Знаток города 2 уровня",
+            "professionLevelNum": 2,
+            "isSubscribed": false,
+            "publicId": "qpj6z6bu0n66rwm167dx7ee73m",
+            "reviewsCount": 1,
+            "verified": false
+        },
+        "text": "Самые свежие цветочки, как всегда! Хочется отметить высокий профессионализм девочек, Мария учла все пожелания и собрала необыкновенный букет ",
+        "rating": {
+            "val": 5,
+            "max": 5
+        },
+        "object": {
+            "id": "/sprav/46390727127",
+            "type": "Org"
+        },
+        "meta": {
+            "moderated": true,
+            "blocked": false,
+            "publicRating": true
+        },
+        "reactions": {
+            "likesCount": 1,
+            "dislikesCount": 0,
+            "myReaction": "NONE"
+        },
+        "rating10": {
+            "val": 10,
+            "max": 10
+        },
+        "textLanguage": "RU"
+    },
+    {
+        "id": "IKASemhlFusFDgHUxZmqrRdXx9fCZy",
+        "type": "/ugc/review",
+        "time": 1677141930420,
+        "author": {
+            "name": "Александр Л.",
+            "pic": "",
+            "signPrivacy": "NAME",
+            "pkPath": "/user/aw5wt5dvr5k6gt208jr932q3uw",
+            "professionLevel": "Знаток города 3 уровня",
+            "professionLevelNum": 3,
+            "isSubscribed": false,
+            "publicId": "aw5wt5dvr5k6gt208jr932q3uw",
+            "reviewsCount": 2,
+            "verified": false
+        },
+        "text": "Обслуживание и отношение к клиентам на высшем уровне. Всегда помогут сделать выбор, если сами не знаете чего хотите. Большой ассортимент с возможностью сделать под заказ и доставить куда нужно!",
+        "rating": {
+            "val": 5,
+            "max": 5
+        },
+        "object": {
+            "id": "/sprav/46390727127",
+            "type": "Org"
+        },
+        "meta": {
+            "moderated": true,
+            "blocked": false,
+            "publicRating": true
+        },
+        "reactions": {
+            "likesCount": 1,
+            "dislikesCount": 0,
+            "myReaction": "NONE"
+        },
+        "rating10": {
+            "val": 10,
+            "max": 10
+        },
+        "textLanguage": "RU"
+    },
+    {
+        "id": "Vx_0l1LGipZYRADsFeQr_KZXgVwBz6S26",
+        "type": "/ugc/review",
+        "time": 1678294638680,
+        "author": {
+            "name": "Алексей",
+            "pic": "",
+            "signPrivacy": "NAME",
+            "pkPath": "/user/qhgt7yuef91r2a42r5ft731z40",
+            "professionLevel": "Знаток города 6 уровня",
+            "professionLevelNum": 6,
+            "isSubscribed": false,
+            "publicId": "qhgt7yuef91r2a42r5ft731z40",
+            "reviewsCount": 11,
+            "verified": false
+        },
+        "text": "Ужасное место. \nСделал заказ на 8 марта с доставкой. Внес полную предоплату. Уверили что все будет хорошо. \nИтог - опоздание курьера на 4 часа, испорченный день, букет не соответствовал ожиданиям, не из тех цветов которые заказывал \nПросто кошмар",
+        "rating": {
+            "val": 1,
+            "max": 5
+        },
+        "object": {
+            "id": "/sprav/46390727127",
+            "type": "Org"
+        },
+        "meta": {
+            "moderated": true,
+            "blocked": false,
+            "publicRating": true
+        },
+        "reactions": {
+            "likesCount": 0,
+            "dislikesCount": 0,
+            "myReaction": "NONE"
+        },
+        "rating10": {
+            "val": 2,
+            "max": 10
+        },
+        "textLanguage": "RU"
+    },
+    {
+        "id": "UcM_gZO7eEU8qfnI_ofOl-DfsUBSAnvVR",
+        "type": "/ugc/review",
+        "time": 1677142453851,
+        "author": {
+            "name": "Марина М.",
+            "pic": "",
+            "signPrivacy": "NAME",
+            "pkPath": "/user/h4uq9rp5jf6htgy5wkndycnhpm",
+            "professionLevel": "Знаток города 2 уровня",
+            "professionLevelNum": 2,
+            "isSubscribed": false,
+            "publicId": "h4uq9rp5jf6htgy5wkndycnhpm",
+            "reviewsCount": 1,
+            "verified": false
+        },
+        "text": "Отличный магазин, огромный выбор цветов. Замечательные продавцы, всегда помогут с выбором. Рекомендую это место ",
+        "rating": {
+            "val": 5,
+            "max": 5
+        },
+        "object": {
+            "id": "/sprav/46390727127",
+            "type": "Org"
+        },
+        "meta": {
+            "moderated": true,
+            "blocked": false,
+            "publicRating": true
+        },
+        "reactions": {
+            "likesCount": 1,
+            "dislikesCount": 0,
+            "myReaction": "NONE"
+        },
+        "rating10": {
+            "val": 10,
+            "max": 10
+        },
+        "textLanguage": "RU"
+    },
+    {
+        "id": "VpkmU_X7MW7W7u8k6EgfrjtQa6vBo_Hk",
+        "type": "/ugc/review",
+        "time": 1710090608343,
+        "author": {
+            "name": "Эдуард Пономаренко",
+            "pic": "",
+            "signPrivacy": "NAME",
+            "pkPath": "/user/v2w8ebdda9228e68e1bzkgea2g",
+            "professionLevel": "Знаток города 15 уровня",
+            "professionLevelNum": 15,
+            "isSubscribed": false,
+            "publicId": "v2w8ebdda9228e68e1bzkgea2g",
+            "reviewsCount": 99,
+            "verified": false
+        },
+        "text": "Заказал букет, жене на 8 марта. Букетом супруга была довольна. Спасибо",
+        "rating": {
+            "val": 5,
+            "max": 5
+        },
+        "object": {
+            "id": "/sprav/46390727127",
+            "type": "Org"
+        },
+        "meta": {
+            "moderated": true,
+            "blocked": false,
+            "publicRating": true
+        },
+        "reactions": {
+            "likesCount": 0,
+            "dislikesCount": 0,
+            "myReaction": "NONE"
+        },
+        "views": [
+            {
+                "id": "epkFKfb28Liq6fU2xiQmFXD4KOmgSbHQZ",
+                "type": "/ugc/comment",
+                "time": 1727427276423,
+                "text": "Спасибо вам за отзыв! Мы очень рады, что букет порадовал вашу супругу. Будем рады помочь вам с будущими заказами в нашем цветочном магазине.",
+                "object": {
+                    "id": "/sprav/46390727127"
+                },
+                "meta": {
+                    "moderated": true,
+                    "blocked": false
+                }
+            }
+        ],
+        "rating10": {
+            "val": 10,
+            "max": 10
+        },
+        "textLanguage": "RU"
+    },
+    {
+        "id": "BGJsjYp1kPGDrwviRsSj0vzkLVg-m7h",
+        "type": "/ugc/review",
+        "time": 1667494441603,
+        "author": {
+            "name": "Радомир Ряполов",
+            "pic": "",
+            "signPrivacy": "NAME",
+            "pkPath": "/user/64w1jrp2nejba0zzftzfhm8q1g",
+            "professionLevel": "Знаток города 2 уровня",
+            "professionLevelNum": 2,
+            "isSubscribed": false,
+            "publicId": "64w1jrp2nejba0zzftzfhm8q1g",
+            "reviewsCount": 1,
+            "verified": false
+        },
+        "text": "Сам не спец в цветах, но жене очень понравился оригинальный букет. Оставляю свой положительный отзыв магазину на Карла Маркса. Конечно, буду рекомендовать ! Лучший на районе цветочный .",
+        "rating": {
+            "val": 5,
+            "max": 5
+        },
+        "object": {
+            "id": "/sprav/123759245121",
+            "type": "Org"
+        },
+        "meta": {
+            "moderated": true,
+            "blocked": false,
+            "publicRating": true
+        },
+        "reactions": {
+            "likesCount": 2,
+            "dislikesCount": 1,
+            "myReaction": "NONE"
+        },
+        "rating10": {
+            "val": 10,
+            "max": 10
+        },
+        "textLanguage": "UNKNOWN"
+    },
+    {
+        "id": "M1uNtYesuHx9GCIJhrb_tlmYE5KCByC",
+        "type": "/ugc/review",
+        "time": 1677142200728,
+        "author": {
+            "name": "Владимир Озеров",
+            "pic": "26057/VSuyXmyfje3BCwCmBY8yQx1y5tI-1",
+            "signPrivacy": "NAME",
+            "pkPath": "/user/hfxddyxnxhuth4quftpxm7f9dc",
+            "professionLevel": "Знаток города 6 уровня",
+            "professionLevelNum": 6,
+            "isSubscribed": false,
+            "publicId": "hfxddyxnxhuth4quftpxm7f9dc",
+            "reviewsCount": 10,
+            "verified": false
+        },
+        "text": "Всегда свежие цветы, выбор достойный. Регулярно выручает, покупаю цветы без лишних движений по городу😊",
+        "rating": {
+            "val": 5,
+            "max": 5
+        },
+        "object": {
+            "id": "/sprav/46390727127",
+            "type": "Org"
+        },
+        "meta": {
+            "moderated": true,
+            "blocked": false,
+            "publicRating": true
+        },
+        "reactions": {
+            "likesCount": 0,
+            "dislikesCount": 1,
+            "myReaction": "NONE"
+        },
+        "rating10": {
+            "val": 10,
+            "max": 10
+        },
+        "textLanguage": "RU"
+    },
+    {
+        "id": "YdnLw9-hU4ofa2VQ81fjm93EsQJ7a4c",
+        "type": "/ugc/review",
+        "time": 1676963856597,
+        "author": {
+            "name": "Наталия М.",
+            "pic": "39249/h7IaQvdh6VvVa5hV3CTf9hLuA-1",
+            "signPrivacy": "NAME",
+            "pkPath": "/user/mt4yhk6ex09na45zzbcnxr6x3m",
+            "professionLevel": "Знаток города 4 уровня",
+            "professionLevelNum": 4,
+            "isSubscribed": false,
+            "publicId": "mt4yhk6ex09na45zzbcnxr6x3m",
+            "reviewsCount": 3,
+            "verified": false
+        },
+        "text": "Давно пользуюсь услугами этого цветочного магазина. Большой выбор и, что немало важно, свежие цветы. Мне нравится.",
+        "rating": {
+            "val": 5,
+            "max": 5
+        },
+        "object": {
+            "id": "/sprav/46390727127",
+            "type": "Org"
+        },
+        "meta": {
+            "moderated": true,
+            "blocked": false,
+            "publicRating": true
+        },
+        "reactions": {
+            "likesCount": 1,
+            "dislikesCount": 0,
+            "myReaction": "NONE"
+        },
+        "photos": [
+            {
+                "id": "Li8Tss_HkMtVMltXCxIVGGqjdrXyG-zD",
+                "url": "/get-altay/1909414/2a0000018672d5b9b99c74ac3d4f79cf9d32/orig",
+                "createTime": 1676963856137,
+                "width": "960",
+                "height": "1280",
+                "review": true,
+                "status": "ACCEPTED"
+            }
+        ],
+        "rating10": {
+            "val": 10,
+            "max": 10
+        },
+        "textLanguage": "RU"
+    },
+    {
+        "id": "Fy-oxNJsgwrfQgDB_LnEGKDoTRureFgbW",
+        "type": "/ugc/review",
+        "time": 1697020311339,
+        "author": {
+            "name": "Татьяна Кобзарева",
+            "pic": "",
+            "signPrivacy": "NAME",
+            "pkPath": "/user/846q72rxxb6j3mu0qm7f96hrnw",
+            "professionLevel": "Знаток города 2 уровня",
+            "professionLevelNum": 2,
+            "isSubscribed": false,
+            "publicId": "846q72rxxb6j3mu0qm7f96hrnw",
+            "reviewsCount": 1,
+            "verified": false
+        },
+        "text": "Заказывали доставку коллеге на День  Рождения в офис. Всё супер!\nСпасибо огромное 👍👍👍",
+        "rating": {
+            "val": 5,
+            "max": 5
+        },
+        "object": {
+            "id": "/sprav/46390727127",
+            "type": "Org"
+        },
+        "meta": {
+            "moderated": true,
+            "blocked": false,
+            "publicRating": true
+        },
+        "reactions": {
+            "likesCount": 1,
+            "dislikesCount": 1,
+            "myReaction": "NONE"
+        },
+        "views": [
+            {
+                "id": "Qh0IMlf5x47d1PQhGZTYEtEhyaT_rXqBU",
+                "type": "/ugc/comment",
+                "time": 1727428989480,
+                "text": "Спасибо вам за отзыв! 😊 Рады, что всё прошло отлично и подарок в виде букета получился удачным! Будем рады помочь вам снова, обращайтесь! 🎉🌸",
+                "object": {
+                    "id": "/sprav/46390727127"
+                },
+                "meta": {
+                    "moderated": true,
+                    "blocked": false
+                }
+            }
+        ],
+        "rating10": {
+            "val": 10,
+            "max": 10
+        },
+        "textLanguage": "RU"
+    },
+    {
+        "id": "o1IeuWixxkIgBl3TfvzpzyigzzSldL",
+        "type": "/ugc/review",
+        "time": 1692619650019,
+        "author": {
+            "name": "марина никулина",
+            "pic": "",
+            "signPrivacy": "NAME",
+            "pkPath": "/user/fpkdavae40jgxekqha8chvbv10",
+            "professionLevel": "Знаток города 2 уровня",
+            "professionLevelNum": 2,
+            "isSubscribed": false,
+            "publicId": "fpkdavae40jgxekqha8chvbv10",
+            "reviewsCount": 1,
+            "verified": false
+        },
+        "text": "Спасибо за нежный, красивый  и необыкновенный букет. Мы в восторге! Получили то,что и хотели😊",
+        "rating": {
+            "val": 5,
+            "max": 5
+        },
+        "object": {
+            "id": "/sprav/46390727127",
+            "type": "Org"
+        },
+        "meta": {
+            "moderated": true,
+            "blocked": false,
+            "publicRating": true
+        },
+        "reactions": {
+            "likesCount": 1,
+            "dislikesCount": 1,
+            "myReaction": "NONE"
+        },
+        "views": [
+            {
+                "id": "eHZpz1c8f_NAV43lGRlR9AUzzN2CFOOX",
+                "type": "/ugc/comment",
+                "time": 1727429508021,
+                "text": "Большое спасибо за ваш отзыв! 😊 Нам очень приятно, что вы высоко оценили нашу работу. Всегда стараемся радовать наших клиентов свежими цветами, большим выбором букетов и композиций! Будем рады видеть вас снова! 🌸",
+                "object": {
+                    "id": "/sprav/46390727127"
+                },
+                "meta": {
+                    "moderated": true,
+                    "blocked": false
+                }
+            }
+        ],
+        "rating10": {
+            "val": 10,
+            "max": 10
+        },
+        "textLanguage": "RU"
+    },
+    {
+        "id": "dXC5bbDBULuDNxJx_Wl0RgWF-ByGRhA-",
+        "type": "/ugc/review",
+        "time": 1677770237210,
+        "author": {
+            "name": "Екатерина Шепелева",
+            "pic": "28053/ZwotPhOEifjEYA4ksZ61bqCAek-1",
+            "signPrivacy": "NAME",
+            "pkPath": "/user/u8533da4tp1cewhx92998gzkuw",
+            "professionLevel": "Знаток города 4 уровня",
+            "professionLevelNum": 4,
+            "isSubscribed": false,
+            "publicId": "u8533da4tp1cewhx92998gzkuw",
+            "reviewsCount": 1,
+            "verified": false
+        },
+        "text": "Заказывала букет во «Флориде», очень быстро сделали и доставили шикарный букетик! Цветы высоченного качества очень долго простояли! ",
+        "rating": {
+            "val": 5,
+            "max": 5
+        },
+        "object": {
+            "id": "/sprav/46390727127",
+            "type": "Org"
+        },
+        "meta": {
+            "moderated": true,
+            "blocked": false,
+            "publicRating": true
+        },
+        "reactions": {
+            "likesCount": 2,
+            "dislikesCount": 1,
+            "myReaction": "NONE"
+        },
+        "rating10": {
+            "val": 10,
+            "max": 10
+        },
+        "textLanguage": "RU"
+    },
+    {
+        "id": "aiHiuDtmeULw_kuAR3e_k-HaJJgt-tyH",
+        "type": "/ugc/review",
+        "time": 1677770630236,
+        "author": {
+            "name": "Marina Dreamy",
+            "pic": "63032/tl6OL2nMsKsiFicWj8iWeHJe1g-1",
+            "signPrivacy": "NAME",
+            "pkPath": "/user/pjc8n04bfp59a027gxpme0b6cr",
+            "professionLevel": "Знаток города 3 уровня",
+            "professionLevelNum": 3,
+            "isSubscribed": false,
+            "publicId": "pjc8n04bfp59a027gxpme0b6cr",
+            "reviewsCount": 2,
+            "verified": false
+        },
+        "text": "Постоянно покупаю цветы именно в этом цветочном. Флористы не только собирают красивые букеты, так ещё и очень приятные и вежливые люди!",
+        "rating": {
+            "val": 5,
+            "max": 5
+        },
+        "object": {
+            "id": "/sprav/46390727127",
+            "type": "Org"
+        },
+        "meta": {
+            "moderated": true,
+            "blocked": false,
+            "publicRating": true
+        },
+        "reactions": {
+            "likesCount": 1,
+            "dislikesCount": 0,
+            "myReaction": "NONE"
+        },
+        "rating10": {
+            "val": 10,
+            "max": 10
+        },
+        "textLanguage": "RU"
+    },
+    {
+        "id": "bjsQrUNKEL4H5VqBx6aJIhDEAZEMzc",
+        "type": "/ugc/review",
+        "time": 1676929091416,
+        "author": {
+            "name": "Денис Ш.",
+            "pic": "",
+            "signPrivacy": "NAME",
+            "pkPath": "/user/q76tbamyvu6w7fnnx09f4ppxv8",
+            "professionLevel": "Знаток города 5 уровня",
+            "professionLevelNum": 5,
+            "isSubscribed": false,
+            "publicId": "q76tbamyvu6w7fnnx09f4ppxv8",
+            "reviewsCount": 2,
+            "verified": false
+        },
+        "text": "Отличный магазин. Вежливые и профессиональные флористы. После переезда еще и увеличился ассортимент.",
+        "rating": {
+            "val": 5,
+            "max": 5
+        },
+        "object": {
+            "id": "/sprav/46390727127",
+            "type": "Org"
+        },
+        "meta": {
+            "moderated": true,
+            "blocked": false,
+            "publicRating": true
+        },
+        "reactions": {
+            "likesCount": 1,
+            "dislikesCount": 0,
+            "myReaction": "NONE"
+        },
+        "rating10": {
+            "val": 10,
+            "max": 10
+        },
+        "textLanguage": "RU"
+    },
+    {
+        "id": "1LQAKPHPC0VCG6ZU2Al0DXMNSB_4b3gC",
+        "type": "/ugc/review",
+        "time": 1710052256738,
+        "author": {
+            "name": "Я",
+            "pic": "21377/ICNAilKRDxEUhKSQ1UgIcqOmd5U-1",
+            "signPrivacy": "NAME",
+            "professionLevel": "Знаток города 15 уровня",
+            "professionLevelNum": 15,
+            "isSubscribed": false,
+            "publicId": "xr0y234x34r0j2un79dggcdh4g",
+            "reviewsCount": 164,
+            "verified": false
+        },
+        "text": "Покупал розы 07.03.2024 и 10.03.2024 выкинул, все развалились на прочь, за букет отдал 2540 рублей (13 роз), вот так - качество ноль, деньги на ветер,  не рекомендую этот магазин....",
+        "rating": {
+            "val": 1,
+            "max": 5
+        },
+        "object": {
+            "id": "/sprav/46390727127",
+            "type": "Org"
+        },
+        "meta": {
+            "moderated": true,
+            "blocked": false,
+            "publicRating": true
+        },
+        "reactions": {
+            "likesCount": 1,
+            "dislikesCount": 0,
+            "myReaction": "NONE"
+        },
+        "views": [
+            {
+                "id": "y8aje3SF98FTsXrRrmlG7vGvf9aIhY7V",
+                "type": "/ugc/comment",
+                "time": 1727428013098,
+                "text": "Здравствуйте! У нас всегда свежие цветы, а гарантия на букет составляет 48 часов. Мы всегда даем рекомендации по уходу за букетом, чтобы максимально продлить срок его жизни. При соблюдении всех рекомендаций букеты нашей цветочной мастерской \"Florida\" из роз стоят до 1,5 недель согласно отзывам наших покупателей.  Возможно в данном случае комфортные условия для букета не были соблюдены. Сожалеем, что вы столкнулись с такой проблемой.",
+                "object": {
+                    "id": "/sprav/46390727127"
+                },
+                "meta": {
+                    "moderated": true,
+                    "blocked": false
+                }
+            }
+        ],
+        "rating10": {
+            "val": 2,
+            "max": 10
+        },
+        "textLanguage": "RU"
+    },
+    {
+        "id": "9EtEPJtizOmJ7RBEBOLoWphPu2sjGc",
+        "type": "/ugc/review",
+        "time": 1637261041804,
+        "author": {
+            "name": "Egoist",
+            "pic": "",
+            "signPrivacy": "NAME",
+            "pkPath": "/user/w4dbn5d1635hwhfqagddrz41zr",
+            "professionLevel": "Знаток города 4 уровня",
+            "professionLevelNum": 4,
+            "isSubscribed": false,
+            "publicId": "w4dbn5d1635hwhfqagddrz41zr",
+            "reviewsCount": 11,
+            "verified": false
+        },
+        "text": "Хороший цветочный магазин, приятные флористы, один из немногих магазинов где низ цветов упаковывают в целофановый пакет чтобы не испачкать сиденья автомобиля (мелочь, но приятно). Букет роз простоял очень долго, значит цветы свежие.",
+        "rating": {
+            "val": 5,
+            "max": 5
+        },
+        "object": {
+            "id": "/sprav/123759245121",
+            "type": "Org"
+        },
+        "meta": {
+            "moderated": true,
+            "blocked": false,
+            "publicRating": true
+        },
+        "reactions": {
+            "likesCount": 3,
+            "dislikesCount": 1,
+            "myReaction": "NONE"
+        },
+        "rating10": {
+            "val": 10,
+            "max": 10
+        },
+        "textLanguage": "UNKNOWN"
+    },
+    {
+        "id": "Y99YiLcJWEnIAsNVQTdl7pw3LIs-7dJFA",
+        "type": "/ugc/review",
+        "time": 1690273902771,
+        "author": {
+            "name": "Валентин К.",
+            "pic": "",
+            "signPrivacy": "NAME",
+            "pkPath": "/user/a5tuzkm81e0ppfbb49f6zn89bm",
+            "professionLevel": "Знаток города 3 уровня",
+            "professionLevelNum": 3,
+            "isSubscribed": false,
+            "publicId": "a5tuzkm81e0ppfbb49f6zn89bm",
+            "reviewsCount": 3,
+            "verified": false
+        },
+        "text": "Большое спасибо флористам! Все сделали качественно! Молодцы! ",
+        "rating": {
+            "val": 5,
+            "max": 5
+        },
+        "object": {
+            "id": "/sprav/46390727127",
+            "type": "Org"
+        },
+        "meta": {
+            "moderated": true,
+            "blocked": false,
+            "publicRating": true
+        },
+        "reactions": {
+            "likesCount": 1,
+            "dislikesCount": 0,
+            "myReaction": "NONE"
+        },
+        "views": [
+            {
+                "id": "_nXYHgbw2A1M6pQmrYkGHlpZC3OZ95qb",
+                "type": "/ugc/comment",
+                "time": 1727429657439,
+                "text": "Спасибо за приятный отклик. Нам важно делать нашу работу качественно всегда! Именно поэтому мы одни из лучших цветочных магазинов в городе Курск. Доставляем букеты и композиции бесплатно и круглосуточно!",
+                "object": {
+                    "id": "/sprav/46390727127"
+                },
+                "meta": {
+                    "moderated": true,
+                    "blocked": false
+                }
+            }
+        ],
+        "rating10": {
+            "val": 10,
+            "max": 10
+        },
+        "textLanguage": "RU"
+    },
+    {
+        "id": "9FnKWBeiyOkFIaSX_BJ234uH96U6sLF",
+        "type": "/ugc/review",
+        "time": 1677774740432,
+        "author": {
+            "name": "Alina B.",
+            "pic": "",
+            "signPrivacy": "NAME",
+            "pkPath": "/user/gj5dvvxtjetc9h42nw4wz91y4r",
+            "professionLevel": "Знаток города 2 уровня",
+            "professionLevelNum": 2,
+            "isSubscribed": false,
+            "publicId": "gj5dvvxtjetc9h42nw4wz91y4r",
+            "reviewsCount": 2,
+            "verified": false
+        },
+        "text": "Отличный магазин. Вежливый персонал. Выбор и качество цветов на высоте 👍",
+        "rating": {
+            "val": 5,
+            "max": 5
+        },
+        "object": {
+            "id": "/sprav/46390727127",
+            "type": "Org"
+        },
+        "meta": {
+            "moderated": true,
+            "blocked": false,
+            "publicRating": true
+        },
+        "reactions": {
+            "likesCount": 2,
+            "dislikesCount": 1,
+            "myReaction": "NONE"
+        },
+        "rating10": {
+            "val": 10,
+            "max": 10
+        },
+        "textLanguage": "RU"
+    },
+    {
+        "id": "07NUpS6GAXlrR_6PC9o9Gg9f5f5Nttj",
+        "type": "/ugc/review",
+        "time": 1706082680426,
+        "author": {
+            "name": "Васся",
+            "pic": "",
+            "signPrivacy": "NAME",
+            "pkPath": "/user/wuzurbaq0755r24u9410az3xpm",
+            "professionLevel": "Знаток города 12 уровня",
+            "professionLevelNum": 12,
+            "isSubscribed": false,
+            "publicId": "wuzurbaq0755r24u9410az3xpm",
+            "reviewsCount": 71,
+            "verified": false
+        },
+        "text": "Достойное место, чтобы подобрать цветы",
+        "rating": {
+            "val": 4,
+            "max": 5
+        },
+        "object": {
+            "id": "/sprav/46390727127",
+            "type": "Org"
+        },
+        "meta": {
+            "moderated": true,
+            "blocked": false,
+            "publicRating": true
+        },
+        "reactions": {
+            "likesCount": 0,
+            "dislikesCount": 0,
+            "myReaction": "NONE"
+        },
+        "views": [
+            {
+                "id": "R1902RehvUwUVEDgzOsUD1BoRzXKeL",
+                "type": "/ugc/comment",
+                "time": 1727428264713,
+                "text": "Спасибо за ваш отзыв! Мы рады, что вы высоко оценили наш магазин. Будем рады помочь вам с выбором букета снова!",
+                "object": {
+                    "id": "/sprav/46390727127"
+                },
+                "meta": {
+                    "moderated": true,
+                    "blocked": false
+                }
+            }
+        ],
+        "rating10": {
+            "val": 8,
+            "max": 10
+        },
+        "textLanguage": "RU"
+    },
+    {
+        "id": "cvBYwX98ykKzSA-SXxn3j18y2MFysJAt-",
+        "type": "/ugc/review",
+        "time": 1687358537952,
+        "author": {
+            "name": "Валерий М.",
+            "pic": "51169/AuPVOwA8unQfvSIwIT7xOclU-1",
+            "signPrivacy": "NAME",
+            "pkPath": "/user/mwzjyxetc9zgjbnej9vg896jd0",
+            "professionLevel": "Знаток города 8 уровня",
+            "professionLevelNum": 8,
+            "isSubscribed": false,
+            "publicId": "mwzjyxetc9zgjbnej9vg896jd0",
+            "reviewsCount": 23,
+            "verified": false
+        },
+        "text": "Уже который год радуете своими букетами!Флористы супер!",
+        "rating": {
+            "val": 5,
+            "max": 5
+        },
+        "object": {
+            "id": "/sprav/46390727127",
+            "type": "Org"
+        },
+        "meta": {
+            "moderated": true,
+            "blocked": false,
+            "publicRating": true
+        },
+        "reactions": {
+            "likesCount": 1,
+            "dislikesCount": 0,
+            "myReaction": "NONE"
+        },
+        "photos": [
+            {
+                "id": "yJao7cyO_yIGdbYswV6fSQLYJmJXZbmVh",
+                "url": "/get-altay/903198/2a00000188de67f88da73d285697df569c31/orig",
+                "createTime": 1687358537527,
+                "width": "1800",
+                "height": "4000",
+                "review": true,
+                "status": "ACCEPTED"
+            }
+        ],
+        "views": [
+            {
+                "id": "pGIK9zr2ALGbv0qGvHrXzOTqyj1jgoXqi",
+                "type": "/ugc/comment",
+                "time": 1727429793790,
+                "text": "Валерий, спасибо Вам за доверие и за теплые слова в наш адрес! Будем рады снова видеть Вас в нашем магазине, ведь для постоянных покупателей у нас действует программа лояльности и скидки!",
+                "object": {
+                    "id": "/sprav/46390727127"
+                },
+                "meta": {
+                    "moderated": true,
+                    "blocked": false
+                }
+            }
+        ],
+        "rating10": {
+            "val": 10,
+            "max": 10
+        },
+        "textLanguage": "RU"
+    },
+    {
+        "id": "dnV75qFY1azcIkP21kv8AV53uGy6aSxT",
+        "type": "/ugc/review",
+        "time": 1696334031433,
+        "author": {
+            "name": "FootTeam",
+            "pic": "45131/enc-569010c027e84fc6a384b51045a964cc5434993dad2f6949fdd87d1db25bde91",
+            "signPrivacy": "NAME",
+            "pkPath": "/user/bb90edx8049b3uh9qu8b3rbbq4",
+            "professionLevel": "Знаток города 2 уровня",
+            "professionLevelNum": 2,
+            "isSubscribed": false,
+            "publicId": "bb90edx8049b3uh9qu8b3rbbq4",
+            "reviewsCount": 1,
+            "verified": false
+        },
+        "text": "Спасибо большое за замечательный букет)",
+        "rating": {
+            "val": 5,
+            "max": 5
+        },
+        "object": {
+            "id": "/sprav/46390727127",
+            "type": "Org"
+        },
+        "meta": {
+            "moderated": true,
+            "blocked": false,
+            "publicRating": true
+        },
+        "reactions": {
+            "likesCount": 1,
+            "dislikesCount": 1,
+            "myReaction": "NONE"
+        },
+        "views": [
+            {
+                "id": "NgR7-gQriq5F2UeeOxg_KZP6OtmBNC",
+                "type": "/ugc/comment",
+                "time": 1727429255133,
+                "text": "Спасибо за ваш отзыв! Мы всегда стараемся делать самые прекрасные букеты в Курске. 🙂",
+                "object": {
+                    "id": "/sprav/46390727127"
+                },
+                "meta": {
+                    "moderated": true,
+                    "blocked": false
+                }
+            }
+        ],
+        "rating10": {
+            "val": 10,
+            "max": 10
+        },
+        "textLanguage": "RU"
+    },
+    {
+        "id": "hp3b68sFJ95Mcr3Cz6uGfso3RI8wYwVfK",
+        "type": "/ugc/review",
+        "time": 1684159755234,
+        "author": {
+            "name": "Дмитрий Евдокимов",
+            "pic": "",
+            "signPrivacy": "NAME",
+            "pkPath": "/user/4yw18kh3xt171kpuuucrgyc7hg",
+            "professionLevel": "Знаток города 8 уровня",
+            "professionLevelNum": 8,
+            "isSubscribed": false,
+            "publicId": "4yw18kh3xt171kpuuucrgyc7hg",
+            "reviewsCount": 41,
+            "verified": false
+        },
+        "text": "Стоимость букетов не маленькая, постоял 3 дня и завял. Выброшенные деньги на ветер...",
+        "rating": {
+            "val": 1,
+            "max": 5
+        },
+        "object": {
+            "id": "/sprav/46390727127",
+            "type": "Org"
+        },
+        "meta": {
+            "moderated": true,
+            "blocked": false,
+            "publicRating": true
+        },
+        "reactions": {
+            "likesCount": 1,
+            "dislikesCount": 0,
+            "myReaction": "NONE"
+        },
+        "photos": [
+            {
+                "id": "abTCJj-5_99Tg8L27t4Q_RRxrzIn_mX",
+                "url": "/get-altay/7631654/2a000001881fbed4ae0f13857de7e5ff6592/orig",
+                "createTime": 1684159782577,
+                "width": "3024",
+                "height": "4032",
+                "review": true,
+                "status": "ACCEPTED"
+            }
+        ],
+        "views": [
+            {
+                "id": "mqufmAHG8EBKBmdxmdD7-zfV2aZiuUG6w",
+                "type": "/ugc/comment",
+                "time": 1727430328703,
+                "text": "Здравствуйте! У нас всегда свежие цветы, а гарантия на букет составляет 48 часов. Мы всегда даем рекомендации по уходу за букетом, чтобы максимально продлить срок его жизни. При соблюдении всех рекомендаций букеты нашей цветочной мастерской \"Florida\" из роз стоят до 1,5 недель согласно отзывам наших покупателей. Возможно в данном случае комфортные условия для букета не были соблюдены. Сожалеем, что вы столкнулись с такой проблемой.",
+                "object": {
+                    "id": "/sprav/46390727127"
+                },
+                "meta": {
+                    "moderated": true,
+                    "blocked": false
+                }
+            }
+        ],
+        "rating10": {
+            "val": 2,
+            "max": 10
+        },
+        "textLanguage": "RU"
+    },
+    {
+        "id": "mXb0r-2jJWsXyS-soc1VQOKyyvGZBw",
+        "type": "/ugc/review",
+        "time": 1667663246665,
+        "author": {
+            "name": "Парикмахерская Воплощение",
+            "pic": "60687/uV812P4vPcBM3Jd8im6wF6qo6Q-1",
+            "signPrivacy": "NAME",
+            "pkPath": "/user/de1a70v6dg0bpcevyu0czf06d8",
+            "professionLevel": "Знаток города 5 уровня",
+            "professionLevelNum": 5,
+            "isSubscribed": false,
+            "publicId": "de1a70v6dg0bpcevyu0czf06d8",
+            "reviewsCount": 10,
+            "verified": false
+        },
+        "text": "Отвратительное обслуживание,цветы завяли на следующий день,Магазин на проспекте Плевицкой 35 А",
+        "rating": {
+            "val": 1,
+            "max": 5
+        },
+        "object": {
+            "id": "/sprav/123759245121",
+            "type": "Org"
+        },
+        "meta": {
+            "moderated": true,
+            "blocked": false,
+            "publicRating": true
+        },
+        "reactions": {
+            "likesCount": 1,
+            "dislikesCount": 2,
+            "myReaction": "NONE"
+        },
+        "photos": [
+            {
+                "id": "vkD2phGS8aNKRyG6WT8bjXgnYEH7r6",
+                "url": "/get-altay/7725442/2a000001844879a9d48f716181c87b894255/orig",
+                "createTime": 1667663245013,
+                "width": "1279",
+                "height": "1280",
+                "review": true,
+                "status": "ACCEPTED"
+            }
+        ],
+        "views": [
+            {
+                "id": "SrpnvpKtNeeZFYOPMSbON8lDqEuBfJ8Q5",
+                "type": "/ugc/comment",
+                "time": 1668068023326,
+                "text": "Здравствуйте, Вы оставили такой же отзыв в 2gis на другой магазин нашей сети. Уточните, в каком магазине, что и когда Вы покупали. Мы обязательно разберёмся в этой ситуации.",
+                "object": {
+                    "id": "/sprav/123759245121"
+                },
+                "meta": {
+                    "moderated": true,
+                    "blocked": false
+                }
+            }
+        ],
+        "rating10": {
+            "val": 2,
+            "max": 10
+        },
+        "textLanguage": "UNKNOWN"
+    },
+    {
+        "id": "Y7sU-Pa846QIvLZK__jYXCIxhChPGPkt",
+        "type": "/ugc/review",
+        "time": 1662807799109,
+        "author": {
+            "name": "Анна Иоанна",
+            "pic": "",
+            "signPrivacy": "NAME",
+            "professionLevel": "Знаток города 7 уровня",
+            "professionLevelNum": 7,
+            "isSubscribed": false,
+            "publicId": "r7a1t4736w484zbctfuwye7zq4",
+            "reviewsCount": 18,
+            "verified": false
+        },
+        "text": "Цветы свежие, цены адекватные. Ассортимент большой. Всегда стараемся покупать цветы там.",
+        "rating": {
+            "val": 5,
+            "max": 5
+        },
+        "object": {
+            "id": "/sprav/123759245121",
+            "type": "Org"
+        },
+        "meta": {
+            "moderated": true,
+            "blocked": false,
+            "publicRating": true
+        },
+        "reactions": {
+            "likesCount": 3,
+            "dislikesCount": 1,
+            "myReaction": "NONE"
+        },
+        "rating10": {
+            "val": 10,
+            "max": 10
+        },
+        "textLanguage": "UNKNOWN"
+    },
+    {
+        "id": "xcDzEqtiwjNy41s0DUDtiZLACM1pPwmK6",
+        "type": "/ugc/review",
+        "time": 1677142493405,
+        "author": {
+            "name": "Михаил Истомин",
+            "pic": "",
+            "signPrivacy": "NAME",
+            "pkPath": "/user/whgcthgnw1c4z9tet9amtv6zvc",
+            "professionLevel": "Знаток города 2 уровня",
+            "professionLevelNum": 2,
+            "isSubscribed": false,
+            "publicId": "whgcthgnw1c4z9tet9amtv6zvc",
+            "reviewsCount": 1,
+            "verified": false
+        },
+        "text": "качество и обслуживание отличное, советую ",
+        "rating": {
+            "val": 5,
+            "max": 5
+        },
+        "object": {
+            "id": "/sprav/46390727127",
+            "type": "Org"
+        },
+        "meta": {
+            "moderated": true,
+            "blocked": false,
+            "publicRating": true
+        },
+        "reactions": {
+            "likesCount": 1,
+            "dislikesCount": 0,
+            "myReaction": "NONE"
+        },
+        "rating10": {
+            "val": 10,
+            "max": 10
+        },
+        "textLanguage": "RU"
+    },
+    {
+        "id": "QzwvyKiR158nZmFnceNH7-g--jCsTB_v",
+        "type": "/ugc/review",
+        "time": 1558079824786,
+        "author": {
+            "name": "Роман Исаев",
+            "pic": "15298/enc-bc28b280b826c7911181d498a18e99cef7951071fe689d10c126f9863752d0f9",
+            "signPrivacy": "NAME",
+            "pkPath": "/user/yf0104fuvqket144hy3rwvq1rw",
+            "professionLevel": "Знаток города 2 уровня",
+            "professionLevelNum": 2,
+            "isSubscribed": false,
+            "publicId": "yf0104fuvqket144hy3rwvq1rw",
+            "reviewsCount": 1,
+            "verified": false
+        },
+        "text": "Профессиональные флористы чётко знающие своё дело!Огромный выбор свежих, шикарных цветов на любой вкус и цвет! Быстро, качественно и приемлимо по деньгам! В общем. остался в восторге! Рекомендую всем!",
+        "rating": {
+            "val": 5,
+            "max": 5
+        },
+        "object": {
+            "id": "/sprav/123759245121",
+            "type": "Org"
+        },
+        "meta": {
+            "moderated": true,
+            "blocked": false
+        },
+        "reactions": {
+            "likesCount": 4,
+            "dislikesCount": 2,
+            "myReaction": "NONE"
+        },
+        "rating10": {
+            "val": 10,
+            "max": 10
+        },
+        "textLanguage": "UNKNOWN"
+    },
+    {
+        "id": "7PlMbe-RKQP6C0YYY7mGBHjhqvvoV2p",
+        "type": "/ugc/review",
+        "time": 1558523727202,
+        "author": {
+            "name": "Георгий З.",
+            "pic": "",
+            "signPrivacy": "NAME",
+            "pkPath": "/user/vc1tb34xb5v25xev9qbbuv3rt0",
+            "professionLevel": "Знаток города 2 уровня",
+            "professionLevelNum": 2,
+            "isSubscribed": false,
+            "publicId": "vc1tb34xb5v25xev9qbbuv3rt0",
+            "reviewsCount": 1,
+            "verified": false
+        },
+        "text": "Удобное место рядом с дорогой,есть где поставить машину. Брал там розы,корзинки в подарок родителям,делают доставку,сколько бы раз там не закупался к качеству вопросов нет,цветы свежие,флористы помогают в выборе,подсказывают,что делать по уходу  за цветами....в помещении чисто. Я свой выбор сделал,пусть от моего дома находится не совсем близко,но лучше я проеду лишнее 10км и куплю нормальный качественный букет по приемлемой цене,чем вялый засохший веник возле дома. Надеюсь мой комментарий поможет сделать правильный выбор и вы не будите разочарованы.",
+        "rating": {
+            "val": 5,
+            "max": 5
+        },
+        "object": {
+            "id": "/sprav/123759245121",
+            "type": "Org"
+        },
+        "meta": {
+            "moderated": true,
+            "blocked": false
+        },
+        "reactions": {
+            "likesCount": 3,
+            "dislikesCount": 1,
+            "myReaction": "NONE"
+        },
+        "rating10": {
+            "val": 10,
+            "max": 10
+        },
+        "textLanguage": "UNKNOWN"
+    },
+    {
+        "id": "OuXLqtEObNd38fd5Dy66pMabb0nWQEVZ",
+        "type": "/ugc/review",
+        "time": 1677142152269,
+        "author": {
+            "name": "Инкогнито 6414",
+            "pic": "",
+            "signPrivacy": "NAME",
+            "pkPath": "/user/mc4p82yfqwgdxu15xe7v0uh4m8",
+            "professionLevel": "Знаток города 3 уровня",
+            "professionLevelNum": 3,
+            "isSubscribed": false,
+            "publicId": "mc4p82yfqwgdxu15xe7v0uh4m8",
+            "reviewsCount": 2,
+            "verified": false
+        },
+        "text": "Очень хорошие цветы. Спасибо\n",
+        "rating": {
+            "val": 5,
+            "max": 5
+        },
+        "object": {
+            "id": "/sprav/46390727127",
+            "type": "Org"
+        },
+        "meta": {
+            "moderated": true,
+            "blocked": false,
+            "publicRating": true
+        },
+        "reactions": {
+            "likesCount": 1,
+            "dislikesCount": 1,
+            "myReaction": "NONE"
+        },
+        "rating10": {
+            "val": 10,
+            "max": 10
+        },
+        "textLanguage": "RU"
+    },
+    {
+        "id": "CFkd2EPFP3yIZChoYuM-WLtG0xbZ9n",
+        "type": "/ugc/review",
+        "time": 1558039759023,
+        "author": {
+            "name": "Daniil Samoylov",
+            "pic": "36777/enc-0c8204d808fe780d1c0a381630a5e456dcf9a17b8d9a324a799ecf0fbe8384d4",
+            "signPrivacy": "NAME",
+            "pkPath": "/user/zemy8cb31hrmjbdvpanmaj9kpw",
+            "professionLevel": "Знаток города 8 уровня",
+            "professionLevelNum": 8,
+            "isSubscribed": false,
+            "publicId": "zemy8cb31hrmjbdvpanmaj9kpw",
+            "reviewsCount": 27,
+            "verified": false
+        },
+        "text": "Хорошее место, приятные приветливые флористочки, не пытаются впарить подвявшие цветы в букетиках как это обычо бывает...\n\nХороший выбор, ценник приемлемый, есть плюшевые игрушки в нагрузку. ",
+        "rating": {
+            "val": 5,
+            "max": 5
+        },
+        "object": {
+            "id": "/sprav/123759245121",
+            "type": "Org"
+        },
+        "meta": {
+            "moderated": true,
+            "blocked": false
+        },
+        "reactions": {
+            "likesCount": 5,
+            "dislikesCount": 2,
+            "myReaction": "NONE"
+        },
+        "rating10": {
+            "val": 10,
+            "max": 10
+        },
+        "textLanguage": "UNKNOWN"
+    },
+    {
+        "id": "ecTMfo8NAS4arIoT0mxWURHtruZZsh0",
+        "type": "/ugc/review",
+        "time": 1557927281935,
+        "author": {
+            "name": "Артём П.",
+            "pic": "50595/enc-64f752afb891c1c7e98916652618be132bb02b7f1e30bb48680c92188f8a2fdd",
+            "signPrivacy": "NAME",
+            "pkPath": "/user/c4qp520r0w7hqpbxcc6vzupj6r",
+            "professionLevel": "Знаток города 4 уровня",
+            "professionLevelNum": 4,
+            "isSubscribed": false,
+            "publicId": "c4qp520r0w7hqpbxcc6vzupj6r",
+            "reviewsCount": 7,
+            "verified": false
+        },
+        "text": "Брал там розы в подарок любимой. Стояли очень долго. Ассортимент хороший. Так что могу рекомендовать этот магазин всем.",
+        "rating": {
+            "val": 5,
+            "max": 5
+        },
+        "object": {
+            "id": "/sprav/123759245121",
+            "type": "Org"
+        },
+        "meta": {
+            "moderated": true,
+            "blocked": false
+        },
+        "reactions": {
+            "likesCount": 4,
+            "dislikesCount": 2,
+            "myReaction": "NONE"
+        },
+        "rating10": {
+            "val": 10,
+            "max": 10
+        },
+        "textLanguage": "UNKNOWN"
+    },
+    {
+        "id": "0a4M0J0XwymQu-wFLDFOY0RO4OJKAIPr",
+        "type": "/ugc/review",
+        "time": 1558477185974,
+        "author": {
+            "name": "Светлана Пасынкова",
+            "pic": "59871/RlXonWaQzjzNXWEUDdDEKPyZ8-1",
+            "signPrivacy": "NAME",
+            "pkPath": "/user/fj4u821wku4wgz6u7zrk9ycyj4",
+            "professionLevel": "Знаток города 4 уровня",
+            "professionLevelNum": 4,
+            "isSubscribed": false,
+            "publicId": "fj4u821wku4wgz6u7zrk9ycyj4",
+            "reviewsCount": 1,
+            "verified": false
+        },
+        "text": "Молодцы,вежливые,культурные,быстрая доставка,все сделано по совести!!!!спасибо большое)",
+        "rating": {
+            "val": 5,
+            "max": 5
+        },
+        "object": {
+            "id": "/sprav/123759245121",
+            "type": "Org"
+        },
+        "meta": {
+            "moderated": true,
+            "blocked": false
+        },
+        "reactions": {
+            "likesCount": 3,
+            "dislikesCount": 2,
+            "myReaction": "NONE"
+        },
+        "rating10": {
+            "val": 10,
+            "max": 10
+        },
+        "textLanguage": "UNKNOWN"
+    },
+    {
+        "id": "S9lQ3A6dh_QqU5m5ss7C7B3_F7WGk03N",
+        "type": "/ugc/review",
+        "time": 1559238258180,
+        "author": {
+            "name": "Никита П.",
+            "pic": "40138/enc-3fa1385b15425704dea26a7cf3853bace96e97e7ad539c669855587a06ff2b89",
+            "signPrivacy": "NAME",
+            "pkPath": "/user/zztdny4bg3e0emwybgjuvuxvjr",
+            "professionLevel": "Знаток города 5 уровня",
+            "professionLevelNum": 5,
+            "isSubscribed": false,
+            "publicId": "zztdny4bg3e0emwybgjuvuxvjr",
+            "reviewsCount": 8,
+            "verified": false
+        },
+        "text": "Отличный магазин. На мой взгляд лучшие цветы за свою цену в городе, большое спасибо.",
+        "rating": {
+            "val": 5,
+            "max": 5
+        },
+        "object": {
+            "id": "/sprav/123759245121",
+            "type": "Org"
+        },
+        "meta": {
+            "moderated": true,
+            "blocked": false
+        },
+        "reactions": {
+            "likesCount": 3,
+            "dislikesCount": 1,
+            "myReaction": "NONE"
+        },
+        "rating10": {
+            "val": 10,
+            "max": 10
+        },
+        "textLanguage": "UNKNOWN"
+    },
+    {
+        "id": "t1bNb--Wf5Wg2zj-nuAiBhnNbI2R6ft1",
+        "type": "/ugc/review",
+        "time": 1559317526846,
+        "author": {
+            "name": "Маргарита И.",
+            "pic": "",
+            "signPrivacy": "NAME",
+            "pkPath": "/user/x0xdwejc4f6bea6h2g33xabwd4",
+            "professionLevel": "Знаток города 2 уровня",
+            "professionLevelNum": 2,
+            "isSubscribed": false,
+            "publicId": "x0xdwejc4f6bea6h2g33xabwd4",
+            "reviewsCount": 1,
+            "verified": false
+        },
+        "text": "Отличный ассортимент, приветливые продавцы. То место, куда хочется вернуться! 5 баллов!",
+        "rating": {
+            "val": 5,
+            "max": 5
+        },
+        "object": {
+            "id": "/sprav/123759245121",
+            "type": "Org"
+        },
+        "meta": {
+            "moderated": true,
+            "blocked": false
+        },
+        "reactions": {
+            "likesCount": 2,
+            "dislikesCount": 1,
+            "myReaction": "NONE"
+        },
+        "rating10": {
+            "val": 10,
+            "max": 10
+        },
+        "textLanguage": "UNKNOWN"
+    },
+    {
+        "id": "5QdxVvErrQCyJyihwg7dnv9Gcw_hOtAFh",
+        "type": "/ugc/review",
+        "time": 1557947735046,
+        "author": {
+            "name": "Максим  Локтионов",
+            "pic": "44850/f2IlGhLSm7SCo7VGTN2V0pPITRk-1",
+            "signPrivacy": "NAME",
+            "pkPath": "/user/qvzky7kvjypft6jfxtaxfrterc",
+            "professionLevel": "Знаток города 3 уровня",
+            "professionLevelNum": 3,
+            "isSubscribed": false,
+            "publicId": "qvzky7kvjypft6jfxtaxfrterc",
+            "reviewsCount": 2,
+            "verified": false
+        },
+        "text": "Шикарный магазин!!!Все понравилось! ",
+        "rating": {
+            "val": 5,
+            "max": 5
+        },
+        "object": {
+            "id": "/sprav/123759245121",
+            "type": "Org"
+        },
+        "meta": {
+            "moderated": true,
+            "blocked": false
+        },
+        "reactions": {
+            "likesCount": 4,
+            "dislikesCount": 1,
+            "myReaction": "NONE"
+        },
+        "rating10": {
+            "val": 10,
+            "max": 10
+        },
+        "textLanguage": "UNKNOWN"
+    },
+    {
+        "id": "more_reviews",
+        "type": "/ugc/button",
+        "title": "Ещё отзывы"
+    }
+]

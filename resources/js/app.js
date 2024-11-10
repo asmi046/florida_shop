@@ -2,6 +2,7 @@ import './bootstrap';
 
 import {createApp} from 'vue/dist/vue.esm-bundler';
 
+import Review from './components/Reviews/Review.vue'
 import BascetCounter from "./components/bascet/BascetCounter.vue"
 import BascetAndCounter from "./components/bascet/BascetAndCounter.vue"
 import MapInPage from "./components/MapInPage.vue"
@@ -24,6 +25,7 @@ import { useStore } from 'vuex'
 
 const global_app = createApp({
     components:{
+        Review,
         MapInPage,
         ModalWindow,
         Bascet,

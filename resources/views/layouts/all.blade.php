@@ -56,6 +56,11 @@
     <script src="//code.jivo.ru/widget/Ao9F1DsJ2t" async></script>
     <script src="//cdn.callibri.ru/callibri.js" type="text/javascript" charset="utf-8"></script>
 
+    <script>
+        window.asset = "{{ asset('') }}";
+        window.storage = "{{ asset('storage') }}";
+    </script>
+
     @vite([
         'resources/css/app.css',
         'public/fonts/icons/style.css',
@@ -99,9 +104,7 @@
         <modal-window rout="/send_consult" redirect="/thencs" hesh="showModalNal" title="Уточнить наличие" subtitle="Укажите ваше имя и телефон. В течение нескольких минут с вами свяжется наш флорист для уточнения наличия" showarea="false"></modal-window>
         <one-click-buy-window></one-click-buy-window>
 
-        <x-header></x-header>
 
-        <x-header-category></x-header-category>
 
         @yield('content')
 

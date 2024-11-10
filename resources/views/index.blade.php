@@ -9,6 +9,8 @@
 @section('description', $description)
 
 @section('content')
+    <x-header></x-header>
+    <x-header-category></x-header-category>
 
     {{-- <x-main-banner></x-main-banner>
 
@@ -32,17 +34,24 @@
         </div>
     </section>
 
+    <section class="sales_hits_section">
+        <div class="_wrapper">
+            <h2>Отзывы наших покупателей</h2>
+            <review></review>
+        </div>
+    </section>
+
     {{-- <x-hit-slider :salesliders="$sales_liders"></x-hit-slider> --}}
 
     {{-- <x-sales-slider :sales="$sales"></x-sales-slider> --}}
 
-    <x-catalog-in-main :allproduct="$all_product"></x-catalog-in-main>
+    {{-- <x-catalog-in-main :allproduct="$all_product"></x-catalog-in-main> --}}
 
-    <x-rew-in-main :reviews="$reviews"></x-rew-in-main>
+    {{-- <x-rew-in-main :reviews="$reviews"></x-rew-in-main> --}}
 
     {{-- <map-in-page></map-in-page> --}}
 
-    <x-yandex-delivery></x-yandex-delivery>
+    {{-- <x-yandex-delivery></x-yandex-delivery> --}}
 
     <x-about-in-main></x-about-in-main>
 

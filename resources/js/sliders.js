@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
     const main_cat_slider = document.getElementById('main_cat_slider')
 
     const main_cat_slider_param = {
-        slidesPerView: 1.5,
+        slidesPerView: 1.3,
         breakpoints: {
         640: {
             slidesPerView: 2.5,

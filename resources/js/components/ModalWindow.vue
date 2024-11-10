@@ -17,7 +17,7 @@
 
                 <p class="policy_descr">Заполняя данную форму и отправляя заявку вы соглашаетесь с <a href="#">политикой конфиденциальности</a></p>
                 <div class="control_wrap">
-                    <button class="btn" @click.prevent="sendMsg()">Отправить</button> <div v-show="showLoader" class="loader"></div>
+                    <button class="button button_green" @click.prevent="sendMsg()">Отправить</button> <div v-show="showLoader" class="loader"></div>
                 </div>
 
             </form>
@@ -162,8 +162,7 @@ export default {
     }
 
     .modal_h2 {
-        font-size: 48px;
-        font-weight: bold;
+        font-size: 42px;
         margin-bottom: 20px;
     }
 
