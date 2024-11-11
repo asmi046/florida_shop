@@ -25,7 +25,7 @@
                 </div>
                 <form class="buy_form" action="">
                     <input v-model="phone" @focus="phoneError=false" :class="{_error:phoneError}" v-mask="{mask: '+7 (NNN) NNN-NN-NN', model: 'cpf' }" type="tel" placeholder="Введите телефон" />
-                    <button @click.prevent="buyTovar" class="btn">Купить</button>
+                    <button @click.prevent="buyTovar" class="button button_green">Купить</button>
                     <p class="policy_des">Заполняя данную форму и отправляя заказ вы соглашаетесь с <a href="/policy">политикой конфиденциальности</a></p>
                 </form>
             </div>
@@ -176,7 +176,6 @@ input._error {
         height: auto;
         background-color: white;
         margin: auto;
-        border-radius: 11px;
         position:relative;
         padding: 40px;
     }
@@ -308,13 +307,16 @@ input._error {
 
     .policy_des {
         margin-top: 20px;
+        font-size: 14px;
     }
 
     .policy_des a:hover{
         text-decoration: underline;
+        color:#5aa495
     }
     .policy_des a{
-        color:var(--main-color)
+        color:#004F44;
+
     }
 
     @media (max-width: 480px){

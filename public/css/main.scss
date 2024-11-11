@@ -660,10 +660,18 @@ header .messendger_head_blk {
     display: none;
 }
 
-.share:before {
-    width:32px;
-    height:32px;
-    font-size: 32px;
+.share {
+
+    &:hover:before {
+        color:$hover_color;
+    }
+
+    &:before {
+        color:$main_color;
+        width:22px;
+        height:22px;
+        font-size: 22px;
+    }
 }
 
 .share {
@@ -1055,14 +1063,13 @@ textarea {
 }
 
 .btn_all:hover {
-   border-color: var(--main-hover-color);
-   background-color: var(--main-hover-color);
+   border-color: $main_color;
+   background-color: $main_color;
 }
 
 .btn_all {
     width:40px;
     height:40px;
-    border-radius: 50px;
     border: 1px solid var(--main-gray-color);
     border: 1px solid #D2D1D1;
 }
@@ -1074,7 +1081,7 @@ textarea {
 .btn_all:before {
     content: "\e904";
     font-family: 'florida' !important;
-    color: var(--main-color);
+    color: $main-color;
     position: absolute;
     left: 0;
     top: 0;
@@ -1873,3 +1880,4 @@ height: 30px;
 @import "filter";
 @import "pagination";
 @import "cart";
+@import "tovar_page";

@@ -16,10 +16,10 @@
 <section id="upsales_section">
     <div class="_wrapper">
         <h2>Похожие товары</h2>
-        <div class="tovar_blk_wrap margin_top_bottom">
+        <div class="tovar_blk_wrap margin_top_bottom tovar_wrapper">
 
             @foreach ($upsale as $tovar)
-                <x-tovar-card :isslide="false" :tovar="$tovar"></x-tovar-card>
+                <x-cards.tovar-card :tovar="$tovar"></x-cards.tovar-card>
             @endforeach
         </div>
     </div>

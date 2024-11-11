@@ -9,9 +9,9 @@
         </div>
     </div>
 </section>
-
+{{--
 <section class="tovar_description">
     <div class="_container">
         <x-tovar-page-content.tovar-description :product="$product"></x-tovar-page-content.tovar-description>
     </div>
-</section>
+</section> --}}

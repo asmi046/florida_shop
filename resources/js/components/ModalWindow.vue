@@ -114,7 +114,6 @@ export default {
         height: auto;
         background-color: white;
         margin: auto;
-        border-radius: 11px;
         position:relative;
         padding: 40px;
 
@@ -139,8 +138,9 @@ export default {
         margin: 0 0 20px 0;
     }
 
-    .policy_descr a{
+    .policy_descr a:hover{
         text-decoration: underline;
+        color: #5aa495;
     }
 
     .sending_form .control_wrap button{
@@ -178,7 +178,7 @@ export default {
         background-size: 60%;
         background-position: center;
         background-repeat: no-repeat;
-        background-color: var(--main-color);
+        background-color: #004F44;
         border-radius: 40px;
 
     }

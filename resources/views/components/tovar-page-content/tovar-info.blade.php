@@ -15,7 +15,7 @@
 
     <div class="like_blk">
         <a href="#" onclick="navigator.share({'title': document.title, 'url':document.location.href}); return false;" class="all_control share pi florida_share"></a>
-        <a href="#" class="all_control favorites to_favorites pi florida_like" data-prodid="{{$product['sku']}}"></a>
+        {{-- <a href="#" class="all_control favorites to_favorites pi florida_like" data-prodid="{{$product['sku']}}"></a> --}}
     </div>
 </div>
 
@@ -24,26 +24,14 @@
     @if ($product->asc_nal)
         <a href="#showModalNal" class="btn btn_fill card_to_bascet_btn">Уточнить наличие</a>
     @else
-        {{-- <a href="#" class="btn btn_fill card_to_bascet_btn to_bascet" data-prodid="{{$product['sku']}}">
-            <span class="nadp">Купить</span>
-            <span class="btnLoader"></span>
-        </a> --}}
-
         <to-bascet-btn-page sku="{{$product['sku']}}"  :bascet="'/bascet'"></to-bascet-btn-page>
     @endif
 
-
-
-
     <div class="quik_pricing_btn_wpap">
-        <a href="https://wa.me/{{str_replace(array('-', ' ', '(' , ')'), '', $options['phone'])}}" target="_blank" class="btn btn_whatsapp">Написать в WhatsApp</a>
-        <a href="#ocbuy_{{$product->id}}" class="btn btn_white">Быстрый заказ</a>
+        <a href="https://wa.me/{{str_replace(array('-', ' ', '(' , ')'), '', $options['phone'])}}" target="_blank" class="button">Написать в WhatsApp</a>
+        <a href="#ocbuy_{{$product->id}}" class="button">Быстрый заказ</a>
     </div>
 </div>
-{{--
-<p class="delivery_sens">
-    Доставка по Курску: <strong>от 3 000 <span class="rub_symbol">₽</span></strong> - бесплатно
-</p> --}}
 
 <div class="pay_sens">
     <span>Принимаем к оплате:</span>
