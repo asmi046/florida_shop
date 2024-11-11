@@ -21,9 +21,11 @@
     <div class="price">
         <div class="price_digit">
             {{ $tovar->price }}₽
-            <span class="old">
-                {{ $tovar->old_price }}₽
-            </span>
+            @if ($tovar->old_price)
+                <span class="old">
+                    {{ $tovar->old_price }}₽
+                </span>
+            @endif
         </div>
 
         @if ($tovar->asc_nal)
