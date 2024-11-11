@@ -22,7 +22,7 @@
 <div class="btn_in_page_wrap">
 
     @if ($product->asc_nal)
-        <a href="#showModalNal" class="btn btn_fill card_to_bascet_btn">Уточнить наличие</a>
+        <a href="#showModalNal" class="button card_to_bascet_btn">Уточнить наличие</a>
     @else
         <to-bascet-btn-page sku="{{$product['sku']}}"  :bascet="'/bascet'"></to-bascet-btn-page>
     @endif
