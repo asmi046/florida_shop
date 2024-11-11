@@ -130,7 +130,7 @@
                 </div>
 
                 <div class="form_btn_wrapper">
-                    <button @click.prevent="sendBascet()" class="btn bascetSendBtn" type="submit">Оформить заказ</button>
+                    <button @click.prevent="sendBascet()" class="button button_green bascetSendBtn" type="submit">Оформить заказ</button>
                     <span :class="{active: loadet }" class="btnLoaderCart shoved"></span>
                 </div>
 

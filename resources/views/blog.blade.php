@@ -10,10 +10,10 @@
 
 @section('content')
 
+<x-headers.header-inner :h1="$title"></x-headers.header-inner>
+
 <section class="thencs_page">
     <div class="_wrapper">
-        <x-breadcrumbs :title="$title" ></x-breadcrumbs>
-        <h1 class="h1_page">{{$title}}</h1>
         <div class="blog_in_page">
             @foreach ($posts as $item)
                 <a href="{{route('blog_page',$item->slug)}}" class="blog_blk">

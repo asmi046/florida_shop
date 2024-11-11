@@ -10,11 +10,9 @@
 
 @section('content')
 
-<section class="category">
-    <div class="_wrapper">
-        <h1 class="h1_page">Каталог букетов</h1>
-    </div>
-</section>
+<x-headers.header-inner h1="Каталог букетов"></x-headers.header-inner>
+
+<x-header-category></x-header-category>
 
 <section id="catalog_section">
     <div class="_wrapper">
@@ -23,10 +21,10 @@
             <x-tovar-filter></x-tovar-filter>
         </div>
         <div class="tovars_blk">
-            <div class="tovar_blk_wrap">
+            <div class="tovar_blk_wrap tovar_wrapper">
 
                 @foreach ($allproduct as $tovar)
-                    <x-tovar-card :isslide="false" :tovar="$tovar"></x-tovar-card>
+                    <x-cards.tovar-card :tovar="$tovar"></x-cards.tovar-card>
                 @endforeach
             </div>
         </div>

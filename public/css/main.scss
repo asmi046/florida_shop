@@ -998,7 +998,7 @@ input {
 
 .radio_label input:checked ~ span:before{
     content: "";
-    background-color: var(--main-color);
+    background-color: $main_color;
     border: 3px solid #F4F4F4;
 }
 
@@ -1870,3 +1870,6 @@ height: 30px;
 @import "social";
 @import "header-line";
 @import "about";
+@import "filter";
+@import "pagination";
+@import "cart";

@@ -1,6 +1,3 @@
-<h1>{{$product['title']}}</h1>
-
-
 <div class="price_in_page_wrapper">
 
     <div class="price_in_page">

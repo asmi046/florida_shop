@@ -5,9 +5,10 @@
 
 @section('content')
 
+<x-headers.header-inner h1="{{ $product['title'] }}"></x-headers.header-inner>
+
 <section class="tovar_section">
     <div class="_wrapper">
-        <x-breadcrumbs :tovar="$product" ></x-breadcrumbs>
         <x-tovar-page-content :images="$images" :product="$product"></x-tovar-page-content>
     </div>
 </section>

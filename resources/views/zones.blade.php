@@ -1,7 +1,7 @@
 @extends('layouts.all')
 
 @php
-    $title = "Зоны доставки";
+    $title = "Способы оплаты и доставки";
     $description = "Зоны доставки цветов по городу Курску и Курской области. Узнай цену цветов с доставкой";
 @endphp
 
@@ -10,13 +10,10 @@
 
 @section('content')
 
-<section class="thencs_page">
-    <div class="_wrapper">
-        <x-breadcrumbs :title="$title" ></x-breadcrumbs>
-    </div>
-</section>
+<x-headers.header-inner :h1="$title"></x-headers.header-inner>
 
-<x-yandex-delivery></x-yandex-delivery>
+
+{{-- <x-yandex-delivery></x-yandex-delivery> --}}
 
 <section>
     <div class="_wrapper">

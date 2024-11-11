@@ -2,24 +2,19 @@
     <div class="_container">
         <div class="breadcrumbs">
             <a href="{{route('home')}}">Главная</a>
-            @if ((Request::route()->named('category'))||(Request::route()->named('actions'))||(Request::route()->named('hits'))
+            {{-- @if ((Request::route()->named('category'))||(Request::route()->named('actions'))||(Request::route()->named('hits'))
             ||(Request::route()->named('new_tovar'))
             ||(Request::route()->named('celebration'))
             )
                 <span class="sep"> / </span> <span class="finish">{{$category['title']}}</span>
-            @endif
+            @endif --}}
 
             @if (Request::route()->named('tovar'))
-                {{-- <span class="sep"> / </span> <a href="{{route('category', $tovar['tovar_category']->slug)}}">{{$tovar['tovar_category']->title}}</a> --}}
-                <span class="sep"> / </span> <span class="finish">{{$tovar['title']}}</span>
-            @endif
-
-            @if (isset($title))
+                <span class="sep"> / </span> <a href="{{route('catalog')}}">Букеты</a> <span class="sep"> / </span> <span class="finish">{{$title}}</span>
+            @elseif (Request::route()->named('blog_page'))
+                <span class="sep"> / </span> <a href="{{route('blog')}}">Блог</a> <span class="sep"> / </span> <span class="finish">{{ $title }}</span>
+            @elseif (isset($title))
                 <span class="sep"> / </span> <span class="finish">{{ $title }}</span>
-            @endif
-
-            @if (isset($blog))
-            <span class="sep"> / </span> <a href="{{route('blog')}}">Блог</a> <span class="sep"> / </span> <span class="finish">{{ $blog }}</span>
             @endif
          </div>
     </div>

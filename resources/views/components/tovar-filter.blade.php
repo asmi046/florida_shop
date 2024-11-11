@@ -48,8 +48,8 @@
 
 
         <div class="filter_control_blk">
-            <button name="filter" type="submit" class="btn ">Применить</button>
-            <a href="{{route('catalog')}}" class="btn btn_empty">Сбросить фильтр</a>
+            <button name="filter" type="submit" class="button button_green">Применить</button>
+            <a href="{{route('catalog')}}" class="button">Сбросить фильтр</a>
         </div>
 
     </form>

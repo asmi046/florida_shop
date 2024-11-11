@@ -9,17 +9,11 @@
 @section('description', $description)
 
 @section('content')
+<x-headers.header-inner :h1="$title"></x-headers.header-inner>
 
 <section class="thencs_page">
     <div class="_wrapper">
-        <x-breadcrumbs :title="$title" ></x-breadcrumbs>
-        <h1 class="h1_page">{{$title}}</h1>
-        <div class="rew_in_page">
-            @foreach ($reviews as $item)
-                <x-rew-blk :item="$item"></x-rew-blk>
-            @endforeach
-        </div>
-        <x-pagination :tovars="$reviews"></x-pagination>
+        <review></review>
     </div>
 </section>
 

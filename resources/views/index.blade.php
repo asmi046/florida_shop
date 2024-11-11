@@ -9,7 +9,7 @@
 @section('description', $description)
 
 @section('content')
-    <x-header></x-header>
+    <x-headers.header></x-headers.header>
     <x-header-category></x-header-category>
 
     {{-- <x-main-banner></x-main-banner>
