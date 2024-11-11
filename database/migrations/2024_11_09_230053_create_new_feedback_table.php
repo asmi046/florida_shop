@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->timestamps();
             $table->string('name')->comment('Имя оставившего отзыв');
-            $table->date('data')->default(DB::raw('CURRENT_TIMESTAMP'))->comment('Дата публикации');
+            $table->date('data')->comment('Дата публикации');
             $table->string('platform')->comment('Платформа');
             $table->string('img', 500)->nullable()->comment('Изображение');
             $table->integer('score')->comment('Оценка');
