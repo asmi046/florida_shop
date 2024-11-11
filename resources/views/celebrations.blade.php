@@ -10,10 +10,10 @@
 
 @section('content')
 
+<x-headers.header-inner :h1="$title"></x-headers.header-inner>
+
 <section class="category">
     <div class="_wrapper">
-        <x-breadcrumbs :category="['title' => $title]" ></x-breadcrumbs>
-        <h1 class="h1_page">{{$title}}</h1>
 
         <div class="tovar_blk_wrap margin_top_bottom">
             @foreach ($allproduct as $tovar)
