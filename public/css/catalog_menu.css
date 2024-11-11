@@ -21,13 +21,11 @@
 
 .catalog_menu h2{
     font-size: 28px;
-    font-weight: bold;
     margin: 0  0 1em 0;
 }
 
 .catalog_menu h3{
     font-size: 20px;
-    font-weight: bold;
     margin: 1em 0;
 }
 
@@ -45,19 +43,24 @@
     background-color: white;
     overflow-y: auto;
     overflow-x: hidden;
-    padding: 20px 40px;
+    padding: 20px 40px 70px 20px;
+    text-align: right;
 }
 
 .catclog_razdel_wrapper {
     display: flex;
     justify-content: start;
+    flex-direction: column;
+    a {
+        font-size: 14px;
+    }
 }
 
-.catclog_razdel_wrapper .cat_razdel{
+/* .catclog_razdel_wrapper .cat_razdel{
     margin-right: 5%;
     padding-right: 5%;
     border-right: 1px solid  #F1F2F2;
-}
+} */
 
 .catclog_razdel_wrapper .cat_razdel:last-child{
     margin-right: 0;
