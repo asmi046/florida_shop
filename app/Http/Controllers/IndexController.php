@@ -16,7 +16,8 @@ class IndexController extends Controller
         $sales = Product::where('old_price', '!=', 0)->take(8)->get();
         $reviews = Review::select()->take(9)->get();
 
-        // dd($all_product, $sales_liders,  $sales);
+        if (!$sales)
+            $sales = Product::where('hit', true)->take(8)->get();
 
         return view('index', [
             'all_product' => $all_product,
