@@ -21,7 +21,7 @@
             <x-tovar-filter></x-tovar-filter>
         </div>
         <div class="tovars_blk">
-            <div class="tovar_blk_wrap tovar_wrapper">
+            <div class="tovar_wrapper">
 
                 @foreach ($allproduct as $tovar)
                     <x-cards.tovar-card :tovar="$tovar"></x-cards.tovar-card>

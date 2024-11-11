@@ -15,7 +15,7 @@
         <x-breadcrumbs :category="['title' => $title]" ></x-breadcrumbs>
         <h1 class="h1_page">{{$title}}</h1>
 
-        <div class="tovar_blk_wrap margin_top_bottom">
+        <div class="margin_top_bottom">
             @foreach ($allproduct as $tovar)
                 <x-tovar-card :isslide="false" :tovar="$tovar"></x-tovar-card>
             @endforeach
