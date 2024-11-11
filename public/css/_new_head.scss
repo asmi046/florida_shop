@@ -62,6 +62,12 @@
 
     }
 
+    .bascet_lnk {
+        .sprite_icon {
+            stroke: white;
+        }
+    }
+
 }
 
 .header_inner{
@@ -148,6 +154,8 @@
         {
             display: none;
         }
+
+
 
         .tel_lnk svg{
             width: 19px;

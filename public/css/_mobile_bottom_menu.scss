@@ -39,6 +39,23 @@
     line-height: 1.5;
 }
 
+.mobile_bottom_menu {
+
+    .bm_btn {
+        .sprite_icon{
+            width:25px;
+            height:25px;
+            margin: auto;
+            fill: $main_color!important;
+
+        }
+
+        &.bm_btn_cart {
+            stroke: $main_color;
+        }
+    }
+}
+
 .mobile_bottom_menu .bm_btn .icon{
    width:25px;
    height:25px;
@@ -70,25 +87,8 @@
 }
 
 
-
-.bottom_menu_icon_catalog:before {
-}
-
-.bottom_menu_icon_bascet:before {
-}
-
-.bottom_menu_icon_favorites:before {
-}
-
-.bottom_menu_icon_home:before {
-}
-
-.bottom_menu_icon_phone:before {
-
-}
-
 .mobile_bottom_menu .bm_btn .icon::before{
-
+    color:$main-color;
     width: 25px;
     height: 25px;
     background-size: contain;
