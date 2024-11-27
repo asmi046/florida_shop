@@ -48,6 +48,14 @@ onMounted(() => {
             },
             1024: {
                 slidesPerView: 3.4,
+            },
+
+            1480: {
+                slidesPerView: 3.4,
+            },
+
+            1920: {
+                slidesPerView: 4,
             }
         }
 })
