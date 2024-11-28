@@ -9,6 +9,9 @@
 
 import { ref, computed, watch } from 'vue'
 import { useStore } from 'vuex'
+
+import {DataLayer} from '../eCommerceYandex.js'
+
 export default {
 
 props: {
@@ -41,7 +44,9 @@ setup(props){
             'addcount':1,
             '_token': tiken
         })
-        .then(() => {
+        .then((result) => {
+            console.log(result)
+            DataLayer.addToCatr( result.data[2], 1)
             store.dispatch('initialBascet')
             console.log(store.getters.cartCount)
         })

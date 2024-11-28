@@ -11,6 +11,7 @@
 @section('content')
 
 <section class="category">
+
     <div class="_wrapper">
         <x-breadcrumbs :category="['title' => $title]" ></x-breadcrumbs>
         <h1 class="h1_page">{{$title}}</h1>

@@ -11,6 +11,7 @@ import Bascet from "./components/bascet/Bascet.vue"
 import OneClickBuyWindow from "./components/OneClickBuyWindow.vue"
 
 import ToBascetBtnPage from './components/ToBascetBtnPage.vue'
+import TovarDataSend from './components/TovarDataSend.vue'
 
 import axios from 'axios'
 
@@ -26,6 +27,7 @@ import { useStore } from 'vuex'
 const global_app = createApp({
     components:{
         Review,
+        TovarDataSend,
         MapInPage,
         ModalWindow,
         Bascet,

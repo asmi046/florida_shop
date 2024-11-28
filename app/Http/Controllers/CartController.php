@@ -2,22 +2,23 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-
 use App\Models\Cart;
-use App\Models\Order;
 
-use Illuminate\Support\Facades\Mail;
+use App\Models\Order;
+use App\Models\Product;
+
 use App\Mail\BascetSend;
+use Illuminate\Http\Request;
 use App\Http\Requests\BascetForm;
 
-use App\Actions\BascetToTextAction;
-use App\Actions\OneClickToTextAction;
-use App\Actions\TelegramSendAction;
 use App\Services\SberApiServices;
-use App\Services\PersifloraApiSevice;
-
+use App\Actions\BascetToTextAction;
+use App\Actions\TelegramSendAction;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
+
+use App\Actions\OneClickToTextAction;
+use App\Services\PersifloraApiSevice;
 
 class CartController extends Controller
 {
@@ -30,8 +31,9 @@ class CartController extends Controller
         $_token = $request->input('_token');
 
         Cart::add($product_id);
+        $product = Product::with('tovar_categories')->where('sku', $product_id)->first();
 
-        return array($product_id, $_token);
+        return array($product_id, $_token, $product);
     }
 
     public function get_all() {
@@ -77,21 +79,21 @@ class CartController extends Controller
 
 
         // отправка заказа в CRM
-        $token = $persi->create_session();
-        $customer_id = $persi->get_customer_id(
-            "Аноним",
-            $request->input('phone'),
-            "anonim@pf.ru",
-            "Клиент создан при оформлении заказа на сайте в 1 клик");
+        // $token = $persi->create_session();
+        // $customer_id = $persi->get_customer_id(
+        //     "Аноним",
+        //     $request->input('phone'),
+        //     "anonim@pf.ru",
+        //     "Клиент создан при оформлении заказа на сайте в 1 клик");
 
-        $tmp = $persi->create_order($request, $customer_id, $sber_order_number);
+        // $tmp = $persi->create_order($request, $customer_id, $sber_order_number);
 
         // отправка заказа на почту
 
         Mail::to(explode(",",config('mailadresat.adresats')))->send(new BascetSend($request));
 
 
-        return ["persi" => $tmp, "rq" =>$request->all() ];
+        return [ "rq" =>$request->all(), "order_id"=> $order->id ];
 
         // return ["rq" =>$request->all() ];
     }
@@ -125,14 +127,14 @@ class CartController extends Controller
 
 
         // отправка заказа в CRM
-        $token = $persi->create_session();
-        $customer_id = $persi->get_customer_id(
-            $request->input('fio'),
-            $request->input('phone'),
-            $request->input('email'),
-            "Клиент создан при оформлении заказа на сайте");
+        // $token = $persi->create_session();
+        // $customer_id = $persi->get_customer_id(
+        //     $request->input('fio'),
+        //     $request->input('phone'),
+        //     $request->input('email'),
+        //     "Клиент создан при оформлении заказа на сайте");
 
-        $tmp = $persi->create_order($request, $customer_id, $sber_order_number);
+        // $tmp = $persi->create_order($request, $customer_id, $sber_order_number);
 
         // отправка заказа на почту
 
@@ -147,7 +149,7 @@ class CartController extends Controller
 
         Cart::cart_clear();
 
-        return ['pay_info' => $resSber, "persi" => $tmp];
+        return ['pay_info' => $resSber, "order_id" => $order->id];
     }
 
     public function thencs(Request $request, SberApiServices $sber, TelegramSendAction $tgsender) {

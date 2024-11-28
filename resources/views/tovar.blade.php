@@ -5,6 +5,8 @@
 
 @section('content')
 
+<tovar-data-send :tovardata="{{ json_encode($product) }}"></tovar-data-send>
+
 <x-headers.header-inner h1="{{ $product['title'] }}"></x-headers.header-inner>
 
 <section class="tovar_section">

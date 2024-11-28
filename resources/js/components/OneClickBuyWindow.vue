@@ -35,6 +35,9 @@
 
 <script>
 import AddToBascetBtn from './AddToBascetBtn.vue'
+
+import {DataLayer} from '../eCommerceYandex.js'
+
 export default {
     components: { AddToBascetBtn },
     data() {
@@ -135,6 +138,7 @@ export default {
             .then((response) => {
                 this.loadet = false;
                 console.log(response)
+                DataLayer.sendOneClick(tovar_position, response.data.order_id)
                 document.location.href="/bascet/thencs"
             })
             .catch(error => console.log(error));
