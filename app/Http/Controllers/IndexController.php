@@ -13,7 +13,7 @@ class IndexController extends Controller
 
         $all_product = Product::paginate(9);
         $sales_liders = Product::select()->orderBy('sales_count')->take(8)->get();
-        $sales = Product::where('old_price', '!=', 0)->take(8)->get();
+        $sales = Product::where('old_price', '!=', 0)->orderBy("created_at", "DESC")->take(8)->get();
         $reviews = Review::select()->take(9)->get();
 
         if (count($sales) == 0)
