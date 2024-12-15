@@ -13,7 +13,7 @@ class CategoryController extends Controller
 {
 
     public function catalog(ProductFilter $request) {
-        $allproduct = Product::select("*")->filter($request)->paginate(9)->withQueryString();
+        $allproduct = Product::select("*")->filter($request)->orderBy("created_at", "DESC")->paginate(9)->withQueryString();
 
         return view('catalog', [ 'allproduct' => $allproduct]);
     }
