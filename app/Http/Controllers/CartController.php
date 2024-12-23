@@ -59,7 +59,7 @@ class CartController extends Controller
     }
 
 
-    public function send_oc(BascetForm $request, OneClickToTextAction $to_text, TelegramSendAction $tgsender, SberApiServices $sber, PersifloraApiSevice $persi) {
+    public function send_oc(BascetForm $request, BascetToMediaAction $to_media, OneClickToTextAction $to_text, TelegramSendAction $tgsender, TelegramSendMediaAction $tg_media, SberApiServices $sber, PersifloraApiSevice $persi) {
         $order = Order::create([
             'name' => "Аноним",
             'phone' => $request->input('phone'),
@@ -77,7 +77,9 @@ class CartController extends Controller
 
         // отправка заказа в Telegram
         $to_text = $to_text->handle($request, $sber_order_number);
+        $media = $to_media->handle($request, $sber_order_number);
         $tgsender->handle($to_text);
+        $tg_media->handle($media);
 
 
         // отправка заказа в CRM
@@ -126,7 +128,6 @@ class CartController extends Controller
         // отправка заказа в Telegram
         $media = $to_media->handle($request, $sber_order_number);
         $text = $to_text->handle($request, $sber_order_number);
-        // dd($media);
         $tgsender->handle($text, $media);
         $tg_media->handle($media);
 
