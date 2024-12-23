@@ -11,7 +11,7 @@ class BascetToMediaAction {
         foreach ($request->input('tovars') as $item) {
             $element = [
                 'type' => 'photo',
-                'media' => config('app.url')."/".$item["tovar_data"]["img"]
+                'media' => config('app.url').$item["tovar_data"]["img"]
             ];
 
             $media[] = $element;
