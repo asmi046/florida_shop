@@ -20,6 +20,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
 use App\Actions\OneClickToTextAction;
 use App\Services\PersifloraApiSevice;
+use App\Actions\TelegramSendMediaAction;
 
 class CartController extends Controller
 {
@@ -100,7 +101,7 @@ class CartController extends Controller
     }
 
 
-    public function send(BascetForm $request, BascetToMediaAction $to_media, BascetToTextAction $to_text, TelegramSendAction $tgsender, SberApiServices $sber, PersifloraApiSevice $persi) {
+    public function send(BascetForm $request, BascetToMediaAction $to_media, BascetToTextAction $to_text, TelegramSendAction $tgsender, TelegramSendMediaAction $tg_media, SberApiServices $sber, PersifloraApiSevice $persi) {
 
 
         $order = Order::create([
@@ -127,6 +128,7 @@ class CartController extends Controller
         $text = $to_text->handle($request, $sber_order_number);
         // dd($media);
         $tgsender->handle($text, $media);
+        $tg_media->handle($media);
 
 
         // отправка заказа в CRM
