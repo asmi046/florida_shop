@@ -3,7 +3,7 @@
 namespace App\Actions;
 
 class TelegramSendAction {
-    public function handle($text = "") {
+    public function handle($text = "", $media = []) {
         $t_token = config('telegram.tg_token');
         $arr_chat = config('telegram.tg_coresp');
 
@@ -25,6 +25,7 @@ class TelegramSendAction {
                         CURLOPT_POSTFIELDS => array(
                             'chat_id' => trim($arr_chat[$i]),
                             'text' => $text,
+                            'media' => json_encode($media),
                             'parse_mode' => "HTML",
                         ),
                     )

@@ -14,9 +14,10 @@ use App\Http\Requests\BascetForm;
 use App\Services\SberApiServices;
 use App\Actions\BascetToTextAction;
 use App\Actions\TelegramSendAction;
+use App\Actions\BascetToMediaAction;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Mail;
 
+use Illuminate\Support\Facades\Mail;
 use App\Actions\OneClickToTextAction;
 use App\Services\PersifloraApiSevice;
 
@@ -99,7 +100,7 @@ class CartController extends Controller
     }
 
 
-    public function send(BascetForm $request, BascetToTextAction $to_text, TelegramSendAction $tgsender, SberApiServices $sber, PersifloraApiSevice $persi) {
+    public function send(BascetForm $request, BascetToMediaAction $to_media, BascetToTextAction $to_text, TelegramSendAction $tgsender, SberApiServices $sber, PersifloraApiSevice $persi) {
 
 
         $order = Order::create([
@@ -122,8 +123,10 @@ class CartController extends Controller
         $sber_order_number = "№".$order->id."_S".rand(100, 999);
 
         // отправка заказа в Telegram
-        $to_text = $to_text->handle($request, $sber_order_number);
-        $tgsender->handle($to_text);
+        $media = $to_media->handle($request, $sber_order_number);
+        $text = $to_text->handle($request, $sber_order_number);
+        // dd($media);
+        $tgsender->handle($text, $media);
 
 
         // отправка заказа в CRM
