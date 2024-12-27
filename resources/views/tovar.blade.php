@@ -1,7 +1,7 @@
 @extends('layouts.all')
 
 @section('title', $product['title'])
-@section('description', $product['description'])
+@section('description', $product['seo_description'])
 
 @section('content')
 
