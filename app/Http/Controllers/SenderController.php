@@ -28,7 +28,7 @@ class SenderController extends Controller
             // dd($data['sku']);
             $lnk = "<a href='".route('tovar', $product->slug)."'>".$product->title."</a>";
 
-            $tmp = $tgsender->handle("<b>Консультация флориста</b>\n\rИмя: ".$data['name']."\n\rТелефон: ".$data['phone']."\n\rБукет:\n\r".$lnk);
+            $tmp = $tgsender->handle("<b>Запрос наличия букета</b>\n\rИмя: ".$data['name']."\n\rТелефон: ".$data['phone']."\n\rБукет:\n\r".$lnk);
             $media = $to_media->handle($product);
             $tg_media->handle($media);
 
