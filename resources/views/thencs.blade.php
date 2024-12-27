@@ -9,7 +9,7 @@
 @section('description', $description)
 
 @section('content')
-
+<x-headers.header-inner h1="Спасибо что выбрали наш магазин"></x-headers.header-inner>
 <section class="thencs_page">
     <div class="_wrapper">
         <x-breadcrumbs :title="$title" ></x-breadcrumbs>

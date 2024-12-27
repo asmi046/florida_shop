@@ -3,7 +3,7 @@
         <x-headers.top></x-headers.top>
 
         <div class="bottom">
-            <h1>{{ $h1 }}</h1>
+            <h1>{!! $h1 !!}</h1>
             <x-breadcrumbs :title="$h1"></x-breadcrumbs>
         </div>
     </div>
