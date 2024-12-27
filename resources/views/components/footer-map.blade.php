@@ -10,7 +10,7 @@
         <p>Адрес салона</p>
         <h3><a href="tel:{{str_replace(array('-', ' ', '(' , ')'), '', $options['phone'])}}" class="phone">{{$options['phone']}}</a></h3>
 
-        <a href="#showModal" class="button button_white">Помощь флориста</a>
+        <a href="#floristConsult" class="button button_white">Помощь флориста</a>
 
         <p class="social">Соцсети и мессенджеры</p>
         <x-messanger></x-messanger>

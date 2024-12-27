@@ -35,7 +35,7 @@
     </div>
 
     @if ($tovar->asc_nal)
-        <a href="#showModalNal" class="btn btn_in_cart card_to_bascet_btn">Уточнить наличие</a>
+        <a href="#showModalNal{{$tovar['sku']}}" class="btn btn_in_cart card_to_bascet_btn">Уточнить наличие</a>
     @else
 
         <to-bascet-btn-page sku="{{$tovar['sku']}}"  :bascet="'/bascet'"></to-bascet-btn-page>

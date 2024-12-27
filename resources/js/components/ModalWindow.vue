@@ -32,6 +32,7 @@ export default {
             name:"",
             phone:"",
             review:"",
+            buket_sku:"",
             showModal:false,
             showLoader:false,
             errorList:[],
@@ -48,8 +49,16 @@ export default {
         },
 
         openWin() {
-            if (location.hash === '#'+this.hesh) {
+            if (('#'+this.hesh == '#showModalNal')&&(location.hash.includes("#showModalNal_"))) {
+
                 this.showModal = true
+                this.buket_sku = location.hash.replace('#'+this.hesh+"_", "")
+                console.log(this.buket_sku)
+            } else {
+
+                if (location.hash == '#'+this.hesh) {
+                    this.showModal = true
+                }
             }
         },
 
@@ -70,6 +79,7 @@ export default {
                 name: this.name,
                 phone: this.phone,
                 review: this.review,
+                sku: this.buket_sku,
 
             })
             .then((response) => {
@@ -87,10 +97,6 @@ export default {
 
     mounted() {
         window.addEventListener('hashchange', this.openWin)
-
-        if (location.hash === '#'+this.hesh) {
-            this.showModal = true
-        }
     }
 }
 </script>
