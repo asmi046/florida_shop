@@ -1,6 +1,6 @@
 @extends('layouts.all')
 
-@section('title', $product['title'])
+@section('title', $product['seo_title'])
 @section('description', $product['seo_description'])
 
 @section('content')
