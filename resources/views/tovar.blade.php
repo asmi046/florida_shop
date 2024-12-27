@@ -2,6 +2,7 @@
 
 @section('title', $product['seo_title'])
 @section('description', $product['seo_description'])
+@section('img', config('app.url').$product['img'])
 
 @section('content')
 
