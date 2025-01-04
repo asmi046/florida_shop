@@ -10,6 +10,8 @@
 
 @section('content')
 
+<x-headers.header-inner :h1="$title"></x-headers.header-inner>
+
 <section class="thencs_page">
     <div class="_wrapper">
         <x-breadcrumbs :title="$title" ></x-breadcrumbs>
