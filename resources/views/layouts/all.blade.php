@@ -55,7 +55,7 @@
  <!-- /Yandex.Metrika counter -->
 
     <script src="//code.jivo.ru/widget/Ao9F1DsJ2t" async></script>
-    <script src="//cdn.callibri.ru/callibri.js" type="text/javascript" charset="utf-8"></script>
+    {{-- <script src="//cdn.callibri.ru/callibri.js" type="text/javascript" charset="utf-8"></script> --}}
 
     <script>
         window.asset = "{{ asset('') }}";
