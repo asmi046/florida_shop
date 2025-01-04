@@ -63,6 +63,7 @@ Route::get('/new_tovar', [NewTovarController::class, "index"])->name('new_tovar'
 
 Route::get('/uhod_instruction', [EasyPageController::class, "uhod_instruction"])->name('uhod_instruction');
 Route::get('/policy', [EasyPageController::class, "show_policy"])->name('policy');
+Route::get('/policy_accept', [EasyPageController::class, "policy_accept"])->name('policy_accept');
 
 Route::get('/bonus_system', [EasyPageController::class, "show_bonus_system"])->name('bonus_system');
 Route::get('/about', [EasyPageController::class, "show_about"])->name('about');

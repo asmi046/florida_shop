@@ -16,6 +16,10 @@ class EasyPageController extends Controller
         return view('policy');
     }
 
+    public function policy_accept() {
+        return view('policy_accept');
+    }
+
     public function uhod_instruction() {
         return view('uhod-instructionlicy');
     }
