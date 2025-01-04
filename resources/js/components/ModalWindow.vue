@@ -15,7 +15,10 @@
 
                 <textarea v-if="showarea == 'true'" v-model="review" name="rewiew" placeholder="Ваш отзыв" rows="5"></textarea>
 
-                <p class="policy_descr">Заполняя данную форму и отправляя заявку вы соглашаетесь с <a href="#">политикой конфиденциальности</a></p>
+                <label  class="policy_descr" for="policy_accept">
+                    <input v-model="policy" type="checkbox" checked id="policy_accept"><p>Я принимаю условия <a href="/policy">политики в области персональных данных</a> и даю согдасие <a href="/policy_accept">на обработку персональных данных</a></p>
+                </label>
+
                 <div class="control_wrap">
                     <button class="button button_green" @click.prevent="sendMsg()">Отправить</button> <div v-show="showLoader" class="loader"></div>
                 </div>
@@ -31,6 +34,7 @@ export default {
         return {
             name:"",
             phone:"",
+            policy: true,
             review:"",
             buket_sku:"",
             showModal:false,
@@ -66,6 +70,8 @@ export default {
 
             this.errorList = [];this.errorList
 
+            if (!this.policy)
+                this.errorList.push("Вы должны согласиться с политикой");
             if (this.phone == "")
                 this.errorList.push("Поле 'Телефон' не заполнено");
 
@@ -202,6 +208,19 @@ export default {
         margin-bottom: 20px;
     }
 
+    .policy_descr {
+        display: flex;
+    }
+
+    .policy_descr input{
+        margin: 0 10px auto 0;
+        min-height: unset;
+        accent-color: #004F44;
+    }
+
+    .policy_descr a{
+        color: #004F44;
+    }
 
     @media (max-width: 480px){
         .popup {
@@ -210,6 +229,10 @@ export default {
 
         .modal_h2 {
             font-size: 42px;
+        }
+
+        .sending_form .control_wrap button {
+            width: 100%;
         }
     }
 

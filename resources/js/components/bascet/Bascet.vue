@@ -129,12 +129,16 @@
                     </div>
                 </div>
 
+                <label  class="policy_descr" for="policy_accept">
+                    <input v-model="policy" type="checkbox" checked id="policy_accept"><p>Я принимаю условия <a href="/policy">политики в области персональных данных</a> и даю согдасие <a href="/policy_accept">на обработку персональных данных</a></p>
+                </label>
+
                 <div class="form_btn_wrapper">
                     <button @click.prevent="sendBascet()" class="button button_green bascetSendBtn" type="submit">Оформить заказ</button>
                     <span :class="{active: loadet }" class="btnLoaderCart shoved"></span>
                 </div>
 
-                <p class="policy">Заполняя данную форму и отправляя заказ вы соглашаетесь с <a href="#">политикой конфиденциальности</a></p>
+
             </form>
         </div>
     </div>
@@ -158,6 +162,7 @@ export default {
             noPhotoUrl:"img/noPhoto.jpg",
             bascetList:[],
             loadet:false,
+            policy:true,
             count:0,
             subtotal:0,
             deliveryPrice:0,
@@ -261,6 +266,9 @@ export default {
         sendBascet() {
 
             this.errorList = []
+
+            if (!this.policy)
+                this.errorList.push("Вы должны согласиться с политикой");
 
             if (this.bascetInfo.fio == "")
                 this.errorList.push("Поле 'Имя' не заполнено");

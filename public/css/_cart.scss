@@ -478,6 +478,29 @@
     background-color: var(--main-color);
   }
 
+
+.policy_descr {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+    font-size: 14px;
+}
+
+.policy_descr p {
+    flex:1;
+}
+
+.policy_descr input{
+    margin: 0 10px auto 0!important;
+    width: unset!important;
+    min-height: unset;
+    accent-color: #004F44;
+}
+
+.policy_descr a{
+    color: #004F44;
+}
+
 @media (max-width: 768px) {
     .bascet {
         flex-direction: column;
