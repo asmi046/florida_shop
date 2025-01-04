@@ -15,7 +15,7 @@
 <section class="thencs_page">
     <div class="_wrapper">
         <x-breadcrumbs :title="$title" ></x-breadcrumbs>
-        <h1 class="h1_page">{{$title}}</h1>
+
         <div class="text_blk">
             {!! $options['policy'] !!}
 
