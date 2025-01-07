@@ -53,13 +53,30 @@
     </div>
 </div>
 
-<div class="tov_param_section">
-    <h2>Состав:</h2>
-    <div class="text_blk">
-        {!! $product['description'] !!}
+@if ($product['description'])
+    <div class="tov_param_section">
+        <h2>Описание:</h2>
+        <div class="text_blk">
+            {!! $product['description'] !!}
 
+        </div>
     </div>
-</div>
+@endif
+
+@if ($product['consist'])
+    <div class="tov_param_section">
+        <h2>Состав:</h2>
+        <div class="text_blk">
+            <ul class="consist_list">
+                @foreach ($product['consist'] as $item)
+                    @continue(empty($elem['Имя']))
+                    <li>{{ $item['Имя'] }} - {{ $item['Количество'] }} шт.</li>
+                @endforeach
+            </ul>
+        </div>
+    </div>
+@endif
+
 
 <div class="ahtung">
     <h2>Внимание <span>🛈</span></h2>
