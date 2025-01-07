@@ -53,15 +53,6 @@
     </div>
 </div>
 
-@if ($product['description'] && !empty($product['description']))
-    <div class="tov_param_section">
-        <h2>Описание:</h2>
-        <div class="text_blk">
-            {!! $product['description'] !!}
-        </div>
-    </div>
-@endif
-
 @if ($product['consist'] && !empty($product['consist']))
     <div class="tov_param_section">
         <h2>Состав:</h2>
@@ -76,6 +67,14 @@
     </div>
 @endif
 
+@if ($product['description'] && !empty($product['description']))
+    <div class="tov_param_section">
+        <h2>Описание:</h2>
+        <div class="text_blk">
+            {!! $product['description'] !!}
+        </div>
+    </div>
+@endif
 
 <div class="ahtung">
     <h2>Внимание <span>🛈</span></h2>
