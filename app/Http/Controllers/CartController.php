@@ -11,12 +11,13 @@ use App\Mail\BascetSend;
 use Illuminate\Http\Request;
 use App\Http\Requests\BascetForm;
 
-use App\Services\SberApiServices;
+use App\Services\YooKassaService;
 use App\Actions\BascetToTextAction;
 use App\Actions\TelegramSendAction;
+use Illuminate\Support\Facades\Log;
 use App\Actions\BascetToMediaAction;
-use Illuminate\Support\Facades\Auth;
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
 use App\Actions\OneClickToTextAction;
 use App\Services\PersifloraApiSevice;
@@ -103,7 +104,13 @@ class CartController extends Controller
     }
 
 
-    public function send(BascetForm $request, BascetToMediaAction $to_media, BascetToTextAction $to_text, TelegramSendAction $tgsender, TelegramSendMediaAction $tg_media, SberApiServices $sber, PersifloraApiSevice $persi) {
+    public function send(BascetForm $request,
+                        BascetToMediaAction $to_media,
+                        BascetToTextAction $to_text,
+                        TelegramSendAction $tgsender,
+                        TelegramSendMediaAction $tg_media,
+                        YooKassaService $pay,
+                        PersifloraApiSevice $persi) {
 
 
         $order = Order::create([
@@ -144,33 +151,34 @@ class CartController extends Controller
 
         // отправка заказа на почту
 
-        Mail::to(explode(",",config('mailadresat.adresats')))->send(new BascetSend($request));
+        Mail::to(explode(",", config('mailadresat.adresats')))->send(new BascetSend($request));
 
         // Генерация заказа в сбере
 
-        $resSber = $sber->registerOrder($request->input('amount'), $sber_order_number, route("bascet_thencs"));
+        $resPay = $pay->registerOrder($order,$request->input('tovars'));
 
-        if (!empty($resSber) && isset($resSber["orderId"]))
-            Order::update_order_pay_id($order->id, $resSber["orderId"]);
+        if (!empty($resPay) && isset($resPay["id"]))
+            Order::update_order_pay_id($order->id, $resPay["id"]);
 
         Cart::cart_clear();
 
-        return ['pay_info' => $resSber, "order_id" => $order->id];
+        return ['pay_info' => $resPay, "order_id" => $order->id];
     }
 
-    public function thencs(Request $request, SberApiServices $sber, TelegramSendAction $tgsender) {
-        $orderId = $request->input("orderId");
+    public function thencs(Request $request, YooKassaService $pay, TelegramSendAction $tgsender) {
+        $orderId = $request->input("order_id");
         if (!empty($orderId)) {
-            $orderInfo = $sber->getOrderStatus($orderId);
+            $order = Order::where("id", $orderId)->first();
+            $orderInfo = $pay->getOrderStatus($order->pay_order);
 
-            if (isset($orderInfo["orderStatus"]))
+            if ($orderInfo)
             {
-                $orderStatusText = ($orderInfo["orderStatus"] == 2)?"Оплачен":"Не оплачен";
-                Order::update_order_status($orderId, $orderInfo["orderStatus"], $orderStatusText);
+                // dd($orderInfo);
+                $orderStatusText = ($orderInfo["status"] === "succeeded")?"Оплачен":"Не оплачен";
 
-                $pay_text = "<b>Заказ #".$orderInfo["orderNumber"]." ".$orderStatusText." </b>\n\r";
-                $pay_text .= "<b>ID Сбера: </b>".$orderId."\n\r";
-                $pay_text .= "<b>Сумма: </b>".(floatval($orderInfo["amount"])/100)." ₽\n\r";
+                $pay_text = "<b>Заказ #".$orderId." ".$orderStatusText." </b>\n\r";
+                $pay_text .= "<b>ID Сбера: </b>".$orderInfo["id"]."\n\r";
+                $pay_text .= "<b>Сумма: </b>".floatval($orderInfo["amount"]["value"])." ₽\n\r";
                 $tgsender->handle($pay_text);
             }
         }

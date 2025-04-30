@@ -102,7 +102,7 @@ class CategoryEditScreen extends Screen
         ]);
 
 
-        Category::where('id', $category->id)->update($new_data);
+        Category::where('id', $this->category->id)->update($new_data);
         Toast::info("Категория сохранена");
     }
 }

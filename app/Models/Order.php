@@ -14,6 +14,7 @@ class Order extends Model
         'name',
         'email',
         'phone',
+        'amount',
         'adress',
         'comment',
         'session_id',

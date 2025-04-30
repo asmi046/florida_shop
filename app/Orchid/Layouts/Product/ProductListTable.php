@@ -69,7 +69,7 @@ class ProductListTable extends Table
                     Button::make('Удалить')
                         ->icon('trash')
                         ->confirm(__('Данный продукт будет удален навсегда! Вы согласны?'))
-                        ->method('delete_field', [$element->id]),
+                        ->method('delete_field', ['id' => $element->id]),
                 ])),
 
         ];

@@ -64,7 +64,7 @@ class CelebrationListTable extends Table
                     Button::make('Удалить')
                         ->icon('trash')
                         ->confirm(__('Данный праздник будет удален навсегда! Вы согласны?'))
-                        ->method('delete_field', [$element->id]),
+                        ->method('delete_field', ['id' => $element->id]),
                 ])),
 
         ];

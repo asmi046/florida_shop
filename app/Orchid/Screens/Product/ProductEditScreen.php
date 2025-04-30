@@ -262,7 +262,6 @@ class ProductEditScreen extends Screen
         if ($dell_elem ) {
             $dell_elem->delete();
             Toast::info("Изображение удалено");
-            // Alert::info("Изображение удалено");
         } else {
             Toast::info("Ошибка при удалении");
         }
@@ -273,7 +272,7 @@ class ProductEditScreen extends Screen
         // dd($request->get("category"));
 
         $new_data = $request->validate([
-            'sku' => ['required', 'string',  Rule::unique('products')->ignore($product->id)],
+            'sku' => ['required', 'string',  Rule::unique('products')->ignore($this->product->id)],
             'title' => ['required', 'string'],
             'slug' => [],
             'img' => [],
@@ -293,10 +292,10 @@ class ProductEditScreen extends Screen
 
         $new_data['consist'] = isset($new_data['consist'])?$new_data['consist']:null;
 
-        $product->tovar_categories()->sync($request->get("category"));
-        $product->tovar_celebration()->sync($request->get("сelebration"));
+        $this->product->tovar_categories()->sync($request->get("category"));
+        $this->product->tovar_celebration()->sync($request->get("сelebration"));
 
-        Product::where('id', $product->id)->update($new_data);
+        Product::where('id', $this->product->id)->update($new_data);
         Toast::info("Продукт сохранен");
     }
 }

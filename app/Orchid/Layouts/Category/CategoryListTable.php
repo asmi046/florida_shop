@@ -64,7 +64,7 @@ class CategoryListTable extends Table
                     Button::make('Удалить')
                         ->icon('trash')
                         ->confirm(__('Данная категория будет удалена навсегда! Вы согласны?'))
-                        ->method('delete_field', [$element->id]),
+                        ->method('delete_field', ['id' => $element->id]),
                 ])),
 
         ];

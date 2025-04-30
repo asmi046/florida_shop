@@ -92,7 +92,7 @@ class CelebrationEditScreen extends Screen
         ]);
 
 
-        Celebration::where('id', $category->id)->update($new_data);
+        Celebration::where('id', $this->category->id)->update($new_data);
         Toast::info("Праздник сохранен");
     }
 }

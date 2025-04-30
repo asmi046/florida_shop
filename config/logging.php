@@ -54,7 +54,14 @@ return [
         'stack' => [
             'driver' => 'stack',
             'channels' => ['single'],
+            'level' => env('LOG_LEVEL', 'debug'),
+            'replace_placeholders' => true,
+        ],
+
+        'pay' => [
+            'driver' => 'single',
             'ignore_exceptions' => false,
+            'path' => storage_path('logs/pay.log'),
         ],
 
         'single' => [

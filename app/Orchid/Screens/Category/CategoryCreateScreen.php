@@ -67,7 +67,6 @@ class CategoryCreateScreen extends Screen
 
                 Input::make('showed_title')
                     ->title('Заголовок выводимый')
-                    ->value($this->category->title)
                     ->help('Заголовок категории выводимый')
                     ->horizontal(),
 
@@ -89,7 +88,7 @@ class CategoryCreateScreen extends Screen
 
         $new_data = $request->validate([
             'title' => ['required', 'string'],
-            'slug' => ['required', 'string'],
+            'slug' => [],
             'img' => [],
             'showed_title' => [],
             'description' => []

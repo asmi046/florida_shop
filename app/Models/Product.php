@@ -14,6 +14,8 @@ use Illuminate\Support\Str;
 use Orchid\Screen\AsSource;
 use Orchid\Filters\Filterable;
 
+use Orchid\Filters\Types\Like;
+
 class Product extends Model
 {
     use HasFactory;
@@ -52,7 +54,7 @@ class Product extends Model
     ];
 
     protected $allowedFilters  = [
-        'title'
+        'title' => Like::class
     ];
 
 

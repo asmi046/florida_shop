@@ -72,6 +72,8 @@ Route::get('/thencs', [SenderController::class, "show_thencs"])->name('thencs');
 Route::post('/send_consult', [SenderController::class, "send_consultation"])->name('send_consultation');
 Route::post('/send_review', [SenderController::class, "send_review"])->name('send_review');
 
+
+
 Route::get('/bascet/thencs', [CartController::class, "thencs"])->name("bascet_thencs");
 Route::get('/bascet', [CartController::class, "index"])->name("bascet");
 Route::post('/bascet/add', [CartController::class, "add"])->name("bascet_add");
@@ -92,6 +94,7 @@ Route::delete('/favorites/clear', [FavoriteController::class, "clear"])->name("f
 Route::get('/search_pds', [SearchController::class, 'search_pds'])->name('search_pds');
 Route::get('/search', [SearchController::class, 'show_search_page'])->name('show_search_page');
 
+Route::post('/pay_hook', [PayController::class, "pay_hook"])->name("pay_hook");
 Route::get('/payinfo', [PayController::class, 'show_payinfo'])->name('show_payinfo');
 
 Route::get('/yml-feed/{slug}', [FeedController::class, "yml_actegory"])->name('yml_actegory');

@@ -305,9 +305,10 @@ export default {
                 this.loadet = false;
                 console.log(response)
                 DataLayer.sendCart(this.bascetList, response.data.order_id)
-                if (response.data.pay_info.formUrl !== undefined){
-                     console.log(response.data.pay_info)
-                    document.location.href=response.data.pay_info.formUrl
+                if (response.data.pay_info.confirmation.confirmation_url !== undefined){
+                    console.log(response.data.pay_info)
+
+                    document.location.href=response.data.pay_info.confirmation.confirmation_url
                 }
                 else {
                     console.log(response.data.pay_info)

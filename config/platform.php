@@ -2,6 +2,7 @@
 
 return [
 
+
     /*
     |--------------------------------------------------------------------------
     | Sub-Domain Routing
@@ -159,6 +160,7 @@ return [
 
     'icons' => [
         'orc' => \Orchid\IconPack\Path::getFolder(),
+        'bs' => \Orchid\Support\BootstrapIconsPath::getFolder(),
     ],
 
     /*
