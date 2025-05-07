@@ -244,14 +244,13 @@ class ProductEditScreen extends Screen
 
     public function load_image(Product $product, Request $request) {
         // dd($request->all());
-
         $new_data = $request->validate([
             'link' => ['required', 'string'],
             'alt' => [],
             'title' => [],
         ]);
 
-        $product->product_images()->create($new_data);
+        $this->product->product_images()->create($new_data);
 
         Toast::info("Изображение добавлено");
     }
