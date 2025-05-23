@@ -10,6 +10,7 @@
 
 @section('content')
     <x-headers.header></x-headers.header>
+
     <x-header-category></x-header-category>
 
     {{-- <x-main-banner></x-main-banner>
@@ -24,6 +25,8 @@
         </div>
     </section>
     --}}
+
+
 
     <section class="sales_hits_section">
         <div class="_wrapper">
@@ -56,5 +59,9 @@
     {{-- <x-yandex-delivery></x-yandex-delivery> --}}
 
     <x-about-in-main></x-about-in-main>
+
+
+
+
 
 @endsection

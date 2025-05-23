@@ -108,6 +108,23 @@
 
         @yield('content')
 
+        <section>
+            <div class="_wrapper">
+                <div class="delivery_comment">
+                    <div class="icon">
+                        <svg class="sprite_icon">
+                            <use xlink:href="#free_delivery_gr"></use>
+                        </svg>
+                    </div>
+                    <div class="text">
+                        <p class="free">Бесплатная доставка распространяется на: проспект Победы, Дериглазова, ул. Карла-Маркса</p>
+                        <p class="pay">Доставка в другие районы: 150-250 р.</p>
+                        <p class="pay">Доставка в ко времени: 500 р.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <x-footer-map></x-footer-map>
         <x-footer></x-footer>
     </div>

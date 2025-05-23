@@ -1876,6 +1876,52 @@ height: 30px;
     font-size: 170px;
 }
 
+/* -------------- Страница и блок доставки ------------------- */
+
+.delivery_comment {
+    display: flex;
+    flex-wrap: wrap;
+    gap:10px;
+    border: 1px solid $main_color;
+
+    color: white;
+    background-color: $main-color;
+    .icon {
+        width: 100px;
+        height: 80px;
+        display: flex;
+
+
+        .sprite_icon {
+            width:70px;
+            height: 70px;
+            margin: auto;
+        }
+    }
+    .text {
+        display: flex;
+        flex-direction: column;
+        padding: 5px 0;
+        color: white;
+        flex:1;
+
+        p {
+            margin: auto 0;
+            font-size:14px;
+        }
+
+        .free {
+            margin: 5px 0;
+            line-height: 1.2;
+        }
+        .pay {
+            font-size: 10px;
+            margin:5px 0;
+        }
+    }
+
+}
+
 
 
 @import "social";
