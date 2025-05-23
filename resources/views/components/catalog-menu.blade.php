@@ -4,7 +4,9 @@
 <div class="catalog_menu_wrapper">
 	<div class="catalog_menu">
         <h2>Каталог</h2>
+
         <div class="catclog_razdel_wrapper">
+            <a href="{{ route('zones') }}">Доставка и оплата</a>
             <div class="cat_razdel">
                 <h3>Категории</h3>
                 <ul>
