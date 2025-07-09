@@ -6,7 +6,7 @@
             <x-headers.utp></x-headers.utp>
             <h1>Доставка цветов <br>в Курске</h1>
             <span class="plash">
-                Кругласуточно 24/7
+                Круглосуточно 24/7
             </span>
             <p class="subtitle">Гарантия на цветы — 48 часов <br>или заменим букет!</p>
             <a class="button button_white" href="{{ route('catalog') }}">Выбрать букет</a>
