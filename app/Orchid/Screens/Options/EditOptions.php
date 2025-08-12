@@ -97,7 +97,7 @@ class EditOptions extends Screen
         if ($option->type === 'plan')
             $new_data["value"] = strip_tags($new_data["value"]);
 
-        Option::where('id', $option->id)->update($new_data);
+        Option::where('id', $this->option->id)->update($new_data);
         Toast::info("Товар сохранен");
     }
 }
