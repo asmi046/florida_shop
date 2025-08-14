@@ -54,7 +54,6 @@
  <noscript><div><img src="https://mc.yandex.ru/watch/94073132" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
  <!-- /Yandex.Metrika counter -->
 
-    <script src="//code.jivo.ru/widget/Ao9F1DsJ2t" async></script>
     {{-- <script src="//cdn.callibri.ru/callibri.js" type="text/javascript" charset="utf-8"></script> --}}
 
     <script>
@@ -128,6 +127,8 @@
         <x-footer-map></x-footer-map>
         <x-footer></x-footer>
     </div>
+
+    <script>(function(a,m,o,c,r,m){a[m]={id:"433173",hash:"f0a1df65a0b54d32fc0df613eac9baaf9c97a53208111b21f90a02c1b83ba2df",locale:"ru",inline:true,setMeta:function(p){this.params=(this.params||[]).concat([p])}};a[o]=a[o]||function(){(a[o].q=a[o].q||[]).push(arguments)};var d=a.document,s=d.createElement('script');s.async=true;s.id=m+'_script';s.src='https://gso.amocrm.ru/js/button.js';d.head&&d.head.appendChild(s)}(window,0,'amoSocialButton',0,0,'amo_social_button'));</script>
 </body>
 
 </html>
