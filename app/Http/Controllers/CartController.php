@@ -20,7 +20,7 @@ use App\Actions\BascetToMediaAction;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
 use App\Actions\OneClickToTextAction;
-use App\Services\PersifloraApiSevice;
+use App\Services\AmoApiSevice;
 use App\Actions\TelegramSendMediaAction;
 
 class CartController extends Controller
@@ -60,7 +60,7 @@ class CartController extends Controller
     }
 
 
-    public function send_oc(BascetForm $request, BascetToMediaAction $to_media, OneClickToTextAction $to_text, TelegramSendAction $tgsender, TelegramSendMediaAction $tg_media, SberApiServices $sber, PersifloraApiSevice $persi) {
+    public function send_oc(BascetForm $request, BascetToMediaAction $to_media, OneClickToTextAction $to_text, TelegramSendAction $tgsender, TelegramSendMediaAction $tg_media, SberApiServices $sber, AmoApiSevice $amo) {
         $order = Order::create([
             'name' => "Аноним",
             'phone' => $request->input('phone'),
@@ -91,7 +91,7 @@ class CartController extends Controller
         //     "anonim@pf.ru",
         //     "Клиент создан при оформлении заказа на сайте в 1 клик");
 
-        // $tmp = $persi->create_order($request, $customer_id, $sber_order_number);
+        $tmp = $amo->create_order($request, $customer_id, $sber_order_number);
 
         // отправка заказа на почту
 
@@ -110,7 +110,7 @@ class CartController extends Controller
                         TelegramSendAction $tgsender,
                         TelegramSendMediaAction $tg_media,
                         YooKassaService $pay,
-                        PersifloraApiSevice $persi) {
+                        AmoApiSevice $amo) {
 
 
         $order = Order::create([
@@ -147,7 +147,7 @@ class CartController extends Controller
         //     $request->input('email'),
         //     "Клиент создан при оформлении заказа на сайте");
 
-        // $tmp = $persi->create_order($request, $customer_id, $sber_order_number);
+        $tmp = $amo->create_order($request, $sber_order_number);
 
         // отправка заказа на почту
 
