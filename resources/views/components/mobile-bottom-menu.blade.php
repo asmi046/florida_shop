@@ -16,7 +16,7 @@
         <p>Корзина</p>
     </a>
 
-    <a href="tel:{{str_replace(array('-', ' ', '(' , ')'), '', $options['phone'])}}" class="bm_btn open_cat_menu ">
+    <a href="tel:{{str_replace(array('-', ' ', '(' , ')'), '', $options['phone'])}}" class="bm_btn">
         <svg class="sprite_icon">
             <use xlink:href="#phone"></use>
         </svg>
