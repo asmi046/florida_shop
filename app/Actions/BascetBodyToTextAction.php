@@ -5,13 +5,16 @@ namespace App\Actions;
 use App\Http\Requests\BascetForm;
 
 class BascetBodyToTextAction {
-    public function handle(BascetForm $request) {
+    public function handle(BascetForm $request, $lnk_text = true) {
 
         $rez_text = "Состав заказа\n\r\n\r";
 
         foreach ($request->input('tovars') as $item) {
             $rez_text .= $item["tovar_data"]["title"]." (Артикул: ".$item["tovar_data"]["sku"].")"."\n\r";
+            if ($lnk_text)
             $rez_text .= "<a href='".route("tovar", $item["tovar_data"]["slug"])."'>Посмотреть товар</a>\n\r";
+            else
+                $rez_text .= route("tovar", $item["tovar_data"]["slug"])."\n\r";
             $rez_text .= $item["tovar_data"]["price"]." ₽\n\r";
             $rez_text .= "Кол-во: " . $item["quentity"]."\n\r";
             $rez_text .= "Подитог: " . (float)$item["quentity"] * (float)$item["tovar_data"]["price"]."\n\r";

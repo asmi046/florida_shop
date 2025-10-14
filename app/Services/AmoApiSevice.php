@@ -154,7 +154,7 @@ class AmoApiSevice {
             $leadCustomFieldsValues->add($cfComment);
 
             $to_text = new BascetBodyToTextAction();
-            $bascet_body = $to_text->handle($request);
+            $bascet_body = $to_text->handle($request, false);
 
             $cfBody = new TextCustomFieldValuesModel();
             $cfBody->setFieldId(837739);
