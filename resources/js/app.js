@@ -24,6 +24,10 @@ import { VMaskDirective } from 'v-slim-mask'
 import { store } from "./storage"
 import { useStore } from 'vuex'
 
+// Импорт Maskito
+import { Maskito } from '@maskito/core';
+import phoneMaskOptions from './mask';
+
 const global_app = createApp({
     components:{
         Review,
@@ -48,5 +52,12 @@ const global_app = createApp({
 global_app.use(VueAxios, axios)
 global_app.use(store)
 global_app.directive('mask', VMaskDirective)
+// Директива для маски телефона
+global_app.directive('phone-mask', {
+    mounted(el) {
+        // Создаем экземпляр Maskito для элемента
+        new Maskito(el, phoneMaskOptions);
+    }
+})
 global_app.mount("#global_app");
 

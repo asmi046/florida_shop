@@ -40,6 +40,9 @@
         "vite": "^4.0.3"
     },
     "dependencies": {
+        "@maskito/core": "^4.0.0",
+        "@maskito/kit": "^4.0.0",
+        "@maskito/vue": "^4.0.0",
         "@vitejs/plugin-vue": "^4.0.0",
         "sourcemap-codec": "^1.4.8",
         "swiper": "^11.1.14",
