@@ -33,7 +33,7 @@ class ProductFilter extends QueryFilter {
 
         foreach ($osobennosti as $osb)
         {
-            if ($osb == "Скидка") $this->builder->where("old_price", 0);
+            if ($osb == "Скидка") $this->builder->where("old_price", '>', 0);
             if ($osb == "Хит продаж") $this->builder->where("hit", 1);
             if ($osb == "Новинки") $this->builder->where("new", 1);
         }
