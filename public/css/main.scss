@@ -985,12 +985,20 @@ section h2 {
     margin-bottom: 30px;
 }
 
+select,
 textarea,
 input {
     background-color: #F4F4F4;
     border-radius: 16px;
     min-height: 50px;
     padding: 0 15px;
+    font-size: 16px;
+    &:focus,
+    &:active,
+    &:focus-visible {
+        outline: none !important;
+        box-shadow: none !important;
+    }
 }
 
 .radio_label{

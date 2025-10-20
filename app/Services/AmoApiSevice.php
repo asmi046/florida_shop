@@ -14,12 +14,15 @@ use AmoCRM\Exceptions\InvalidArgumentException;
 use AmoCRM\Collections\CustomFieldsValuesCollection;
 use AmoCRM\Models\CustomFieldsValues\DateCustomFieldValuesModel;
 use AmoCRM\Models\CustomFieldsValues\TextCustomFieldValuesModel;
+use AmoCRM\Models\CustomFieldsValues\SelectCustomFieldValuesModel;
 use AmoCRM\Models\CustomFieldsValues\MultitextCustomFieldValuesModel;
 use AmoCRM\Models\CustomFieldsValues\ValueModels\DateCustomFieldValueModel;
 use AmoCRM\Models\CustomFieldsValues\ValueModels\TextCustomFieldValueModel;
+use AmoCRM\Models\CustomFieldsValues\ValueModels\SelectCustomFieldValueModel;
 use AmoCRM\Models\CustomFieldsValues\ValueModels\MultitextCustomFieldValueModel;
 use AmoCRM\Models\CustomFieldsValues\ValueCollections\DateCustomFieldValueCollection;
 use AmoCRM\Models\CustomFieldsValues\ValueCollections\TextCustomFieldValueCollection;
+use AmoCRM\Models\CustomFieldsValues\ValueCollections\SelectCustomFieldValueCollection;
 use AmoCRM\Models\CustomFieldsValues\ValueCollections\MultitextCustomFieldValueCollection;
 
 class AmoApiSevice {
@@ -136,11 +139,13 @@ class AmoApiSevice {
             }
 
             if ($request->input("time")) {
-                $cfDelTime = new TextCustomFieldValuesModel();
-                $cfDelTime->setFieldId(847895);
+                $cfDelTime = new SelectCustomFieldValuesModel();
+                // $cfDelTime->setFieldId(847895);
+                $cfDelTime->setFieldId(658265);
+                // dd($request->input("time"));
                 $cfDelTime->setValues(
-                    (new TextCustomFieldValueCollection())
-                        ->add((new TextCustomFieldValueModel())->setValue($request->input("time") ?? ''))
+                    (new SelectCustomFieldValueCollection())
+                        ->add((new SelectCustomFieldValueModel())->setValue($request->input("time") ?? ''))
                 );
                 $leadCustomFieldsValues->add($cfDelTime);
             }

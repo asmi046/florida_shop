@@ -97,7 +97,15 @@
                     <h2>Время и дата достаки</h2>
 
                     <input v-model="bascetInfo.data" type="date" placeholder="Дата доставки">
-                    <input v-model="bascetInfo.time" type="time" placeholder="Время доставки">
+                    <!-- <input v-model="bascetInfo.time" type="time" placeholder="Время доставки"> -->
+                    <div class="time_select_wrapper">
+                        <label for="timeSelect">Время доставки</label>
+                        <select id="timeSelect" v-model="bascetInfo.time">
+                            <option value="" disabled>Выберите интервал</option>
+                            <option v-for="(label, key) in timeIntervals" :key="key" :value="label">{{ label }}</option>
+                        </select>
+                    </div>
+
                 </div>
 
                 <h2>Комментарий</h2>
@@ -160,6 +168,32 @@ import {DataLayer} from '../../eCommerceYandex.js'
 export default {
     data() {
         return {
+        timeIntervals: {
+                "500317": "08:00-10:00",
+                "369615": "09:00-11:00",
+                "369619": "10:00-12:00",
+                "500325": "11:00-13:00",
+                "500329": "12:00-14:00",
+                "500333": "13:00-15:00",
+                "500337": "14:00-16:00",
+                "500341": "15:00-17:00",
+                "500345": "16:00-18:00",
+                "500349": "17:00-19:00",
+                "500353": "18:00-20:00",
+                "500357": "19:00-21:00",
+                "500361": "20:00-22:00",
+                "500365": "21:00-23:00",
+                "500369": "22:00-00:00",
+                "500373": "23:00-01:00",
+                "500377": "00:00-02:00",
+                "500381": "01:00-03:00",
+                "500385": "02:00-04:00",
+                "500389": "03:00-05:00",
+                "500393": "04:00-06:00",
+                "500397": "05:00-07:00",
+                "500401": "06:00-08:00",
+                "500405": "07:00-09:00"
+            },
             noPhotoUrl:"img/noPhoto.jpg",
             bascetList:[],
             loadet:false,
