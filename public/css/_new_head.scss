@@ -13,7 +13,7 @@
     h1 {
         font-family: "Tenor Sans", sans-serif;
         font-weight: normal;
-        font-size: 58px;
+        font-size: 82px;
         margin: 20px 0px;
     }
     ._wrapper {
@@ -143,6 +143,12 @@
     top:-4px;
 }
 
+
+@media (max-width: 768px) {
+.header h1 {
+    font-size: 68px;
+}
+}
 
 @media (max-width: 480px) {
     .header {
