@@ -2,42 +2,44 @@
 
 declare(strict_types=1);
 
-use App\Orchid\Screens\Examples\ExampleCardsScreen;
-use App\Orchid\Screens\Examples\ExampleChartsScreen;
-use App\Orchid\Screens\Examples\ExampleFieldsAdvancedScreen;
-use App\Orchid\Screens\Examples\ExampleFieldsScreen;
-use App\Orchid\Screens\Examples\ExampleLayoutsScreen;
-use App\Orchid\Screens\Examples\ExampleScreen;
-use App\Orchid\Screens\Examples\ExampleTextEditorsScreen;
+use Tabuna\Breadcrumbs\Trail;
+use Illuminate\Support\Facades\Route;
 use App\Orchid\Screens\PlatformScreen;
+use App\Orchid\Screens\Blog\BlogEditScreen;
+use App\Orchid\Screens\Blog\BlogListScreen;
+use App\Orchid\Screens\Options\EditOptions;
+use App\Orchid\Screens\Options\OptionsList;
 use App\Orchid\Screens\Role\RoleEditScreen;
 use App\Orchid\Screens\Role\RoleListScreen;
 use App\Orchid\Screens\User\UserEditScreen;
 use App\Orchid\Screens\User\UserListScreen;
-use App\Orchid\Screens\User\UserProfileScreen;
-use Illuminate\Support\Facades\Route;
-use Tabuna\Breadcrumbs\Trail;
-
-use App\Orchid\Screens\Category\CategoryCreateScreen;
-use App\Orchid\Screens\Category\CategoryEditScreen;
-use App\Orchid\Screens\Category\CategoryListScreen;
-
-use App\Orchid\Screens\Celebration\CelebrationCreateScreen;
-use App\Orchid\Screens\Celebration\CelebrationEditScreen;
-use App\Orchid\Screens\Celebration\CelebrationListScreen;
-
 use App\Orchid\Screens\Blog\BlogCreateScreen;
-use App\Orchid\Screens\Blog\BlogEditScreen;
-use App\Orchid\Screens\Blog\BlogListScreen;
+use App\Orchid\Screens\Revew\RevewListScreen;
+use App\Orchid\Screens\Examples\ExampleScreen;
+use App\Orchid\Screens\User\UserProfileScreen;
 
-use App\Orchid\Screens\Product\ProductCreateScreen;
 use App\Orchid\Screens\Product\ProductEditScreen;
 use App\Orchid\Screens\Product\ProductListScreen;
+use App\Orchid\Screens\Category\CategoryEditScreen;
+
+use App\Orchid\Screens\Category\CategoryListScreen;
+use App\Orchid\Screens\Examples\ExampleCardsScreen;
+use App\Orchid\Screens\Product\ProductCreateScreen;
+
+use App\Orchid\Screens\Examples\ExampleChartsScreen;
+use App\Orchid\Screens\Examples\ExampleFieldsScreen;
+use App\Orchid\Screens\Category\CategoryCreateScreen;
+
+use App\Orchid\Screens\Examples\ExampleLayoutsScreen;
+use App\Orchid\Screens\ProductTag\ProductTagEditScreen;
+use App\Orchid\Screens\ProductTag\ProductTagListScreen;
 
 
-use App\Orchid\Screens\Revew\RevewListScreen;
-use App\Orchid\Screens\Options\OptionsList;
-use App\Orchid\Screens\Options\EditOptions;
+use App\Orchid\Screens\Celebration\CelebrationEditScreen;
+use App\Orchid\Screens\Celebration\CelebrationListScreen;
+use App\Orchid\Screens\Examples\ExampleTextEditorsScreen;
+use App\Orchid\Screens\Celebration\CelebrationCreateScreen;
+use App\Orchid\Screens\Examples\ExampleFieldsAdvancedScreen;
 /*
 |--------------------------------------------------------------------------
 | Dashboard Routes
@@ -200,11 +202,43 @@ Route::screen('example', ExampleScreen::class)
         ->parent('platform.index')
         ->push('Example screen'));
 
+// Группировка роутов для тегов продуктов
+Route::prefix('product-tags')->name('platform.product-tags.')->group(function () {
+
+    // Список тегов
+    Route::screen('/', ProductTagListScreen::class)
+        ->name('list')
+        ->breadcrumbs(function (Trail $trail) {
+            return $trail
+                ->parent('platform.index')
+                ->push('Теги продуктов');
+        });
+
+    // Создание нового тега
+    Route::screen('create', ProductTagEditScreen::class)
+        ->name('create')
+        ->breadcrumbs(function (Trail $trail) {
+            return $trail
+                ->parent('platform.product-tags.list')
+                ->push('Создать тег');
+        });
+
+    // Редактирование существующего тега
+    Route::screen('{tag}/edit', ProductTagEditScreen::class)
+        ->name('edit')
+        ->breadcrumbs(function (Trail $trail, $tag) {
+            return $trail
+                ->parent('platform.product-tags.list')
+                ->push('Редактировать: ' . $tag->title);
+        });
+});
+
 Route::screen('example-fields', ExampleFieldsScreen::class)->name('platform.example.fields');
 Route::screen('example-layouts', ExampleLayoutsScreen::class)->name('platform.example.layouts');
 Route::screen('example-charts', ExampleChartsScreen::class)->name('platform.example.charts');
 Route::screen('example-editors', ExampleTextEditorsScreen::class)->name('platform.example.editors');
 Route::screen('example-cards', ExampleCardsScreen::class)->name('platform.example.cards');
 Route::screen('example-advanced', ExampleFieldsAdvancedScreen::class)->name('platform.example.advanced');
+
 
 //Route::screen('idea', Idea::class, 'platform.screens.idea');

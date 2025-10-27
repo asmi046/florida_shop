@@ -1,6 +1,8 @@
+<x-headers.top></x-headers.top>
+
 <header class="header header_inner" id="header">
     <div class="_wrapper">
-        <x-headers.top></x-headers.top>
+
 
         <div class="bottom">
             <h1>{!! $h1 !!}</h1>

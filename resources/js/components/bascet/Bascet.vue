@@ -61,7 +61,7 @@
 
                 <label class="radio_label" for="samovivoz">
                     <input type="radio" id="samovivoz" checked name="delivery_type" value="Самовывоз"  v-model="deliveryType">
-                    <span>Самовывоз</span>
+                    <span>Самовывоз (г. Курск, пр. Победы, 14, работаем 24/7)</span>
                 </label>
 
                 <label  class="radio_label" for="dostavka">

@@ -81,4 +81,9 @@ class Product extends Model
     public function tovar_celebration() {
         return $this->belongsToMany(Celebration::class);
     }
+
+    public function tags()
+    {
+        return $this->belongsToMany(ProductTag::class);
+    }
 }

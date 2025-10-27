@@ -1,3 +1,33 @@
+    .top_header {
+        padding: 0;
+        position: fixed;
+        width: 100%;
+        top:0;
+
+        a {
+            color:white;
+        }
+
+        .bascet_lnk {
+            .sprite_icon {
+                stroke: white;
+            }
+        }
+
+        ._wrapper {
+            padding: 10px 0;
+            display: flex;
+
+        }
+
+        &.is-scrolled {
+                position: sticky;
+                top:0;
+                z-index: 10000;
+                background-color: rgba(105, 115, 115, 0.9);
+        }
+    }
+
 .header {
 
     background-image: url(../img/banner_new.jpg);
@@ -32,17 +62,13 @@
         color:white;
     }
 
-    .top {
-        padding: 10px 0;
-        width: 100%;
-        display: flex;
-    }
+
     .bottom {
         flex:1;
         height: auto;
         display: flex;
         flex-direction: column;
-        margin-top: 40px;
+        margin-top: 110px;
         margin-bottom: 40px;
     }
 
@@ -62,18 +88,14 @@
 
     }
 
-    .bascet_lnk {
-        .sprite_icon {
-            stroke: white;
-        }
-    }
+
 
 }
 
 .header_inner{
     min-height: auto;
     .bottom {
-        margin-top: 0;
+        margin-top: 110px;
 
         h1 {
             margin-top: 20px;
@@ -144,15 +166,23 @@
 }
 
 
+@media (max-width: 1024px) {
+    .top_header {
+        a {
+            font-size: 14px;
+        }
+    }
+}
+
 @media (max-width: 768px) {
 .header h1 {
     font-size: 68px;
 }
 }
 
+
 @media (max-width: 480px) {
-    .header {
-        background-image: url(../img/banner_new_mob.jpg);
+    .top_header {
 
         .search_lnk,
         .cabinet_lnk,
@@ -160,6 +190,11 @@
         {
             display: none;
         }
+    }
+    .header {
+        background-image: url(../img/banner_new_mob.jpg);
+
+
 
 
 
@@ -184,7 +219,7 @@
         }
 
         .bottom {
-            margin-top: 10px;
+            margin-top: 60px;
             margin-bottom: 10px;
         }
 

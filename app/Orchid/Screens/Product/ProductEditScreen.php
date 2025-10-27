@@ -8,6 +8,7 @@ use App\Models\Product;
 use App\Models\Category;
 use App\Models\ProductImage;
 use App\Models\Celebration;
+use App\Models\ProductTag;
 
 use Orchid\Support\Facades\Layout;
 use Orchid\Screen\Fields\Input;
@@ -35,10 +36,11 @@ class ProductEditScreen extends Screen
      * @return array
      */
 
-     public $product;
-     public $product_cat;
-     public $product_cel;
-     public $product_img;
+    public $product;
+    public $product_cat;
+    public $product_cel;
+    public $product_img;
+    public $product_tags;
 
     public function query($id): iterable
     {
@@ -46,11 +48,14 @@ class ProductEditScreen extends Screen
         $cat = $product->tovar_categories;
         $cel = $product->tovar_celebration;
         $img = $product->product_images;
+        $tags = $product->tags;
+
         return [
             "product" => $product,
             "product_cat"=> $cat,
             "product_cel"=> $cel,
-            "product_img" => $img
+            "product_img" => $img,
+            "product_tags" => $tags,
         ];
     }
 
@@ -183,6 +188,14 @@ class ProductEditScreen extends Screen
                     ->multiple()
                     ->help('Выберите праздник'),
 
+                Relation::make('tags.')
+                    ->fromModel(ProductTag::class, 'title', 'id')
+                    ->title('Теги товара')
+                    ->value($this->product_tags)
+                    ->multiple()
+                    ->help('Выберите теги для товара'),
+
+
                 Matrix::make('consist')
                     ->title('Состав букета')
                     ->help('Состав букета (ингридиент, количество в штуках)')
@@ -293,6 +306,7 @@ class ProductEditScreen extends Screen
 
         $this->product->tovar_categories()->sync($request->get("category"));
         $this->product->tovar_celebration()->sync($request->get("сelebration"));
+        $this->product->tags()->sync($request->get("tags"));
 
         Product::where('id', $this->product->id)->update($new_data);
         Toast::info("Продукт сохранен");

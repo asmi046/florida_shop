@@ -29,6 +29,7 @@ use App\Http\Controllers\Auth\AuthController;
 
 use App\Http\Controllers\CelebrationController;
 use App\Http\Controllers\NewFeedbackController;
+use App\Http\Controllers\ProductTagController;
 
 /*
 |--------------------------------------------------------------------------
@@ -50,6 +51,8 @@ Route::get('/catalog', [CategoryController::class, "catalog"])->name('catalog');
 Route::get('/celebrations/{slug}', [CelebrationController::class, "index"])->name('celebration');
 Route::get('/catalog/{slug}', [CategoryController::class, "show_cat"])->name('category');
 Route::get('/tovar/{slug}', [TovarController::class, "show"])->name('tovar');
+
+Route::get('/tags/{slug}', [ProductTagController::class, "show_tag"])->name('tag');
 
 Route::get('/contacts', [ContactsController::class, "show"])->name('contacts');
 Route::get('/zones', [ContactsController::class, "show_zones"])->name('zones');

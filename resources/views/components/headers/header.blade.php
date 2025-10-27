@@ -1,6 +1,8 @@
+<x-headers.top></x-headers.top>
+
 <header class="header" id="header">
     <div class="_wrapper">
-        <x-headers.top></x-headers.top>
+
 
         <div class="bottom">
             <x-headers.utp></x-headers.utp>

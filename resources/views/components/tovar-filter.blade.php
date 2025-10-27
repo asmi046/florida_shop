@@ -26,6 +26,8 @@
             </div>
         </div>
 
+        <x-product-tag-in-filter />
+
         <div class="acc_blk ">
             <div class="acc_head open">
                 <span>Особенности</span>

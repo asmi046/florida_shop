@@ -1930,6 +1930,21 @@ height: 30px;
 
 }
 
+.tag_lnk {
+    color: $main_color;
+    border-radius: 20px;
+    padding: 5px 15px;
+    margin: 0 5px;
+    &:hover {
+        text-decoration: underline;
+        color: $hover_color;
+    }
+
+    &.active {
+        font-weight: bold;
+    }
+}
+
 
 
 @import "social";
