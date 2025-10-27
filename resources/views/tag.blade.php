@@ -22,5 +22,10 @@
         </div>
     </div>
 </section>
+<section class="category">
+    <div class="_wrapper">
+        <x-pagination :tovars="$allproduct"></x-pagination>
+    </div>
+</section>
 
 @endsection

@@ -9,7 +9,7 @@
                 <span class="sep"> / </span> <span class="finish">{{$category['title']}}</span>
             @endif --}}
 
-            @if ((Request::route()->named('category'))||(Request::route()->named('celebration')))
+            @if ((Request::route()->named('category'))||(Request::route()->named('celebration'))||(Request::route()->named('tag')))
                 <span class="sep"> / </span> <a href="{{route('catalog')}}">Букеты</a> <span class="sep"> / </span> <span class="finish">{!!$title!!}</span>
             @elseif (Request::route()->named('tovar'))
                 <span class="sep"> / </span> <a href="{{route('catalog')}}">Букеты</a> <span class="sep"> / </span> <span class="finish">{!!$title!!}</span>
