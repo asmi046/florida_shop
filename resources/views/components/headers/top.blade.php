@@ -6,8 +6,10 @@
 
         <x-main-menu></x-main-menu>
 
+        <x-search-str></x-search-str>
+
         <div class="shop_control">
-            <x-icon-a class="search_lnk" href="{{ route('catalog') }}" ancor="Поиск" icon="search"></x-icon-a>
+            {{-- <x-icon-a class="search_lnk" href="{{ route('catalog') }}" ancor="Поиск" icon="search"></x-icon-a> --}}
 
             <x-icon-a class="bascet_lnk" href="{{ route('bascet') }}" ancor="Корзина" icon="cart">
                 <bascet-and-counter></bascet-and-counter>

@@ -1,0 +1,96 @@
+.head_search {
+    display: flex;
+    flex-direction: column;
+    margin-top: auto;
+    margin-bottom: 10px;
+    form {
+        display: flex;
+        align-items: center;
+        border-bottom: 1px solid #ffffffdf;
+        padding-bottom: 5px;
+
+        input[type=text] {
+            background: transparent;
+            border: none;
+            outline: none;
+            flex: 1;
+            border-radius: 0;
+            min-height: 20px;
+            padding: 0;
+            color: white;
+            font-size: 14px;
+
+            &::placeholder {
+                color: white;
+                font-size: 14px;
+                opacity: 0.8;
+            }
+
+            // Убираем автозаполнение стили браузера
+            &:-webkit-autofill {
+                -webkit-box-shadow: 0 0 0 30px transparent inset;
+                -webkit-text-fill-color: white;
+            }
+        }
+
+        button[type="submit"] {
+            background: transparent;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            margin-left: 8px;
+            height: 25px;
+
+            .sprite_icon {
+                width: 20px;
+                height: 20px;
+                stroke: #ffffffdf;
+
+            }
+
+            &:hover {
+                opacity: 0.8;
+                transition: opacity 0.2s ease;
+            }
+        }
+    }
+
+    &.in_menu {
+        margin-bottom: 20px;
+        form {
+            color:black;
+            border-bottom: 1px solid black;
+
+            input[type=text] {
+                color: black;
+
+                &::placeholder {
+                    color: black;
+                }
+
+                // Убираем автозаполнение стили браузера
+                &:-webkit-autofill {
+                    -webkit-text-fill-color: black;
+                }
+            }
+
+
+            button[type=submit] {
+                .sprite_icon {
+                    stroke: black;
+                }
+            }
+        }
+    }
+
+}
+
+
+@media (max-width: 1024px) {
+    .head_search {
+        display: none;
+        &.in_menu {
+            display: block;
+        }
+    }
+}

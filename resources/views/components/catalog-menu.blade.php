@@ -5,6 +5,8 @@
 	<div class="catalog_menu">
         <h2>Каталог</h2>
 
+        <x-search-str class="in_menu"></x-search-str>
+
         <div class="catclog_razdel_wrapper">
             <a href="{{ route('zones') }}">Доставка и оплата</a>
             <div class="cat_razdel">
