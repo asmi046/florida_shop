@@ -4,9 +4,9 @@
 
 <yml_catalog date="{{ date("Y-m-d\TH:i:sP") }}">
 <shop>
-    <name>KartaSveta</name>
-    <company>ООО "Карта Света"</company>
-    <url>https://kartasveta.ru/</url>
+    <name>Florida</name>
+    <company>Доставка цветов "Флорида"</company>
+    <url>https://florida46.ru/</url>
     <currencies>
         <currency id="RUR" rate="1"/>
     </currencies>
@@ -35,7 +35,7 @@
                 if (empty($consist)) continue;
             @endphp
 
-            <offer id="{{$item->sku}}" available="{{($item->insklad > 0)?"true":"false"}}">
+            <offer id="{{$item->sku}}" available="{{(!$item->asc_nal)?"true":"false"}}">
                 <name>{{$item->title}}</name>
                 <url>{{route('tovar', $item->slug)}}</url>
 
