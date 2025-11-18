@@ -11,7 +11,7 @@
                 Круглосуточно 24/7
             </span>
             <p class="subtitle">Гарантия на цветы — 48 часов <br>или заменим букет!</p>
-            <a class="button button_white" href="{{ route('catalog') }}">Выбрать букет</a>
+            <a class="button button_white" href="{{ route('catalog') }}">Каталог</a>
         </div>
     </div>
     {{--
