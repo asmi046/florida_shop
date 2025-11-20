@@ -18,18 +18,19 @@ use App\Http\Controllers\SenderController;
 use App\Http\Controllers\ActionsController;
 use App\Http\Controllers\CabinetController;
 use App\Http\Controllers\ReviewsController;
-use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\SitemapController;
 
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ContactsController;
 use App\Http\Controllers\EasyPageController;
+
 use App\Http\Controllers\FavoriteController;
-
 use App\Http\Controllers\NewTovarController;
-use App\Http\Controllers\Auth\AuthController;
 
+use App\Http\Controllers\Auth\AuthController;
+use App\Http\Controllers\ProductTagController;
 use App\Http\Controllers\CelebrationController;
 use App\Http\Controllers\NewFeedbackController;
-use App\Http\Controllers\ProductTagController;
 
 /*
 |--------------------------------------------------------------------------
@@ -123,3 +124,6 @@ Route::middleware('guest')->group(function () {
     Route::post('/register_do', [AuthController::class, "register"])->name("register_do");
     Route::get('/register', [AuthController::class, "show_register_form"])->name("register");
 });
+
+
+Route::get('/sitemap.xml', [SitemapController::class, 'index']);

@@ -93,7 +93,7 @@
     @include("allicon")
     <x-catalog-menu></x-catalog-menu>
     <x-mobile-bottom-menu></x-mobile-bottom-menu>
-
+    <meta name="yandex-verification" content="8e9f290ab57d976f" />
 
 
 	<div class="wrapper" id="global_app">
