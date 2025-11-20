@@ -1,4 +1,4 @@
 User-agent: *
 Disallow:
 
-Sitemap: https://yoursite.com/sitemap.xml
+Sitemap: https://florida46.ru/sitemap.xml
