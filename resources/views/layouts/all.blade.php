@@ -54,6 +54,8 @@
  <noscript><div><img src="https://mc.yandex.ru/watch/94073132" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
  <!-- /Yandex.Metrika counter -->
 
+ <meta name="yandex-verification" content="8e9f290ab57d976f" />
+
     {{-- <script src="//cdn.callibri.ru/callibri.js" type="text/javascript" charset="utf-8"></script> --}}
 
     <script>
@@ -93,7 +95,7 @@
     @include("allicon")
     <x-catalog-menu></x-catalog-menu>
     <x-mobile-bottom-menu></x-mobile-bottom-menu>
-    <meta name="yandex-verification" content="8e9f290ab57d976f" />
+
 
 
 	<div class="wrapper" id="global_app">
