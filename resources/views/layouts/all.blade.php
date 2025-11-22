@@ -99,6 +99,7 @@
         "telephone": "+7 (920) 710 25 55",
         "address": {
             "@type": "PostalAddress",
+            "postalCode": "305004",
             "streetAddress": "пр. Победы, 14",
             "addressLocality": "Курск",
             "addressCountry": "RU"
