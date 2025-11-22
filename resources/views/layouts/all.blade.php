@@ -89,6 +89,29 @@
         'public/js/mainsearch.js',
     ])
 
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Florist",
+        "name": "Магазин цветов «Florida»",
+        "image": "https://florida46.ru/logo.png",
+        "url": "https://florida46.ru",
+        "telephone": "+7 (920) 710 25 55",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "пр. Победы, 14",
+            "addressLocality": "Курск",
+            "addressCountry": "RU"
+        },
+        "openingHours": "24/7",
+        "priceRange": "₽₽",
+        "sameAs": [
+            "https://t.me/florida_kursk",
+            "https://vk.com/florida46kursk"
+        ]
+    }
+    </script>
+
 </head>
 
 <body>
