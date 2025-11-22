@@ -112,6 +112,11 @@
     }
     </script>
 
+    @isset($product)
+        <x-schema-org.product-offer :product="$product"></x-schema-org.product-offer>
+    @endisset
+
+
 </head>
 
 <body>
