@@ -28,4 +28,6 @@
     </div>
 </section>
 
+<x-schema-org.product-offer :product="$product"></x-schema-org.product-offer>
+
 @endsection

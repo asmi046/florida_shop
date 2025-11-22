@@ -94,7 +94,7 @@
         "@context": "https://schema.org",
         "@type": "Florist",
         "name": "Магазин цветов «Florida»",
-        "image": "https://florida46.ru/logo.png",
+        "image": "https://florida46.ru/img/favicons/icon256.png",
         "url": "https://florida46.ru",
         "telephone": "+7 (920) 710 25 55",
         "address": {
