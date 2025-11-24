@@ -1,10 +1,10 @@
 <?php
 namespace App\Services;
 
-use AmoCRM\Models\LeadModel;
+use App\Models\Order;
 
+use AmoCRM\Models\LeadModel;
 use AmoCRM\Models\ContactModel;
-use App\Http\Requests\BascetForm;
 use AmoCRM\Client\AmoCRMApiClient;
 use AmoCRM\Client\LongLivedAccessToken;
 use App\Actions\BascetBodyToTextAction;
@@ -26,7 +26,7 @@ use AmoCRM\Models\CustomFieldsValues\ValueCollections\SelectCustomFieldValueColl
 use AmoCRM\Models\CustomFieldsValues\ValueCollections\MultitextCustomFieldValueCollection;
 
 class AmoApiSevice {
-    public function create_order(BascetForm $request, $order_number = "") {
+    public function create_order(Order $request, $order_number = "") {
 
         $apiClient = new AmoCRMApiClient();
         try {
@@ -41,7 +41,7 @@ class AmoApiSevice {
 
         try {
             $contact = new ContactModel();
-            $contact->setName($request->input("fio") ?? 'Без имени');
+            $contact->setName($request->fio ?? 'Без имени');
 
             $customFieldsContact = new CustomFieldsValuesCollection();
 
@@ -50,7 +50,7 @@ class AmoApiSevice {
                 (new MultitextCustomFieldValueCollection())
                     ->add(
                         (new MultitextCustomFieldValueModel())
-                            ->setValue($request->input("phone"))
+                            ->setValue($request->phone)
                     )
             );
             $customFieldsContact->add($phoneField);
@@ -61,7 +61,7 @@ class AmoApiSevice {
                     ->add(
                         (new MultitextCustomFieldValueModel())
                             ->setEnum('WORK')
-                            ->setValue($request->input("email") ?? 'example@test.com')
+                            ->setValue($request->email ?? 'example@test.com')
                     )
             );
             $customFieldsContact->add($emailField);
@@ -78,7 +78,7 @@ class AmoApiSevice {
             $lead = new LeadModel();
             $lead->setName('Название сделки')
             ->setName('Заказ с сайта '. $order_number)
-            ->setPrice($request->input("amount"))->setContacts(
+            ->setPrice($request->amount)->setContacts(
                 (new ContactsCollection())
                     ->add(
                         (new ContactModel())
@@ -101,7 +101,7 @@ class AmoApiSevice {
             $cfPolName->setFieldId(658271);
             $cfPolName->setValues(
                 (new TextCustomFieldValueCollection())
-                    ->add((new TextCustomFieldValueModel())->setValue($request->input("polname") ?? ''))
+                    ->add((new TextCustomFieldValueModel())->setValue($request->polname ?? ''))
             );
             $leadCustomFieldsValues->add($cfPolName);
 
@@ -109,7 +109,7 @@ class AmoApiSevice {
             $cfPolPhone->setFieldId(658273);
             $cfPolPhone->setValues(
                 (new TextCustomFieldValueCollection())
-                    ->add((new TextCustomFieldValueModel())->setValue($request->input("polphone") ?? ''))
+                    ->add((new TextCustomFieldValueModel())->setValue($request->polphone ?? ''))
             );
             $leadCustomFieldsValues->add($cfPolPhone);
 
@@ -120,32 +120,32 @@ class AmoApiSevice {
                 (new TextCustomFieldValueCollection())
                     ->add((new TextCustomFieldValueModel())->setValue(
                         (
-                            $request->input("delivery")."  Подъезд:".
-                            $request->input("podezd")." Этаж:".
-                            $request->input("etazg")." Квартира:".
-                            $request->input("kvartira")
+                            ( $request->delivery ?? '' )."  Подъезд:".
+                            ( $request->podezd  ?? '' )." Этаж:".
+                            ( $request->etazg ?? '' )." Квартира:".
+                            ( $request->kvartira ?? '')
                         ) ?? ''))
             );
             $leadCustomFieldsValues->add($cfDelAdress);
 
-            if ($request->input("data")) {
+            if ($request->data) {
                 $cfDelData = new DateCustomFieldValuesModel();
                 $cfDelData->setFieldId(658215);
                 $cfDelData->setValues(
                     (new DateCustomFieldValueCollection())
-                        ->add((new DateCustomFieldValueModel())->setValue(date('Y-m-d', strtotime($request->input("data")))))
+                        ->add((new DateCustomFieldValueModel())->setValue(date('Y-m-d', strtotime($request->data))))
                 );
                 $leadCustomFieldsValues->add($cfDelData);
             }
 
-            if ($request->input("time")) {
+            if ($request->time) {
                 $cfDelTime = new SelectCustomFieldValuesModel();
                 // $cfDelTime->setFieldId(847895);
                 $cfDelTime->setFieldId(658265);
                 // dd($request->input("time"));
                 $cfDelTime->setValues(
                     (new SelectCustomFieldValueCollection())
-                        ->add((new SelectCustomFieldValueModel())->setValue($request->input("time") ?? ''))
+                        ->add((new SelectCustomFieldValueModel())->setValue($request->time ?? ''))
                 );
                 $leadCustomFieldsValues->add($cfDelTime);
             }
@@ -154,7 +154,7 @@ class AmoApiSevice {
             $cfComment->setFieldId(658283);
             $cfComment->setValues(
                 (new TextCustomFieldValueCollection())
-                    ->add((new TextCustomFieldValueModel())->setValue($request->input("comment") ?? ''))
+                    ->add((new TextCustomFieldValueModel())->setValue($request->comment ?? ''))
             );
             $leadCustomFieldsValues->add($cfComment);
 

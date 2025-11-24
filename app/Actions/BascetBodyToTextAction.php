@@ -2,22 +2,24 @@
 
 namespace App\Actions;
 
-use App\Http\Requests\BascetForm;
+use App\Models\Order;
+
 
 class BascetBodyToTextAction {
-    public function handle(BascetForm $request, $lnk_text = true) {
+    public function handle(Order $request, $lnk_text = true) {
 
         $rez_text = "Состав заказа\n\r\n\r";
 
-        foreach ($request->input('tovars') as $item) {
-            $rez_text .= $item["tovar_data"]["title"]." (Артикул: ".$item["tovar_data"]["sku"].")"."\n\r";
+        foreach ($request->items as $item) {
+
+            $rez_text .= $item->title." (Артикул: ".$item->sku.")"."\n\r";
             if ($lnk_text)
-            $rez_text .= "<a href='".route("tovar", $item["tovar_data"]["slug"])."'>Посмотреть товар</a>\n\r";
+                $rez_text .= "<a href='".route("tovar", $item->slug)."'>Посмотреть товар</a> \n\r";
             else
-                $rez_text .= route("tovar", $item["tovar_data"]["slug"])."\n\r";
-            $rez_text .= $item["tovar_data"]["price"]." ₽\n\r";
-            $rez_text .= "Кол-во: " . $item["quentity"]."\n\r";
-            $rez_text .= "Подитог: " . (float)$item["quentity"] * (float)$item["tovar_data"]["price"]."\n\r";
+                $rez_text .= route("tovar", $item->slug)."\n\r";
+            $rez_text .= $item->price." ₽\n\r";
+            $rez_text .= "Кол-во: " . $item->quantity."\n\r";
+            $rez_text .= "Подитог: " . (float)$item->total."\n\r";
             $rez_text .= "---------\n\r";
         }
 

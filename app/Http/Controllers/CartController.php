@@ -9,18 +9,19 @@ use App\Models\Product;
 
 use App\Mail\BascetSend;
 use Illuminate\Http\Request;
-use App\Http\Requests\BascetForm;
+use App\Services\AmoApiSevice;
 
+use App\Events\PayOrderConfirmed;
+use App\Http\Requests\BascetForm;
 use App\Services\YooKassaService;
 use App\Actions\BascetToTextAction;
 use App\Actions\TelegramSendAction;
+
 use Illuminate\Support\Facades\Log;
 use App\Actions\BascetToMediaAction;
-
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
 use App\Actions\OneClickToTextAction;
-use App\Services\AmoApiSevice;
 use App\Actions\TelegramSendMediaAction;
 
 class CartController extends Controller
@@ -74,14 +75,15 @@ class CartController extends Controller
         $order->orderProducts()->sync(array($request->input('id')));
 
         // Генерация номера заказа
-        $sber_order_number = "№".$order->id."_S".rand(100, 999);
+        $order_number = "№".$order->id."_S".rand(100, 999);
 
         // отправка заказа в Telegram
-        $to_text = $to_text->handle($request, $sber_order_number);
-        $media = $to_media->handle($request, $sber_order_number);
-        $tgsender->handle($to_text);
-        $tg_media->handle($media);
+        // $to_text = $to_text->handle($request, $order_number);
+        // $media = $to_media->handle($request, $order_number);
+        // $tgsender->handle($to_text);
+        // $tg_media->handle($media);
 
+        event(new PayOrderConfirmed($request, $order_number));
 
         // отправка заказа в CRM
         // $token = $persi->create_session();
@@ -91,7 +93,7 @@ class CartController extends Controller
         //     "anonim@pf.ru",
         //     "Клиент создан при оформлении заказа на сайте в 1 клик");
 
-        $tmp = $amo->create_order($request, $customer_id, $sber_order_number);
+        $tmp = $amo->create_order($request, $customer_id, $order_number);
 
         // отправка заказа на почту
 
@@ -126,43 +128,40 @@ class CartController extends Controller
             'user_id' => ($request->user())?$request->user()->id:0,
         ]);
 
-        $order->orderProducts()->sync(array_column($request->input('tovars'), "product_id"));
+        // $order->orderProducts()->sync(array_column($request->input('tovars'), "product_id"));
 
+        foreach ($request->tovars as $item) {
+            $order->items()->create([
+                'title' => $item['tovar_data']['title'],
+                'slug' => $item['tovar_data']['slug'],
+                'img' => $item['tovar_data']['img'],
+                'sku' => $item['tovar_data']['sku'],
+                'price' => $item['price'],
+                'quantity' => $item['quentity'],
+            ]);
+        }
 
         // Генерация номера заказа
-        $sber_order_number = "№".$order->id."_S".rand(100, 999);
+        $order_number = "№".$order->id."_S".rand(100, 999);
 
-        // отправка заказа в Telegram
-        $media = $to_media->handle($request, $sber_order_number);
-        $text = $to_text->handle($request, $sber_order_number);
-        $tgsender->handle($text, $media);
-        $tg_media->handle($media);
+        event(new PayOrderConfirmed($order, $order_number));
 
 
-        // отправка заказа в CRM
-        // $token = $persi->create_session();
-        // $customer_id = $persi->get_customer_id(
-        //     $request->input('fio'),
-        //     $request->input('phone'),
-        //     $request->input('email'),
-        //     "Клиент создан при оформлении заказа на сайте");
+        $resPay = null;
+        try {
+            $resPay = $pay->registerOrder($order, $request->input('tovars'));
 
-        $tmp = $amo->create_order($request, $sber_order_number);
+            if (!empty($resPay) && isset($resPay["id"]))
+                Order::update_order_pay_id($order->id, $resPay["id"]);
+        } catch (\Exception $e) {
+            \Log::channel('pay')->error('Ошибка получения платежа: '. $e->getMessage());
+        } finally {
+            Cart::cart_clear();
+            return ['pay_info' => $resPay, "order_id" => $order->id];
+        }
 
-        // отправка заказа на почту
 
-        Mail::to(explode(",", config('mailadresat.adresats')))->send(new BascetSend($request));
 
-        // Генерация заказа в сбере
-
-        $resPay = $pay->registerOrder($order,$request->input('tovars'));
-
-        if (!empty($resPay) && isset($resPay["id"]))
-            Order::update_order_pay_id($order->id, $resPay["id"]);
-
-        Cart::cart_clear();
-
-        return ['pay_info' => $resPay, "order_id" => $order->id];
     }
 
     public function thencs(Request $request, YooKassaService $pay, TelegramSendAction $tgsender) {

@@ -2,10 +2,14 @@
 
 namespace App\Providers;
 
+use App\Events\PayOrderConfirmed;
+use Illuminate\Support\Facades\Event;
+use App\Listeners\PayOrderConfirmedTg;
 use Illuminate\Auth\Events\Registered;
+use App\Listeners\PayOrderConfirmedAmo;
+use App\Listeners\PayOrderConfirmedEmail;
 use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
-use Illuminate\Support\Facades\Event;
 
 class EventServiceProvider extends ServiceProvider
 {
@@ -18,6 +22,14 @@ class EventServiceProvider extends ServiceProvider
         Registered::class => [
             SendEmailVerificationNotification::class,
         ],
+
+        // Ваше событие с одним слушателем
+        PayOrderConfirmed::class => [
+            PayOrderConfirmedEmail::class,
+            PayOrderConfirmedAmo::class,
+            PayOrderConfirmedTg::class
+        ],
+
     ];
 
     /**

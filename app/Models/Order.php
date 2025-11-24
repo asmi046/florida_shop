@@ -21,6 +21,10 @@ class Order extends Model
         'user_id',
     ];
 
+    public $with = [
+        'orderProducts'
+    ];
+
     public static function update_order_pay_id($orderId, $payId ) {
         $element = self::where(["id" => $orderId])->first();
         $element->pay_order = $payId;
@@ -37,5 +41,35 @@ class Order extends Model
 
     public function orderProducts() {
         return $this->belongsToMany(Product::class);
+    }
+
+    /**
+     * Связь с позициями заказа (один ко многим)
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function items()
+    {
+        return $this->hasMany(OrderItem::class);
+    }
+
+    /**
+     * Получить общую сумму заказа на основе позиций
+     *
+     * @return float
+     */
+    public function calculateTotal(): float
+    {
+        return $this->items()->sum('total');
+    }
+
+    /**
+     * Получить общее количество товаров в заказе
+     *
+     * @return int
+     */
+    public function getTotalItemsCount(): int
+    {
+        return $this->items()->sum('quantity');
     }
 }
