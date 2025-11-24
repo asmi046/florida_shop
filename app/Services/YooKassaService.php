@@ -60,7 +60,18 @@ class YooKassaService {
                     $order->pay_status = 1;
                     $order->pay_status_text = $someData['paymentStatus'];
                     $order->save();
+
+                        $orderStatusText = ($someData['paymentStatus'] === "succeeded")?"Оплачен":"Не оплачен";
+
+                        $pay_text = "<b>Заказ #".$someData['paymentId']." ".$orderStatusText." </b>\n\r";
+                        $pay_text .= "<b>ID Сбера: </b>".$someData['paymentId']."\n\r";
+                        $pay_text .= "<b>Сумма: </b>".floatval($paymentInfo["amount"]["value"])." ₽\n\r";
+                        $tgsender = new TelegramSendAction();
+                        $tgsender->handle($pay_text);
+
+
                     Log::channel('pay')->info('Order status updated: '. $order->id);
+
                 } else {
                     Log::channel('pay')->info('Order not found: '. $someData['paymentId']);
                 }
