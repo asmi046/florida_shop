@@ -70,6 +70,7 @@ class YooKassaService {
                         $tgsender->handle($pay_text);
 
 
+                    Log::channel('pay')->info('Order status updated info: '. $paymentInfo);
                     Log::channel('pay')->info('Order status updated: '. $order->id);
 
                 } else {
