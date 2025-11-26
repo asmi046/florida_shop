@@ -170,16 +170,16 @@ class CartController extends Controller
             $order = Order::where("id", $orderId)->first();
             $orderInfo = $pay->getOrderStatus($order->pay_order);
 
-            if ($orderInfo)
-            {
-                // dd($orderInfo);
-                $orderStatusText = ($orderInfo["status"] === "succeeded")?"Оплачен":"Не оплачен";
+            // if ($orderInfo)
+            // {
+            //     // dd($orderInfo);
+            //     $orderStatusText = ($orderInfo["status"] === "succeeded")?"Оплачен":"Не оплачен";
 
-                $pay_text = "<b>Заказ #".$orderId." ".$orderStatusText." </b>\n\r";
-                $pay_text .= "<b>ID Сбера: </b>".$orderInfo["id"]."\n\r";
-                $pay_text .= "<b>Сумма: </b>".floatval($orderInfo["amount"]["value"])." ₽\n\r";
-                $tgsender->handle($pay_text);
-            }
+            //     $pay_text = "<b>Заказ #".$orderId." ".$orderStatusText." </b>\n\r";
+            //     $pay_text .= "<b>ID Сбера: </b>".$orderInfo["id"]."\n\r";
+            //     $pay_text .= "<b>Сумма: </b>".floatval($orderInfo["amount"]["value"])." ₽\n\r";
+            //     $tgsender->handle($pay_text);
+            // }
         }
 
         return view("thencscart");
