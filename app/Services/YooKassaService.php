@@ -64,8 +64,8 @@ class YooKassaService {
 
                         $orderStatusText = ($someData['paymentStatus'] === "succeeded")?"Оплачен":"Не оплачен";
 
-                        $pay_text = "<b>Заказ#".$someData['paymentId']." ".$orderStatusText." </b>\n\r";
-                        $pay_text .= "<b>ID Сбера: </b>".$someData['paymentId']."\n\r";
+                        $pay_text = "<b>Заказ №".$order->id." ".$orderStatusText." </b>\n\r";
+                        $pay_text .= "<b>ID: </b>".$someData['paymentId']."\n\r";
                         $pay_text .= "<b>Сумма: </b>".floatval($paymentInfo["amount"]["value"])." ₽\n\r";
                         $tgsender = new TelegramSendAction();
                         $tgsender->handle($pay_text);
