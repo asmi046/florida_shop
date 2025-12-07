@@ -1,0 +1,64 @@
+.circle_category {
+    display: flex;
+    gap:30px;
+    flex-wrap: wrap;
+    justify-content: start;
+
+    @media (max-width: 512px) {
+        flex-wrap: nowrap; // Отключаем перенос на новую строку
+        overflow-x: auto; // Включаем горизонтальный скролл
+        overflow-y: hidden; // Отключаем вертикальный скролл
+        gap: 20px; // Можно уменьшить gap для мобильных
+        padding-bottom: 10px; // Отступ для скроллбара
+
+        // Скрываем скроллбар (опционально)
+        &::-webkit-scrollbar {
+            display: none;
+        }
+
+        // Плавный скролл
+        scroll-behavior: smooth;
+        -webkit-overflow-scrolling: touch; // Для iOS
+    }
+
+    &_item {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap:10px;
+        max-width: 100px;
+
+         // Для мобильных - фиксируем ширину чтобы элементы не сжимались
+        @media (max-width: 512px) {
+            flex-shrink: 0; // Запрещаем сжиматься
+            min-width: 100px; // Минимальная ширина
+        }
+
+        .circle {
+            width:100px;
+            height:100px;
+            border-radius: 80px;
+            overflow: hidden;
+            border:1px solid $gray_border_color;
+            display: flex;
+
+            img {
+                width:80px;
+                height:80px;
+                border-radius: 80px;
+                margin: auto;
+            }
+        }
+
+        p {
+            font-size: 12px;
+            text-align: center;
+        }
+
+        &:hover {
+            .circle {
+                background-color: rgba($main_color, 0.3);
+            }
+        }
+    }
+}
