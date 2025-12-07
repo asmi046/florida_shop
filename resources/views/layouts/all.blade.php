@@ -139,7 +139,7 @@
         @yield('content')
 
         <section>
-            <div class="_wrapper">
+            <div class="_wrapper text_styles">
                 <div class="delivery_comment">
                     <div class="icon">
                         <svg class="sprite_icon">
@@ -152,6 +152,39 @@
                         <p class="pay">Доставка ко времени: 500 р.</p>
                     </div>
                 </div>
+
+                <br>
+                <br>
+                <h2>Доставка букетов в другие районы Курска</h2>
+                <table class="delivery_table">
+                    <thead>
+                        <tr>
+                            <th>Район</th>
+                            <th>Стоимость доставки</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Центр + проспект Победы, Дериглазова, ул. Карла-Маркса</td>
+                            <td>бесплатно</td>
+                        </tr>
+                        <tr>
+                            <td>Сеймский район (Магистральный, Волокно)</td>
+                            <td>200 р.</td>
+                        </tr>
+                        <tr>
+                            <td>Северозападный район</td>
+                            <td>200 р.</td>
+                        </tr>
+                        <tr>
+                            <td>КЗТЗ</td>
+                            <td>200 р.</td>
+                        </tr>
+                        <tr>
+                            <td>Железнодорожный район</td>
+                            <td>150 р.</td>
+                        </tr>
+                </table>
             </div>
         </section>
 

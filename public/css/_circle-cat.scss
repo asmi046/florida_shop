@@ -59,6 +59,10 @@
             .circle {
                 background-color: rgba($main_color, 0.3);
             }
+
+            p {
+                color: $main_color;
+            }
         }
     }
 }

@@ -1928,6 +1928,45 @@ height: 30px;
         }
     }
 
+
+
+}
+
+.delivery_table {
+        width:100%;
+        border-collapse: collapse;
+        margin-top: 10px;
+
+        th, td {
+            border: 1px solid white;
+            padding: 15px;
+            font-size: 14px;
+        }
+
+        th {
+            background-color: rgba($main_color, 0.5);
+        }
+
+        tr th:first-child,
+        tr td:first-child {
+            text-align: left;
+
+        }
+
+        tr td {
+            background-color: rgba($main_color, 0.1);
+        }
+
+        tr:nth-child(odd) td {
+            background-color: rgba($main_color, 0.2);
+        }
+
+
+
+
+        td {
+            text-align: center;
+        }
 }
 
 .tag_lnk {
