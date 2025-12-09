@@ -24,7 +24,7 @@ class BascetToTextAction {
         $rez_text .= "<strong>Комментарий:</strong> ".$order->comment."\n\r";
 
         $rez_text .= "\n\r\n\r<b>Время доставки</b>\n\r\n\r";
-        $rez_text .= "<strong>Дата доставки:</strong> ".$order->data."\n\r";
+        $rez_text .= "<strong>Дата доставки:</strong> ". date('d.m.Y', strtotime($order->data))."\n\r";
         $rez_text .= "<strong>Время доставки:</strong> ".$order->time."\n\r";
 
         $rez_text .= "\n\r\n\r<b>Состав заказа</b>\n\r\n\r";
