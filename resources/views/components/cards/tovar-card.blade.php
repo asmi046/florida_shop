@@ -1,6 +1,6 @@
 
 <div data-prodid="{{$tovar['sku']}}" class="tovar_card_new">
-    <a href="{{ route('tovar', $tovar->slug) }}" class="img_wrapper">
+    <a href="{{ route('tovar', $tovar->slug) }}"  @class(['img_wrapper', 'has-second' => $tovar->product_images && count($tovar->product_images) > 0])>
         <div class="t_label_wrapper">
             @if ($tovar['old_price'])
                 <div class="t_label sale">sale</div>
@@ -15,7 +15,10 @@
             @endif
 
         </div>
-        <img src="{{ $tovar->img }}" alt="{{ $tovar->title }}">
+        <img class="tovar_img tovar_img_first" src="{{ $tovar->img }}" alt="{{ $tovar->title }}">
+        @if ($tovar->product_images && count($tovar->product_images) > 0)
+            <img class="tovar_img tovar_img_second" loading="lazy" src="{{ $tovar->product_images[0]->link }}" alt="{{ $tovar->title }}">
+        @endif
     </a>
     <p>{{ $tovar->title }}</p>
     <div class="price">

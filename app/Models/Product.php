@@ -57,6 +57,8 @@ class Product extends Model
         'title' => Like::class
     ];
 
+    public $with = ['tovar_categories', 'product_images'];
+
 
     public function scopeFilter(Builder $builder, QueryFilter $filter) {
         return $filter->apply($builder);
