@@ -24,7 +24,7 @@
                     </div>
                 </div>
                 <form class="buy_form" action="">
-                    <input v-model="phone" @focus="phoneError=false" :class="{_error:phoneError}" v-mask="{mask: '+7 (NNN) NNN-NN-NN', model: 'cpf' }" type="tel" placeholder="Введите телефон" />
+                    <input v-model="phone" @focus="phoneError=false" :class="{_error:phoneError}" v-phone-mask type="tel" placeholder="Введите телефон" />
                     <button @click.prevent="buyTovar" class="button button_green">Купить</button>
                     <p class="policy_des">Заполняя данную форму и отправляя заказ вы соглашаетесь с <a href="/policy">политикой конфиденциальности</a></p>
                 </form>
@@ -49,6 +49,7 @@ export default {
                 id:"",
                 title:"",
                 img:"",
+                slug:"",
                 brand:"",
                 state:"",
                 sku:"",
@@ -105,8 +106,6 @@ export default {
             }
 
 
-
-
             const tovar_position = [
                     {
                         product_sku:this.tovarInfo.sku,
@@ -116,6 +115,8 @@ export default {
                         tovar_data: {
                             img:this.tovarInfo.img,
                             brand:this.tovarInfo.brand,
+                            slug:this.tovarInfo.slug,
+                            sku:this.tovarInfo.sku,
                             state:this.tovarInfo.state,
                             title:this.tovarInfo.title,
                             price:this.tovarInfo.price,
@@ -124,7 +125,7 @@ export default {
                     }
                 ]
 
-                console.log(tovar_position)
+                console.log(this.phone)
 
             axios.post('/bascet/ocsend', {
                 _token: document.querySelector('meta[name="_token"]').content,

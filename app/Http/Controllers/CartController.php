@@ -61,7 +61,13 @@ class CartController extends Controller
     }
 
 
-    public function send_oc(BascetForm $request, BascetToMediaAction $to_media, OneClickToTextAction $to_text, TelegramSendAction $tgsender, TelegramSendMediaAction $tg_media, SberApiServices $sber, AmoApiSevice $amo) {
+    public function send_oc(BascetForm $request,
+                            BascetToMediaAction $to_media,
+                            OneClickToTextAction $to_text,
+                            TelegramSendAction $tgsender,
+                            TelegramSendMediaAction $tg_media,
+                            AmoApiSevice $amo) {
+
         $order = Order::create([
             'name' => "Аноним",
             'phone' => $request->input('phone'),
@@ -72,37 +78,24 @@ class CartController extends Controller
             'user_id' => ($request->user())?$request->user()->id:0,
         ]);
 
-        $order->orderProducts()->sync(array($request->input('id')));
+
+        foreach ($request->tovars as $item) {
+            $order->items()->create([
+                'title' => $item['tovar_data']['title'],
+                'slug' => $item['tovar_data']['slug'],
+                'img' => $item['tovar_data']['img'],
+                'sku' => $item['tovar_data']['sku'],
+                'price' => $item['price'],
+                'quantity' => $item['quentity'],
+            ]);
+        }
 
         // Генерация номера заказа
         $order_number = "№".$order->id."_S".rand(100, 999);
-
-        // отправка заказа в Telegram
-        // $to_text = $to_text->handle($request, $order_number);
-        // $media = $to_media->handle($request, $order_number);
-        // $tgsender->handle($to_text);
-        // $tg_media->handle($media);
-
-        event(new PayOrderConfirmed($request, $order_number));
-
-        // отправка заказа в CRM
-        // $token = $persi->create_session();
-        // $customer_id = $persi->get_customer_id(
-        //     "Аноним",
-        //     $request->input('phone'),
-        //     "anonim@pf.ru",
-        //     "Клиент создан при оформлении заказа на сайте в 1 клик");
-
-        $tmp = $amo->create_order($request, $customer_id, $order_number);
-
-        // отправка заказа на почту
-
-        Mail::to(explode(",",config('mailadresat.adresats')))->send(new BascetSend($request));
+        event(new PayOrderConfirmed($order, $order_number));
 
 
         return [ "rq" =>$request->all(), "order_id"=> $order->id ];
-
-        // return ["rq" =>$request->all() ];
     }
 
 

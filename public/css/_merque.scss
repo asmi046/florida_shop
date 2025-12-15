@@ -1,0 +1,77 @@
+
+
+.marquee_section {
+    background-color: $main-color;
+    color: white;
+
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+    white-space: nowrap;
+
+    strong {
+        color:white;
+    }
+}
+
+marquee {
+    display: flex;
+
+}
+
+.marquee__content {
+    display: flex;
+    animation: scroll 30s linear infinite;
+}
+
+.marquee__content p {
+    margin: 5px 15px;
+    display: flex;
+    font-size: 12px;
+    a {
+        color:white;
+        line-height: 1;
+        margin: auto;
+    }
+}
+
+.marquee__content img {
+    width: 35px;
+}
+
+@media screen and (max-width:512px) {
+    .marquee__content {
+        animation: scroll_mobile 30s linear infinite;
+    }
+}
+
+// Определение анимации
+@keyframes scroll {
+    0% {
+        transform: translateX(0);
+    }
+    25% {
+        transform: translateX(-25%);
+    }
+    50% {
+        transform: translateX(0);
+    }
+    75% {
+        transform: translateX(-25%);
+    }
+}
+// Определение анимации
+@keyframes scroll_mobile {
+    0% {
+        transform: translateX(0);
+    }
+    25% {
+        transform: translateX(-200%);
+    }
+    50% {
+        transform: translateX(0);
+    }
+    75% {
+        transform: translateX(-200%);
+    }
+}

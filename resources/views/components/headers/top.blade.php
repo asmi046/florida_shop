@@ -1,4 +1,6 @@
+
 <section class="top_header" id="header_top">
+    <x-merquee></x-merquee>
     <div class="_wrapper">
         <a class="logo" href="{{route('home')}}">
             <img src="{{asset('img/logo_new_white.svg')}}" alt="Florida - Курск">
