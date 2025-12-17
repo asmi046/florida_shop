@@ -6,19 +6,19 @@
     </div>
 
     <div class="social-widget__links" id="socialWidgetLinks">
-        <a title="Свяжитесь с нами в ВКонтакте" href="#" class="social-widget__link social-widget__link--vk">
+        <a title="Свяжитесь с нами в ВКонтакте" href="{{strip_tags($options['vk_lnk'])}}" class="social-widget__link social-widget__link--vk">
             <svg class="sprite_icon vk_icon">
                 <use xlink:href="#vk_icon"></use>
             </svg>
         </a>
 
-        <a title="Свяжитесь с нами в Telegram" href="#" class="social-widget__link social-widget__link--telegram">
+        <a title="Свяжитесь с нами в Telegram" href="{{strip_tags($options['telegram_lnk'])}}" class="social-widget__link social-widget__link--telegram">
             <svg class="sprite_icon">
                 <use xlink:href="#tg_icon"></use>
             </svg>
         </a>
 
-        <a title="Свяжитесь с нами в WhatsApp" href="#" class="social-widget__link social-widget__link--whatsapp">
+        <a title="Свяжитесь с нами в WhatsApp" href="{{strip_tags($options['whatsapp_lnk'])}}" class="social-widget__link social-widget__link--whatsapp">
             <svg class="sprite_icon">
                 <use xlink:href="#ws_icon"></use>
             </svg>
