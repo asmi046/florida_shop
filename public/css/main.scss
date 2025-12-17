@@ -917,10 +917,6 @@ header .messendger_head_blk {
 
 /*--------Подвал----------*/
 
-footer ._wrapper{
-    display: flex;
-    justify-content: space-between;
-}
 
 .footer_contacts {
     margin: auto 0 auto auto;
@@ -1790,11 +1786,6 @@ height: 30px;
         margin-bottom: 20px;
     }
 
-    footer ._wrapper {
-        flex-direction: column;
-        text-align: center;
-    }
-
     footer .logo {
         margin:  0 auto 10px auto;
     }
@@ -1847,19 +1838,11 @@ height: 30px;
 }
 
 .policy_line {
-    background-color: var(--main-gray-color);
-
     text-align: center;
-    font-size: 12px;
-    padding: 3px;
-}
-
-.policy_line a{
-    color: black;
-}
-
-.policy_line a:hover{
-    text-decoration: underline;
+    font-size: 10px;
+    padding: 10px 0;
+    margin-top: 10px;
+    border-top: 1px solid #D2D1D1;
 }
 
 /* -------------- Страница и блок доставки ------------------- */
@@ -1997,3 +1980,5 @@ height: 30px;
 @import "serch-form";
 @import "circle-cat";
 @import "merque";
+@import "social-widget";
+@import "footer";
