@@ -30,9 +30,20 @@
 
     <section class="sales_hits_section">
         <div class="_wrapper">
-            <h2>Популярные букеты и Акции</h2>
+            <h2>Хиты продаж</h2>
             <div class="tovar_wrapper">
-                @foreach ($sales as $tovar)
+                @foreach ($hits as $tovar)
+                    <x-cards.tovar-card :isslide="true" :tovar="$tovar"></x-cards.tovar-card>
+                @endforeach
+            </div>
+        </div>
+    </section>
+
+    <section class="sales_hits_section">
+        <div class="_wrapper">
+            <h2>Новинки</h2>
+            <div class="tovar_wrapper">
+                @foreach ($news as $tovar)
                     <x-cards.tovar-card :isslide="true" :tovar="$tovar"></x-cards.tovar-card>
                 @endforeach
             </div>

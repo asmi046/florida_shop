@@ -1204,33 +1204,29 @@ textarea {
 }
 
 #uni_map {
-    height: 520px;
-    position: relative;
-    padding-bottom: 0px;
+    ._wrapper {
+        display: flex;
+        gap:20px;
+        flex-wrap:wrap;
+        justify-content: space-between;
+    }
+
 }
 
 #render_map {
     height: 520px;
-    width:99.5%;
-    position: absolute;
-    left: 0;
-    top:0;
+    width:50%;
+    filter: grayscale(90%);
 }
 
 #uni_map .contacts{
     width:400px;
     height: 80%;
-    position: absolute;
-    background: $main_color;
     z-index: 1111;
     top:calc(20% / 2);
     left: 10%;
-    padding: 30px 50px;
-    color: white;
-}
-
-#uni_map .contacts h3 a{
-    color: white;
+    padding: 0 50px;
+    margin: auto auto auto 0;
 }
 
 #uni_map .contacts h3{
@@ -1262,7 +1258,7 @@ textarea {
 
     a {
         margin: auto 40px auto 0;
-        fill: white;
+        fill: $main_color;
     }
 }
 
@@ -1272,8 +1268,14 @@ textarea {
 }
 
 #uni_map .messendger_head_blk a::before {
-    color:white;
+    color: $main_color;
     font-size: 18px;
+}
+
+@media (max-width: 768px){
+    #uni_map #render_map {
+        width: 100%;
+    }
 }
 
 /* #uni_map .messendger_head_blk .whatsapp::before {
