@@ -78,6 +78,15 @@
 
                     <h2>Адрес достаки</h2>
 
+                    <select id="deliverySelect" v-model="bascetInfo.rayon" @change="calcDelivery()">
+                        <option value="" disabled>Выберите район доставки</option>
+                        <option value="Центр + проспект Победы, Дериглазова, ул. Карла-Маркса">Центр + проспект Победы, Дериглазова, ул. Карла-Маркса — бесплатно</option>
+                        <option value="Сеймский район (Магистральный, Волокно)">Сеймский район (Магистральный, Волокно) — 200 р.</option>
+                        <option value="Северозападный район">Северозападный район — 200 р.</option>
+                        <option value="КЗТЗ">КЗТЗ — 200 р.</option>
+                        <option value="Железнодорожный район">Железнодорожный район — 150 р.</option>
+                    </select>
+
                     <div class="adr_wrapper">
                         <!-- <select-input v-model="bascetInfo.street" :puncts="cityFindetList"></select-input> -->
 
@@ -211,6 +220,7 @@ export default {
                 email:"",
                 phone:"",
                 street:"",
+                rayon:"",
                 adress:"",
                 home:"",
                 podezd:"",
@@ -287,15 +297,19 @@ export default {
         },
 
         calcDelivery() {
-            let mapClass = new Delivery(this.$refs.mapInComponent, false)
+                const map = {
+                    "Центр + проспект Победы, Дериглазова, ул. Карла-Маркса": { price: 0, zone: "Центр" },
+                    "Сеймский район (Магистральный, Волокно)": { price: 200, zone: "Сеймский район" },
+                    "Северозападный район": { price: 200, zone: "Северозападный район" },
+                    "КЗТЗ": { price: 200, zone: "КЗТЗ" },
+                    "Железнодорожный район": { price: 150, zone: "Железнодорожный район" }
+                };
 
-            mapClass.getDeliveryPrice(this.bascetInfo.street+", "+this.bascetInfo.home).then((data)=>{
-                console.log(data)
-                this.deliveryPrice=data.price
-                this.deliveryZone=data.description
+                const key = this.bascetInfo.rayon || "";
+                const cfg = map[key];
 
-
-            })
+                this.deliveryPrice = cfg ? cfg.price : 0;
+                this.deliveryZone = cfg ? cfg.zone : "";
         },
 
         sendBascet() {
@@ -322,6 +336,8 @@ export default {
                 adress:  this.bascetInfo.street+", "+this.bascetInfo.home,
                 comment: this.bascetInfo.comment,
                 tovars: this.bascetList,
+                rayon: this.bascetInfo.rayon,
+                deliveryprice: this.deliveryPrice,
                 amount: parseFloat(this.subtotal) + parseFloat(this.deliveryPrice),
                 count: this.count,
                 deliverytype:this.deliveryType,

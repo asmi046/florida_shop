@@ -115,6 +115,21 @@ class YooKassaService {
             ];
         }
 
+        if (floatval($order->delivery_price) > 0) {
+            $receipt['items'][] = [
+                'description' => 'Доставка: '.$order->raion,
+                'quantity' => 1,
+                'vat_code' => 1,
+                'payment_subject' => 'service',
+                'payment_mode' => 'full_prepayment',
+                'country_of_origin_code' => 'RU',
+                'amount' => [
+                    'value' => floatval($order->delivery_price).'.00',
+                    'currency' => 'RUB',
+                ]
+            ];
+        }
+
         return $receipt;
     }
 
@@ -154,6 +169,8 @@ class YooKassaService {
                 'order_id' => $order->id
             ]
         );
+
+        Log::channel('pay')->info('Pay info: '. json_encode($pay_info));
 
         $payment = $client->createPayment(
             $pay_info,

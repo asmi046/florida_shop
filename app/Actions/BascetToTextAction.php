@@ -17,6 +17,7 @@ class BascetToTextAction {
         $rez_text .= "<strong>Телефон получателя:</strong> ".$order->polphone."\n\r";
 
         $rez_text .= "\n\r\n\r<b>Адрес доставки</b>\n\r\n\r";
+        $rez_text .= "<strong>Район:</strong> ".$order->raion."\n\r";
         $rez_text .= "<strong>Адрес:</strong> ".$order->delivery."\n\r";
         $rez_text .= "<strong>Подъезд:</strong> ".$order->podezd."\n\r";
         $rez_text .= "<strong>Этаж:</strong> ".$order->etazg."\n\r";
@@ -38,6 +39,7 @@ class BascetToTextAction {
             $rez_text .= "---------\n\r";
         }
 
+        $rez_text .= "<strong>Цена доставки:</strong> ".$order->delivery_price." ₽\n\r";
         $rez_text .= "\n\r\n\r<b>Итого</b> " . $order->count . " товар(ов) на сумму ".$order->amount." ₽\n\r";
 
         return $rez_text;

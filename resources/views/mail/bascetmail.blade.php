@@ -8,6 +8,7 @@
 <p><strong>Телефон получателя:</strong> {{$formData['polphone']}}</p>
 
 <h2>Адрес доставки</h2>
+<p><strong>Район:</strong> {{$formData['raion']}}</p>
 <p><strong>Адрес:</strong> {{$formData['adress_fk']}}</p>
 <p><strong>Подъезд:</strong> {{$formData['podezd']}}</p>
 <p><strong>Этаж:</strong> {{$formData['etazg']}}</p>
@@ -43,5 +44,6 @@
     </tbody>
 </table>
 
+<p><strong>Цена доставки:</strong> {{$formData['delivery_price']}} ₽</p>
 <h2>Итого {{$formData['count']}} товар(ов) на сумму {{$formData['amount']}} ₽</h2>
 <hr/>

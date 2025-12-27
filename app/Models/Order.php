@@ -15,6 +15,8 @@ class Order extends Model
         'email',
         'phone',
         'amount',
+        'raion',
+        'delivery_price',
         'adress',
         'polname',
         'polphone',

@@ -114,6 +114,8 @@ class CartController extends Controller
             'phone' => $request->input('phone'),
             'adress' => $request->input('adress'),
             'comment' => $request->input('comment'),
+            'raion' => $request->input('rayon'),
+            'delivery_price' => $request->input('deliveryprice'),
             'amount' => $request->input('amount'),
             'count' => $request->input('count'),
             'polname' => $request->input('polname'),
@@ -150,6 +152,9 @@ class CartController extends Controller
         $resPay = null;
         try {
             $resPay = $pay->registerOrder($order, $request->input('tovars'));
+
+
+
 
             if (!empty($resPay) && isset($resPay["id"]))
                 Order::update_order_pay_id($order->id, $resPay["id"]);
