@@ -1,8 +1,7 @@
-
 <script type="application/ld+json">
 {
-    "@context": "https://schema.org",
-    "@type": "Product",
+    "@@context": "https://schema.org",
+    "@@type": "Product",
     "name": "{{ $product['title'] }}",
     "image": "{{ config('app.url') }}{{ $product['img'] }}",
     "description": "{{ strip_tags($product['description']) }}",
@@ -12,7 +11,7 @@
         "name": "Florida46"
     },
   "offers": {
-    "@type": "Offer",
+    "@@type": "Offer",
     "url": "{{ route('tovar', $product['slug']) }}",
     "priceCurrency": "RUB",
     "price": "{{ number_format($product['price'], 2, '.', '') }}",
