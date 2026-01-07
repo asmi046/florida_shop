@@ -5,11 +5,12 @@ register()
 document.addEventListener("DOMContentLoaded", (event) => {
     const main_cat_slider = document.getElementById('main_cat_slider')
 
+
     const main_cat_slider_param = {
         slidesPerView: 1.3,
         loop: true,
         autoplay: {
-            delay: 5000,
+            delay: 7000,
             disableOnInteraction: false,
             pauseOnMouseEnter: true,
         },
@@ -38,7 +39,25 @@ document.addEventListener("DOMContentLoaded", (event) => {
         main_cat_slider.swiper.slideNext()
     }
 
+    if (main_cat_slider) {
+        Object.assign(main_cat_slider, main_cat_slider_param)
+        main_cat_slider.initialize()
+    }
 
-    Object.assign(main_cat_slider, main_cat_slider_param)
-    main_cat_slider.initialize()
+
+    const swiper_main_page = new Swiper('.header-slider .swiper', {
+        loop: true,
+        autoplay: {
+            delay: 5000,
+            disableOnInteraction: false,
+        },
+        pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+        },
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        },
+    });
 })

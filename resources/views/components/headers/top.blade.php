@@ -1,9 +1,8 @@
-
 <section class="top_header" id="header_top">
     <x-merquee></x-merquee>
     <div class="_wrapper">
-        <a class="logo" href="{{route('home')}}">
-            <img src="{{asset('img/logo_new_white.svg')}}" alt="Florida - Курск">
+        <a class="logo" href="{{ route('home') }}">
+            <img src="{{ asset('img/logo_main.svg') }}" alt="Florida - Курск">
         </a>
 
         <x-main-menu></x-main-menu>
@@ -18,15 +17,17 @@
             </x-icon-a>
 
             @auth('web')
-                <x-icon-a class="cabinet_lnk" href="{{route('cabinet.home')}}" ancor="{{ mb_strimwidth(Auth::user()['name'], 0, 20, '...' ) }}" icon="shop"></x-icon-a>
+                <x-icon-a class="cabinet_lnk" href="{{ route('cabinet.home') }}"
+                    ancor="{{ mb_strimwidth(Auth::user()['name'], 0, 20, '...') }}" icon="shop"></x-icon-a>
             @endauth
 
             @guest
-                <x-icon-a class="cabinet_lnk" href="{{route('login')}}" ancor="Кабинет" icon="shop"></x-icon-a>
+                <x-icon-a class="cabinet_lnk" href="{{ route('login') }}" ancor="Кабинет" icon="shop"></x-icon-a>
             @endguest
 
 
-            <x-icon-a class="tel_lnk" href="tel:{{str_replace(array('-', ' ', '(' , ')'), '', $options['phone'])}}" ancor="{{ $options['phone'] }}" icon="phone"></x-icon-a>
+            <x-icon-a class="tel_lnk" href="tel:{{ str_replace(['-', ' ', '(', ')'], '', $options['phone']) }}"
+                ancor="{{ $options['phone'] }}" icon="phone"></x-icon-a>
         </div>
     </div>
 </section>

@@ -14,20 +14,6 @@
 
     <x-header-category></x-header-category>
 
-    {{-- <x-main-banner></x-main-banner>
-
-    <x-advantages></x-advantages> --}}
-
-    {{--
-    <section class="tag_main_section">
-        <div class="_wrapper">
-            <h2>Возможно Вас заинтересует</h2>
-            <x-tegs-main></x-tegs-main>
-        </div>
-    </section>
-    --}}
-
-
 
     <section class="sales_hits_section">
         <div class="_wrapper">
