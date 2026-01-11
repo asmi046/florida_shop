@@ -8,7 +8,7 @@
             <div class="swiper-wrapper">
                 <!-- Slide 1 -->
                 <div class="swiper-slide">
-                    <div class="slide-background" style="background-image: url('{{ asset('img/banner_0_1.webp') }}')">
+                    <div class="slide-background" style="background-image: url('{{ asset('img/banner_new.jpg') }}')">
                     </div>
                     <div class="slide-overlay"></div>
                     <x-headers.reiting></x-headers.reiting>
@@ -21,7 +21,7 @@
                 </div>
 
                 <div class="swiper-slide">
-                    <div class="slide-background" style="background-image: url('{{ asset('img/banner_0_2.webp') }}')">
+                    <div class="slide-background" style="background-image: url('{{ asset('img/main-b_2.webp') }}')">
                     </div>
                     <div class="slide-overlay"></div>
                     <x-headers.reiting></x-headers.reiting>
