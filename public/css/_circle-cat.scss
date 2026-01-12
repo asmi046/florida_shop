@@ -1,8 +1,8 @@
 .circle_category {
     display: flex;
-    gap:30px;
+    gap: 30px;
     flex-wrap: wrap;
-    justify-content: start;
+    justify-content: center;
 
     @media (max-width: 512px) {
         flex-wrap: nowrap; // Отключаем перенос на новую строку
@@ -25,26 +25,26 @@
         display: flex;
         flex-direction: column;
         justify-content: center;
-        gap:10px;
+        gap: 10px;
         max-width: 100px;
 
-         // Для мобильных - фиксируем ширину чтобы элементы не сжимались
+        // Для мобильных - фиксируем ширину чтобы элементы не сжимались
         @media (max-width: 512px) {
             flex-shrink: 0; // Запрещаем сжиматься
             min-width: 100px; // Минимальная ширина
         }
 
         .circle {
-            width:100px;
-            height:100px;
+            width: 100px;
+            height: 100px;
             border-radius: 80px;
             overflow: hidden;
-            border:1px solid $gray_border_color;
+            border: 1px solid $gray_border_color;
             display: flex;
 
             img {
-                width:80px;
-                height:80px;
+                width: 80px;
+                height: 80px;
                 border-radius: 80px;
                 margin: auto;
             }

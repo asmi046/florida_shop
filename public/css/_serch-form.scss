@@ -3,10 +3,11 @@
     flex-direction: column;
     margin-top: auto;
     margin-bottom: 10px;
+
     form {
         display: flex;
         align-items: center;
-        border-bottom: 1px solid #ffffffdf;
+        border-bottom: 1px solid #000000df;
         padding-bottom: 5px;
 
         input[type=text] {
@@ -17,11 +18,11 @@
             border-radius: 0;
             min-height: 20px;
             padding: 0;
-            color: white;
+            color: black;
             font-size: 14px;
 
             &::placeholder {
-                color: white;
+                color: black;
                 font-size: 14px;
                 opacity: 0.8;
             }
@@ -29,7 +30,7 @@
             // Убираем автозаполнение стили браузера
             &:-webkit-autofill {
                 -webkit-box-shadow: 0 0 0 30px transparent inset;
-                -webkit-text-fill-color: white;
+                -webkit-text-fill-color: black;
             }
         }
 
@@ -44,7 +45,7 @@
             .sprite_icon {
                 width: 20px;
                 height: 20px;
-                stroke: #ffffffdf;
+                stroke: #000000df;
 
             }
 
@@ -57,8 +58,9 @@
 
     &.in_menu {
         margin-bottom: 20px;
+
         form {
-            color:black;
+            color: black;
             border-bottom: 1px solid black;
 
             input[type=text] {
@@ -89,6 +91,7 @@
 @media (max-width: 1024px) {
     .head_search {
         display: none;
+
         &.in_menu {
             display: block;
         }
