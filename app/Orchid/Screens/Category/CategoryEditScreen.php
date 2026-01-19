@@ -3,18 +3,16 @@
 namespace App\Orchid\Screens\Category;
 
 use App\Models\Category;
-
-use Orchid\Screen\Screen;
-
-use Orchid\Support\Color;
 use Illuminate\Http\Request;
-use Orchid\Screen\Fields\Input;
-use Orchid\Screen\Fields\Quill;
 use Orchid\Screen\Actions\Button;
+use Orchid\Screen\Fields\Input;
 use Orchid\Screen\Fields\Picture;
-
-use Orchid\Support\Facades\Toast;
+use Orchid\Screen\Fields\Quill;
+use Orchid\Screen\Fields\Switcher;
+use Orchid\Screen\Screen;
+use Orchid\Support\Color;
 use Orchid\Support\Facades\Layout;
+use Orchid\Support\Facades\Toast;
 
 class CategoryEditScreen extends Screen
 {
@@ -23,20 +21,17 @@ class CategoryEditScreen extends Screen
      *
      * @return array
      */
-
-     public $category;
+    public $category;
 
     public function query($id): iterable
     {
         return [
-            "category" => Category::where('id',$id)->first()
+            'category' => Category::where('id', $id)->first(),
         ];
     }
 
     /**
      * Display header name.
-     *
-     * @return string|null
      */
     public function name(): ?string
     {
@@ -76,6 +71,14 @@ class CategoryEditScreen extends Screen
                     ->help('Заголовок категории выводимый')
                     ->horizontal(),
 
+                Switcher::make('in_main')
+                    ->value($this->category->in_main)
+                    ->sendTrueOrFalse()
+                    ->title('Вывод на главной странице')
+                    ->placeholder('Показывать на главной странице')
+                    ->help('Показывать категорию на главной странице')
+                    ->horizontal(),
+
                 Input::make('slug')
                     ->title('Окончание ссылки')
                     ->value($this->category->slug)
@@ -86,23 +89,24 @@ class CategoryEditScreen extends Screen
 
                 Quill::make('description')->title('Описание')->value($this->category->description),
 
-                Button::make('Сохранить')->method('save_info')->type(Color::SUCCESS())
-            ])
+                Button::make('Сохранить')->method('save_info')->type(Color::SUCCESS()),
+            ]),
         ];
     }
 
-    public function save_info(Category $category, Request $request) {
+    public function save_info(Category $category, Request $request)
+    {
 
         $new_data = $request->validate([
             'title' => ['required', 'string'],
             'slug' => ['required', 'string'],
             'img' => [],
+            'in_main' => [],
             'showed_title' => [],
-            'description' => []
+            'description' => [],
         ]);
 
-
         Category::where('id', $this->category->id)->update($new_data);
-        Toast::info("Категория сохранена");
+        Toast::info('Категория сохранена');
     }
 }

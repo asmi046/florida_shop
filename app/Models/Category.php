@@ -4,32 +4,34 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-
-use Orchid\Screen\AsSource;
 use Illuminate\Support\Str;
+use Orchid\Screen\AsSource;
 
 class Category extends Model
 {
-    use HasFactory;
     use AsSource;
+    use HasFactory;
 
     public $fillable = [
         'title',
         'slug',
+        'in_main',
         'showed_title',
         'description',
-        'img'
+        'img',
     ];
 
     public function setSlugAttribute($value)
     {
-        if (empty($value))
-            $this->attributes['slug'] =  Str::slug($this->title);
-        else
-            $this->attributes['slug'] =  $value;
+        if (empty($value)) {
+            $this->attributes['slug'] = Str::slug($this->title);
+        } else {
+            $this->attributes['slug'] = $value;
+        }
     }
 
-    public function category_tovars() {
+    public function category_tovars()
+    {
         return $this->belongsToMany(Product::class);
     }
 }

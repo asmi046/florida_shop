@@ -12,7 +12,9 @@
 @section('content')
     <x-headers.header></x-headers.header>
 
-    <x-header-category></x-header-category>
+    <x-main-category-list></x-main-category-list>
+
+    {{-- <x-header-category></x-header-category> --}}
 
 
     <section class="sales_hits_section">

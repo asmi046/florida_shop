@@ -3,18 +3,15 @@
 namespace App\Orchid\Screens\Category;
 
 use App\Models\Category;
-
-use Orchid\Screen\Screen;
-
-use Orchid\Support\Color;
 use Illuminate\Http\Request;
-use Orchid\Screen\Fields\Input;
-use Orchid\Screen\Fields\Quill;
 use Orchid\Screen\Actions\Button;
+use Orchid\Screen\Fields\Input;
 use Orchid\Screen\Fields\Picture;
-
-use Orchid\Support\Facades\Toast;
+use Orchid\Screen\Fields\Quill;
+use Orchid\Screen\Screen;
+use Orchid\Support\Color;
 use Orchid\Support\Facades\Layout;
+use Orchid\Support\Facades\Toast;
 
 class CategoryCreateScreen extends Screen
 {
@@ -23,7 +20,6 @@ class CategoryCreateScreen extends Screen
      *
      * @return array
      */
-
     public function query(): iterable
     {
         return [];
@@ -31,8 +27,6 @@ class CategoryCreateScreen extends Screen
 
     /**
      * Display header name.
-     *
-     * @return string|null
      */
     public function name(): ?string
     {
@@ -70,6 +64,14 @@ class CategoryCreateScreen extends Screen
                     ->help('Заголовок категории выводимый')
                     ->horizontal(),
 
+                Switcher::make('in_main')
+                    ->value($this->category->in_main)
+                    ->sendTrueOrFalse()
+                    ->title('Вывод на главной странице')
+                    ->placeholder('Показывать на главной странице')
+                    ->help('Показывать категорию на главной странице')
+                    ->horizontal(),
+
                 Input::make('slug')
                     ->title('Окончание ссылки')
                     ->help('Slug категории')
@@ -79,25 +81,26 @@ class CategoryCreateScreen extends Screen
 
                 Quill::make('description')->title('Описание'),
 
-                Button::make('Добавить категорию')->method('save_info')->type(Color::SUCCESS())
-            ])
+                Button::make('Добавить категорию')->method('save_info')->type(Color::SUCCESS()),
+            ]),
         ];
     }
 
-    public function save_info(Request $request) {
+    public function save_info(Request $request)
+    {
 
         $new_data = $request->validate([
             'title' => ['required', 'string'],
             'slug' => [],
             'img' => [],
+            'in_main' => [],
             'showed_title' => [],
-            'description' => []
+            'description' => [],
         ]);
-
 
         Category::create($new_data);
 
-        Toast::info("Категория добавлена");
+        Toast::info('Категория добавлена');
 
         return redirect()->route('platform.category');
     }
