@@ -2,6 +2,7 @@
     display: flex;
     margin-top: 30px;
     margin-bottom: 30px;
+
     .review_selector {
         min-height: 30px;
         min-width: 100px;
@@ -9,14 +10,15 @@
 
         .selector {
             margin: auto 10px auto 0;
-            border:1px solid $main_color;
+            border: 1px solid $main_color;
             padding: 5px 10px;
             background-position: center;
             background-repeat: no-repeat;
             background-size: 70%;
             padding: 7px 20px;
             font-size: 14px;
-            color:black;
+            color: black;
+
             &.active {
                 background-color: $main_color;
                 color: white;
@@ -50,7 +52,7 @@
     height: 100%;
 
     .text {
-        color:$main_color;
+        color: $main_color;
         margin-bottom: 20px;
         font-size: 12px;
         line-height: 1.2;
@@ -65,9 +67,10 @@
     .top_blk {
         display: flex;
         margin-bottom: 20px;
+
         .photo {
-            width:60px;
-            height:60px;
+            width: 60px;
+            height: 60px;
             border-radius: 40px;
             overflow: hidden;
             margin-right: 20px;
@@ -76,9 +79,9 @@
         .person {
             display: flex;
             flex-direction: column;
-            flex:1;
+            flex: 1;
 
-            & > * {
+            &>* {
                 margin-top: auto;
                 margin-bottom: auto;
             }
@@ -86,7 +89,8 @@
             .vue3-star-ratings {
                 margin-bottom: 0;
             }
-            p{
+
+            p {
                 margin-top: 5px;
                 font-weight: bold;
                 font-size: 16px;
@@ -99,6 +103,7 @@
     display: flex;
     margin-top: 20px;
     flex-wrap: wrap;
+
     .side {
         display: flex;
         flex-wrap: wrap;
@@ -107,8 +112,9 @@
 
     .like_place {
         height: 104px;
+
         .label {
-            width:81px;
+            width: 81px;
             height: 104px;
             background: url('../img/review/god_place.svg');
             background-size: contain;
@@ -117,21 +123,22 @@
             flex-direction: column;
             text-align: center;
             font-size: 14px;
+
             img {
-                width:35px;
+                width: 35px;
                 height: auto;
                 margin: 15px auto 10px auto;
             }
         }
 
         .text {
-            flex:1;
+            flex: 1;
             margin: auto 0 auto 20px;
         }
     }
 
     .qr {
-        .bar{
+        .bar {
             width: 100px;
             border: 0.5px solid $main_color;
             border-radius: 5px;
@@ -140,7 +147,7 @@
 
         .text {
             margin: auto 0 auto 20px;
-            flex:1;
+            flex: 1;
         }
     }
 
@@ -150,7 +157,6 @@
 @media (max-width: 1440px) {
     .sales_hits_section ._wrapper {
         width: 98%;
-        margin: 0 0 0 2%;
     }
 
 }
@@ -177,6 +183,7 @@
         .side {
             flex-direction: column;
             height: auto;
+
             .text {
                 margin: 10px auto 10px auto;
                 text-align: center;

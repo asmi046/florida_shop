@@ -2,6 +2,7 @@
     display: flex;
     flex-wrap: wrap;
     gap: 25px 10px;
+    justify-content: space-between;
 }
 
 .tovar_card_new {
@@ -10,7 +11,8 @@
     flex-direction: column;
 
     .img_wrapper {
-        height: 360px;
+        // height: 360px;
+        aspect-ratio: 9 / 13;
         position: relative;
 
         .t_label_wrapper {

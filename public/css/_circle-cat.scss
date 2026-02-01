@@ -19,6 +19,7 @@
         // Плавный скролл
         scroll-behavior: smooth;
         -webkit-overflow-scrolling: touch; // Для iOS
+        justify-content: start;
     }
 
     &_item {
