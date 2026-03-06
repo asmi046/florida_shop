@@ -2,11 +2,11 @@
 
 namespace App\Listeners;
 
-use App\Mail\BascetSend;
 use App\Events\PayOrderConfirmed;
-use Illuminate\Support\Facades\Mail;
-use Illuminate\Queue\InteractsWithQueue;
+use App\Mail\BascetSend;
 use Illuminate\Contracts\Queue\ShouldQueue;
+// use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Mail;
 
 class PayOrderConfirmedEmail implements ShouldQueue
 {
@@ -23,6 +23,7 @@ class PayOrderConfirmedEmail implements ShouldQueue
      */
     public function handle(PayOrderConfirmed $event): void
     {
-        Mail::to(explode(",", config('mailadresat.adresats')))->send(new BascetSend($event->request));
+        // Log::channel('pay')->error('Адреса уведомлений: '.config('mailadresat.adresats'));
+        Mail::to(explode(',', config('mailadresat.adresats')))->send(new BascetSend($event->request));
     }
 }

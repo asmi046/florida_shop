@@ -2,82 +2,84 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Cart;
-
-use App\Models\Order;
-use App\Models\Product;
-
-use App\Mail\BascetSend;
-use Illuminate\Http\Request;
-use App\Services\AmoApiSevice;
-
+use App\Actions\BascetToMediaAction;
+use App\Actions\BascetToTextAction;
+use App\Actions\OneClickToTextAction;
+use App\Actions\TelegramSendAction;
+use App\Actions\TelegramSendMediaAction;
 use App\Events\PayOrderConfirmed;
 use App\Http\Requests\BascetForm;
+use App\Models\Cart;
+use App\Models\Order;
+use App\Models\Product;
+use App\Services\AmoApiSevice;
 use App\Services\YooKassaService;
-use App\Actions\BascetToTextAction;
-use App\Actions\TelegramSendAction;
-
-use Illuminate\Support\Facades\Log;
-use App\Actions\BascetToMediaAction;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Mail;
-use App\Actions\OneClickToTextAction;
-use App\Actions\TelegramSendMediaAction;
+use Log;
 
 class CartController extends Controller
 {
-    public function index() {
+    public function index()
+    {
         return view('cart');
     }
 
-    public function add(Request $request) {
+    public function add(Request $request)
+    {
         $product_id = $request->input('product_id');
         $_token = $request->input('_token');
 
         Cart::add($product_id);
         $product = Product::with('tovar_categories')->where('sku', $product_id)->first();
 
-        return array($product_id, $_token, $product);
+        return [$product_id, $_token, $product];
     }
 
-    public function get_all() {
-        $cart_product = Cart::with('tovar_data')->where("carts.session_id", session()->getId())->get();
-        return ["count" => Cart::cart_coun(), "user_info" => Auth::user(),  "position" => $cart_product] ;
+    public function get_all()
+    {
+        $cart_product = Cart::with('tovar_data')->where('carts.session_id', session()->getId())->get();
+
+        return ['count' => Cart::cart_coun(), 'user_info' => Auth::user(),  'position' => $cart_product];
     }
 
-    public function clear() {
+    public function clear()
+    {
         return Cart::cart_clear();
     }
 
-    public function update(Request $request) {
+    public function update(Request $request)
+    {
         $product_id = $request->input('product_id');
         $new_count = $request->input('count');
+
         return Cart::update_tovar($product_id, $new_count);
     }
 
-    public function delete(Request $request) {
+    public function delete(Request $request)
+    {
         $product_id = $request->input('product_id');
+
         return Cart::delete_tovar($product_id);
     }
 
-
     public function send_oc(BascetForm $request,
-                            BascetToMediaAction $to_media,
-                            OneClickToTextAction $to_text,
-                            TelegramSendAction $tgsender,
-                            TelegramSendMediaAction $tg_media,
-                            AmoApiSevice $amo) {
+        BascetToMediaAction $to_media,
+        OneClickToTextAction $to_text,
+        TelegramSendAction $tgsender,
+        TelegramSendMediaAction $tg_media,
+        AmoApiSevice $amo)
+    {
 
         $order = Order::create([
-            'name' => "Аноним",
+            'name' => 'Аноним',
             'phone' => $request->input('phone'),
             'comment' => $request->input('comment'),
             'amount' => $request->input('tovar_position.price'),
             'count' => 1,
             'session_id' => session()->getId(),
-            'user_id' => ($request->user())?$request->user()->id:0,
+            'user_id' => ($request->user()) ? $request->user()->id : 0,
         ]);
-
 
         foreach ($request->tovars as $item) {
             $order->items()->create([
@@ -91,22 +93,20 @@ class CartController extends Controller
         }
 
         // Генерация номера заказа
-        $order_number = "№".$order->id."_S".rand(100, 999);
+        $order_number = '№'.$order->id.'_S'.rand(100, 999);
         event(new PayOrderConfirmed($order, $order_number));
 
-
-        return [ "rq" =>$request->all(), "order_id"=> $order->id ];
+        return ['rq' => $request->all(), 'order_id' => $order->id];
     }
 
-
     public function send(BascetForm $request,
-                        BascetToMediaAction $to_media,
-                        BascetToTextAction $to_text,
-                        TelegramSendAction $tgsender,
-                        TelegramSendMediaAction $tg_media,
-                        YooKassaService $pay,
-                        AmoApiSevice $amo) {
-
+        BascetToMediaAction $to_media,
+        BascetToTextAction $to_text,
+        TelegramSendAction $tgsender,
+        TelegramSendMediaAction $tg_media,
+        YooKassaService $pay,
+        AmoApiSevice $amo)
+    {
 
         $order = Order::create([
             'name' => $request->input('fio'),
@@ -127,7 +127,7 @@ class CartController extends Controller
             'data' => $request->input('data'),
             'time' => $request->input('time'),
             'session_id' => session()->getId(),
-            'user_id' => ($request->user())?$request->user()->id:0,
+            'user_id' => ($request->user()) ? $request->user()->id : 0,
         ]);
 
         // $order->orderProducts()->sync(array_column($request->input('tovars'), "product_id"));
@@ -144,35 +144,31 @@ class CartController extends Controller
         }
 
         // Генерация номера заказа
-        $order_number = "№".$order->id."_S".rand(100, 999);
+        $order_number = '№'.$order->id.'_S'.rand(100, 999);
 
         event(new PayOrderConfirmed($order, $order_number));
 
-
         $resPay = null;
         try {
-            $resPay = $pay->registerOrder($order, $request->input('tovars'));
+            // $resPay = $pay->registerOrder($order, $request->input('tovars'));
 
-
-
-
-            if (!empty($resPay) && isset($resPay["id"]))
-                Order::update_order_pay_id($order->id, $resPay["id"]);
+            // if (!empty($resPay) && isset($resPay["id"]))
+            //     Order::update_order_pay_id($order->id, $resPay["id"]);
         } catch (\Exception $e) {
-            \Log::channel('pay')->error('Ошибка получения платежа: '. $e->getMessage());
+            Log::channel('pay')->error('Ошибка получения платежа: '.$e->getMessage());
         } finally {
             Cart::cart_clear();
-            return ['pay_info' => $resPay, "order_id" => $order->id];
+
+            return ['pay_info' => $resPay, 'order_id' => $order->id];
         }
-
-
 
     }
 
-    public function thencs(Request $request, YooKassaService $pay, TelegramSendAction $tgsender) {
-        $orderId = $request->input("order_id");
-        if (!empty($orderId)) {
-            $order = Order::where("id", $orderId)->first();
+    public function thencs(Request $request, YooKassaService $pay, TelegramSendAction $tgsender)
+    {
+        $orderId = $request->input('order_id');
+        if (! empty($orderId)) {
+            $order = Order::where('id', $orderId)->first();
             $orderInfo = $pay->getOrderStatus($order->pay_order);
 
             // if ($orderInfo)
@@ -187,6 +183,6 @@ class CartController extends Controller
             // }
         }
 
-        return view("thencscart");
+        return view('thencscart');
     }
 }
