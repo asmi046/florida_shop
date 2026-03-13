@@ -14,7 +14,7 @@ class IndexController extends Controller
         $sales_liders = Product::select()->orderBy('sales_count')->take(8)->get();
         $sales = Product::where('old_price', '!=', 0)->orWhere('hit', 1)->orderBy('created_at', 'DESC')->take(8)->get();
 
-        $news = Product::orderBy('created_at', 'ASC')->take(8)->get();
+        $news = Product::orderBy('created_at', 'DESC')->take(8)->get();
         $hits = Product::where('hit', true)->take(8)->get();
 
         $reviews = Review::select()->take(9)->get();
