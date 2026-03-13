@@ -150,10 +150,11 @@ class CartController extends Controller
 
         $resPay = null;
         try {
-            // $resPay = $pay->registerOrder($order, $request->input('tovars'));
+            $resPay = $pay->registerOrder($order, $request->input('tovars'));
 
-            // if (!empty($resPay) && isset($resPay["id"]))
-            //     Order::update_order_pay_id($order->id, $resPay["id"]);
+            if (! empty($resPay) && isset($resPay['id'])) {
+                Order::update_order_pay_id($order->id, $resPay['id']);
+            }
         } catch (\Exception $e) {
             Log::channel('pay')->error('Ошибка получения платежа: '.$e->getMessage());
         } finally {
