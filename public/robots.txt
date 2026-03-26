@@ -1,4 +1,6 @@
 User-agent: *
 Disallow:
 
+Clean-param: ybaip
+
 Sitemap: https://florida46.ru/sitemap.xml
