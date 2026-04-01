@@ -5,21 +5,21 @@
 </div> --}}
 
 <div class="social_line messendger_head_blk">
-    <a href="{{strip_tags($options['vk_lnk'])}}" class="link vk_lnk">
+    <a href="{{ strip_tags($options['vk_lnk']) }}" class="link vk_lnk">
         <svg class="sprite_icon vk_icon">
             <use xlink:href="#vk_icon"></use>
         </svg>
     </a>
 
-    <a href="{{strip_tags($options['telegram_lnk'])}}" class="link tg_lnk">
+    <a href="{{ strip_tags($options['telegram_lnk']) }}" class="link tg_lnk">
         <svg class="sprite_icon">
             <use xlink:href="#tg_icon"></use>
         </svg>
     </a>
 
-    <a href="{{strip_tags($options['whatsapp_lnk'])}}" class="link ws_lnk">
+    <a href="{{ strip_tags($options['whatsapp_lnk']) }}" class="link ws_lnk">
         <svg class="sprite_icon">
-            <use xlink:href="#ws_icon"></use>
+            <use xlink:href="#max_huyax"></use>
         </svg>
     </a>
 </div>
