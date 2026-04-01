@@ -1,11 +1,16 @@
 @keyframes pulse {
-    0%, 100% {
+    0%,
+    100% {
         transform: scale(1);
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15), 0 0 0 0 rgba(37, 211, 102, 0.7);
+        box-shadow:
+            0 4px 12px rgba(0, 0, 0, 0.15),
+            0 0 0 0 rgba(159, 0, 255, 0.45);
     }
     50% {
         transform: scale(1.05);
-        box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2), 0 0 0 15px rgba(37, 211, 102, 0);
+        box-shadow:
+            0 6px 16px rgba(0, 0, 0, 0.2),
+            0 0 0 15px rgba(0, 153, 255, 0);
     }
 }
 
@@ -19,7 +24,14 @@
         width: 50px;
         height: 50px;
         border-radius: 50%;
-        background-color: #25D366; // WhatsApp фирменный зеленый
+        background: linear-gradient(
+            135deg,
+            #00d4ff 0%,
+            /* яркий голубой (левая нижняя часть) */ #0099ff 25%,
+            /* переход в синий */ #4a00ff 50%,
+            /* глубокий синий */ #9f00ff 75%,
+            /* фиолетовый */ #d100ff 100% /* яркий пурпурный (правая верхняя часть) */
+        );
         display: flex;
         align-items: center;
         justify-content: center;
@@ -85,7 +97,7 @@
         }
 
         &--vk {
-            background-color: #0077FF; // VK фирменный синий
+            background-color: #0077ff; // VK фирменный синий
         }
 
         &--telegram {
@@ -93,7 +105,17 @@
         }
 
         &--whatsapp {
-            background-color: #25D366; // WhatsApp фирменный зеленый
+            background-color: #25d366; // WhatsApp фирменный зеленый
+        }
+        &--max_huyax {
+            background: linear-gradient(
+                135deg,
+                #00d4ff 0%,
+                /* яркий голубой (левая нижняя часть) */ #0099ff 25%,
+                /* переход в синий */ #4a00ff 50%,
+                /* глубокий синий */ #9f00ff 75%,
+                /* фиолетовый */ #d100ff 100% /* яркий пурпурный (правая верхняя часть) */
+            ); // Max Huyax градиент
         }
     }
 }
