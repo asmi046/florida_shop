@@ -2,7 +2,7 @@
     display: flex;
     flex-wrap: wrap;
     gap: 25px 10px;
-    justify-content: space-between;
+    justify-content: flex-start;
 }
 
 .tovar_card_new {
@@ -43,7 +43,7 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: opacity .25s ease;
+            transition: opacity 0.25s ease;
         }
 
         .tovar_img_second {
@@ -87,7 +87,6 @@
         }
     }
 }
-
 
 @media (hover: none) {
     .tovar_card_new .img_wrapper.has-second:active .tovar_img_first {
