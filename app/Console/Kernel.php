@@ -10,15 +10,18 @@ class Kernel extends ConsoleKernel
     /**
      * Define the application's command schedule.
      *
-     * @param  \Illuminate\Console\Scheduling\Schedule  $schedule
      * @return void
      */
     protected function schedule(Schedule $schedule)
     {
         // $schedule->command('inspire')->hourly();
         $schedule->command('queue:work', [
-            '--max-time' => 300
-            ])->withoutOverlapping();
+            '--queue' => 'default',
+            '--stop-when-empty' => true,
+            '--max-time' => 50,
+            '--tries' => 3,
+            '--timeout' => 120,
+        ])->everyMinute();
     }
 
     /**
