@@ -8,7 +8,7 @@
             <div class="swiper-wrapper">
                 <!-- Slide 1 -->
                 <div class="swiper-slide">
-                    <div class="slide-background" style="background-image: url('{{ asset('img/banner_new.jpg') }}')">
+                    <div class="slide-background" style="background-image: url('{{ asset('img/banner_new.webp') }}')">
                     </div>
                     <div class="slide-overlay"></div>
                     <x-headers.reiting></x-headers.reiting>
