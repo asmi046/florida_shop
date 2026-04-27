@@ -33,7 +33,7 @@
     <script src="{{ asset('js/lib/swiper/swiper-bundle.min.js') }}"></script>
     <script src="{{ asset('js/lib/imask.js') }}"></script>
 
-    <script src="//api-maps.yandex.ru/2.1/?lang=ru_RU&coordorder=longlat" type="text/javascript"></script>
+    <script src="//api-maps.yandex.ru/2.1/?lang=ru_RU&coordorder=longlat" type="text/javascript" defer></script>
 
     <!-- Yandex.Metrika counter -->
     <script type="text/javascript">
