@@ -30,8 +30,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="stylesheet" href="{{ asset('js/lib/swiper/swiper-bundle.min.css') }}" />
-    <script src="{{ asset('js/lib/swiper/swiper-bundle.min.js') }}"></script>
-    <script src="{{ asset('js/lib/imask.js') }}"></script>
+
 
     <script src="//api-maps.yandex.ru/2.1/?lang=ru_RU&coordorder=longlat" type="text/javascript" defer></script>
 
@@ -188,5 +187,7 @@
     <x-social-widget></x-social-widget>
 
 </body>
+<script src="{{ asset('js/lib/swiper/swiper-bundle.min.js') }}"></script>
+<script src="{{ asset('js/lib/imask.js') }}"></script>
 
 </html>
