@@ -1,33 +1,44 @@
-@import url('https://fonts.googleapis.com/css2?family=Tenor+Sans&display=swap');
+// @import url('https://fonts.googleapis.com/css2?family=Tenor+Sans&display=swap');
 
 @font-face {
-	font-family: "Evolventa";
-	src: local("Evolventa"), url("../fonts/evolventa/Evolventa-Regular.woff") format("woff"), url("../fonts/evolventa/Evolventa-Regular.ttf") format("ttf");
-	font-weight: normal;
-	font-style: normal;
+    font-family: "Evolventa";
+    src:
+        local("Evolventa"),
+        url("../fonts/evolventa/Evolventa-Regular.woff") format("woff"),
+        url("../fonts/evolventa/Evolventa-Regular.ttf") format("ttf");
+    font-weight: normal;
+    font-style: normal;
 }
 
 @font-face {
-	font-family: "Evolventa";
-	src: local("Evolventa Oblique"), url("../fonts/evolventa/Evolventa-Oblique.woff") format("woff"), url("../fonts/evolventa/Evolventa-Oblique.ttf") format("ttf");
-	font-weight: normal;
-	font-style: italic;
+    font-family: "Evolventa";
+    src:
+        local("Evolventa Oblique"),
+        url("../fonts/evolventa/Evolventa-Oblique.woff") format("woff"),
+        url("../fonts/evolventa/Evolventa-Oblique.ttf") format("ttf");
+    font-weight: normal;
+    font-style: italic;
 }
 
 @font-face {
-	font-family: "Evolventa";
-	src: local("Evolventa Bold"), url("../fonts/evolventa/Evolventa-Bold.woff") format("woff"), url("../fonts/evolventa/Evolventa-Bold.ttf") format("ttf");
-	font-weight: bold;
-	font-style: normal;
+    font-family: "Evolventa";
+    src:
+        local("Evolventa Bold"),
+        url("../fonts/evolventa/Evolventa-Bold.woff") format("woff"),
+        url("../fonts/evolventa/Evolventa-Bold.ttf") format("ttf");
+    font-weight: bold;
+    font-style: normal;
 }
 
 @font-face {
-	font-family: "Evolventa";
-	src: local("Evolventa Bold Oblique"), url("../fonts/evolventa/Evolventa-BoldOblique.woff") format("woff"), url("../fonts/evolventa/Evolventa-BoldOblique.ttf") format("ttf");
-	font-weight: bold;
-	font-style: italic;
+    font-family: "Evolventa";
+    src:
+        local("Evolventa Bold Oblique"),
+        url("../fonts/evolventa/Evolventa-BoldOblique.woff") format("woff"),
+        url("../fonts/evolventa/Evolventa-BoldOblique.ttf") format("ttf");
+    font-weight: bold;
+    font-style: italic;
 }
-
 
 /* @font-face {
   font-family: "Lato";
