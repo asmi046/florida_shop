@@ -5,6 +5,8 @@
     <title>@yield('title') - Florida</title>
     <meta name="description" content="@yield('description')">
 
+    <link rel="canonical" href="{{ url()->current() }}" />
+
     <meta property="og:locale" content="ru_RU" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="@yield('title')" />
