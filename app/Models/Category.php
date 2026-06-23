@@ -19,6 +19,8 @@ class Category extends Model
         'showed_title',
         'description',
         'img',
+        'seo_title',
+        'seo_description',
     ];
 
     public function setSlugAttribute($value)

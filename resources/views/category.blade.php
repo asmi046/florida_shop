@@ -1,8 +1,8 @@
 @extends('layouts.all')
 
 @php
-    $title = $cat_info->title;
-    $description = $title."Цветы с доставкой по Курску откомпании Florida";
+    $title = $cat_info->seo_title ?? ($cat_info->showed_title ?? $cat_info->title);
+    $description = $cat_info->seo_description ?? $title . ' Цветы с доставкой по Курску откомпании Florida';
 @endphp
 
 @section('title', $title)
@@ -10,17 +10,16 @@
 
 @section('content')
 
-<x-headers.header-inner :h1="$title"></x-headers.header-inner>
+    <x-headers.header-inner :h1="$title"></x-headers.header-inner>
 
-<section class="category">
-    <div class="_wrapper">
-        <div class="margin_top_bottom tovar_wrapper">
-            @foreach ($allproduct as $tovar)
-            <x-cards.tovar-card :tovar="$tovar"></x-cards.tovar-card>
-            @endforeach
+    <section class="category">
+        <div class="_wrapper">
+            <div class="margin_top_bottom tovar_wrapper">
+                @foreach ($allproduct as $tovar)
+                    <x-cards.tovar-card :tovar="$tovar"></x-cards.tovar-card>
+                @endforeach
+            </div>
         </div>
-
-    </div>
-</section>
+    </section>
 
 @endsection

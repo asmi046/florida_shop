@@ -89,6 +89,18 @@ class CategoryEditScreen extends Screen
 
                 Quill::make('description')->title('Описание')->value($this->category->description),
 
+                Input::make('seo_title')
+                    ->title('SEO заголовок')
+                    ->value($this->category->seo_title)
+                    ->help('Заголовок для поисковых систем')
+                    ->horizontal(),
+
+                Input::make('seo_description')
+                    ->title('SEO описание')
+                    ->value($this->category->seo_description)
+                    ->help('Описание для поисковых систем')
+                    ->horizontal(),
+
                 Button::make('Сохранить')->method('save_info')->type(Color::SUCCESS()),
             ]),
         ];
@@ -104,6 +116,8 @@ class CategoryEditScreen extends Screen
             'in_main' => [],
             'showed_title' => [],
             'description' => [],
+            'seo_title' => ['nullable', 'string'],
+            'seo_description' => ['nullable', 'string'],
         ]);
 
         Category::where('id', $this->category->id)->update($new_data);
