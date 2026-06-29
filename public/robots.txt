@@ -1,6 +1,34 @@
 User-agent: *
-Disallow:
+# Системные и пользовательские страницы (из аудита)
+Disallow: /admin/
+Disallow: /login
+Disallow: /register
+Disallow: /passrec
+Disallow: /bascet
+Disallow: /cabinet
+Disallow: /policy
+Disallow: /policy_accept
 
-Clean-param: ysclid&etext&ybaip&utm_source&utm_medium&utm_campaign&utm_term&utm_content&gclid&yclid&ymclid&sort&order&filter&page&PAGEN_1&ref&from&action&print&fbclid&mc_cid&mc_eid&dclid&utm_id&utm_referrer&utm_source_platform&utm_creative&utm_keyword&utm_device&utm_placement&utm_content_id&utm_test&utm_experiment&utm_variant&utm_content_type&utm_adgroup&utm_match_type&utm_network&utm_position&utm_target&utm_audience&utm_segment&utm_product&utm_version&utm_region&utm_language&utm_os&utm_browser&utm_device_type&utm_ip&utm_user_agent&utm_session_id&utm_click_id&utm_original_referrer&utm_gclid&utm_yclid&utm_dclid&utm_msclkid&utm_twclid&utm_ttclid&utm_li_fid&utm_kclid&utm_waid&utm_rsid&utm_vsid&utm_sid&utm_vid&ut
+# Поиск и сортировки (защита от дублей для Google и Яндекса)
+Disallow: /search/
+Disallow: /*?*utm_
+Disallow: /*?*gclid=
+Disallow: /*?*yclid=
+Disallow: /*?*ysclid=
+Disallow: /*?*fbclid=
+Disallow: /*?*sort=
+Disallow: /*?*order=
+Disallow: /*?*filter=
+
+# Инструкции Clean-param для Яндекса (строки разбиты до 500 символов, убрана пагинация)
+Clean-param: ysclid&etext&ybaip&utm_source&utm_medium&utm_campaign&utm_term&utm_content&gclid&yclid
+Clean-param: ymclid&sort&order&filter&ref&from&action&print&fbclid&mc_cid&mc_eid&dclid
+Clean-param: utm_id&utm_referrer&utm_source_platform&utm_creative&utm_keyword&utm_device&utm_placement
+Clean-param: utm_content_id&utm_test&utm_experiment&utm_variant&utm_content_type&utm_adgroup
+Clean-param: utm_match_type&utm_network&utm_position&utm_target&utm_audience&utm_segment&utm_product
+Clean-param: utm_version&utm_region&utm_language&utm_os&utm_browser&utm_device_type&utm_ip
+Clean-param: utm_user_agent&utm_session_id&utm_click_id&utm_original_referrer&utm_gclid&utm_yclid
+Clean-param: utm_dclid&utm_msclkid&utm_twclid&utm_ttclid&utm_li_fid&utm_kclid&utm_waid&utm_rsid
+Clean-param: utm_vsid&utm_sid&utm_vid&ut
 
 Sitemap: https://florida46.ru/sitemap.xml

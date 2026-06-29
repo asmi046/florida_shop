@@ -5,16 +5,36 @@
 
     RewriteEngine On
 
-    # Handle Authorization Header
+    # 1. SEO: Склейка зеркал (Редирект с WWW на без-WWW и принудительный HTTPS)
+    RewriteCond %{HTTP_HOST} ^www\.florida46\.ru$ [NC]
+    RewriteRule ^(.*)$ https://florida46.ru/$1 [R=301,L]
+
+    RewriteCond %{HTTPS} off
+    RewriteRule ^(.*)$ https://florida46.ru/$1 [R=301,L]
+
+    # 2. SEO: Устранение 100% дублей пагинации ?page=1 (Редирект на чистый URL)
+    RewriteCond %{QUERY_STRING} ^page=1$ [NC]
+    RewriteRule ^ %{REQUEST_URI}? [R=301,L]
+
+    RewriteCond %{QUERY_STRING} ^(.*)&page=1$ [NC]
+    RewriteRule ^ %{REQUEST_URI}?%1 [R=301,L]
+
+    RewriteCond %{QUERY_STRING} ^page=1&(.*)$ [NC]
+    RewriteRule ^ %{REQUEST_URI}?%1 [R=301,L]
+
+    RewriteCond %{QUERY_STRING} ^(.*)&page=1&(.*)$ [NC]
+    RewriteRule ^ %{REQUEST_URI}?%1&%2 [R=301,L]
+
+    # Handle Authorization Header (Системное правило)
     RewriteCond %{HTTP:Authorization} .
     RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
 
-    # Redirect Trailing Slashes If Not A Folder...
+    # Redirect Trailing Slashes If Not A Folder... (SEO: защита от дублей со слешем на конце)
     RewriteCond %{REQUEST_FILENAME} !-d
     RewriteCond %{REQUEST_URI} (.+)/$
     RewriteRule ^ %1 [L,R=301]
 
-    # Send Requests To Front Controller...
+    # Send Requests To Front Controller... (Системное правило CMS)
     RewriteCond %{REQUEST_FILENAME} !-d
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteRule ^ index.php [L]
