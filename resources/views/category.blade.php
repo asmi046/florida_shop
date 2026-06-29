@@ -24,7 +24,13 @@
 
     <section class="category">
         <div class="_wrapper">
-            <div class="category_text">
+            <x-pagination :tovars="$allproduct"></x-pagination>
+        </div>
+    </section>
+
+    <section class="category">
+        <div class="_wrapper">
+            <div class="text_styles category_text">
                 {!! $cat_info->description !!}
             </div>
         </div>

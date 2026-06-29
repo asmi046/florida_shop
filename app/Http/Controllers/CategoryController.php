@@ -10,7 +10,7 @@ class CategoryController extends Controller
 {
     public function catalog(ProductFilter $request)
     {
-        $allproduct = Product::select('*')->filter($request)->orderBy('created_at', 'DESC')->paginate(9)->withQueryString();
+        $allproduct = Product::select('*')->filter($request)->orderBy('created_at', 'DESC')->paginate(16)->withQueryString();
 
         return view('catalog', ['allproduct' => $allproduct]);
     }
@@ -20,7 +20,7 @@ class CategoryController extends Controller
         $categoryInfo = Category::where('slug', $slug)->first();
 
         if ($categoryInfo == null) {
-            abort('404');
+            abort(404);
         }
 
         $allproduct = $categoryInfo->category_tovars()->paginate(16)->withQueryString();
