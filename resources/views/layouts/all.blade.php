@@ -5,7 +5,13 @@
     <title>@yield('title') - Florida</title>
     <meta name="description" content="@yield('description')">
 
-    <link rel="canonical" href="{{ url()->current() }}" />
+    @php
+        $canonical = url()->current();
+        if (request()->has('page') && (int) request('page') > 1) {
+            $canonical .= '?page=' . request('page');
+        }
+    @endphp
+    <link rel="canonical" href="{{ $canonical }}" />
 
     <meta property="og:locale" content="ru_RU" />
     <meta property="og:type" content="website" />
