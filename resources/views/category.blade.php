@@ -28,12 +28,14 @@
         </div>
     </section>
 
-    <section class="category">
-        <div class="_wrapper">
-            <div class="text_styles category_text">
-                {!! $cat_info->description !!}
+    @if ($allproduct->onFirstPage())
+        <section class="category">
+            <div class="_wrapper">
+                <div class="text_styles category_text">
+                    {!! $cat_info->description !!}
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
+    @endif
 
 @endsection
