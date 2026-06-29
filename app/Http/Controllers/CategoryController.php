@@ -2,28 +2,28 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-
+use App\Filters\ProductFilter;
 use App\Models\Category;
 use App\Models\Product;
 
-use App\Filters\ProductFilter;
-
 class CategoryController extends Controller
 {
+    public function catalog(ProductFilter $request)
+    {
+        $allproduct = Product::select('*')->filter($request)->orderBy('created_at', 'DESC')->paginate(9)->withQueryString();
 
-    public function catalog(ProductFilter $request) {
-        $allproduct = Product::select("*")->filter($request)->orderBy("created_at", "DESC")->paginate(9)->withQueryString();
-
-        return view('catalog', [ 'allproduct' => $allproduct]);
+        return view('catalog', ['allproduct' => $allproduct]);
     }
 
-    public function show_cat ($slug) {
+    public function show_cat($slug)
+    {
         $categoryInfo = Category::where('slug', $slug)->first();
 
-        if($categoryInfo == null) abort('404');
+        if ($categoryInfo == null) {
+            abort('404');
+        }
 
-        $allproduct = $categoryInfo->category_tovars;
+        $allproduct = $categoryInfo->category_tovars()->paginate(16)->withQueryString();
 
         return view('category', ['cat_info' => $categoryInfo, 'allproduct' => $allproduct]);
     }

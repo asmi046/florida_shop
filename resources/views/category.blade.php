@@ -22,4 +22,12 @@
         </div>
     </section>
 
+    <section class="category">
+        <div class="_wrapper">
+            <div class="category_text">
+                {!! $cat_info->description !!}
+            </div>
+        </div>
+    </section>
+
 @endsection
