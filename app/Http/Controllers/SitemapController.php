@@ -4,8 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use App\Models\Product;
+use App\Models\ProductTag;
 use Carbon\Carbon;
-use Illuminate\Container\Attributes\Tag;
 
 class SitemapController extends Controller
 {
@@ -55,7 +55,7 @@ class SitemapController extends Controller
             ]);
         });
 
-        Tag::all()->each(function ($item) use ($urls) {
+        ProductTag::all()->each(function ($item) use ($urls) {
             $urls->push([
                 'loc' => url("/tags/{$item->slug}"),
                 'lastmod' => ($item->updated_at) ? $item->updated_at->format('Y-m-d\TH:i:s\Z') : Carbon::yesterday()->format('Y-m-d\TH:i:s\Z'),
