@@ -2,11 +2,10 @@
 
 namespace App\Providers;
 
-use App\Models\Option;
 use App\Models\Category;
 use App\Models\Celebration;
+use App\Models\Option;
 use Illuminate\Support\ServiceProvider;
-
 use View;
 
 class OptionsProvider extends ServiceProvider
@@ -30,7 +29,7 @@ class OptionsProvider extends ServiceProvider
     {
         View::composer('*', function ($view) {
             $all_options = Option::all();
-            $categoryes = Category::all();
+            $categoryes = Category::where('in_main', true)->orderBy('order')->get();
             $celebrations = Celebration::all();
 
             $opt = [];
