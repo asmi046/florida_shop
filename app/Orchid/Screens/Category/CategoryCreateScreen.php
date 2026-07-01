@@ -8,6 +8,7 @@ use Orchid\Screen\Actions\Button;
 use Orchid\Screen\Fields\Input;
 use Orchid\Screen\Fields\Picture;
 use Orchid\Screen\Fields\Quill;
+use Orchid\Screen\Fields\Switcher;
 use Orchid\Screen\Screen;
 use Orchid\Support\Color;
 use Orchid\Support\Facades\Layout;
@@ -77,6 +78,14 @@ class CategoryCreateScreen extends Screen
                     ->help('Slug категории')
                     ->horizontal(),
 
+                Input::make('order')
+                    ->type('number')
+                    ->value(100)
+                    ->title('Порядок сортировки')
+                    ->help('Чем меньше число, тем выше категория в списке')
+                    ->required()
+                    ->horizontal(),
+
                 Picture::make('img')->title('Изображение')->storage('public')->targetRelativeUrl(),
 
                 Quill::make('description')->title('Описание'),
@@ -96,6 +105,7 @@ class CategoryCreateScreen extends Screen
             'in_main' => [],
             'showed_title' => [],
             'description' => [],
+            'order' => ['required', 'integer'],
         ]);
 
         Category::create($new_data);

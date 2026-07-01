@@ -85,6 +85,14 @@ class CategoryEditScreen extends Screen
                     ->help('Slug категории')
                     ->horizontal(),
 
+                Input::make('order')
+                    ->type('number')
+                    ->value($this->category->order)
+                    ->title('Порядок сортировки')
+                    ->help('Чем меньше число, тем выше категория в списке')
+                    ->required()
+                    ->horizontal(),
+
                 Picture::make('img')->title('Изображение')->storage('public')->targetRelativeUrl()->value($this->category->img),
 
                 Quill::make('description')->title('Описание')->value($this->category->description),
@@ -116,6 +124,7 @@ class CategoryEditScreen extends Screen
             'in_main' => [],
             'showed_title' => [],
             'description' => [],
+            'order' => ['required', 'integer'],
             'seo_title' => ['nullable', 'string'],
             'seo_description' => ['nullable', 'string'],
         ]);

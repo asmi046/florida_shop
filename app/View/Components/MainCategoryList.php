@@ -16,7 +16,7 @@ class MainCategoryList extends Component
      */
     public function __construct()
     {
-        $this->categories = Category::where('in_main', true)->get();
+        $this->categories = Category::where('in_main', true)->orderBy('order')->get();
     }
 
     /**
