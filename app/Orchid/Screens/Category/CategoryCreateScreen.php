@@ -66,7 +66,7 @@ class CategoryCreateScreen extends Screen
                     ->horizontal(),
 
                 Switcher::make('in_main')
-                    ->value($this->category->in_main)
+                    ->value(true)
                     ->sendTrueOrFalse()
                     ->title('Вывод на главной странице')
                     ->placeholder('Показывать на главной странице')
