@@ -1,15 +1,14 @@
 @charset "UTF-8";
 
-@import 'fonts';
-@import 'vars';
-@import 'null';
-@import 'buttons';
-@import 'icon-a';
-@import 'new_head';
-@import 'head_category_new';
-@import 'tovars';
-@import 'review';
-
+@import "fonts";
+@import "vars";
+@import "null";
+@import "buttons";
+@import "icon-a";
+@import "new_head";
+@import "head_category_new";
+@import "tovars";
+@import "review";
 
 .plash {
     background-color: white;
@@ -31,11 +30,11 @@
 }
 
 .g20 {
-    gap: 20px
+    gap: 20px;
 }
 
 .g40 {
-    gap: 40px
+    gap: 40px;
 }
 
 swiper-slide {
@@ -44,12 +43,12 @@ swiper-slide {
 
 /*--------Шапка----------*/
 
-header ._wrapper {}
+header ._wrapper {
+}
 
 header .messendger_head_blk {
     display: none;
 }
-
 
 .addres_head {
     margin: auto;
@@ -65,7 +64,7 @@ header .messendger_head_blk {
     left: -30px;
     top: -5px;
     font-size: 24px;
-    line-height: 27px
+    line-height: 27px;
 }
 
 .cabinet {
@@ -87,8 +86,8 @@ header .messendger_head_blk {
 /*--------Блок управления в шапке----------*/
 
 #header_control {
-    border-top: 1px solid #D2D1D1;
-    border-bottom: 1px solid #D2D1D1;
+    border-top: 1px solid #d2d1d1;
+    border-bottom: 1px solid #d2d1d1;
     position: sticky;
     top: 0;
     background-color: white;
@@ -112,7 +111,6 @@ header .messendger_head_blk {
     padding: 14px 45px 14px 86px;
     font-size: 22px;
     margin: auto auto auto 0;
-
 }
 
 .catalog_btn span {
@@ -129,11 +127,11 @@ header .messendger_head_blk {
     background-repeat: no-repeat;
     background-size: contain;
     left: -54px;
-    top: 3px
+    top: 3px;
 }
 
 .header_search_form {
-    background-color: #F4F4F4;
+    background-color: #f4f4f4;
     border-radius: 16px;
     min-height: 50px;
     display: block;
@@ -153,7 +151,6 @@ header .messendger_head_blk {
     border-radius: 16px;
     left: -54px;
     top: 3px;
-
 }
 
 /*-Телефон-*/
@@ -165,7 +162,7 @@ header .messendger_head_blk {
 }
 
 .phone_head_blk span {
-    color: #8C8B8B;
+    color: #8c8b8b;
     font-size: 15px;
     margin: auto;
 }
@@ -239,7 +236,7 @@ header .messendger_head_blk {
     line-height: 31px;
     text-align: center;
     left: 10px;
-    top: -7px
+    top: -7px;
 }
 
 .favorites_head:hover::before {
@@ -318,7 +315,6 @@ header .messendger_head_blk {
 #head_category ul a.more,
 #head_category ul a.action {
     padding: 5px 35px 5px 15px;
-
 }
 
 #head_category ul a.action::before {
@@ -355,7 +351,6 @@ header .messendger_head_blk {
     font-size: 12px;
 }
 
-
 #head_category ul a.active {
     background-color: var(--main-hover-color);
     border-color: var(--main-hover-color);
@@ -385,22 +380,17 @@ header .messendger_head_blk {
     display: flex;
 }
 
-
 .more_wrapper .ower_cat a {
     border: none !important;
 }
-
 
 .more_wrapper {
     position: relative;
 }
 
-
 /*--------Категории в шапке end----------*/
 
 /*--------Баннер----------*/
-
-
 
 .banner_wrapper {
     width: 100%;
@@ -413,7 +403,7 @@ header .messendger_head_blk {
     position: absolute;
     left: 0;
     right: 0;
-    background: linear-gradient(to right, #FFFFFFA1, #FFFFFF00);
+    background: linear-gradient(to right, #ffffffa1, #ffffff00);
     z-index: 21;
     height: 100%;
 }
@@ -451,7 +441,7 @@ header .messendger_head_blk {
 
 .adv_blk:hover .adv_description {
     background-color: var(--main-hover-color);
-    transition: all .4s ease;
+    transition: all 0.4s ease;
 }
 
 .adv_blk {
@@ -477,8 +467,6 @@ header .messendger_head_blk {
 
 /*--------Слайдер для хитов продаж----------*/
 
-
-
 .hit_slider .swiper-slide {
     padding: 5px;
 }
@@ -502,7 +490,7 @@ header .messendger_head_blk {
     width: 55px;
     height: 40px;
     border-radius: 30px 0 0 0;
-    transition: all .4s ease;
+    transition: all 0.4s ease;
     background-color: var(--main-hover-color);
 }
 
@@ -532,7 +520,7 @@ header .messendger_head_blk {
     font-size: 12px;
     text-decoration: line-through;
     font-weight: normal;
-    color: #8C8B8B;
+    color: #8c8b8b;
     margin: 0 0 auto 5px;
 }
 
@@ -554,18 +542,15 @@ header .messendger_head_blk {
     border-radius: 5px;
 }
 
-
 /*--------Слайдер для хитов продаж end----------*/
 
 /*--------Слайдер скидок и акций----------*/
-
-
 
 .tovar_label_wrapper {
     position: absolute;
     z-index: 111;
     left: 10px;
-    top: 10px
+    top: 10px;
 }
 
 .tovar_label {
@@ -581,11 +566,11 @@ header .messendger_head_blk {
 }
 
 .tovar_label.sale {
-    background-color: #E24465;
+    background-color: #e24465;
 }
 
 .tovar_label.hit {
-    background-color: #91B508;
+    background-color: #91b508;
 }
 
 .tovar_label.new {
@@ -623,7 +608,6 @@ header .messendger_head_blk {
 }
 
 .favorites {
-
     z-index: 111;
     display: block;
 }
@@ -659,7 +643,6 @@ header .messendger_head_blk {
 }
 
 .share {
-
     &:hover:before {
         color: $hover_color;
     }
@@ -679,7 +662,7 @@ header .messendger_head_blk {
 
 .favorites.all_control {
     position: relative;
-    top: -30px
+    top: -30px;
 }
 
 .tovar_blk_wrap {
@@ -720,7 +703,6 @@ header .messendger_head_blk {
     width: 100%;
     height: 210px;
 }
-
 
 .sales_tovar_wrapper .tov_info {
     display: flex;
@@ -842,7 +824,7 @@ header .messendger_head_blk {
 }
 
 .rew_blk a {
-    color: white
+    color: white;
 }
 
 .banner_controll {
@@ -866,7 +848,6 @@ header .messendger_head_blk {
 /*--------Блок отзывов end----------*/
 
 /*--------О компании на главной----------*/
-
 
 /*--------О компании на главной end----------*/
 
@@ -896,7 +877,7 @@ header .messendger_head_blk {
 }
 
 .text_blk li:before {
-    content: '';
+    content: "";
     position: absolute;
     width: 4px;
     height: 4px;
@@ -912,14 +893,12 @@ header .messendger_head_blk {
 }
 
 .text_blk a {
-    color: var(--main-color)
+    color: var(--main-color);
 }
-
 
 /*--------Оформление текстовых блоков end----------*/
 
 /*--------Подвал----------*/
-
 
 .footer_contacts {
     margin: auto 0 auto auto;
@@ -987,7 +966,7 @@ section h2 {
 select,
 textarea,
 input {
-    background-color: #F4F4F4;
+    background-color: #f4f4f4;
     border-radius: 16px;
     min-height: 50px;
     padding: 0 15px;
@@ -1009,19 +988,18 @@ input {
 
 .radio_label input {
     display: none;
-
 }
 
-.radio_label input:checked~span:before {
+.radio_label input:checked ~ span:before {
     content: "";
     background-color: $main_color;
-    border: 3px solid #F4F4F4;
+    border: 3px solid #f4f4f4;
 }
 
 .radio_label span:before {
     content: "";
     border-radius: 30px;
-    background-color: #F4F4F4;
+    background-color: #f4f4f4;
     width: 18px;
     height: 18px;
     position: absolute;
@@ -1046,7 +1024,6 @@ textarea {
 .rub_symbol {
     font-family: Arial, Helvetica, sans-serif;
 }
-
 
 .swiper_obj {
     position: relative;
@@ -1079,7 +1056,7 @@ textarea {
     width: 40px;
     height: 40px;
     border: 1px solid var(--main-gray-color);
-    border: 1px solid #D2D1D1;
+    border: 1px solid #d2d1d1;
 }
 
 .btn_all:hover:before {
@@ -1088,7 +1065,7 @@ textarea {
 
 .btn_all:before {
     content: "\e904";
-    font-family: 'florida' !important;
+    font-family: "florida" !important;
     color: $main-color;
     position: absolute;
     left: 0;
@@ -1100,7 +1077,6 @@ textarea {
     font-size: 12px;
 }
 
-
 .btn {
     color: white;
     background-color: var(--main-color);
@@ -1108,7 +1084,7 @@ textarea {
     border-radius: 20px;
     text-align: center;
     padding: 0 20px;
-    transition: all .4s ease;
+    transition: all 0.4s ease;
     font-weight: 400;
     font-size: 16px;
     position: relative;
@@ -1116,7 +1092,6 @@ textarea {
     min-height: 35px;
     line-height: 35px;
 }
-
 
 .btn:hover {
     color: white;
@@ -1132,14 +1107,13 @@ textarea {
 .btn_whatsapp {
     background-color: #25d366;
     border-color: #25d366;
-    color: white
+    color: white;
 }
 
 .btn_white {
     background-color: white;
     color: var(--main-color);
 }
-
 
 .btn_white:hover {
     background-color: white;
@@ -1158,7 +1132,6 @@ textarea {
     color: white;
 }
 
-
 .btn_icon_after {
     padding-right: 40px;
 }
@@ -1175,7 +1148,6 @@ textarea {
     background-repeat: no-repeat;
     background-size: cover;
 }
-
 
 .ch_label {
     width: 100%;
@@ -1196,14 +1168,14 @@ textarea {
     width: 16px;
     height: 16px;
     border-radius: 3px;
-    border: 1px solid #D2D1D1;
+    border: 1px solid #d2d1d1;
     position: absolute;
     color: white;
     left: 0;
 }
 
-.ch_label input:checked~span::before {
-    content: '\2714';
+.ch_label input:checked ~ span::before {
+    content: "\2714";
     background-color: var(--main-color);
 }
 
@@ -1214,7 +1186,6 @@ textarea {
         flex-wrap: wrap;
         justify-content: space-between;
     }
-
 }
 
 #render_map {
@@ -1236,7 +1207,6 @@ textarea {
 #uni_map .contacts h3 {
     font-size: 22px;
     margin-bottom: 35px;
-
 }
 
 #uni_map .contacts p {
@@ -1301,7 +1271,6 @@ textarea {
 
 /*--------Общие стили end----------*/
 
-
 /*-----Скролбар-----*/
 
 ::-webkit-scrollbar {
@@ -1335,7 +1304,7 @@ textarea {
 }
 
 .contacts_wrapper .sub_h {
-    color: #8C8B8B;
+    color: #8c8b8b;
     font-size: 14px;
 }
 
@@ -1376,7 +1345,7 @@ textarea {
 }
 
 .rew_in_page .rew_blk a {
-    color: var(--main-color)
+    color: var(--main-color);
 }
 
 .rew_in_page .rew_blk .foto_wrapper {
@@ -1428,7 +1397,7 @@ textarea {
 }
 
 .blog_blk .data {
-    color: #8C8B8B;
+    color: #8c8b8b;
     font-size: 14px;
     margin-bottom: 20px;
 }
@@ -1502,7 +1471,7 @@ textarea {
     .footer_contacts .phone::before {
         width: 17px;
         height: 17px;
-        left: -25px
+        left: -25px;
     }
 
     .footer_contacts .adress::before,
@@ -1555,8 +1524,6 @@ textarea {
         overflow-x: auto;
     }
 
-
-
     #head_category ul::-webkit-scrollbar {
         display: none;
     }
@@ -1584,7 +1551,6 @@ textarea {
 }
 
 @media (max-width: 912px) {
-
     #header_control .messendger_head_blk,
     .phone_head_blk,
     .main_menu {
@@ -1672,7 +1638,6 @@ textarea {
     footer {
         padding: 0 0 60px 0;
     }
-
 
     .thumb-wrap {
         position: relative;
@@ -1850,7 +1815,7 @@ textarea {
     font-size: 10px;
     padding: 10px 0;
     margin-top: 10px;
-    border-top: 1px solid #D2D1D1;
+    border-top: 1px solid #d2d1d1;
 }
 
 /* -------------- Страница и блок доставки ------------------- */
@@ -1891,7 +1856,6 @@ textarea {
         height: 80px;
         display: flex;
 
-
         .sprite_icon {
             width: 70px;
             height: 70px;
@@ -1921,9 +1885,6 @@ textarea {
             margin: 5px 0;
         }
     }
-
-
-
 }
 
 .delivery_table {
@@ -1945,7 +1906,6 @@ textarea {
     tr th:first-child,
     tr td:first-child {
         text-align: left;
-
     }
 
     tr td {
@@ -1955,9 +1915,6 @@ textarea {
     tr:nth-child(odd) td {
         background-color: rgba($main_color, 0.2);
     }
-
-
-
 
     td {
         text-align: center;
@@ -1980,7 +1937,25 @@ textarea {
     }
 }
 
+.open_cat_menu {
+    #menu_list_open {
+        display: none;
+    }
 
+    #menu_list_closet {
+        display: flex;
+    }
+
+    &.active {
+        #menu_list_open {
+            display: flex;
+        }
+
+        #menu_list_closet {
+            display: none;
+        }
+    }
+}
 
 @import "social";
 @import "header-line";

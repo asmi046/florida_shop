@@ -24,8 +24,11 @@
     </a>
 
     <a href="#" class="bm_btn open_cat_menu ">
-        <svg class="sprite_icon">
+        <svg id="menu_list_closet" class="sprite_icon">
             <use xlink:href="#menu_list"></use>
+        </svg>
+        <svg id="menu_list_open" class="sprite_icon">
+            <use xlink:href="#menu_close"></use>
         </svg>
         <p>Каталог</p>
     </a>

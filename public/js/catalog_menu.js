@@ -1,7 +1,7 @@
 function chenge_order(elem, target) {
     console.log(elem.value)
     let filter_form = document.querySelector(".tovar_filter")
-    let order_elem = document.querySelector(".tovar_filter input[name="+target+"]")
+    let order_elem = document.querySelector(".tovar_filter input[name=" + target + "]")
     if (order_elem) {
         order_elem.value = elem.value
         filter_form.submit()
@@ -45,7 +45,7 @@ document.addEventListener("DOMContentLoaded", () => {
             e.preventDefault()
             let sub_menu_name = elem.dataset.subwin
             hide_all_submenu()
-            document.querySelector(".scm_"+sub_menu_name).style.display = "flex"
+            document.querySelector(".scm_" + sub_menu_name).style.display = "flex"
         })
 
         elem.addEventListener("mouseout", function (e) {
@@ -56,16 +56,18 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     for (let elem of catalog_btn)
-    elem.addEventListener("click", function (e) {
-        e.preventDefault()
-        if ( wrapper.style.display == "flex" ) {
-            wrapper.style.display = "none"
-            wrapper_zt.style.display = "none"
-        } else {
-            wrapper.style.display = "flex"
-            wrapper_zt.style.display = "flex"
-        }
-    })
+        elem.addEventListener("click", function (e) {
+            e.preventDefault()
+            if (wrapper.style.display == "flex") {
+                wrapper.style.display = "none"
+                wrapper_zt.style.display = "none"
+                elem.classList.remove("active")
+            } else {
+                wrapper.style.display = "flex"
+                wrapper_zt.style.display = "flex"
+                elem.classList.add("active")
+            }
+        })
 
     wrapper_zt.addEventListener("click", function (e) {
         e.preventDefault()
