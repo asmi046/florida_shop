@@ -12,6 +12,10 @@ class CategoryController extends Controller
     {
         $allproduct = Product::select('*')->filter($request)->orderBy('created_at', 'DESC')->paginate(16)->withQueryString();
 
+        if ($allproduct->currentPage() > $allproduct->lastPage() && $allproduct->total() > 0) {
+            abort(404);
+        }
+
         return view('catalog', ['allproduct' => $allproduct]);
     }
 
@@ -24,6 +28,10 @@ class CategoryController extends Controller
         }
 
         $allproduct = $categoryInfo->category_tovars()->paginate(16)->withQueryString();
+
+        if ($allproduct->currentPage() > $allproduct->lastPage() && $allproduct->total() > 0) {
+            abort(404);
+        }
 
         return view('category', ['cat_info' => $categoryInfo, 'allproduct' => $allproduct]);
     }
