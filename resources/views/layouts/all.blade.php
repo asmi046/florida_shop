@@ -85,29 +85,29 @@
 
     @vite(['resources/css/app.css', 'public/fonts/icons/style.css', 'public/css/main.scss', 'public/css/tovar_filter.css', 'public/css/tovar_page_content.css', 'public/css/catalog_menu.css', 'public/css/cart.css', 'public/css/auth.css', 'public/css/cabinet.css', 'public/css/mainsearch.css', 'public/css/pagination.css', 'resources/js/app.js', 'public/js/sliders.js', 'public/js/delivery_zone.js', 'public/js/filter.js', 'public/js/map.js', 'public/js/categories.js', 'public/js/catalog_menu.js', 'public/js/cart.js', 'public/js/favorites.js', 'public/js/mainsearch.js'])
 
-    <script type="application/ld+json">
-    {
-        "@@context": "https://schema.org",
-        "@@type": "Florist",
-        "name": "Магазин цветов «Florida»",
-        "image": "https://florida46.ru/img/favicons/icon256.png",
-        "url": "https://florida46.ru",
-        "telephone": "+7 (920) 710 25 55",
-        "address": {
-            "@type": "PostalAddress",
-            "postalCode": "305004",
-            "streetAddress": "пр. Победы, 14",
-            "addressLocality": "Курск",
-            "addressCountry": "RU"
-        },
-        "openingHours": "24/7",
-        "priceRange": "₽₽",
-        "sameAs": [
-            "https://t.me/florida_kursk",
-            "https://vk.com/florida46kursk"
-        ]
-    }
-    </script>
+    @jsonld(jsonld_raw(
+    '{
+    "@@context": "https://schema.org",
+    "@@type": "Florist",
+    "name": "Магазин цветов «Florida»",
+    "image": "https://florida46.ru/img/favicons/icon256.png",
+    "url": "https://florida46.ru",
+    "telephone": "+7 (920) 710 25 55",
+    "address": {
+    "@type": "PostalAddress",
+    "postalCode": "305004",
+    "streetAddress": "пр. Победы, 14",
+    "addressLocality": "Курск",
+    "addressCountry": "RU"
+    },
+    "openingHours": "24/7",
+    "priceRange": "₽₽",
+    "sameAs": [
+    "https://t.me/florida_kursk",
+    "https://vk.com/florida46kursk"
+    ]
+    }'
+    ))
 
     @isset($product)
         <x-schema-org.product-offer :product="$product"></x-schema-org.product-offer>

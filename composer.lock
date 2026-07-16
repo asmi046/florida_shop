@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "500d3653e4c925382e8d915749575042",
+    "content-hash": "747f31f7ba82bee20bef3e7c2def8562",
     "packages": [
         {
             "name": "amocrm/amocrm-api-library",
@@ -125,6 +125,75 @@
                 "source": "https://github.com/amocrm/amocrm-oauth-client/tree/3.0.0"
             },
             "time": "2025-03-11T13:03:06+00:00"
+        },
+        {
+            "name": "asmi046/laravel-jsonld",
+            "version": "0.1.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/asmi046/json_ld.git",
+                "reference": "9782e263649f5224b40dcc2c3b0a87fe01ab6d9b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/asmi046/json_ld/zipball/9782e263649f5224b40dcc2c3b0a87fe01ab6d9b",
+                "reference": "9782e263649f5224b40dcc2c3b0a87fe01ab6d9b",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": "^10.0 || ^11.0 || ^12.0",
+                "illuminate/view": "^10.0 || ^11.0 || ^12.0",
+                "php": "^8.1"
+            },
+            "require-dev": {
+                "laravel/pint": "^1.13",
+                "orchestra/testbench": "^8.0 || ^9.0 || ^10.0",
+                "phpstan/phpstan": "^1.10",
+                "phpunit/phpunit": "^10.0 || ^11.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "aliases": {
+                        "JsonLd": "Asmi\\JsonLd\\Facades\\JsonLd"
+                    },
+                    "providers": [
+                        "Asmi\\JsonLd\\JsonLdServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "files": [
+                    "src/Support/helpers.php"
+                ],
+                "psr-4": {
+                    "Asmi\\JsonLd\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Asmi",
+                    "email": "asmi046@gmail.com"
+                }
+            ],
+            "description": "Laravel package for rendering JSON-LD schema entities (Person, Organization, Article, Product, WebSite) with a fluent facade API",
+            "homepage": "https://github.com/asmi046/json_ld",
+            "keywords": [
+                "JSON-LD",
+                "laravel",
+                "schema-org",
+                "seo",
+                "structured-data"
+            ],
+            "support": {
+                "issues": "https://github.com/asmi046/json_ld/issues",
+                "source": "https://github.com/asmi046/json_ld"
+            },
+            "time": "2026-07-16T14:51:19+00:00"
         },
         {
             "name": "brick/math",
