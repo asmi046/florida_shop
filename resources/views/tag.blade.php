@@ -5,7 +5,7 @@
 
 @section('content')
 
-    <x-headers.header-inner :h1="$tag_info['alt_title']"></x-headers.header-inner>
+    <x-headers.header-inner :h1="$tag_info['title']"></x-headers.header-inner>
 
     <section id="catalog_section" class="catalog_section">
         <div class="_wrapper">
