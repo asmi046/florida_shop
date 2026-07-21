@@ -10,7 +10,7 @@
 
 @section('content')
 
-    <x-headers.header-inner :h1="$title"></x-headers.header-inner>
+    <x-headers.header-inner :h1="$cat_info->title"></x-headers.header-inner>
 
     <section class="category">
         <div class="_wrapper">
