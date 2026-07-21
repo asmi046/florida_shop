@@ -2,7 +2,7 @@
 <html lang="ru">
 
 <head>
-    <title>@yield('title') - Florida</title>
+    <title>@yield('title') | Florida</title>
     <meta name="description" content="@yield('description')">
 
     @php
