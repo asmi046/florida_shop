@@ -5,6 +5,7 @@ namespace App\Console\Commands;
 use App\Models\Category;
 use App\Models\Product;
 use App\Models\ProductTag;
+use App\Models\Celebration;
 use Illuminate\Console\Command;
 
 class LoadMetaTags extends Command
@@ -141,6 +142,8 @@ class LoadMetaTags extends Command
             return 'Category';
         } elseif (str_contains($url, '/tags/')) {
             return 'ProductTag';
+        } elseif (str_contains($url, '/celebrations/')) {
+            return 'Celebration';
         }
         return null;
     }
@@ -161,6 +164,7 @@ class LoadMetaTags extends Command
         $model = match ($modelName) {
             'Category' => Category::where('slug', $slug)->first(),
             'ProductTag' => ProductTag::where('slug', $slug)->first(),
+            'Celebration' => Celebration::where('slug', $slug)->first(),
             'Product' => Product::where('slug', $slug)->first(),
             default => null
         };

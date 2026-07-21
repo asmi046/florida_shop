@@ -16,7 +16,9 @@ class Celebration extends Model
     public $fillable = [
         'title',
         'slug',
-        'description'
+        'description',
+        'seo_title',
+        'seo_description'
     ];
 
     public function setSlugAttribute($value)
