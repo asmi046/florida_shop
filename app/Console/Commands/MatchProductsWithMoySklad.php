@@ -13,11 +13,16 @@ class MatchProductsWithMoySklad extends Command
                             {--file=public/moysklad_assortment.json : Путь к JSON-файлу ассортимента}
                             {--threshold=0.80 : Минимальный порог совпадения для авто-связывания}
                             {--dry-run : Только показать результат без записи в БД}
-                            {--overwrite : Обновлять даже уже заполненные code/externalCode}';
+                            {--overwrite : Обновлять даже уже заполненные code/externalCode}
+                            {--price-weight=0.20 : Вес цены в общем score (0 = отключить проверку цены)}
+                            {--price-tolerance=0.20 : Максимальная относительная разница цен (0.20 = 20%)}';
 
-    protected $description = 'Сопоставление товаров Product с ассортиментом МойСклад по нечёткому совпадению названий';
+    protected $description = 'Сопоставление товаров Product с ассортиментом МойСклад по нечёткому совпадению названий и цены';
 
     const SESSION_TYPE = 'match_products';
+
+    private float $priceWeight;
+    private float $priceTolerance;
 
     public function handle(): int
     {
@@ -25,6 +30,8 @@ class MatchProductsWithMoySklad extends Command
         $threshold = (float) $this->option('threshold');
         $dryRun = (bool) $this->option('dry-run');
         $overwrite = (bool) $this->option('overwrite');
+        $this->priceWeight = (float) $this->option('price-weight');
+        $this->priceTolerance = (float) $this->option('price-tolerance');
 
         $startTime = now();
 
@@ -34,6 +41,8 @@ class MatchProductsWithMoySklad extends Command
             'threshold' => $threshold,
             'dry_run' => $dryRun,
             'overwrite' => $overwrite,
+            'price_weight' => $this->priceWeight,
+            'price_tolerance' => $this->priceTolerance,
         ]);
 
         $fullPath = base_path($file);
@@ -57,10 +66,15 @@ class MatchProductsWithMoySklad extends Command
             if (empty($row['name'])) {
                 continue;
             }
+            // Цена хранится в копейках: salePrices[0].value (680000 => 6800.00 руб)
+            $priceKopecks = $row['salePrices'][0]['value'] ?? null;
+            $priceRubles = ($priceKopecks !== null) ? ((float) $priceKopecks) / 100.0 : null;
+
             $moyskladIndex[] = [
                 'name' => $row['name'],
                 'code' => $row['code'] ?? null,
                 'externalCode' => $row['externalCode'] ?? null,
+                'price' => $priceRubles,
             ];
         }
 
@@ -76,7 +90,7 @@ class MatchProductsWithMoySklad extends Command
                   ->orWhere('externalCode', '');
             });
         }
-        $products = $query->get(['id', 'title', 'code', 'externalCode']);
+        $products = $query->get(['id', 'title', 'price', 'code', 'externalCode']);
 
         if ($products->isEmpty()) {
             $this->warn('Нет товаров, подходящих для сопоставления.');
@@ -85,6 +99,15 @@ class MatchProductsWithMoySklad extends Command
 
         $this->info("2. Товаров для сопоставления: {$products->count()}");
         $this->info("   Порог совпадения: {$threshold}" . ($dryRun ? '   [DRY-RUN]' : ''));
+        if ($this->priceWeight > 0) {
+            $this->info(sprintf(
+                "   Цена: вес %.2f, допуск %.0f%% (относительная разница)",
+                $this->priceWeight,
+                $this->priceTolerance * 100
+            ));
+        } else {
+            $this->info('   Цена: проверка отключена (--price-weight=0)');
+        }
         $this->newLine();
 
         $matched = 0;
@@ -93,7 +116,7 @@ class MatchProductsWithMoySklad extends Command
         $report = [];
 
         foreach ($products as $product) {
-            $best = $this->findBestMatch($product->title, $moyskladIndex);
+            $best = $this->findBestMatch($product->title, (float) $product->price, $moyskladIndex);
 
             if ($best === null || $best['score'] < $threshold) {
                 $unmatched++;
@@ -101,10 +124,10 @@ class MatchProductsWithMoySklad extends Command
                     $lowConfidence++;
                     $report[] = [
                         $product->id,
-                        $this->truncate($product->title, 40),
-                        $this->truncate($best['name'], 40),
+                        $this->truncate($product->title, 36),
+                        $this->truncate($best['name'], 36),
                         number_format($best['score'], 3) . ' ✗',
-                        '-',
+                        $this->formatPricePair((float) $product->price, $best['price']),
                     ];
                 }
                 continue;
@@ -114,10 +137,10 @@ class MatchProductsWithMoySklad extends Command
             $matched++;
             $report[] = [
                 $product->id,
-                $this->truncate($product->title, 40),
-                $this->truncate($best['name'], 40),
+                $this->truncate($product->title, 36),
+                $this->truncate($best['name'], 36),
                 number_format($best['score'], 3) . ' ✓',
-                $best['code'] ?? '-',
+                $this->formatPricePair((float) $product->price, $best['price']),
             ];
 
             if (! $dryRun) {
@@ -130,7 +153,11 @@ class MatchProductsWithMoySklad extends Command
                     'session_type' => self::SESSION_TYPE,
                     'product_id' => $product->id,
                     'product_title' => $product->title,
+                    'product_price' => $product->price,
                     'moysklad_name' => $best['name'],
+                    'moysklad_price' => $best['price'],
+                    'name_score' => $best['name_score'],
+                    'price_score' => $best['price_score'],
                     'score' => $best['score'],
                     'code' => $best['code'],
                     'externalCode' => $best['externalCode'],
@@ -140,7 +167,7 @@ class MatchProductsWithMoySklad extends Command
 
         // 3. Отчёт
         $this->table(
-            ['ID', 'Product.title', 'МойСklad name', 'Score', 'code'],
+            ['ID', 'Product.title', 'МойСklad name', 'Score', 'Цена (руб)'],
             $report
         );
         $this->newLine();
@@ -182,18 +209,23 @@ class MatchProductsWithMoySklad extends Command
 
     /**
      * Найти наилучшее совпадение названия товара среди записей МойСклад.
+     * Итоговый score = nameScore при выключенной цене, иначе
+     * nameScore * (1 - priceWeight) + priceSim * priceWeight.
      *
      * @param string $productTitle
-     * @param array $moyskladIndex
-     * @return array|null  ['name', 'code', 'externalCode', 'score']
+     * @param float  $productPrice  цена товара в рублях
+     * @param array  $moyskladIndex
+     * @return array|null  ['name', 'code', 'externalCode', 'price', 'name_score', 'price_score', 'score']
      */
-    private function findBestMatch(string $productTitle, array $moyskladIndex): ?array
+    private function findBestMatch(string $productTitle, float $productPrice, array $moyskladIndex): ?array
     {
         $best = null;
         $bestScore = 0.0;
 
         foreach ($moyskladIndex as $row) {
-            $score = $this->scoreForShop($productTitle, $row['name']);
+            $nameScore = $this->scoreForShop($productTitle, $row['name']);
+            $priceScore = $this->priceSimilarity($productPrice, $row['price']);
+            $score = $this->combineScores($nameScore, $priceScore);
 
             if ($score > $bestScore) {
                 $bestScore = $score;
@@ -201,12 +233,65 @@ class MatchProductsWithMoySklad extends Command
                     'name' => $row['name'],
                     'code' => $row['code'],
                     'externalCode' => $row['externalCode'],
+                    'price' => $row['price'],
+                    'name_score' => $nameScore,
+                    'price_score' => $priceScore,
                     'score' => $score,
                 ];
             }
         }
 
         return $best;
+    }
+
+    /**
+     * Коэффициент сходства цены (0..1) на основе относительной разницы.
+     * Возвращает null, если цена недоступна хотя бы с одной стороны.
+     *
+     * priceSim = max(0, 1 - relDiff / tolerance)
+     * где relDiff = |p1 - p2| / max(p1, p2)
+     */
+    private function priceSimilarity(?float $p1, ?float $p2): ?float
+    {
+        if ($this->priceWeight <= 0.0) {
+            return null;
+        }
+        if ($p1 === null || $p2 === null || $p1 <= 0.0 || $p2 <= 0.0) {
+            return null;
+        }
+
+        $relDiff = abs($p1 - $p2) / max($p1, $p2);
+
+        if ($this->priceTolerance <= 0.0) {
+            return $relDiff === 0.0 ? 1.0 : 0.0;
+        }
+
+        $sim = 1.0 - ($relDiff / $this->priceTolerance);
+        return max(0.0, min(1.0, $sim));
+    }
+
+    /**
+     * Объединить score по названию и цене в итоговый коэффициент.
+     * Если цена недоступна — используется только score по названию.
+     */
+    private function combineScores(float $nameScore, ?float $priceScore): float
+    {
+        if ($priceScore === null) {
+            return $nameScore;
+        }
+
+        $w = $this->priceWeight;
+        return $nameScore * (1.0 - $w) + $priceScore * $w;
+    }
+
+    /**
+     * Форматирование пары цен для отчёта: «6800 → 6800» или «6800 → ?».
+     */
+    private function formatPricePair(float $productPrice, ?float $moyskladPrice): string
+    {
+        $a = number_format($productPrice, 0, ',', ' ');
+        $b = $moyskladPrice !== null ? number_format($moyskladPrice, 0, ',', ' ') : '?';
+        return "{$a} → {$b}";
     }
 
     /**
