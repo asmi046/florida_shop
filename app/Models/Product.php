@@ -39,12 +39,16 @@ class Product extends Model
         'radius',
         'consist',
         'seo_title',
-        'seo_description'
+        'seo_description',
+        'skladCount',
+        'code',
+        'externalCode'
     ];
 
 
     protected $casts = [
-        'consist' => 'array'
+        'consist' => 'array',
+        'skladCount' => 'integer',
     ];
 
     protected $allowedSorts = [
