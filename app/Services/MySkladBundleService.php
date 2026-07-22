@@ -42,10 +42,12 @@ class MySkladBundleService
 
         $canProduce = $this->calculateProducibleCount($structure);
 
+        // skladCount записываем всегда
+        $product->skladCount = $canProduce;
+
+        // asc_nal обновляем только не в dry-run режиме
         if (!$dryRun) {
-            $product->skladCount = $canProduce;
             $product->asc_nal = $canProduce > 0;
-            $product->save();
 
             Log::channel('my_sklad')->info('Обновлен продукт', [
                 'product_id' => $product->id,
@@ -56,6 +58,8 @@ class MySkladBundleService
                 'asc_nal' => $canProduce > 0,
             ]);
         }
+
+        $product->save();
 
         return [
             'skladCount' => $canProduce,
