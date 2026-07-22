@@ -85,6 +85,21 @@ class ProductCreateScreen extends Screen
                     ->placeholder('Уточнить наличие')
                     ->help('Разрешить продажу или запросить уточнение')->horizontal(),
 
+                Input::make('skladCount')
+                    ->title('Количество на складе')
+                    ->help('Количество формируемых продуктов (МойСклад)')
+                    ->horizontal(),
+
+                Input::make('code')
+                    ->title('Код МойСклад')
+                    ->help('Код из МойСклад')
+                    ->horizontal(),
+
+                Input::make('externalCode')
+                    ->title('Внешний код МойСклад')
+                    ->help('Внешний код из МойСклад')
+                    ->horizontal(),
+
                 Input::make('sku')
                     ->title('Артикул')
                     ->help('Артикул уникальный для каждого товара')
@@ -197,6 +212,9 @@ class ProductCreateScreen extends Screen
             'radius' => [],
             'seo_title' => [],
             'seo_description' => [],
+            'skladCount' => [],
+            'code' => [],
+            'externalCode' => [],
         ]);
 
 

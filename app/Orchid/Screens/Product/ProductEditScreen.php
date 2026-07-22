@@ -108,6 +108,24 @@ class ProductEditScreen extends Screen
                     ->placeholder('Уточнить наличие')
                     ->help('Разрешить продажу или запросить уточнение')->horizontal(),
 
+                Input::make('skladCount')
+                    ->title('Количество на складе')
+                    ->value($this->product->skladCount)
+                    ->help('Количество формируемых продуктов (МойСклад)')
+                    ->horizontal(),
+
+                Input::make('code')
+                    ->title('Код МойСклад')
+                    ->value($this->product->code)
+                    ->help('Код из МойСклад')
+                    ->horizontal(),
+
+                Input::make('externalCode')
+                    ->title('Внешний код МойСклад')
+                    ->value($this->product->externalCode)
+                    ->help('Внешний код из МойСклад')
+                    ->horizontal(),
+
                 Input::make('sku')
                     ->title('Артикул')
                     ->value($this->product->sku)
@@ -300,6 +318,9 @@ class ProductEditScreen extends Screen
             'radius' => [],
             'seo_title' => [],
             'seo_description' => [],
+            'skladCount' => [],
+            'code' => [],
+            'externalCode' => [],
         ]);
 
         $new_data['consist'] = isset($new_data['consist'])?$new_data['consist']:null;

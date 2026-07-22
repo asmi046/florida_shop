@@ -44,9 +44,8 @@ class ProductListTable extends Table
             TD::make('sku', 'Артикул')->width("5%")->sort(),
             TD::make('title', 'Заголовок')->width("25%")->sort()->filter(TD::FILTER_TEXT),
             TD::make('slug', 'Ссылка')->width("25%"),
-            TD::make('description', 'Описание')->width("25%")->render(function($element) {
-                return  mb_strimwidth(strip_tags($element->description), 0, 30, "...");
-            }),
+            TD::make('code', 'Код Мой склад'),
+            TD::make('skladCount', 'На складе')->sort(),
 
             // TD::make('action', 'Действие')->render(function($element) {
             //     return  Group::make([
