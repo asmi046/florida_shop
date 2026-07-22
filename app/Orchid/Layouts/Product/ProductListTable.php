@@ -46,6 +46,11 @@ class ProductListTable extends Table
             TD::make('slug', 'Ссылка')->width("25%"),
             TD::make('code', 'Код Мой склад'),
             TD::make('skladCount', 'На складе')->sort(),
+            TD::make('asc_nal', 'Уточнить наличие')->render(function($element) {
+                return $element->asc_nal
+                    ? '<span class="text-success">Да</span>'
+                    : '<span class="text-danger">Нет</span>';
+            }),
 
             // TD::make('action', 'Действие')->render(function($element) {
             //     return  Group::make([

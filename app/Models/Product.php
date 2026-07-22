@@ -4,23 +4,18 @@ namespace App\Models;
 
 use App\Filters\QueryFilter;
 use Illuminate\Database\Eloquent\Builder;
-
-
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-
 use Illuminate\Support\Str;
-
-use Orchid\Screen\AsSource;
 use Orchid\Filters\Filterable;
-
 use Orchid\Filters\Types\Like;
+use Orchid\Screen\AsSource;
 
 class Product extends Model
 {
-    use HasFactory;
     use AsSource;
     use Filterable;
+    use HasFactory;
 
     public $fillable = [
         'id',
@@ -42,9 +37,8 @@ class Product extends Model
         'seo_description',
         'skladCount',
         'code',
-        'externalCode'
+        'externalCode',
     ];
-
 
     protected $casts = [
         'consist' => 'array',
@@ -54,37 +48,42 @@ class Product extends Model
     protected $allowedSorts = [
         'id',
         'sku',
-        'title'
+        'title',
+        'skladCount',
     ];
 
-    protected $allowedFilters  = [
-        'title' => Like::class
+    protected $allowedFilters = [
+        'title' => Like::class,
     ];
 
     public $with = ['tovar_categories', 'product_images'];
 
-
-    public function scopeFilter(Builder $builder, QueryFilter $filter) {
+    public function scopeFilter(Builder $builder, QueryFilter $filter)
+    {
         return $filter->apply($builder);
     }
 
     public function setSlugAttribute($value)
     {
-        if (empty($value))
-            $this->attributes['slug'] =  Str::slug($this->title);
-        else
-            $this->attributes['slug'] =  $value;
+        if (empty($value)) {
+            $this->attributes['slug'] = Str::slug($this->title);
+        } else {
+            $this->attributes['slug'] = $value;
+        }
     }
 
-    public function product_images() {
+    public function product_images()
+    {
         return $this->hasMany(ProductImage::class);
     }
 
-    public function tovar_categories() {
+    public function tovar_categories()
+    {
         return $this->belongsToMany(Category::class);
     }
 
-    public function tovar_celebration() {
+    public function tovar_celebration()
+    {
         return $this->belongsToMany(Celebration::class);
     }
 
