@@ -2,28 +2,21 @@
 
 namespace App\Orchid\Screens\Product;
 
-use Orchid\Screen\Screen;
-
-use App\Models\Product;
 use App\Models\Category;
-use App\Models\ProductImage;
-
-use Orchid\Support\Facades\Layout;
-use Orchid\Screen\Fields\Input;
-use Orchid\Screen\Fields\Quill;
-use Orchid\Support\Facades\Toast;
+use App\Models\Product;
+use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
 use Orchid\Screen\Actions\Button;
-use Orchid\Support\Color;
+use Orchid\Screen\Fields\Input;
 use Orchid\Screen\Fields\Picture;
+use Orchid\Screen\Fields\Quill;
+use Orchid\Screen\Fields\Relation;
 use Orchid\Screen\Fields\Switcher;
 use Orchid\Screen\Fields\TextArea;
-use Orchid\Screen\Fields\Relation;
-use Orchid\Screen\Actions\ModalToggle;
-use Illuminate\Validation\Rule;
-
-use App\Orchid\Layouts\Product\ProductImageTable;
-
-use Illuminate\Http\Request;
+use Orchid\Screen\Screen;
+use Orchid\Support\Color;
+use Orchid\Support\Facades\Layout;
+use Orchid\Support\Facades\Toast;
 
 class ProductCreateScreen extends Screen
 {
@@ -32,7 +25,6 @@ class ProductCreateScreen extends Screen
      *
      * @return array
      */
-
     public function query(): iterable
     {
         return [];
@@ -40,8 +32,6 @@ class ProductCreateScreen extends Screen
 
     /**
      * Display header name.
-     *
-     * @return string|null
      */
     public function name(): ?string
     {
@@ -74,7 +64,7 @@ class ProductCreateScreen extends Screen
                         ->title('alt изображения'),
 
                     Input::make('title')
-                        ->title('title изображения')
+                        ->title('title изображения'),
                 ]),
             ]),
 
@@ -86,6 +76,9 @@ class ProductCreateScreen extends Screen
                     ->help('Разрешить продажу или запросить уточнение')->horizontal(),
 
                 Input::make('skladCount')
+                    ->type('number')
+                    ->min(0)
+                    ->value(0)
                     ->title('Количество на складе')
                     ->help('Количество формируемых продуктов (МойСклад)')
                     ->horizontal(),
@@ -116,7 +109,6 @@ class ProductCreateScreen extends Screen
                     ->title('Окончание ссылки')
                     ->help('Slug категории')
                     ->horizontal(),
-
 
                 Input::make('height')
                     ->title('Высота')
@@ -156,17 +148,15 @@ class ProductCreateScreen extends Screen
                     ->placeholder('Пометка new')
                     ->help('Пометка new ')->horizontal(),
 
-
                 Relation::make('category.')
                     ->fromModel(Category::class, 'title', 'id')
                     ->title('Категории товара')
                     ->multiple()
                     ->help('Выберите категорию'),
 
-
                 Quill::make('description')->title('Описание'),
 
-                Button::make('Сохранить')->method('save_info')->type(Color::SUCCESS())
+                Button::make('Сохранить')->method('save_info')->type(Color::SUCCESS()),
             ])->title('Основные поля'),
 
             Layout::rows([
@@ -179,25 +169,25 @@ class ProductCreateScreen extends Screen
                     ->title('SEO описание')
                     ->help('SEO описание')
                     ->horizontal(),
-                Button::make('Сохранить')->method('save_info')->type(Color::SUCCESS())
+                Button::make('Сохранить')->method('save_info')->type(Color::SUCCESS()),
             ])->title('SEO поля'),
 
             Layout::rows([
 
                 Picture::make('img')->title('Загрузить основное изображение записи')->storage('public')->targetRelativeUrl(),
 
-                Button::make('Сохранить')->method('save_info')->type(Color::SUCCESS())
+                Button::make('Сохранить')->method('save_info')->type(Color::SUCCESS()),
             ])->title('Изображения'),
-
-
 
         ];
     }
 
-    public function save_info(Request $request) {
+    public function save_info(Request $request)
+    {
 
         $new_data = $request->validate([
             'sku' => ['required', 'string',  Rule::unique('products')->ignore(Product::class)],
+            'skladCount' => ['integer', 'min:0'],
             'title' => ['required', 'string'],
             'slug' => [],
             'img' => [],
@@ -217,12 +207,13 @@ class ProductCreateScreen extends Screen
             'externalCode' => [],
         ]);
 
+        $new_data['skladCount'] = $new_data['skladCount'] ?? 0;
 
         $new_tovar = Product::create($new_data);
 
-        $new_tovar->tovar_categories()->sync($request->get("category"));
+        $new_tovar->tovar_categories()->sync($request->get('category'));
 
-        Toast::info("Товар добавлен");
+        Toast::info('Товар добавлен');
 
         return redirect()->route('platform.product');
     }

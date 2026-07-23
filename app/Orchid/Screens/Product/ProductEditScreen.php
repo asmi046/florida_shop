@@ -2,31 +2,27 @@
 
 namespace App\Orchid\Screens\Product;
 
-use Orchid\Screen\Screen;
-
-use App\Models\Product;
 use App\Models\Category;
-use App\Models\ProductImage;
 use App\Models\Celebration;
+use App\Models\Product;
+use App\Models\ProductImage;
 use App\Models\ProductTag;
-
-use Orchid\Support\Facades\Layout;
-use Orchid\Screen\Fields\Input;
-use Orchid\Screen\Fields\Quill;
-use Orchid\Support\Facades\Toast;
+use App\Orchid\Layouts\Product\ProductImageTable;
+use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
 use Orchid\Screen\Actions\Button;
-use Orchid\Support\Color;
+use Orchid\Screen\Actions\ModalToggle;
+use Orchid\Screen\Fields\Input;
+use Orchid\Screen\Fields\Matrix;
 use Orchid\Screen\Fields\Picture;
+use Orchid\Screen\Fields\Quill;
+use Orchid\Screen\Fields\Relation;
 use Orchid\Screen\Fields\Switcher;
 use Orchid\Screen\Fields\TextArea;
-use Orchid\Screen\Fields\Matrix;
-use Orchid\Screen\Fields\Relation;
-use Orchid\Screen\Actions\ModalToggle;
-use Illuminate\Validation\Rule;
-
-use App\Orchid\Layouts\Product\ProductImageTable;
-
-use Illuminate\Http\Request;
+use Orchid\Screen\Screen;
+use Orchid\Support\Color;
+use Orchid\Support\Facades\Layout;
+use Orchid\Support\Facades\Toast;
 
 class ProductEditScreen extends Screen
 {
@@ -35,34 +31,35 @@ class ProductEditScreen extends Screen
      *
      * @return array
      */
-
     public $product;
+
     public $product_cat;
+
     public $product_cel;
+
     public $product_img;
+
     public $product_tags;
 
     public function query($id): iterable
     {
-        $product = Product::where('id',$id)->first();
+        $product = Product::where('id', $id)->first();
         $cat = $product->tovar_categories;
         $cel = $product->tovar_celebration;
         $img = $product->product_images;
         $tags = $product->tags;
 
         return [
-            "product" => $product,
-            "product_cat"=> $cat,
-            "product_cel"=> $cel,
-            "product_img" => $img,
-            "product_tags" => $tags,
+            'product' => $product,
+            'product_cat' => $cat,
+            'product_cel' => $cel,
+            'product_img' => $img,
+            'product_tags' => $tags,
         ];
     }
 
     /**
      * Display header name.
-     *
-     * @return string|null
      */
     public function name(): ?string
     {
@@ -95,7 +92,7 @@ class ProductEditScreen extends Screen
                         ->title('alt изображения'),
 
                     Input::make('title')
-                        ->title('title изображения')
+                        ->title('title изображения'),
                 ]),
             ]),
 
@@ -109,9 +106,11 @@ class ProductEditScreen extends Screen
                     ->help('Разрешить продажу или запросить уточнение')->horizontal(),
 
                 Input::make('skladCount')
+                    ->type('number')
                     ->title('Количество на складе')
-                    ->value($this->product->skladCount)
                     ->help('Количество формируемых продуктов (МойСклад)')
+                    ->min(0)
+                    ->value($this->product->skladCount ?? 0)
                     ->horizontal(),
 
                 Input::make('code')
@@ -191,7 +190,6 @@ class ProductEditScreen extends Screen
                     ->placeholder('Пометка new')
                     ->help('Пометка new ')->horizontal(),
 
-
                 Relation::make('category.')
                     ->fromModel(Category::class, 'title', 'id')
                     ->title('Категории товара')
@@ -213,25 +211,22 @@ class ProductEditScreen extends Screen
                     ->multiple()
                     ->help('Выберите теги для товара'),
 
-
                 Matrix::make('consist')
                     ->title('Состав букета')
                     ->help('Состав букета (ингридиент, количество в штуках)')
                     ->value($this->product->consist)
                     ->columns([
                         'Имя',
-                        'Количество'
+                        'Количество',
                     ])
                     ->fields([
-                        'Имя'   => Input::make()->type('text'),
+                        'Имя' => Input::make()->type('text'),
                         'Количество' => Input::make()->type('number'),
                     ]),
 
-
-
                 Quill::make('description')->title('Описание')->value($this->product->description),
 
-                Button::make('Сохранить')->method('save_info')->type(Color::SUCCESS())
+                Button::make('Сохранить')->method('save_info')->type(Color::SUCCESS()),
             ])->title('Основные поля'),
 
             Layout::rows([
@@ -246,34 +241,32 @@ class ProductEditScreen extends Screen
                     ->value($this->product->seo_description)
                     ->help('SEO описание')
                     ->horizontal(),
-                Button::make('Сохранить')->method('save_info')->type(Color::SUCCESS())
+                Button::make('Сохранить')->method('save_info')->type(Color::SUCCESS()),
             ])->title('SEO поля'),
 
             Layout::rows([
 
                 Picture::make('img')->title('Загрузить основное изображение записи')->storage('public')->targetRelativeUrl()->value($this->product->img),
 
-                Button::make('Сохранить')->method('save_info')->type(Color::SUCCESS())
+                Button::make('Сохранить')->method('save_info')->type(Color::SUCCESS()),
             ])->title('Изображения'),
 
             ProductImageTable::class,
 
-
             Layout::rows([
 
                 ModalToggle::make('Добавить изображение')
-                ->modal('ImgLoadModal')
-                ->method('load_image')
-                ->icon('picture')
-                ->modalTitle('Добавить изображение'),
+                    ->modal('ImgLoadModal')
+                    ->method('load_image')
+                    ->icon('picture')
+                    ->modalTitle('Добавить изображение'),
 
             ])->title('Управление изображениями товара'),
         ];
     }
 
-
-
-    public function load_image(Product $product, Request $request) {
+    public function load_image(Product $product, Request $request)
+    {
         // dd($request->all());
         $new_data = $request->validate([
             'link' => ['required', 'string'],
@@ -283,21 +276,23 @@ class ProductEditScreen extends Screen
 
         $this->product->product_images()->create($new_data);
 
-        Toast::info("Изображение добавлено");
+        Toast::info('Изображение добавлено');
     }
 
-    public function delete_image(Request $request) {
-        $dell_elem = ProductImage::where('id', $request->input("id"))->first();
+    public function delete_image(Request $request)
+    {
+        $dell_elem = ProductImage::where('id', $request->input('id'))->first();
 
-        if ($dell_elem ) {
+        if ($dell_elem) {
             $dell_elem->delete();
-            Toast::info("Изображение удалено");
+            Toast::info('Изображение удалено');
         } else {
-            Toast::info("Ошибка при удалении");
+            Toast::info('Ошибка при удалении');
         }
     }
 
-    public function save_info(Product $product, Request $request) {
+    public function save_info(Product $product, Request $request)
+    {
 
         // dd($request->get("category"));
 
@@ -323,13 +318,14 @@ class ProductEditScreen extends Screen
             'externalCode' => [],
         ]);
 
-        $new_data['consist'] = isset($new_data['consist'])?$new_data['consist']:null;
+        $new_data['skladCount'] = $new_data['skladCount'] ?? 0;
+        $new_data['consist'] = isset($new_data['consist']) ? $new_data['consist'] : null;
 
-        $this->product->tovar_categories()->sync($request->get("category"));
-        $this->product->tovar_celebration()->sync($request->get("сelebration"));
-        $this->product->tags()->sync($request->get("tags"));
+        $this->product->tovar_categories()->sync($request->get('category'));
+        $this->product->tovar_celebration()->sync($request->get('сelebration'));
+        $this->product->tags()->sync($request->get('tags'));
 
         Product::where('id', $this->product->id)->update($new_data);
-        Toast::info("Продукт сохранен");
+        Toast::info('Продукт сохранен');
     }
 }
