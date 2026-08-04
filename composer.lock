@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "747f31f7ba82bee20bef3e7c2def8562",
+    "content-hash": "fdc5d48e47af191fe2b3990432083003",
     "packages": [
         {
             "name": "amocrm/amocrm-api-library",
@@ -194,6 +194,52 @@
                 "source": "https://github.com/asmi046/json_ld"
             },
             "time": "2026-07-16T14:51:19+00:00"
+        },
+        {
+            "name": "asmi046/site_skelet",
+            "version": "1.0.48",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/asmi046/site_skelet.git",
+                "reference": "7a6f85c380843cb7ef408483a088fc8792b18a27"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/asmi046/site_skelet/zipball/7a6f85c380843cb7ef408483a088fc8792b18a27",
+                "reference": "7a6f85c380843cb7ef408483a088fc8792b18a27",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^8.1"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Asmi046\\SiteSkelet\\Providers\\SkiletServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Asmi046\\SiteSkelet\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "asmi046",
+                    "email": "asmi046@gmail.com"
+                }
+            ],
+            "support": {
+                "issues": "https://github.com/asmi046/site_skelet/issues",
+                "source": "https://github.com/asmi046/site_skelet/tree/1.0.48"
+            },
+            "time": "2026-06-10T13:11:49+00:00"
         },
         {
             "name": "brick/math",

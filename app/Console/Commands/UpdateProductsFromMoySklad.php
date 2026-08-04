@@ -38,11 +38,12 @@ class UpdateProductsFromMoySklad extends Command
             Log::channel('my_sklad')->warning('Нет товаров для обновления', [
                 'session_type' => self::SESSION_TYPE,
             ]);
+
             return 0;
         }
 
         $modeLabel = $dryRun ? '   [DRY-RUN]' : '';
-        $this->info("Найдено товаров для обновления: {$products->count()}" . $modeLabel);
+        $this->info("Найдено товаров для обновления: {$products->count()}".$modeLabel);
         $this->newLine();
 
         $updated = 0;
@@ -73,7 +74,7 @@ class UpdateProductsFromMoySklad extends Command
 
         $this->newLine(2);
 
-        if ($dryRun && !empty($dryReport)) {
+        if ($dryRun && ! empty($dryReport)) {
             $this->info('Результаты расчёта (без записи в БД):');
             $this->table(
                 ['ID', 'Товар', 'Кол-во', 'asc_nal', 'Причина'],
@@ -121,6 +122,7 @@ class UpdateProductsFromMoySklad extends Command
         if (mb_strlen($s, 'UTF-8') <= $max) {
             return $s;
         }
-        return mb_substr($s, 0, $max - 1, 'UTF-8') . '…';
+
+        return mb_substr($s, 0, $max - 1, 'UTF-8').'…';
     }
 }
