@@ -1,6 +1,6 @@
 import './bootstrap';
 
-import {createApp} from 'vue/dist/vue.esm-bundler';
+import { createApp } from 'vue/dist/vue.esm-bundler';
 
 import Review from './components/Reviews/Review.vue'
 import BascetCounter from "./components/bascet/BascetCounter.vue"
@@ -12,6 +12,7 @@ import OneClickBuyWindow from "./components/OneClickBuyWindow.vue"
 
 import ToBascetBtnPage from './components/ToBascetBtnPage.vue'
 import TovarDataSend from './components/TovarDataSend.vue'
+import CookiesWarning from "./components/CookiesWarning.vue"
 
 import axios from 'axios'
 
@@ -30,7 +31,7 @@ import { Maskito } from '@maskito/core';
 import phoneMaskOptions from './mask';
 
 const global_app = createApp({
-    components:{
+    components: {
         Review,
         TovarDataSend,
         MapInPage,
@@ -39,7 +40,8 @@ const global_app = createApp({
         OneClickBuyWindow,
         BascetCounter,
         BascetAndCounter,
-        ToBascetBtnPage
+        ToBascetBtnPage,
+        CookiesWarning
     },
 
     setup() {

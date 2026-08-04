@@ -190,9 +190,14 @@
 
         <x-footer-map></x-footer-map>
         <x-footer></x-footer>
+
+        <cookies-warning privacy-policy-link="/policy" cookies-info-link="/cookie"
+            privacy-policy-accept-link="/policy_accept" />
     </div>
 
     <x-social-widget></x-social-widget>
+
+
 
 </body>
 <script src="{{ asset('js/lib/swiper/swiper-bundle.min.js') }}"></script>
