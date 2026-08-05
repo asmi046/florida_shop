@@ -26,6 +26,9 @@ class Kernel extends ConsoleKernel
         //     '--tries' => 3,
         //     '--timeout' => 120,
         // ])->everyMinute();
+
+        $schedule->command('moysklad:fetch')->hourlyAt(5);
+        $schedule->command('moysklad:update-products')->hourlyAt(35);
     }
 
     /**
