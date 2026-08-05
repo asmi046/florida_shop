@@ -15,7 +15,7 @@ class ProductTagController extends Controller
             abort('404');
         }
 
-        $allproduct = $tagInfo->products()->filter($request)->paginate(9)->withQueryString();
+        $allproduct = $tagInfo->products()->filter($request)->orderBy('asc_nal', 'ASC')->paginate(9)->withQueryString();
 
         if ($allproduct->currentPage() > $allproduct->lastPage() && $allproduct->total() > 0) {
             abort(404);
