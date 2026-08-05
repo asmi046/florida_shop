@@ -10,7 +10,7 @@ class CategoryController extends Controller
 {
     public function catalog(ProductFilter $request)
     {
-        $allproduct = Product::select('*')->filter($request)->orderBy('created_at', 'DESC')->paginate(16)->withQueryString();
+        $allproduct = Product::select('*')->filter($request)->orderBy('asc_nal', 'DESC')->paginate(16)->withQueryString();
 
         if ($allproduct->currentPage() > $allproduct->lastPage() && $allproduct->total() > 0) {
             abort(404);
