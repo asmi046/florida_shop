@@ -27,7 +27,7 @@ class CategoryController extends Controller
             abort(404);
         }
 
-        $allproduct = $categoryInfo->category_tovars()->paginate(16)->withQueryString();
+        $allproduct = $categoryInfo->category_tovars()->orderBy('asc_nal', 'ASC')->paginate(16)->withQueryString();
 
         if ($allproduct->currentPage() > $allproduct->lastPage() && $allproduct->total() > 0) {
             abort(404);
