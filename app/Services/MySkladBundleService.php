@@ -12,15 +12,14 @@ class MySkladBundleService
     /**
      * Обновляет данные продукта на основе состава из МойСклад.
      *
-     * @param Product $product
-     * @param bool $dryRun Если true — расчёт без записи в БД
+     * @param  bool  $dryRun  Если true — расчёт без записи в БД
      * @return array [skladCount, asc_nal, structure, skipped]
      */
     public function updateProductStock(Product $product, bool $dryRun = false): array
     {
         $assortiment = \App\Models\MySkladAssortiment::where('externalCode', $product->externalCode)->first();
 
-        if (!$assortiment) {
+        if (! $assortiment) {
             return $this->emptyResult('no_assortiment');
         }
 
@@ -46,7 +45,7 @@ class MySkladBundleService
         $product->skladCount = $canProduce;
 
         // asc_nal обновляем только не в dry-run режиме
-        if (!$dryRun) {
+        if (! $dryRun) {
             $product->asc_nal = $canProduce > 0;
 
             Log::channel('my_sklad')->info('Обновлен продукт', [
@@ -55,7 +54,7 @@ class MySkladBundleService
                 'externalCode' => $product->externalCode,
                 'components' => $structure,
                 'skladCount' => $canProduce,
-                'asc_nal' => $canProduce > 0,
+                'asc_nal' => $canProduce <= 0,
             ]);
         }
 
@@ -71,9 +70,6 @@ class MySkladBundleService
 
     /**
      * Возвращает пустой результат с причиной пропуска.
-     *
-     * @param string $reason
-     * @return array
      */
     private function emptyResult(string $reason): array
     {
@@ -87,9 +83,6 @@ class MySkladBundleService
 
     /**
      * Получает состав комплекта по ссылке.
-     *
-     * @param string $href
-     * @return array
      */
     private function fetchComponents(string $href): array
     {
@@ -103,24 +96,23 @@ class MySkladBundleService
             ])
             ->get($href);
 
-        if (!$response->successful()) {
+        if (! $response->successful()) {
             Log::channel('my_sklad')->error('Ошибка при запросе состава комплекта', [
                 'href' => $href,
                 'status' => $response->status(),
                 'body' => $response->body(),
             ]);
+
             return [];
         }
 
         $data = $response->json();
+
         return $data['rows'] ?? [];
     }
 
     /**
      * Формирует структуру с id, quantity и stock.
-     *
-     * @param array $components
-     * @return array
      */
     private function buildStockStructure(array $components): array
     {
@@ -131,7 +123,7 @@ class MySkladBundleService
         }, $components), 'id');
 
         $ids = array_filter($ids);
-        $skladIds = array_map(fn($href) => $this->extractIdFromHref($href), $ids);
+        $skladIds = array_map(fn ($href) => $this->extractIdFromHref($href), $ids);
 
         $stocks = MySkladStock::whereIn('assortmentId', $skladIds)
             ->pluck('freeStock', 'assortmentId')
@@ -155,9 +147,6 @@ class MySkladBundleService
 
     /**
      * Извлекает UUID из URL.
-     *
-     * @param string|null $href
-     * @return string|null
      */
     private function extractIdFromHref(?string $href): ?string
     {
@@ -166,14 +155,12 @@ class MySkladBundleService
         }
 
         preg_match('/([0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12})/i', $href, $matches);
+
         return $matches[1] ?? null;
     }
 
     /**
      * Вычисляет, сколько продуктов можно сформировать.
-     *
-     * @param array $structure
-     * @return int
      */
     private function calculateProducibleCount(array $structure): int
     {
