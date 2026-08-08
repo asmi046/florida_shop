@@ -62,7 +62,7 @@ class MySkladBundleService
 
         return [
             'skladCount' => $canProduce,
-            'asc_nal' => $canProduce > 0,
+            'asc_nal' => $canProduce <= 0,
             'structure' => $structure,
             'skipped' => null,
         ];
