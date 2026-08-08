@@ -20,23 +20,23 @@ class MySkladBundleService
         $assortiment = \App\Models\MySkladAssortiment::where('externalCode', $product->externalCode)->first();
 
         if (! $assortiment) {
-            return $this->emptyResult('no_assortiment');
+            return $this->emptyResult('no_assortiment', $product);
         }
 
         if (empty($assortiment->components_href)) {
-            return $this->emptyResult('no_components');
+            return $this->emptyResult('no_components', $product);
         }
 
         $components = $this->fetchComponents($assortiment->components_href);
 
         if (empty($components)) {
-            return $this->emptyResult('empty_components');
+            return $this->emptyResult('empty_components', $product);
         }
 
         $structure = $this->buildStockStructure($components);
 
         if (empty($structure)) {
-            return $this->emptyResult('empty_structure');
+            return $this->emptyResult('empty_structure', $product);
         }
 
         $canProduce = $this->calculateProducibleCount($structure);
