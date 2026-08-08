@@ -46,7 +46,7 @@ class MySkladBundleService
 
         // asc_nal обновляем только не в dry-run режиме
         if (! $dryRun) {
-            $product->asc_nal = $canProduce > 0;
+            $product->asc_nal = $canProduce <= 0;
 
             Log::channel('my_sklad')->info('Обновлен продукт', [
                 'product_id' => $product->id,
