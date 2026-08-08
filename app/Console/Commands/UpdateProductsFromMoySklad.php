@@ -64,7 +64,7 @@ class UpdateProductsFromMoySklad extends Command
                     $product->id,
                     $this->truncate($product->title, 35),
                     $result['skladCount'],
-                    $result['asc_nal'] ? '✗' : '✓',
+                    $result['asc_nal'] ? '✓' : '✗',
                     $this->skipReasonLabel($result['skipped']),
                 ];
             }
