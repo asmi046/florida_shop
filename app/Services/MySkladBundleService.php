@@ -71,11 +71,14 @@ class MySkladBundleService
     /**
      * Возвращает пустой результат с причиной пропуска.
      */
-    private function emptyResult(string $reason): array
+    private function emptyResult(string $reason, Product $product): array
     {
+        $product->asc_nal = true;
+        $product->save();
+
         return [
             'skladCount' => 0,
-            'asc_nal' => false,
+            'asc_nal' => true,
             'structure' => [],
             'skipped' => $reason,
         ];
