@@ -15,7 +15,7 @@
 
     <meta property="og:locale" content="ru_RU" />
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="@yield('title')" />
+    <meta property="og:title" content="@yield('title') | Florida" />
     <meta property="og:description" content="@yield('description')" />
     <meta property="og:url" content="{{ route('home') }}" />
     <meta property="og:site_name" content="Магазин цветов Florida 46" />
