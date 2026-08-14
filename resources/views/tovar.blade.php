@@ -1,7 +1,7 @@
 @extends('layouts.all')
 
-@section('title', $product['seo_title'])
-@section('description', $product['seo_description'])
+@section('title', "Купить {$product['title']} в Курске за {$product['price']} руб.")
+@section('description', "Заказывайте {$product['title']} с доставкой по Курску! Свежие цветы, круглосуточная доставка, фото перед отправкой. Цена: {$product['price']} руб. Салон Florida.")
 @section('img', config('app.url').$product['img'])
 
 @section('content')

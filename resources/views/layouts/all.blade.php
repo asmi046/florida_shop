@@ -87,8 +87,8 @@
 
     @jsonld(jsonld_raw(
     '{
-    "@@context": "https://schema.org",
-    "@@type": "Florist",
+    "@context": "https://schema.org",
+    "@type": "Florist",
     "name": "Магазин цветов «Florida»",
     "image": "https://florida46.ru/img/favicons/icon256.png",
     "url": "https://florida46.ru",
