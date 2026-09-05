@@ -14,6 +14,7 @@ use App\Models\Order;
 use App\Models\Product;
 use App\Services\AmoApiSevice;
 use App\Services\YooKassaService;
+use App\Http\Middleware\CaptureUtmMiddleware;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Log;
@@ -48,6 +49,31 @@ class CartController extends Controller
         return Cart::cart_clear();
     }
 
+    private function collectUtm(Request $request): array
+    {
+        $keys = [
+            'utm_source', 'utm_medium', 'utm_campaign',
+            'utm_term', 'utm_content', 'utm_referrer',
+        ];
+
+        $fromRequest = array_filter(
+            $request->only($keys),
+            fn ($v) => filled($v) && is_string($v)
+        );
+
+        $fromSession = array_filter(
+            (array) session('utm', []),
+            fn ($v) => filled($v) && is_string($v)
+        );
+
+        $cookieRaw = $request->cookie(CaptureUtmMiddleware::COOKIE_NAME, '{}');
+        $fromCookie = json_decode((string) $cookieRaw, true) ?: [];
+
+        $merged = array_merge($fromCookie, $fromSession, $fromRequest);
+
+        return array_intersect_key($merged, array_flip($keys));
+    }
+
     public function update(Request $request)
     {
         $product_id = $request->input('product_id');
@@ -71,7 +97,7 @@ class CartController extends Controller
         AmoApiSevice $amo)
     {
 
-        $order = Order::create([
+        $order = Order::create(array_merge([
             'name' => 'Аноним',
             'phone' => $request->input('phone'),
             'comment' => $request->input('comment'),
@@ -79,7 +105,7 @@ class CartController extends Controller
             'count' => 1,
             'session_id' => session()->getId(),
             'user_id' => ($request->user()) ? $request->user()->id : 0,
-        ]);
+        ], $this->collectUtm($request)));
 
         foreach ($request->tovars as $item) {
             $order->items()->create([
@@ -108,7 +134,7 @@ class CartController extends Controller
         AmoApiSevice $amo)
     {
 
-        $order = Order::create([
+        $order = Order::create(array_merge([
             'name' => $request->input('fio'),
             'email' => $request->input('email'),
             'phone' => $request->input('phone'),
@@ -128,7 +154,7 @@ class CartController extends Controller
             'time' => $request->input('time'),
             'session_id' => session()->getId(),
             'user_id' => ($request->user()) ? $request->user()->id : 0,
-        ]);
+        ], $this->collectUtm($request)));
 
         // $order->orderProducts()->sync(array_column($request->input('tovars'), "product_id"));
 

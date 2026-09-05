@@ -29,6 +29,12 @@ class Order extends Model
         'comment',
         'session_id',
         'user_id',
+        'utm_source',
+        'utm_medium',
+        'utm_campaign',
+        'utm_term',
+        'utm_content',
+        'utm_referrer',
     ];
 
     public $with = [

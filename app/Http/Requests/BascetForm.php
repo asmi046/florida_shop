@@ -32,7 +32,13 @@ class BascetForm extends FormRequest
             "polphone" => [
                 "nullable",
                 "regex:/^\+7 \(\d{3}\) \d{3}-\d{2}-\d{2}$/"
-            ]
+            ],
+            "utm_source"   => ["nullable", "string", "max:255"],
+            "utm_medium"   => ["nullable", "string", "max:255"],
+            "utm_campaign" => ["nullable", "string", "max:255"],
+            "utm_term"     => ["nullable", "string", "max:255"],
+            "utm_content"  => ["nullable", "string", "max:255"],
+            "utm_referrer" => ["nullable", "string", "max:1024"],
         ];
     }
 
