@@ -41,7 +41,7 @@ class AmoApiSevice {
 
         try {
             $contact = new ContactModel();
-            $contact->setName($request->fio ?? 'Без имени');
+            $contact->setName($request->name ?? 'Без имени');
 
             $customFieldsContact = new CustomFieldsValuesCollection();
 
