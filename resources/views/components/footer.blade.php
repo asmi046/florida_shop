@@ -44,8 +44,8 @@
             </div>
             <div class="col">
                 <h4>Контакты</h4>
-                <a class="phone" href="tel:{{ str_replace(['-', ' ', '(', ')'], '', $options['phone']) }}"
-                    class="phone">{{ $options['phone'] }}</a>
+                <a class="phone"
+                    href="tel:{{ str_replace(['-', ' ', '(', ')'], '', $options['phone']) }}">{{ $options['phone'] }}</a>
                 <p class="adress">{{ $options['adress_fk'] }}</p>
 
                 <h4>Соцсети и мессенджеры</h4>
