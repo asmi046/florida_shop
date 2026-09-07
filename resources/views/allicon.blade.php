@@ -21,7 +21,7 @@
             </style>
         </defs>
         <title />
-        <g id="cross">
+        <g>
             <line class="cls-1" x1="7" x2="25" y1="7" y2="25" />
             <line class="cls-1" x1="7" x2="25" y1="25" y2="7" />
         </g>
