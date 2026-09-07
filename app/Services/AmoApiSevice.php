@@ -169,6 +169,18 @@ class AmoApiSevice {
             );
             $leadCustomFieldsValues->add($cfBody);
 
+            foreach ((array) config('amo.utm_fields', []) as $name => $fieldId) {
+                $value = $request->{$name} ?? null;
+                if (filled($value) && !empty($fieldId)) {
+                    $cfUtm = (new TextCustomFieldValuesModel())->setFieldId($fieldId);
+                    $cfUtm->setValues(
+                        (new TextCustomFieldValueCollection())
+                            ->add((new TextCustomFieldValueModel())->setValue((string) $value))
+                    );
+                    $leadCustomFieldsValues->add($cfUtm);
+                }
+            }
+
             $lead->setCustomFieldsValues($leadCustomFieldsValues);
 
             $lead = $leadsService->addOne($lead);
