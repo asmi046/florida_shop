@@ -195,15 +195,15 @@
         <x-footer></x-footer>
 
         <cookies-warning privacy-policy-link="/policy" cookies-info-link="/cookie"
-            privacy-policy-accept-link="/policy_accept" />
+            privacy-policy-accept-link="/policy_accept"></cookies-warning>
     </div>
 
     <x-social-widget></x-social-widget>
 
 
-
+    <script src="{{ asset('js/lib/swiper/swiper-bundle.min.js') }}"></script>
+    <script src="{{ asset('js/lib/imask.js') }}"></script>
 </body>
-<script src="{{ asset('js/lib/swiper/swiper-bundle.min.js') }}"></script>
-<script src="{{ asset('js/lib/imask.js') }}"></script>
+
 
 </html>
