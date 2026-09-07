@@ -2,6 +2,7 @@
 <html lang="ru">
 
 <head>
+    <meta charset="UTF-8">
     <title>@yield('title') | Florida</title>
     <meta name="description" content="@yield('description')">
 
@@ -23,9 +24,8 @@
     <meta property="og:image:type" content="image/jpeg" />
     <meta name="twitter:card" content="summary_large_image" />
 
-    <meta charset="UTF-8">
-    <meta name="format-detection" content="telephone=no">
 
+    <meta name="format-detection" content="telephone=no">
     <link rel="icon" type="image/png" href="{{ asset('/img/favicons/icon256.png') }}" sizes="256x256">
     <link rel="icon" type="image/png" href="{{ asset('/img/favicons/icon128.png') }}" sizes="128x128">
     <link rel="icon" type="image/png" href="{{ asset('/img/favicons/icon64.png') }}" sizes="64x64">
