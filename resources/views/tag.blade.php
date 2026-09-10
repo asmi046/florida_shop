@@ -1,7 +1,18 @@
 @extends('layouts.all')
 
-@section('title', $tag_info['seo_title'])
-@section('description', $tag_info['seo_description'])
+@php
+    $title = $tag_info['seo_title'];
+    $description = $tag_info['seo_description'];
+
+    if (!$allproduct->onFirstPage()) {
+        $pageSuffix = ' Страница ' . $allproduct->currentPage();
+        $title .= $pageSuffix;
+        $description .= $pageSuffix;
+    }
+@endphp
+
+@section('title', $title)
+@section('description', $description)
 
 @section('content')
 
