@@ -3,6 +3,12 @@
 @php
     $title = $cat_info->seo_title ?? ($cat_info->showed_title ?? $cat_info->title);
     $description = $cat_info->seo_description ?? $title . ' Цветы с доставкой по Курску откомпании Florida';
+
+    if (!$allproduct->onFirstPage()) {
+        $pageSuffix = ' Страница ' . $allproduct->currentPage();
+        $title .= $pageSuffix;
+        $description .= $pageSuffix;
+    }
 @endphp
 
 @section('title', $title)

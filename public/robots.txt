@@ -9,20 +9,31 @@ Disallow: /cabinet
 Disallow: /policy
 Disallow: /policy_accept
 
-# Поиск и сортировки (защита от дублей для Google и Яндекса)
+# Поиск (защита от дублей для Google и Яндекса)
 Disallow: /search/
+
+# Рекламные и трекинговые метки (сканирование не нужно, только через Clean-param/canonical)
 Disallow: /*?*utm_
 Disallow: /*?*gclid=
 Disallow: /*?*yclid=
 Disallow: /*?*ysclid=
 Disallow: /*?*fbclid=
-Disallow: /*?*sort=
-Disallow: /*?*order=
-Disallow: /*?*filter=
+Disallow: /*?*erid=
+Disallow: /*?*etext=
 
-# Инструкции Clean-param для Яндекса (строки разбиты до 500 символов, убрана пагинация)
+# Сортировка и фильтры блокируются ТОЛЬКО когда идут без пагинации.
+# Если к sort/order/filter добавлен параметр page= — робот должен иметь доступ,
+# иначе 2-я и последующие страницы каталога выпадают из индекса.
+Disallow: /*?sort=*
+Allow: /*?sort=*&page=*
+Disallow: /*?order=*
+Allow: /*?order=*&page=*
+Disallow: /*?filter=*
+Allow: /*?filter=*&page=*
+
+# Инструкции Clean-param для Яндекса (строки разбиты до 500 символов, пагинация убрана)
 Clean-param: ysclid&etext&ybaip&utm_source&utm_medium&utm_campaign&utm_term&utm_content&gclid&yclid
-Clean-param: ymclid&sort&order&filter&ref&from&action&print&fbclid&mc_cid&mc_eid&dclid
+Clean-param: ymclid&sort&order&filter&ref&from&action&print&fbclid&mc_cid&mc_eid&dclid&erid
 Clean-param: utm_id&utm_referrer&utm_source_platform&utm_creative&utm_keyword&utm_device&utm_placement
 Clean-param: utm_content_id&utm_test&utm_experiment&utm_variant&utm_content_type&utm_adgroup
 Clean-param: utm_match_type&utm_network&utm_position&utm_target&utm_audience&utm_segment&utm_product
