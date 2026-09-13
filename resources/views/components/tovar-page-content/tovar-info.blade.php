@@ -16,7 +16,9 @@
     <div class="like_blk">
         <a href="#"
             onclick="navigator.share({'title': document.title, 'url':document.location.href}); return false;"
-            class="all_control share pi florida_share"></a>
+            class="all_control share">
+            <svg class="sprite_icon share_icon"><use xlink:href="#share"></use></svg>
+        </a>
         {{-- <a href="#" class="all_control favorites to_favorites pi florida_like" data-prodid="{{$product['sku']}}"></a> --}}
     </div>
 </div>
@@ -44,12 +46,14 @@
 <div class="tov_param_section">
     <h2>Параметры:</h2>
     <div class="param_blk">
-        <div class="param param_height pi florida_param_height">
+        <div class="param param_height">
+            <svg class="sprite_icon param_icon"><use xlink:href="#bouquet_height"></use></svg>
             Высота:<br />
             <strong>{{ $product['height'] }}</strong>
         </div>
 
-        <div class="param param_diam pi florida_param_diam">
+        <div class="param param_diam">
+            <svg class="sprite_icon param_icon"><use xlink:href="#bouquet_diameter"></use></svg>
             Диаметр:<br />
             <strong>{{ $product['radius'] }}</strong>
         </div>

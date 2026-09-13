@@ -34,16 +34,8 @@
     right: 10px!important;
 }
 
-.tovar_slider .btn_right::before {
-    background-image: url(../img/icons/slider_arrow_white.svg);
-}
-
 .tovar_slider .btn_left {
     left: 10px;
-}
-
-.tovar_slider .btn_left::before {
-    background-image: url(../img/icons/slider_arrow_white.svg);
 }
 
 
@@ -290,14 +282,18 @@
 }
 
 
-.param_blk .param::before{
-    width:33px;
-    height:33px;
+.param_blk .param .param_icon {
     position: absolute;
     top: 0;
     left: 0;
-    font-size: 33px;
+    width: 33px;
+    height: 33px;
     color: $main_color;
+    fill: currentColor;
+}
+
+.param_blk .param_diam .param_icon {
+    stroke: currentColor;
 }
 
 .tovar_advantages {

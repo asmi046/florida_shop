@@ -13,8 +13,12 @@
 
         </div>
 
-        <div class="btn_all btn_right"></div>
-        <div class="btn_all btn_left"></div>
+        <div class="btn_all btn_right">
+            <svg class="sprite_icon"><use xlink:href="#arrow_green"></use></svg>
+        </div>
+        <div class="btn_all btn_left">
+            <svg class="sprite_icon"><use xlink:href="#arrow_green"></use></svg>
+        </div>
     </div>
 </div>
 

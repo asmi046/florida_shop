@@ -14,8 +14,12 @@
                     </div>
                 </div>
 
-                <div id="sale_btn_left" class="btn_all btn_left"></div>
-                <div id="sale_btn_right" class="btn_all btn_right"></div>
+                <div id="sale_btn_left" class="btn_all btn_left">
+                    <svg class="sprite_icon"><use xlink:href="#arrow_green"></use></svg>
+                </div>
+                <div id="sale_btn_right" class="btn_all btn_right">
+                    <svg class="sprite_icon"><use xlink:href="#arrow_green"></use></svg>
+                </div>
             </div>
     </div>
 </section>
