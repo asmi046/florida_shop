@@ -81,6 +81,13 @@
         <x-schema-org.product-offer :product="$product"></x-schema-org.product-offer>
     @endisset
 
+
+</head>
+
+<body>
+
+
+
     <!-- Yandex.Metrika counter -->
     <script type="text/javascript">
         (function(m, e, t, r, i, k, a) {
@@ -112,13 +119,6 @@
         </div>
     </noscript>
     <!-- /Yandex.Metrika counter -->
-
-</head>
-
-<body>
-
-
-
 
 
     @include('allicon')
