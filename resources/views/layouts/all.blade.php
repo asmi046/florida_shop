@@ -88,6 +88,7 @@
 
 
 
+
     <!-- Yandex.Metrika counter -->
     <script type="text/javascript">
         (function(m, e, t, r, i, k, a) {
@@ -119,6 +120,9 @@
         </div>
     </noscript>
     <!-- /Yandex.Metrika counter -->
+
+
+
 
 
     @include('allicon')
