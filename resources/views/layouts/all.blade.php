@@ -82,15 +82,14 @@
     @endisset
 
 
+
 </head>
 
 <body>
 
-
-
-
     <!-- Yandex.Metrika counter -->
     <script type="text/javascript">
+        window.dataLayer = window.dataLayer || [];
         (function(m, e, t, r, i, k, a) {
             m[i] = m[i] || function() {
                 (m[i].a = m[i].a || []).push(arguments)
@@ -114,6 +113,7 @@
             accurateTrackBounce: true,
             trackLinks: true
         });
+        window.dataLayerEc = window.dataLayerEc || [];
     </script>
     <noscript>
         <div><img src="https://mc.yandex.ru/watch/94073132" style="position:absolute; left:-9999px;" alt="" />
