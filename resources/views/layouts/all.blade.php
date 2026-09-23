@@ -43,6 +43,7 @@
     <script src="//api-maps.yandex.ru/2.1/?lang=ru_RU&coordorder=longlat" type="text/javascript" defer></script>
 
     <meta name="yandex-verification" content="8e9f290ab57d976f" />
+    <meta name="p:domain_verify" content="fa51b2fab9899a9063626b4d9ad124db" />
 
     {{-- <script src="//cdn.callibri.ru/callibri.js" type="text/javascript" charset="utf-8"></script> --}}
 
