@@ -6,6 +6,7 @@ use App\Models\Category;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
+use Orchid\Attachment\Models\Attachment;
 use Orchid\Screen\Actions\Button;
 use Orchid\Screen\Fields\Input;
 use Orchid\Screen\Fields\Picture;
@@ -159,6 +160,10 @@ class ProductCreateScreen extends Screen
 
                 Upload::make('video_review')
                     ->title('Видео-отзыв')
+                    ->storage('public')
+                    ->multiple(false)
+                    ->maxFiles(1)
+                    ->acceptedFiles('video/mp4,video/quicktime,video/webm')
                     ->help('Загрузите видео-файл (mp4, mov, webm). Путь сохраняется в строке до 700 символов.')
                     ->horizontal(),
 
@@ -211,8 +216,16 @@ class ProductCreateScreen extends Screen
             'skladCount' => [],
             'code' => [],
             'externalCode' => [],
-            'video_review' => ['nullable', 'string', 'max:700'],
+            'video_review' => ['sometimes', 'array', 'max:1'],
+            'video_review.*' => ['integer', Rule::exists('attachments', 'id')],
         ]);
+
+        $videoReviewId = $new_data['video_review'][0] ?? null;
+        if ($videoReviewId !== null) {
+            $new_data['video_review'] = Attachment::findOrFail($videoReviewId)->relativeUrl;
+        } else {
+            unset($new_data['video_review']);
+        }
 
         $new_data['skladCount'] = $new_data['skladCount'] ?? 0;
 

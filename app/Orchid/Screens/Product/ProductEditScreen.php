@@ -10,6 +10,7 @@ use App\Models\ProductTag;
 use App\Orchid\Layouts\Product\ProductImageTable;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
+use Orchid\Attachment\Models\Attachment;
 use Orchid\Screen\Actions\Button;
 use Orchid\Screen\Actions\ModalToggle;
 use Orchid\Screen\Fields\Input;
@@ -229,7 +230,10 @@ class ProductEditScreen extends Screen
 
                 Upload::make('video_review')
                     ->title('Видео-отзыв')
-                    ->value($this->product->video_review)
+                    ->storage('public')
+                    ->multiple(false)
+                    ->maxFiles(1)
+                    ->acceptedFiles('video/mp4,video/quicktime,video/webm')
                     ->help('Загрузите видео-файл (mp4, mov, webm). Путь сохраняется в строке до 700 символов.')
                     ->horizontal(),
 
@@ -323,8 +327,16 @@ class ProductEditScreen extends Screen
             'skladCount' => [],
             'code' => [],
             'externalCode' => [],
-            'video_review' => ['nullable', 'string', 'max:700'],
+            'video_review' => ['sometimes', 'array', 'max:1'],
+            'video_review.*' => ['integer', Rule::exists('attachments', 'id')],
         ]);
+
+        $videoReviewId = $new_data['video_review'][0] ?? null;
+        if ($videoReviewId !== null) {
+            $new_data['video_review'] = Attachment::findOrFail($videoReviewId)->relativeUrl;
+        } else {
+            unset($new_data['video_review']);
+        }
 
         $new_data['skladCount'] = $new_data['skladCount'] ?? 0;
         $new_data['consist'] = isset($new_data['consist']) ? $new_data['consist'] : null;
