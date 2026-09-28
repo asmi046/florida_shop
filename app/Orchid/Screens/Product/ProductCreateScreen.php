@@ -159,9 +159,7 @@ class ProductCreateScreen extends Screen
 
                 Upload::make('video_review')
                     ->title('Видео-отзыв')
-                    ->help('Загрузите видео-отзыв (mp4, mov, webm). Путь сохраняется в строке до 700 символов.')
-                    ->acceptedFiles('video/mp4,video/quicktime,video/webm,.mp4,.mov,.webm')
-                    ->max(700)
+                    ->help('Загрузите видео-файл (mp4, mov, webm). Путь сохраняется в строке до 700 символов.')
                     ->horizontal(),
 
                 Button::make('Сохранить')->method('save_info')->type(Color::SUCCESS()),
