@@ -43,6 +43,8 @@ class ProductEditScreen extends Screen
 
     public $product_tags;
 
+    public $product_video_review;
+
     public function query($id): iterable
     {
         $product = Product::where('id', $id)->first();
@@ -50,6 +52,7 @@ class ProductEditScreen extends Screen
         $cel = $product->tovar_celebration;
         $img = $product->product_images;
         $tags = $product->tags;
+        $videoReviewAttachmentId = $this->findVideoReviewAttachmentId($product->video_review);
 
         return [
             'product' => $product,
@@ -57,7 +60,32 @@ class ProductEditScreen extends Screen
             'product_cel' => $cel,
             'product_img' => $img,
             'product_tags' => $tags,
+            'product_video_review' => $videoReviewAttachmentId,
         ];
+    }
+
+    private function findVideoReviewAttachmentId(?string $url): ?int
+    {
+        if (empty($url)) {
+            return null;
+        }
+
+        $path = parse_url($url, PHP_URL_PATH) ?: $url;
+        $filename = basename(rawurldecode($path));
+        $name = pathinfo($filename, PATHINFO_FILENAME);
+        $extension = pathinfo($filename, PATHINFO_EXTENSION);
+
+        if ($name === '' || $extension === '') {
+            return null;
+        }
+
+        $attachmentId = Attachment::query()
+            ->where('disk', 'public')
+            ->where('name', $name)
+            ->where('extension', $extension)
+            ->value('id');
+
+        return $attachmentId === null ? null : (int) $attachmentId;
     }
 
     /**
@@ -230,6 +258,7 @@ class ProductEditScreen extends Screen
 
                 Upload::make('video_review')
                     ->title('Видео-отзыв')
+                    ->value($this->product_video_review)
                     ->storage('public')
                     ->multiple(false)
                     ->maxFiles(1)
