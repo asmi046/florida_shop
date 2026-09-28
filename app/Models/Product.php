@@ -38,6 +38,7 @@ class Product extends Model
         'skladCount',
         'code',
         'externalCode',
+        'video_review',
     ];
 
     protected $casts = [

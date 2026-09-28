@@ -78,6 +78,8 @@
 
         .price_digit {
             margin: auto auto auto 0;
+            font-weight: 700;
+            font-size: 22px;
         }
 
         .old {
@@ -129,6 +131,10 @@
                 margin-top: 10px;
                 font-size: 12px;
                 padding: 7px 17px;
+            }
+
+            .price_digit {
+                font-size: 20px;
             }
         }
     }

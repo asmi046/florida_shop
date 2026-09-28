@@ -19,6 +19,7 @@ use Orchid\Screen\Fields\Quill;
 use Orchid\Screen\Fields\Relation;
 use Orchid\Screen\Fields\Switcher;
 use Orchid\Screen\Fields\TextArea;
+use Orchid\Screen\Fields\Upload;
 use Orchid\Screen\Screen;
 use Orchid\Support\Color;
 use Orchid\Support\Facades\Layout;
@@ -226,6 +227,14 @@ class ProductEditScreen extends Screen
 
                 Quill::make('description')->title('Описание')->value($this->product->description),
 
+                Upload::make('video_review')
+                    ->title('Видео-отзыв')
+                    ->value($this->product->video_review)
+                    ->help('Загрузите видео-отзыв (mp4, mov, webm). Путь сохраняется в строке до 700 символов.')
+                    ->acceptedFiles('video/mp4,video/quicktime,video/webm,.mp4,.mov,.webm')
+                    ->max(700)
+                    ->horizontal(),
+
                 Button::make('Сохранить')->method('save_info')->type(Color::SUCCESS()),
             ])->title('Основные поля'),
 
@@ -316,6 +325,7 @@ class ProductEditScreen extends Screen
             'skladCount' => [],
             'code' => [],
             'externalCode' => [],
+            'video_review' => ['nullable', 'string', 'max:700'],
         ]);
 
         $new_data['skladCount'] = $new_data['skladCount'] ?? 0;
