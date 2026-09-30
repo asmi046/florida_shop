@@ -9,6 +9,39 @@
     width: 24%;
     display: flex;
     flex-direction: column;
+    position: relative;
+
+    .video_rew_icon {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        z-index: 2;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 28px;
+        height: 28px;
+        border-radius: 50%;
+        background-color: rgba(255, 255, 255, 0.85);
+        transition: background-color 0.25s ease;
+
+        &:hover {
+            background-color: $main_color;
+
+            .sprite_icon {
+                color: white;
+                fill: white;
+            }
+        }
+
+        .sprite_icon {
+            width: 18px;
+            height: 18px;
+            color: black;
+            fill: black;
+            transition: color 0.25s ease, fill 0.25s ease;
+        }
+    }
 
     .img_wrapper {
         // height: 360px;

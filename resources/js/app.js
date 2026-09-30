@@ -21,6 +21,45 @@ import VueAxios from 'vue-axios'
 import './sliders.js'
 import './scroll.js'
 
+import Glightbox from 'glightbox'
+import 'glightbox/dist/css/glightbox.css'
+
+const glightboxOptions = {
+    touchNavigation: true,
+    loop: false,
+    draggable: true,
+    autoplay: true,
+    openEffect: 'zoom',
+    closeEffect: 'zoom',
+    cssText: {
+        '.gslide': {
+            'background-color': '#000',
+        }
+    }
+}
+
+let videoLightbox = null
+
+// Vue компилирует содержимое #global_app и пересоздаёт узлы при обновлениях,
+// поэтому не полагаемся на привязку glightbox к элементам при инициализации.
+// Клик обрабатывается делегированием на document, а в lightbox попадает
+// только один триггер — так каждая карточка открывает свой ролик.
+document.addEventListener('click', (event) => {
+    const trigger = event.target.closest('.glightbox')
+    if (!trigger) return
+
+    event.preventDefault()
+
+    if (!videoLightbox) {
+        videoLightbox = Glightbox({ ...glightboxOptions, elements: [] })
+    }
+
+    videoLightbox.settings.elements = [trigger]
+    videoLightbox.elements = []
+    videoLightbox.reload()
+    videoLightbox.open(trigger)
+})
+
 import { VMaskDirective } from 'v-slim-mask'
 
 import { store } from "./storage"

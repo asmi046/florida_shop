@@ -23,6 +23,14 @@
                 alt="{{ $tovar->title }}">
         @endif
     </a>
+    @if (!empty($tovar->video_review))
+        <a class="video_rew_icon glightbox" href="{{ asset($tovar->video_review) }}"
+            aria-label="Смотреть видеообзор товара">
+            <svg class="sprite_icon" aria-hidden="true" focusable="false">
+                <use xlink:href="#video-rew-icon"></use>
+            </svg>
+        </a>
+    @endif
     <p>{{ $tovar->title }}</p>
     <div class="price">
         <div class="price_digit">
