@@ -1,0 +1,259 @@
+.tovar_galery_splide {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    max-width: 470px;
+
+    .splide__list {
+        display: flex;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    .splide__slide {
+        flex-shrink: 0;
+    }
+
+    // --- Главный слайдер (история 9:16) ---
+    .tovar_splide_main {
+        position: relative;
+        width: 100%;
+        padding: 0;
+        aspect-ratio: 9 / 16;
+        border-radius: 18px;
+        overflow: hidden;
+        max-height: 640px;
+        margin: 0 auto;
+        background-color: #f4f4f4;
+        overflow: hidden;
+
+        .splide__track,
+        .splide__list,
+        .splide__slide {
+            height: 100%;
+        }
+
+        .splide__slide {
+            position: relative;
+
+            img,
+            video {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                display: block;
+                background-color: #f4f4f4;
+            }
+        }
+    }
+
+    .tovar_splide_video {
+        position: relative;
+        width: 100%;
+        height: 100%;
+
+        video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+
+    .tovar_splide_video_label {
+        position: absolute;
+        top: 14px;
+        left: 14px;
+        padding: 6px 12px;
+        border-radius: 14px;
+        background: rgba(0, 0, 0, 0.55);
+        color: #ffffff;
+        font-size: 12px;
+        line-height: 1;
+        text-transform: uppercase;
+        letter-spacing: 0.04em;
+        pointer-events: none;
+        backdrop-filter: blur(4px);
+    }
+
+    // --- Кастомные стрелки навигации ---
+    .tovar_splide_main .splide__arrows {
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+    }
+
+    .tovar_splide_main .splide__arrow {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background: #ffffff;
+        border: 1px solid #d2d1d1;
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: $main_color;
+        transition: $main_transition;
+        opacity: 1;
+        padding: 0;
+        z-index: 2;
+        cursor: pointer;
+        pointer-events: auto;
+
+        &:hover {
+            background-color: $main_color;
+            border-color: $main_color;
+            color: #ffffff;
+        }
+
+        .sprite_icon {
+            width: 14px;
+            height: 8px;
+            stroke: currentColor;
+            fill: none;
+        }
+
+        &:disabled {
+            opacity: 0;
+            cursor: default;
+            pointer-events: none;
+        }
+    }
+
+    .tovar_splide_main .splide__arrow--prev {
+        left: 8px;
+        // chevron /V (path стрелки по умолчанию смотрит вниз) → поворот 90deg CW → `<` влево
+        .sprite_icon {
+            display: block;
+            transform: rotate(90deg);
+        }
+    }
+
+    .tovar_splide_main .splide__arrow--next {
+        right: 8px;
+        // chevron /V → поворот -90deg CCW → `>` вправо
+        .sprite_icon {
+            display: block;
+            transform: rotate(-90deg);
+        }
+    }
+
+    // --- Превью ---
+    .tovar_splide_thumbs {
+        position: relative;
+        width: 100%;
+        overflow: hidden;
+        // Размытие по бокам (маска: прозрачный → видимый → видимый → прозрачный)
+        -webkit-mask-image: linear-gradient(
+            to right,
+            transparent 0%,
+            #000 12%,
+            #000 88%,
+            transparent 100%
+        );
+        mask-image: linear-gradient(
+            to right,
+            transparent 0%,
+            #000 12%,
+            #000 88%,
+            transparent 100%
+        );
+    }
+
+    .tovar_splide_thumbs_slider {
+        width: 100%;
+        overflow: hidden;
+
+        .splide__track {
+            overflow: hidden;
+            padding: 0 !important;
+        }
+
+        .splide__list {
+            gap: 8px;
+        }
+
+        .splide__slide {
+            aspect-ratio: 9 / 16;
+            cursor: pointer;
+            overflow: hidden;
+            border: 1px solid transparent;
+            border-radius: 6px;
+            transition: border-color 0.2s ease;
+
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                display: block;
+            }
+
+            &.is-active {
+                border-color: $main_color;
+            }
+
+            &:hover {
+                border-color: rgba($main_color, 0.6);
+            }
+        }
+    }
+
+    .tovar_splide_thumb_video {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        background: #161615;
+        color: #ffffff;
+    }
+
+    .tovar_splide_thumb_video_poster {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .tovar_splide_thumb_video_play {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 90%;
+        height: auto;
+        fill: currentColor;
+        filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.45));
+        pointer-events: none;
+    }
+}
+
+@media (max-width: 768px) {
+    .tovar_galery_splide {
+        .tovar_splide_main .splide__arrow--prev {
+            left: 4px;
+        }
+
+        .tovar_splide_main .splide__arrow--next {
+            right: 4px;
+        }
+    }
+}
+
+@media (max-width: 480px) {
+    .tovar_galery_splide {
+        .tovar_splide_main .splide__arrow {
+            display: none;
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .tovar_galery_splide .tovar_splide_main {
+        max-height: 400px;
+    }
+}

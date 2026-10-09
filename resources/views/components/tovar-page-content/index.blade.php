@@ -1,7 +1,7 @@
 <section class="tovar_page_photo_section">
     <div class="_container">
         <div class="tovar_galery">
-            <x-tovar-page-content.tovar-galery :images="$images" :product="$product"></x-tovar-page-content.tovar-galery>
+            <x-tovar-page-content.tovar-galery-splide :images="$images" :product="$product"></x-tovar-page-content.tovar-galery-splide>
         </div>
 
         <div class="tovar_info_side">

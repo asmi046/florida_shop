@@ -2,6 +2,12 @@ import './bootstrap';
 
 import { createApp } from 'vue/dist/vue.esm-bundler';
 
+import Splide from '@splidejs/splide';
+import { Video } from '@splidejs/splide-extension-video';
+
+window.Splide = Splide;
+window.SplideVideo = Video;
+
 import Review from './components/Reviews/Review.vue'
 import BascetCounter from "./components/bascet/BascetCounter.vue"
 import BascetAndCounter from "./components/bascet/BascetAndCounter.vue"
