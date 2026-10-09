@@ -172,24 +172,45 @@
                 });
 
                 // Автоплей/пауза встроенного <video> в зависимости от активного слайда
-                var syncVideo = function () {
-                    videoSlides.forEach(function (slide, idx) {
+                var restartVideo = function (v) {
+                    v.muted = true;
+                    v.volume = 0;
+                    try { v.pause(); } catch (e) {}
+                    try { v.currentTime = 0; } catch (e) {}
+                    var p = v.play();
+                    if (p && typeof p.catch === 'function') {
+                        p.catch(function () {});
+                    }
+                };
+
+                var pauseVideo = function (v) {
+                    v.muted = true;
+                    v.volume = 0;
+                    try { v.pause(); } catch (e) {}
+                };
+
+                // Сначала гасим все видео, потом включаем активное
+                var syncVideo = function (newIndex) {
+                    var activeIndex = (typeof newIndex === 'number') ? newIndex : main.index;
+                    var Slides = main.Components && main.Components.Slides;
+                    var activeSlide = Slides ? Slides.getAt(activeIndex) : null;
+                    var activeVideo = null;
+                    if (activeSlide) {
+                        activeVideo = activeSlide.querySelector('video[data-splide-video]');
+                    }
+                    videoSlides.forEach(function (slide) {
                         var v = slide.querySelector('video[data-splide-video]');
                         if (!v) return;
-                        v.muted = true;
-                        v.volume = 0;
-                        if (idx === main.index) {
-                            v.currentTime = 0;
-                            var p = v.play();
-                            if (p && typeof p.catch === 'function') {
-                                p.catch(function () {});
-                            }
+                        if (v === activeVideo) {
+                            restartVideo(v);
                         } else {
-                            v.pause();
+                            pauseVideo(v);
                         }
                     });
                 };
+
                 main.on('move', syncVideo);
+                main.on('moved', syncVideo);
                 main.on('mounted', syncVideo);
             });
         }
