@@ -179,6 +179,7 @@
                         v.muted = true;
                         v.volume = 0;
                         if (idx === main.index) {
+                            v.currentTime = 0;
                             var p = v.play();
                             if (p && typeof p.catch === 'function') {
                                 p.catch(function () {});

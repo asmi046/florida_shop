@@ -147,19 +147,17 @@
         position: relative;
         width: 100%;
         overflow: hidden;
-        // Размытие по бокам (маска: прозрачный → видимый → видимый → прозрачный)
+        // Плавное затемнение только справа
         -webkit-mask-image: linear-gradient(
             to right,
-            transparent 0%,
-            #000 12%,
-            #000 88%,
+            #000 0%,
+            #000 80%,
             transparent 100%
         );
         mask-image: linear-gradient(
             to right,
-            transparent 0%,
-            #000 12%,
-            #000 88%,
+            #000 0%,
+            #000 80%,
             transparent 100%
         );
     }
