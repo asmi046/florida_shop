@@ -87,13 +87,15 @@
             opacity: 1;
         }
 
-        &.has-second:hover {
-            .tovar_img_first {
-                opacity: 0;
-            }
+        @media (hover: hover) {
+            &.has-second:hover {
+                .tovar_img_first {
+                    opacity: 0;
+                }
 
-            .tovar_img_second {
-                opacity: 1;
+                .tovar_img_second {
+                    opacity: 1;
+                }
             }
         }
     }
@@ -124,12 +126,8 @@
 }
 
 @media (hover: none) {
-    .tovar_card_new .img_wrapper.has-second:active .tovar_img_first {
-        opacity: 0;
-    }
-
-    .tovar_card_new .img_wrapper.has-second:active .tovar_img_second {
-        opacity: 1;
+    .tovar_card_new .img_wrapper.has-second .tovar_img_second {
+        display: none;
     }
 }
 

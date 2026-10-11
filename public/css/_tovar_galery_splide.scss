@@ -176,7 +176,7 @@
         }
 
         .splide__slide {
-            aspect-ratio: 9 / 16;
+            height: auto;
             cursor: pointer;
             overflow: hidden;
             border: 1px solid transparent;
@@ -239,6 +239,18 @@
         .tovar_splide_main .splide__arrow--next {
             right: 4px;
         }
+
+        .tovar_splide_main .splide__slide img,
+        .tovar_splide_main .splide__slide video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center center;
+        }
+    }
+
+    .tovar_galery_splide .tovar_splide_main {
+        max-height: 400px;
     }
 }
 
@@ -247,11 +259,5 @@
         .tovar_splide_main .splide__arrow {
             display: none;
         }
-    }
-}
-
-@media (max-width: 768px) {
-    .tovar_galery_splide .tovar_splide_main {
-        max-height: 400px;
     }
 }

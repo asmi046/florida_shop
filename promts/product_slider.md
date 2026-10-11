@@ -59,3 +59,9 @@
 И стрелку . tovar_splide_thumb_video_play сделай 2.5 раз больше
 
 У секции с класом с классами class="splide tovar_splide_main splide--loop splide--ltr splide--draggable is-active is-overflow is-initialized" на мобильных устройствах уменьшить высоту до 400px.
+
+---
+
+Смотри на мобильном устройстве я просил сократить высоту СЕКЦИИ с классами class="splide tovar_splide_main splide--loop splide--ltr splide--draggable is-active is-overflow is-initialized" задав max-height: 640px;
+
+Я бы хотел чтобы изображения которые крутятся внутри слайдера в этой секции были отцентрованы по вертикали, так чтобы было видно центр изображения
