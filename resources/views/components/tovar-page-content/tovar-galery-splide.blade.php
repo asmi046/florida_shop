@@ -12,28 +12,20 @@
     $showNoPhoto = !$hasVideo && !$hasMainImg && !$hasExtra;
     $videoPosterUrl = !empty($product['img'])
         ? asset($product['img'])
-        : (!empty($images) && !empty($images[0]['link']) ? asset($images[0]['link']) : null);
+        : (!empty($images) && !empty($images[0]['link'])
+            ? asset($images[0]['link'])
+            : null);
 @endphp
 
 <div class="tovar_galery_splide">
-    <section
-        class="splide tovar_splide_main"
-        aria-label="Галерея товара {{ $product['title'] ?? '' }}"
-    >
+    <section class="splide tovar_splide_main" aria-label="Галерея товара {{ $product['title'] ?? '' }}">
         <div class="splide__track">
             <ul class="splide__list">
                 @if ($hasVideo)
                     <li class="splide__slide">
                         <div class="tovar_splide_video">
-                            <video
-                                src="{{ asset($videoUrl) }}"
-                                muted="muted"
-                                autoplay="autoplay"
-                                loop="loop"
-                                playsinline
-                                preload="metadata"
-                                data-splide-video
-                            ></video>
+                            <video src="{{ asset($videoUrl) }}" muted="muted" autoplay="autoplay" loop="loop"
+                                playsinline preload="metadata" data-splide-video></video>
                             <span class="tovar_splide_video_label">Видеообзор</span>
                         </div>
                     </li>
@@ -61,26 +53,28 @@
 
         <div class="splide__arrows">
             <button class="splide__arrow splide__arrow--prev" type="button" aria-label="Предыдущий слайд">
-                <svg class="sprite_icon" aria-hidden="true"><use xlink:href="#arrow_green"></use></svg>
+                <svg class="sprite_icon" aria-hidden="true">
+                    <use xlink:href="#arrow_green"></use>
+                </svg>
             </button>
             <button class="splide__arrow splide__arrow--next" type="button" aria-label="Следующий слайд">
-                <svg class="sprite_icon" aria-hidden="true"><use xlink:href="#arrow_green"></use></svg>
+                <svg class="sprite_icon" aria-hidden="true">
+                    <use xlink:href="#arrow_green"></use>
+                </svg>
             </button>
         </div>
     </section>
 
     <div class="tovar_splide_thumbs">
-        <div
-            class="splide tovar_splide_thumbs_slider"
-            aria-label="Превью галереи"
-        >
+        <div class="splide tovar_splide_thumbs_slider" aria-label="Превью галереи">
             <div class="splide__track">
                 <ul class="splide__list">
                     @if ($hasVideo)
                         <li class="splide__slide">
                             <div class="tovar_splide_thumb_video">
                                 @if ($videoPosterUrl)
-                                    <img class="tovar_splide_thumb_video_poster" src="{{ $videoPosterUrl }}" alt="" loading="lazy">
+                                    <img class="tovar_splide_thumb_video_poster" src="{{ $videoPosterUrl }}"
+                                        alt="" loading="lazy">
                                 @endif
                                 <svg class="tovar_splide_thumb_video_play" viewBox="0 0 24 24" aria-hidden="true">
                                     <polygon points="9,7 9,17 17,12"></polygon>
@@ -111,7 +105,7 @@
         function initToverSplide() {
             if (typeof window.Splide === 'undefined') return;
 
-            document.querySelectorAll('.tovar_galery_splide').forEach(function (root) {
+            document.querySelectorAll('.tovar_galery_splide').forEach(function(root) {
                 var mainEl = root.querySelector('.tovar_splide_main');
                 var thumbsEl = root.querySelector('.tovar_splide_thumbs_slider');
                 if (!mainEl) return;
@@ -137,8 +131,14 @@
                         pagination: false,
                         isNavigation: true,
                         breakpoints: {
-                            768: { fixedWidth: 64, perPage: 4 },
-                            480: { fixedWidth: 56, perPage: 3 },
+                            768: {
+                                fixedWidth: 64,
+                                perPage: 4
+                            },
+                            480: {
+                                fixedWidth: 56,
+                                perPage: 3
+                            },
                         },
                     });
 
@@ -163,7 +163,7 @@
 
                 // Гарантированно выключаем звук у видео (страховка от перезаписи muted в JS)
                 var videoSlides = mainEl.querySelectorAll('.splide__slide');
-                videoSlides.forEach(function (slide) {
+                videoSlides.forEach(function(slide) {
                     var v = slide.querySelector('video[data-splide-video]');
                     if (!v) return;
                     v.muted = true;
@@ -172,25 +172,31 @@
                 });
 
                 // Автоплей/пауза встроенного <video> в зависимости от активного слайда
-                var restartVideo = function (v) {
+                var restartVideo = function(v) {
                     v.muted = true;
                     v.volume = 0;
-                    try { v.pause(); } catch (e) {}
-                    try { v.currentTime = 0; } catch (e) {}
+                    try {
+                        v.pause();
+                    } catch (e) {}
+                    try {
+                        v.currentTime = 0;
+                    } catch (e) {}
                     var p = v.play();
                     if (p && typeof p.catch === 'function') {
-                        p.catch(function () {});
+                        p.catch(function() {});
                     }
                 };
 
-                var pauseVideo = function (v) {
+                var pauseVideo = function(v) {
                     v.muted = true;
                     v.volume = 0;
-                    try { v.pause(); } catch (e) {}
+                    try {
+                        v.pause();
+                    } catch (e) {}
                 };
 
                 // Сначала гасим все видео, потом включаем активное
-                var syncVideo = function (newIndex) {
+                var syncVideo = function(newIndex) {
                     var activeIndex = (typeof newIndex === 'number') ? newIndex : main.index;
                     var Slides = main.Components && main.Components.Slides;
                     var activeSlide = Slides ? Slides.getAt(activeIndex) : null;
@@ -198,7 +204,7 @@
                     if (activeSlide) {
                         activeVideo = activeSlide.querySelector('video[data-splide-video]');
                     }
-                    videoSlides.forEach(function (slide) {
+                    videoSlides.forEach(function(slide) {
                         var v = slide.querySelector('video[data-splide-video]');
                         if (!v) return;
                         if (v === activeVideo) {
@@ -212,6 +218,7 @@
                 main.on('move', syncVideo);
                 main.on('moved', syncVideo);
                 main.on('mounted', syncVideo);
+                syncVideo(main.index);
             });
         }
 

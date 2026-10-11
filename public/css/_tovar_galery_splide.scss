@@ -35,8 +35,14 @@
             height: 100%;
         }
 
+        .splide__track {
+            overflow: hidden;
+        }
+
         .splide__slide {
             position: relative;
+            flex: 0 0 100%;
+            width: 100%;
 
             img,
             video {
@@ -148,18 +154,8 @@
         width: 100%;
         overflow: hidden;
         // Плавное затемнение только справа
-        -webkit-mask-image: linear-gradient(
-            to right,
-            #000 0%,
-            #000 80%,
-            transparent 100%
-        );
-        mask-image: linear-gradient(
-            to right,
-            #000 0%,
-            #000 80%,
-            transparent 100%
-        );
+        -webkit-mask-image: linear-gradient(to right, #000 0%, #000 80%, transparent 100%);
+        mask-image: linear-gradient(to right, #000 0%, #000 80%, transparent 100%);
     }
 
     .tovar_splide_thumbs_slider {
@@ -177,6 +173,9 @@
 
         .splide__slide {
             height: auto;
+            flex: 0 0 76px;
+            width: 76px;
+            aspect-ratio: 9 / 16;
             cursor: pointer;
             overflow: hidden;
             border: 1px solid transparent;
@@ -232,6 +231,11 @@
 
 @media (max-width: 768px) {
     .tovar_galery_splide {
+        .tovar_splide_thumbs_slider .splide__slide {
+            flex-basis: 64px;
+            width: 64px;
+        }
+
         .tovar_splide_main .splide__arrow--prev {
             left: 4px;
         }
@@ -256,6 +260,11 @@
 
 @media (max-width: 480px) {
     .tovar_galery_splide {
+        .tovar_splide_thumbs_slider .splide__slide {
+            flex-basis: 56px;
+            width: 56px;
+        }
+
         .tovar_splide_main .splide__arrow {
             display: none;
         }
