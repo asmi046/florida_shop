@@ -34,7 +34,12 @@ const glightboxOptions = {
     touchNavigation: true,
     loop: false,
     draggable: true,
-    autoplay: true,
+    autoplayVideos: true,
+    plyr: {
+        config: {
+            ratio: '9:16',
+        },
+    },
     openEffect: 'zoom',
     closeEffect: 'zoom',
     cssText: {
@@ -108,4 +113,3 @@ global_app.directive('phone-mask', {
     }
 })
 global_app.mount("#global_app");
-
