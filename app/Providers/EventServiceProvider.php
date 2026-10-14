@@ -1,13 +1,17 @@
 <?php
 
 namespace App\Providers;
-
 use App\Events\PayOrderConfirmed;
+use App\Events\ConsultationRequested;
+
 use Illuminate\Support\Facades\Event;
 use App\Listeners\PayOrderConfirmedTg;
 use Illuminate\Auth\Events\Registered;
 use App\Listeners\PayOrderConfirmedAmo;
 use App\Listeners\PayOrderConfirmedEmail;
+use App\Listeners\ConsultationRequestedAmo;
+use App\Listeners\ConsultationRequestedTg;
+use App\Listeners\ConsultationRequestedEmail;
 use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
 
@@ -28,6 +32,12 @@ class EventServiceProvider extends ServiceProvider
             PayOrderConfirmedEmail::class,
             PayOrderConfirmedAmo::class,
             PayOrderConfirmedTg::class
+        ],
+
+        ConsultationRequested::class => [
+            ConsultationRequestedAmo::class,
+            ConsultationRequestedTg::class,
+            ConsultationRequestedEmail::class,
         ],
 
     ];

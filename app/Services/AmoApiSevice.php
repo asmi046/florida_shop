@@ -2,6 +2,7 @@
 namespace App\Services;
 
 use App\Models\Order;
+use App\Models\Product;
 
 use AmoCRM\Models\LeadModel;
 use AmoCRM\Models\ContactModel;
@@ -27,51 +28,14 @@ use AmoCRM\Models\CustomFieldsValues\ValueCollections\MultitextCustomFieldValueC
 
 class AmoApiSevice {
     public function create_order(Order $request, $order_number = "") {
+        $apiClient = $this->getApiClient();
 
-        $apiClient = new AmoCRMApiClient();
-        try {
-            $longLivedAccessToken = new LongLivedAccessToken(config('amo.long'));
-        } catch (InvalidArgumentException $e) {
-            printError($e);
-            die;
-        }
-
-        $apiClient->setAccessToken($longLivedAccessToken)
-            ->setAccountBaseDomain(config('amo.url'));
-
-        try {
-            $contact = new ContactModel();
-            $contact->setName($request->name ?? 'Без имени');
-
-            $customFieldsContact = new CustomFieldsValuesCollection();
-
-            $phoneField = (new MultitextCustomFieldValuesModel())->setFieldCode('PHONE');
-            $phoneField->setValues(
-                (new MultitextCustomFieldValueCollection())
-                    ->add(
-                        (new MultitextCustomFieldValueModel())
-                            ->setValue($request->phone)
-                    )
-            );
-            $customFieldsContact->add($phoneField);
-
-            $emailField = (new MultitextCustomFieldValuesModel())->setFieldCode('EMAIL');
-            $emailField->setValues(
-                (new MultitextCustomFieldValueCollection())
-                    ->add(
-                        (new MultitextCustomFieldValueModel())
-                            ->setEnum('WORK')
-                            ->setValue($request->email ?? 'example@test.com')
-                    )
-            );
-            $customFieldsContact->add($emailField);
-
-
-            $contact->setCustomFieldsValues($customFieldsContact);
-            $contactModel = $apiClient->contacts()->addOne($contact);
-        } catch (AmoCRMApiException $e) {
-            \Log::error('AmoCRMApiException (contact): ' . $e->getMessage());
-        }
+        $contactModel = $this->createOrFindContact(
+            $apiClient,
+            $request->name ?? 'Без имени',
+            $request->phone,
+            $request->email ?? null
+        );
 
         try {
             $leadsService = $apiClient->leads();
@@ -190,6 +154,120 @@ class AmoApiSevice {
             abort(500, 'Ошибка при создании сделки: ' . $e->getMessage());
         }
 
+    }
+
+    public function create_consult_lead(string $name, string $phone, ?string $comment, ?Product $product = null) {
+        $apiClient = $this->getApiClient();
+
+        $contactModel = $this->createOrFindContact(
+            $apiClient,
+            $name ?: 'Без имени',
+            $phone,
+            null
+        );
+
+        $leadName = $product
+            ? 'Уточнить наличие: '.$product->title
+            : 'Уточнить наличие';
+
+        $leadComment = $comment ?? '';
+        if ($product) {
+            $link = route('tovar', $product->slug);
+            $leadComment = trim($leadComment."\nТовар: ".$product->title."\nСсылка: ".$link);
+        }
+
+        try {
+            $leadsService = $apiClient->leads();
+            $lead = new LeadModel();
+            $lead->setName($leadName)
+                ->setContacts(
+                    (new ContactsCollection())
+                        ->add(
+                            (new ContactModel())
+                                ->setId($contactModel->getId())
+                        )
+                );
+
+            $leadCustomFieldsValues = new CustomFieldsValuesCollection();
+
+            $cfComment = new TextCustomFieldValuesModel();
+            $cfComment->setFieldId(658283);
+            $cfComment->setValues(
+                (new TextCustomFieldValueCollection())
+                    ->add((new TextCustomFieldValueModel())->setValue($leadComment))
+            );
+            $leadCustomFieldsValues->add($cfComment);
+
+            $lead->setCustomFieldsValues($leadCustomFieldsValues);
+
+            $leadsService->addOne($lead);
+        } catch (AmoCRMApiException $e) {
+            \Log::error('AmoCRMApiException (consult lead): ' . $e->getMessage());
+            abort(500, 'Ошибка при создании сделки: ' . $e->getMessage());
+        }
+    }
+
+    private function getApiClient(): AmoCRMApiClient {
+        $apiClient = new AmoCRMApiClient();
+        try {
+            $longLivedAccessToken = new LongLivedAccessToken(config('amo.long'));
+        } catch (InvalidArgumentException $e) {
+            printError($e);
+            die;
+        }
+
+        return $apiClient->setAccessToken($longLivedAccessToken)
+            ->setAccountBaseDomain(config('amo.url'));
+    }
+
+    private function createOrFindContact(AmoCRMApiClient $apiClient, string $name, string $phone, ?string $email = null): ?ContactModel {
+        try {
+            $contact = new ContactModel();
+            $contact->setName($name ?: 'Без имени');
+
+            $customFieldsContact = new CustomFieldsValuesCollection();
+
+            $phoneField = (new MultitextCustomFieldValuesModel())->setFieldCode('PHONE');
+            $phoneField->setValues(
+                (new MultitextCustomFieldValueCollection())
+                    ->add(
+                        (new MultitextCustomFieldValueModel())
+                            ->setValue($phone)
+                    )
+            );
+            $customFieldsContact->add($phoneField);
+
+            if (!empty($email)) {
+                $emailField = (new MultitextCustomFieldValuesModel())->setFieldCode('EMAIL');
+                $emailField->setValues(
+                    (new MultitextCustomFieldValueCollection())
+                        ->add(
+                            (new MultitextCustomFieldValueModel())
+                                ->setEnum('WORK')
+                                ->setValue($email)
+                        )
+                );
+                $customFieldsContact->add($emailField);
+            } else {
+                $emailField = (new MultitextCustomFieldValuesModel())->setFieldCode('EMAIL');
+                $emailField->setValues(
+                    (new MultitextCustomFieldValueCollection())
+                        ->add(
+                            (new MultitextCustomFieldValueModel())
+                                ->setEnum('WORK')
+                                ->setValue('example@test.com')
+                        )
+                );
+                $customFieldsContact->add($emailField);
+            }
+
+            $contact->setCustomFieldsValues($customFieldsContact);
+
+            return $apiClient->contacts()->addOne($contact);
+        } catch (AmoCRMApiException $e) {
+            \Log::error('AmoCRMApiException (contact): ' . $e->getMessage());
+            return null;
+        }
     }
 
 }
