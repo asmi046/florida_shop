@@ -9,7 +9,7 @@
 
             <div class="col">
                 <h4>Меню</h4>
-                <x-main-menu></x-main-menu>
+                <x-footer-main-menu></x-footer-main-menu>
             </div>
             <div class="col">
                 <h4>Категории</h4>
@@ -55,21 +55,16 @@
                 <p class="pay_icons_intro">В наш магазин можно оплатить следующими способами:</p>
                 <ul class="pay_icons" aria-label="Доступные способы оплаты" itemscope
                     itemtype="https://schema.org/PaymentMethod">
-                    <li itemprop="acceptedPaymentMethod"><img
-                            src="{{ asset('img/pay_icons/sber-color-logo.svg') }}"
+                    <li itemprop="acceptedPaymentMethod"><img src="{{ asset('img/pay_icons/sber-color-logo.svg') }}"
                             alt="Оплата банковской картой Сбербанк — СберPay" width="40" height="20"
                             loading="lazy"></li>
-                    <li itemprop="acceptedPaymentMethod"><img
-                            src="{{ asset('img/pay_icons/mir-color-logo.svg') }}"
+                    <li itemprop="acceptedPaymentMethod"><img src="{{ asset('img/pay_icons/mir-color-logo.svg') }}"
                             alt="Оплата банковской картой МИР" width="40" height="20" loading="lazy"></li>
-                    <li itemprop="acceptedPaymentMethod"><img
-                            src="{{ asset('img/pay_icons/alpha-color.svg') }}"
+                    <li itemprop="acceptedPaymentMethod"><img src="{{ asset('img/pay_icons/alpha-color.svg') }}"
                             alt="Оплата через Альфа-Банк" width="40" height="20" loading="lazy"></li>
-                    <li itemprop="acceptedPaymentMethod"><img
-                            src="{{ asset('img/pay_icons/t-pat-color-logo.svg') }}"
+                    <li itemprop="acceptedPaymentMethod"><img src="{{ asset('img/pay_icons/t-pat-color-logo.svg') }}"
                             alt="Оплата через T-Pay Тинькофф" width="40" height="20" loading="lazy"></li>
-                    <li itemprop="acceptedPaymentMethod"><img
-                            src="{{ asset('img/pay_icons/sbp-color-logo.svg') }}"
+                    <li itemprop="acceptedPaymentMethod"><img src="{{ asset('img/pay_icons/sbp-color-logo.svg') }}"
                             alt="Оплата через Систему быстрых платежей СБП" width="40" height="20"
                             loading="lazy"></li>
                 </ul>

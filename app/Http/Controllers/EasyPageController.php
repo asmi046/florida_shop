@@ -49,4 +49,9 @@ class EasyPageController extends Controller
 
         return view('about', ['sales_liders' => $sales_liders]);
     }
+
+    public function show_warranty()
+    {
+        return view('warranty');
+    }
 }

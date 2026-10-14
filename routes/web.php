@@ -8,7 +8,6 @@ use App\Http\Controllers\CartController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CelebrationController;
 use App\Http\Controllers\ContactsController;
-use App\Http\Controllers\EasyPageController;
 use App\Http\Controllers\FavoriteController;
 use App\Http\Controllers\FeedController;
 use App\Http\Controllers\HitController;
@@ -58,14 +57,7 @@ Route::get('/actions', [ActionsController::class, 'index'])->name('actions');
 Route::get('/hits', [HitController::class, 'index'])->name('hits');
 Route::get('/new_tovar', [NewTovarController::class, 'index'])->name('new_tovar');
 
-Route::get('/uhod_instruction', [EasyPageController::class, 'uhod_instruction'])->name('uhod_instruction');
-Route::get('/policy', [EasyPageController::class, 'show_policy'])->name('policy');
-Route::get('/policy_accept', [EasyPageController::class, 'policy_accept'])->name('policy_accept');
-Route::get('/cookie', [EasyPageController::class, 'show_cookie_policy'])->name('cookie');
-Route::get('/review_consent', [EasyPageController::class, 'show_review_consent'])->name('review_consent');
 
-Route::get('/bonus_system', [EasyPageController::class, 'show_bonus_system'])->name('bonus_system');
-Route::get('/about', [EasyPageController::class, 'show_about'])->name('about');
 
 Route::get('/thencs', [SenderController::class, 'show_thencs'])->name('thencs');
 Route::post('/send_consult', [SenderController::class, 'send_consultation'])->name('send_consultation');
@@ -118,3 +110,5 @@ Route::middleware('guest')->group(function () {
 });
 
 Route::get('/sitemap.xml', [SitemapController::class, 'index']);
+
+require __DIR__.'/pages.php';

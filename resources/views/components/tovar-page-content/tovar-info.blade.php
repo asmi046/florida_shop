@@ -38,6 +38,8 @@
     </div>
 </div>
 
+<x-tovar-page-content.warranty-banner />
+
 <div class="pay_sens">
     <span>Принимаем к оплате:</span>
     <img src="{{ asset('img/icons/pay_sp.svg') }}" alt="">
