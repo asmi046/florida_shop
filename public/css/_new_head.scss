@@ -44,7 +44,7 @@
         height: 600px;
 
         @media (max-width: 520px) {
-            height: 78vh;
+            height: 40vh;
         }
 
         .swiper {
@@ -89,6 +89,7 @@
                 justify-content: center;
                 align-items: center;
                 width: 100%;
+                display: none;
             }
         }
 
@@ -114,7 +115,7 @@
 
             @media (max-width: 520px) {
                 max-width: 100%;
-                padding: 0 50px;
+                padding: 0 40px;
                 box-sizing: border-box;
             }
         }
@@ -138,7 +139,7 @@
 
             @media (max-width: 520px) {
                 padding: 0;
-                font-size: 18px;
+                font-size: 14px;
                 text-align: center;
             }
         }
