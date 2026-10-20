@@ -21,8 +21,8 @@
                         <img src="{{$item->img}}" alt="">
                     </div>
                     <h2>{{$item->title}}</h2>
-                    <p class="data">{{date("d.m.Y", strtotime($item->created_at))}}</p>
-                    <p class="descr">{{mb_strimwidth($item->description, 0, 80, '...' )}}</p>
+                    <p class="data">{{$item->published_at->format('d.m.Y')}}</p>
+                    <p class="descr">{{$item->short_description}}</p>
                 </a>
             @endforeach
 
