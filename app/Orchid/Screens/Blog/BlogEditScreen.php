@@ -2,24 +2,20 @@
 
 namespace App\Orchid\Screens\Blog;
 
-use Orchid\Screen\Screen;
-
 use App\Models\BlogPost;
-
-use Orchid\Support\Facades\Layout;
-use Orchid\Screen\Fields\Input;
-use Orchid\Screen\Fields\Quill;
-use Orchid\Support\Facades\Toast;
-use Orchid\Screen\Actions\Button;
-use Orchid\Support\Color;
-use Orchid\Screen\Fields\Picture;
-use Orchid\Screen\Fields\Switcher;
-use Orchid\Screen\Fields\TextArea;
-use Orchid\Screen\Fields\Relation;
-use Orchid\Screen\Actions\ModalToggle;
-
-
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
+use Illuminate\Validation\Rule;
+use Orchid\Screen\Actions\Button;
+use Orchid\Screen\Fields\DateTimer;
+use Orchid\Screen\Fields\Input;
+use Orchid\Screen\Fields\Picture;
+use Orchid\Screen\Fields\Quill;
+use Orchid\Screen\Fields\TextArea;
+use Orchid\Screen\Screen;
+use Orchid\Support\Color;
+use Orchid\Support\Facades\Layout;
+use Orchid\Support\Facades\Toast;
 
 class BlogEditScreen extends Screen
 {
@@ -28,21 +24,19 @@ class BlogEditScreen extends Screen
      *
      * @return array
      */
-
     public $post;
 
     public function query($id): iterable
     {
-        $post = BlogPost::where('id',$id)->first();
+        $post = BlogPost::findOrFail($id);
+
         return [
-            "post" => $post
+            'post' => $post,
         ];
     }
 
     /**
      * Display header name.
-     *
-     * @return string|null
      */
     public function name(): ?string
     {
@@ -68,25 +62,45 @@ class BlogEditScreen extends Screen
     {
         return [
 
-
             Layout::rows([
 
                 Input::make('title')
                     ->title('Заголовок')
                     ->value($this->post->title)
-                    ->help('Заголовок категории')
+                    ->help('Заголовок статьи')
                     ->required()
+                    ->maxlength(255)
                     ->horizontal(),
 
                 Input::make('slug')
                     ->title('Окончание ссылки')
                     ->value($this->post->slug)
-                    ->help('Slug категории')
+                    ->help('Slug статьи; будет создан из заголовка, если оставить пустым')
+                    ->maxlength(255)
                     ->horizontal(),
 
-                Quill::make('description')->required()->title('Описание')->value($this->post->description),
+                Input::make('short_description')
+                    ->title('Краткое описание')
+                    ->value($this->post->short_description)
+                    ->required()
+                    ->maxlength(255)
+                    ->horizontal(),
 
-                Button::make('Сохранить')->method('save_info')->type(Color::SUCCESS())
+                DateTimer::make('published_at')
+                    ->title('Дата публикации')
+                    ->value($this->post->published_at)
+                    ->enableTime()
+                    ->format24hr()
+                    ->serverFormat()
+                    ->required()
+                    ->horizontal(),
+
+                Quill::make('description')
+                    ->required()
+                    ->title('Описание')
+                    ->value($this->post->description),
+
+                Button::make('Сохранить')->method('save_info')->type(Color::SUCCESS()),
             ])->title('Основные поля'),
 
             Layout::rows([
@@ -101,32 +115,39 @@ class BlogEditScreen extends Screen
                     ->value($this->post->seo_description)
                     ->help('SEO описание')
                     ->horizontal(),
-                Button::make('Сохранить')->method('save_info')->type(Color::SUCCESS())
             ])->title('SEO поля'),
 
             Layout::rows([
 
                 Picture::make('img')->required()->title('Загрузить основное изображение записи')->targetRelativeUrl()->value($this->post->img),
 
-                Button::make('Сохранить')->method('save_info')->type(Color::SUCCESS())
             ])->title('Изображения'),
 
         ];
     }
 
-    public function save_info(BlogPost $post, Request $request) {
+    public function save_info(Request $request, int $id)
+    {
+        $post = BlogPost::findOrFail($id);
+
+        if (blank($request->input('slug')) && is_string($request->input('title'))) {
+            $request->merge(['slug' => Str::slug($request->input('title'))]);
+        }
 
         $new_data = $request->validate([
-            'title' => ['required', 'string'],
-            'slug' => [],
+            'title' => ['required', 'string', 'max:255'],
+            'slug' => ['required', 'string', 'max:255', Rule::unique('blog_posts', 'slug')->ignore($post->id)],
+            'short_description' => ['required', 'string', 'max:255'],
+            'published_at' => ['required', 'date'],
             'description' => ['required', 'string'],
             'img' => ['required', 'string'],
-            'seo_title' => [],
-            'seo_description' => []
+            'seo_title' => ['nullable', 'string'],
+            'seo_description' => ['nullable', 'string'],
         ]);
 
+        $post->fill($new_data)->save();
+        Toast::info('Статья сохранена');
 
-        BlogPost::where('id', $post->id)->update($new_data);
-        Toast::info("Статья сохранена");
+        return redirect()->route('platform.blog');
     }
 }

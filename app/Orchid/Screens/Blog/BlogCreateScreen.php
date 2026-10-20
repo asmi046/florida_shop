@@ -2,20 +2,20 @@
 
 namespace App\Orchid\Screens\Blog;
 
-use Orchid\Screen\Screen;
-
 use App\Models\BlogPost;
-
-use Orchid\Support\Facades\Layout;
-use Orchid\Screen\Fields\Input;
-use Orchid\Screen\Fields\Quill;
-use Orchid\Support\Facades\Toast;
-use Orchid\Screen\Actions\Button;
-use Orchid\Support\Color;
-use Orchid\Screen\Fields\TextArea;
-use Orchid\Screen\Fields\Picture;
-
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
+use Illuminate\Validation\Rule;
+use Orchid\Screen\Actions\Button;
+use Orchid\Screen\Fields\DateTimer;
+use Orchid\Screen\Fields\Input;
+use Orchid\Screen\Fields\Picture;
+use Orchid\Screen\Fields\Quill;
+use Orchid\Screen\Fields\TextArea;
+use Orchid\Screen\Screen;
+use Orchid\Support\Color;
+use Orchid\Support\Facades\Layout;
+use Orchid\Support\Facades\Toast;
 
 class BlogCreateScreen extends Screen
 {
@@ -24,7 +24,6 @@ class BlogCreateScreen extends Screen
      *
      * @return array
      */
-
     public function query(): iterable
     {
         return [];
@@ -32,8 +31,6 @@ class BlogCreateScreen extends Screen
 
     /**
      * Display header name.
-     *
-     * @return string|null
      */
     public function name(): ?string
     {
@@ -62,19 +59,37 @@ class BlogCreateScreen extends Screen
 
                 Input::make('title')
                     ->title('Заголовок')
-                    ->help('Заголовок категории')
+                    ->help('Заголовок статьи')
                     ->required()
+                    ->maxlength(255)
                     ->horizontal(),
 
                 Input::make('slug')
                     ->title('Окончание ссылки')
-                    ->help('Slug категории')
-
+                    ->help('Slug статьи; будет создан из заголовка, если оставить пустым')
+                    ->maxlength(255)
                     ->horizontal(),
 
-                Quill::make('description')->required()->title('Описание'),
+                Input::make('short_description')
+                    ->title('Краткое описание')
+                    ->required()
+                    ->maxlength(255)
+                    ->horizontal(),
 
-                Button::make('Добавить статьи')->method('save_info')->type(Color::SUCCESS())
+                DateTimer::make('published_at')
+                    ->title('Дата публикации')
+                    ->value(now())
+                    ->enableTime()
+                    ->format24hr()
+                    ->serverFormat()
+                    ->required()
+                    ->horizontal(),
+
+                Quill::make('description')
+                    ->required()
+                    ->title('Описание'),
+
+                Button::make('Добавить статью')->method('save_info')->type(Color::SUCCESS()),
             ])->title('Основные поля'),
 
             Layout::rows([
@@ -87,33 +102,36 @@ class BlogCreateScreen extends Screen
                     ->title('SEO описание')
                     ->help('SEO описание')
                     ->horizontal(),
-                Button::make('Сохранить')->method('save_info')->type(Color::SUCCESS())
             ])->title('SEO поля'),
 
             Layout::rows([
 
                 Picture::make('img')->required()->title('Загрузить основное изображение записи')->targetRelativeUrl(),
 
-                Button::make('Сохранить')->method('save_info')->type(Color::SUCCESS())
             ])->title('Изображения'),
         ];
     }
 
-    public function save_info(Request $request) {
+    public function save_info(Request $request)
+    {
+        if (blank($request->input('slug')) && is_string($request->input('title'))) {
+            $request->merge(['slug' => Str::slug($request->input('title'))]);
+        }
 
         $new_data = $request->validate([
-            'title' => ['required', 'string'],
-            'slug' => [],
+            'title' => ['required', 'string', 'max:255'],
+            'slug' => ['required', 'string', 'max:255', Rule::unique('blog_posts', 'slug')],
+            'short_description' => ['required', 'string', 'max:255'],
+            'published_at' => ['required', 'date'],
             'description' => ['required', 'string'],
             'img' => ['required', 'string'],
-            'seo_title' => [],
-            'seo_description' => []
+            'seo_title' => ['nullable', 'string'],
+            'seo_description' => ['nullable', 'string'],
         ]);
-
 
         BlogPost::create($new_data);
 
-        Toast::info("Статья добавлена");
+        Toast::info('Статья добавлена');
 
         return redirect()->route('platform.blog');
     }
