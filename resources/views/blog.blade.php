@@ -16,14 +16,7 @@
     <div class="_wrapper">
         <div class="blog_in_page">
             @foreach ($posts as $item)
-                <a href="{{route('blog_page',$item->slug)}}" class="blog_blk">
-                    <div class="img_wrp">
-                        <img src="{{$item->img}}" alt="">
-                    </div>
-                    <h2>{{$item->title}}</h2>
-                    <p class="data">{{$item->published_at->format('d.m.Y')}}</p>
-                    <p class="descr">{{$item->short_description}}</p>
-                </a>
+                <x-blog-card :item="$item" />
             @endforeach
 
         </div>
