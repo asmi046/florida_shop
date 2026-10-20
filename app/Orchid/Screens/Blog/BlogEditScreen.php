@@ -147,7 +147,5 @@ class BlogEditScreen extends Screen
 
         $post->fill($new_data)->save();
         Toast::info('Статья сохранена');
-
-        return redirect()->route('platform.blog');
     }
 }
