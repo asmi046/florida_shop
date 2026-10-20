@@ -9,7 +9,7 @@
         </div>
 
         <div class="latest_blog_link">
-            <a class="btn btn_empty" href="{{ route('blog') }}">Смотреть все</a>
+            <a class="button" href="{{ route('blog') }}">Смотреть все</a>
         </div>
     </div>
 </section>

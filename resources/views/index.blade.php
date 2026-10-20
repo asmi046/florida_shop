@@ -39,7 +39,7 @@
         </div>
     </section>
 
-    <x-latest-blog-posts />
+
 
     <section class="sales_hits_section">
         <div class="_wrapper">
@@ -47,6 +47,8 @@
             <review></review>
         </div>
     </section>
+
+    <x-latest-blog-posts />
 
     {{-- <x-hit-slider :salesliders="$sales_liders"></x-hit-slider> --}}
 
