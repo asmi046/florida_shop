@@ -19,7 +19,7 @@
             <img src="{{$post->img}}" alt="{{$post->seo_title}}">
         </div>
 
-        <div class="text_blk">
+        <div class="text_blk blog_article">
             {!! $post->description !!}
         </div>
     </div>

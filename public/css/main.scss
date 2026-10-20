@@ -9,6 +9,7 @@
 @import "head_category_new";
 @import "tovars";
 @import "review";
+@import "blog_article";
 
 .plash {
     background-color: white;
@@ -1382,7 +1383,7 @@ textarea {
 }
 
 .blog_blk .img_wrp {
-    max-height: 300px;
+    max-height: 280px;
     overflow: hidden;
     border-radius: 10px;
 }
@@ -1422,11 +1423,17 @@ textarea {
 .page_img_wrapper {
     width: 320px;
     height: 320px;
-
-    padding: 5px;
-    border: 2px dashed var(--main-color);
-
     margin-bottom: 30px;
+    overflow: hidden;
+    border-radius: 12px;
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.12);
+}
+
+.page_img_wrapper img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 /*-----Страница статьи блога end-----*/
