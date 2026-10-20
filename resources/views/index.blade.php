@@ -39,6 +39,7 @@
         </div>
     </section>
 
+    <x-latest-blog-posts />
 
     <section class="sales_hits_section">
         <div class="_wrapper">

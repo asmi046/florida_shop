@@ -1404,6 +1404,11 @@ textarea {
     margin-top: auto;
 }
 
+.latest_blog_link {
+    display: flex;
+    justify-content: center;
+}
+
 @media (max-width: 1024px) {
     .blog_blk {
         width: 48%;
