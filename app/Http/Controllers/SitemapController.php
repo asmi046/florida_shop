@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\BlogPost;
 use App\Models\Category;
 use App\Models\Product;
 use App\Models\ProductTag;
@@ -75,6 +76,19 @@ class SitemapController extends Controller
                 'image' => $item->img ? url($item->img) : null,
             ]);
         });
+
+        // Статьи блога
+        BlogPost::where('published_at', '<=', now())
+            ->each(function ($item) use ($urls) {
+                $urls->push([
+                    'loc' => route('blog_page', $item->slug),
+                    'lastmod' => ($item->updated_at ?? $item->published_at)?->format('Y-m-d\TH:i:s\Z')
+                        ?? Carbon::yesterday()->format('Y-m-d\TH:i:s\Z'),
+                    'changefreq' => 'monthly',
+                    'priority' => '0.6',
+                    'image' => $item->img ? url($item->img) : null,
+                ]);
+            });
 
         return response()->view('sitemap.index', compact('urls'))
             ->header('Content-Type', 'text/xml');
