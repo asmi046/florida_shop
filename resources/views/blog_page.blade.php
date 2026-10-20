@@ -10,6 +10,26 @@
 
 @section('content')
 
+@php
+    $blogSchemaJson = json_encode(
+        [
+            '@context' => 'https://schema.org',
+            '@type' => 'BlogPosting',
+            'headline' => $post->title,
+            'description' => $post->short_description ?: $post->seo_description,
+            'image' => asset($post->img),
+            'datePublished' => $post->published_at?->toIso8601String(),
+            'dateModified' => $post->updated_at?->toIso8601String(),
+            'mainEntityOfPage' => [
+                '@type' => 'WebPage',
+                '@id' => route('blog_page', $post->slug),
+            ],
+        ],
+        JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE | JSON_THROW_ON_ERROR
+    );
+@endphp
+@jsonld(jsonld_raw($blogSchemaJson))
+
 <x-headers.header-inner :h1="$title"></x-headers.header-inner>
 
 <section class="thencs_page">
