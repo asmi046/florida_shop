@@ -7,7 +7,7 @@ class ProductFilter extends QueryFilter
     public function minprice($minprice = 0)
     {
         if (! empty($minprice)) {
-            $this->builder->where('price', '>', $minprice);
+            $this->builder->where('price', '>=', $minprice);
         }
     }
 

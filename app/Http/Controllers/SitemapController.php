@@ -66,6 +66,16 @@ class SitemapController extends Controller
             ]);
         });
 
+        // Ценовые диапазоны
+        collect(config('prices', []))->each(function ($range, $slug) use ($urls) {
+            $urls->push([
+                'loc' => url("/prices/{$slug}"),
+                'lastmod' => Carbon::yesterday()->format('Y-m-d\TH:i:s\Z'),
+                'changefreq' => 'weekly',
+                'priority' => '0.7',
+            ]);
+        });
+
         // Букеты
         Product::all()->each(function ($item) use ($urls) {
             $urls->push([

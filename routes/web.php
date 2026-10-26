@@ -15,6 +15,7 @@ use App\Http\Controllers\IndexController;
 use App\Http\Controllers\NewFeedbackController;
 use App\Http\Controllers\NewTovarController;
 use App\Http\Controllers\PayController;
+use App\Http\Controllers\PriceController;
 use App\Http\Controllers\ProductTagController;
 use App\Http\Controllers\ReviewsController;
 use App\Http\Controllers\SearchController;
@@ -46,6 +47,8 @@ Route::get('/catalog/{slug}', [CategoryController::class, 'show_cat'])->name('ca
 Route::get('/tovar/{slug}', [TovarController::class, 'show'])->name('tovar');
 
 Route::get('/tags/{slug}', [ProductTagController::class, 'show_tag'])->name('tag');
+
+Route::get('/prices/{slug}', [PriceController::class, 'show'])->name('price');
 
 Route::get('/contacts', [ContactsController::class, 'show'])->name('contacts');
 Route::get('/zones', [ContactsController::class, 'show_zones'])->name('zones');
