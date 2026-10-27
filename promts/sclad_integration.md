@@ -394,3 +394,5 @@ app/Console/Commands/UpdateProductsFromMoySklad.php
 https://dev.moysklad.ru/doc/api/remap/1.2/#/dictionaries/processingplan#3-tehkarty
 
 Сделай мне отдельную комманду которая покажет список зарегистрированных техкарт в системе
+
+---
