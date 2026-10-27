@@ -378,3 +378,19 @@ components_href если оно не null делаем запрос по ссы�
 - app/Orchid/Layouts/Product/ProductListTable.php
 
 Добавь поля skladCount, code, externalCode
+
+---
+
+Проанализируй артисан комманды:
+
+app/Console/Commands/FetchMoySkladData.php
+app/Console/Commands/MatchProductsWithMoySklad.php
+app/Console/Commands/UpdateProductsFromMoySklad.php
+
+Учти моменты взаимодействия с API мой склад.
+
+Так же посмотри описание сущьности Техкарты
+
+https://dev.moysklad.ru/doc/api/remap/1.2/#/dictionaries/processingplan#3-tehkarty
+
+Сделай мне отдельную комманду которая покажет список зарегистрированных техкарт в системе
