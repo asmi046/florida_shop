@@ -3,6 +3,7 @@
 namespace App\Console\Commands;
 
 use App\Models\MySkladAssortiment;
+use App\Models\Product;
 use App\Services\MySkladProcessingPlanService;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Log;
@@ -16,6 +17,10 @@ class ListMoySkladProcessingPlans extends Command
                             {--archived : Включить архивные техкарты}
                             {--with-details : Догрузить материалы, этапы и результат техкарт}
                             {--detail-limit=15 : Максимум техкарт с деталями}
+                            {--sync : Проставить products.processingPlanId по техкартам}
+                            {--dry-run : При --sync только показать изменения без записи в БД}
+                            {--overwrite : При --sync перезаписывать уже заполненный processingPlanId}
+                            {--throttle=1100 : Пауза между запросами к API, мс (лимит МойСклад — 1 req/s)}
                             {--json : Вывести результат в JSON}';
 
     protected $description = 'Список зарегистрированных техкарт (processingplan) в МойСклад';
@@ -48,6 +53,16 @@ class ListMoySkladProcessingPlans extends Command
         $withDetails = (bool) $this->option('with-details');
         $detailLimit = (int) $this->option('detail-limit');
         $asJson = (bool) $this->option('json');
+        $sync = (bool) $this->option('sync');
+        $dryRun = (bool) $this->option('dry-run');
+        $overwrite = (bool) $this->option('overwrite');
+        $throttle = (int) $this->option('throttle');
+
+        if ($dryRun && ! $sync) {
+            $this->warn('Опция --dry-run работает только вместе с --sync.');
+        }
+
+        $service->setThrottleMs($throttle);
 
         $startTime = now();
 
@@ -58,6 +73,9 @@ class ListMoySkladProcessingPlans extends Command
             'search' => $search,
             'archived' => $archived,
             'with_details' => $withDetails,
+            'sync' => $sync,
+            'dry_run' => $dryRun,
+            'overwrite' => $overwrite,
         ]);
 
         try {
@@ -80,9 +98,15 @@ class ListMoySkladProcessingPlans extends Command
             $details = $this->loadDetails($service, $plans, $detailLimit);
         }
 
+        $syncReport = null;
+
+        if ($sync && ! empty($plans)) {
+            $syncReport = $this->syncProcessingPlanIds($service, $plans, $dryRun, $overwrite);
+        }
+
         if ($asJson) {
             $this->line((string) json_encode(
-                $this->buildJsonPayload($plans, $processes, $details),
+                $this->buildJsonPayload($plans, $processes, $details, $syncReport),
                 JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT
             ));
 
@@ -113,15 +137,30 @@ class ListMoySkladProcessingPlans extends Command
             }
         }
 
+        if ($syncReport !== null) {
+            $this->newLine();
+            $this->printSyncReport($syncReport, $dryRun);
+        }
+
         $endTime = now();
 
         $this->newLine();
-        $this->table(['Метрика', 'Значение'], [
-            ['Всего техкарт', count($plans)],
-            ['С деталями', count($details)],
-            ['Техпроцессов', count($processes)],
-            ['Время выполнения', $startTime->diffForHumans($endTime, true)],
-        ]);
+        $this->table(['Метрика', 'Значение'], array_merge(
+            [
+                ['Всего техкарт', count($plans)],
+                ['С деталями', count($details)],
+                ['Техпроцессов', count($processes)],
+            ],
+            $syncReport !== null ? [
+                ['Связано с товарами', $syncReport['matched']],
+                ['Обновлено записей', $dryRun ? 0 : $syncReport['updated']],
+                ['Пропущено (уже заполнено)', $syncReport['skipped']],
+                ['Конфликтов', count($syncReport['conflicts'])],
+            ] : [],
+            [
+                ['Время выполнения', $startTime->diffForHumans($endTime, true)],
+            ]
+        ));
 
         Log::channel('my_sklad')->info('Завершение получения списка техкарт', [
             'session_type' => self::SESSION_TYPE,
@@ -129,10 +168,211 @@ class ListMoySkladProcessingPlans extends Command
             'end_time' => $endTime->toDateTimeString(),
             'total_plans' => count($plans),
             'with_details' => count($details),
+            'sync' => $sync,
+            'dry_run' => $dryRun,
+            'matched' => $syncReport['matched'] ?? null,
+            'updated' => $dryRun ? 0 : ($syncReport['updated'] ?? null),
             'duration_seconds' => $startTime->diffInSeconds($endTime),
         ]);
 
         return 0;
+    }
+
+    /**
+     * Проставить products.processingPlanId: техкарта → её результат → товар магазина по code/externalCode.
+     *
+     * @param  array<int, array<string, mixed>>  $plans
+     * @return array<string, mixed>
+     */
+    private function syncProcessingPlanIds(MySkladProcessingPlanService $service, array $plans, bool $dryRun, bool $overwrite): array
+    {
+        $this->info('Синхронизация processingPlanId с товарами магазина...');
+        $this->newLine();
+
+        $index = $service->fetchAssortmentIndex();
+
+        $products = Product::query()
+            ->where(function ($query) {
+                $query->whereNotNull('code')->orWhereNotNull('externalCode');
+            })
+            ->get(['id', 'title', 'code', 'externalCode', 'processingPlanId']);
+
+        $byCode = [];
+        $byExternalCode = [];
+
+        foreach ($products as $product) {
+            if (! empty($product->code)) {
+                $byCode[(string) $product->code][] = $product;
+            }
+
+            if (! empty($product->externalCode)) {
+                $byExternalCode[(string) $product->externalCode][] = $product;
+            }
+        }
+
+        $rows = [];
+        $conflicts = [];
+        $matched = 0;
+        $updated = 0;
+        $skipped = 0;
+        $planOwners = [];
+
+        $this->withProgressBar($plans, function ($plan) use (
+            $service, $index, $byCode, $byExternalCode, $dryRun, $overwrite,
+            &$rows, &$conflicts, &$matched, &$updated, &$skipped, &$planOwners
+        ) {
+            $planId = $plan['id'] ?? null;
+
+            if ($planId === null) {
+                return;
+            }
+
+            try {
+                $planProducts = $service->fetchPlanProducts($planId);
+            } catch (RuntimeException $e) {
+                $this->warn("Не удалось получить результат техкарты «{$plan['name']}»: {$e->getMessage()}");
+
+                Log::channel('my_sklad')->error('Ошибка загрузки результата техкарты при синхронизации', [
+                    'session_type' => self::SESSION_TYPE,
+                    'plan_id' => $planId,
+                    'error' => $e->getMessage(),
+                ]);
+
+                return;
+            }
+
+            foreach ($planProducts as $planProduct) {
+                $href = $planProduct['assortment']['meta']['href'] ?? ($planProduct['product']['meta']['href'] ?? null);
+                $assortmentId = $service->extractId($href);
+
+                if ($assortmentId === null) {
+                    continue;
+                }
+
+                $meta = $index[$assortmentId] ?? null;
+
+                if ($meta === null) {
+                    continue;
+                }
+
+                $candidates = [];
+
+                if (! empty($meta['code'])) {
+                    $candidates = array_merge($candidates, $byCode[$meta['code']] ?? []);
+                }
+
+                if (! empty($meta['externalCode'])) {
+                    $candidates = array_merge($candidates, $byExternalCode[$meta['externalCode']] ?? []);
+                }
+
+                $unique = [];
+
+                foreach ($candidates as $candidate) {
+                    $unique[$candidate->id] = $candidate;
+                }
+
+                $candidates = array_values($unique);
+
+                if (empty($candidates)) {
+                    continue;
+                }
+
+                if (count($candidates) > 1) {
+                    $conflicts[] = [
+                        'plan_id' => $planId,
+                        'plan_name' => $plan['name'] ?? '',
+                        'reason' => 'Товар найден по нескольким кодам ('.implode(', ', array_map(
+                            fn ($candidate) => $candidate->id.':'.$candidate->title,
+                            $candidates
+                        )).')',
+                    ];
+
+                    continue;
+                }
+
+                $product = $candidates[0];
+                $matched++;
+
+                if (! empty($product->processingPlanId) && ! $overwrite) {
+                    $skipped++;
+                    $rows[] = [
+                        (string) $product->id,
+                        $this->truncate((string) $product->title, 36),
+                        substr((string) $planId, 0, 8),
+                        'уже заполнено',
+                    ];
+
+                    continue;
+                }
+
+                if (isset($planOwners[$product->id]) && $planOwners[$product->id] !== $planId) {
+                    $conflicts[] = [
+                        'plan_id' => $planId,
+                        'plan_name' => $plan['name'] ?? '',
+                        'reason' => 'На товар '.$product->id.' уже ссылается техкарта '.substr((string) $planOwners[$product->id], 0, 8),
+                    ];
+
+                    continue;
+                }
+
+                $planOwners[$product->id] = $planId;
+
+                if (! $dryRun) {
+                    $product->processingPlanId = $planId;
+                    $product->save();
+                    $updated++;
+                }
+
+                $rows[] = [
+                    (string) $product->id,
+                    $this->truncate((string) $product->title, 36),
+                    substr((string) $planId, 0, 8),
+                    $dryRun ? 'к записи' : 'записано',
+                ];
+            }
+        });
+
+        $this->newLine(2);
+
+        return [
+            'matched' => $matched,
+            'updated' => $updated,
+            'skipped' => $skipped,
+            'rows' => $rows,
+            'conflicts' => $conflicts,
+        ];
+    }
+
+    /**
+     * Вывести отчёт синхронизации processingPlanId.
+     *
+     * @param  array<string, mixed>  $report
+     */
+    private function printSyncReport(array $report, bool $dryRun): void
+    {
+        $this->info($dryRun
+            ? 'Результаты синхронизации (без записи в БД):'
+            : 'Результаты синхронизации:');
+        $this->newLine();
+
+        if (! empty($report['rows'])) {
+            $this->table(['ID товара', 'Товар', 'Техкарта', 'Действие'], $report['rows']);
+            $this->newLine();
+        } else {
+            $this->warn('Ни один товар не связан с техкартами.');
+            $this->newLine();
+        }
+
+        if (! empty($report['conflicts'])) {
+            $this->warn('Конфликты:');
+            $this->newLine();
+
+            foreach ($report['conflicts'] as $conflict) {
+                $this->line('  - '.$this->truncate((string) ($conflict['plan_name'] ?? ''), 50).' — '.$conflict['reason']);
+            }
+
+            $this->newLine();
+        }
     }
 
     /**
@@ -371,9 +611,10 @@ class ListMoySkladProcessingPlans extends Command
      * @param  array<int, array<string, mixed>>  $plans
      * @param  array<string, string>  $processes
      * @param  array<string, array<string, mixed>>  $details
+     * @param  array<string, mixed>|null  $sync
      * @return array<string, mixed>
      */
-    private function buildJsonPayload(array $plans, array $processes, array $details): array
+    private function buildJsonPayload(array $plans, array $processes, array $details, ?array $sync = null): array
     {
         $payload = [];
 
@@ -383,12 +624,13 @@ class ListMoySkladProcessingPlans extends Command
             $payload[] = $plan;
         }
 
-        return [
+        return array_filter([
             'total' => count($plans),
             'processes' => $processes,
             'plans' => $payload,
             'details' => $details,
-        ];
+            'sync' => $sync,
+        ], fn ($value) => $value !== null);
     }
 
     /**

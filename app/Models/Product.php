@@ -38,6 +38,7 @@ class Product extends Model
         'skladCount',
         'code',
         'externalCode',
+        'processingPlanId',
         'video_review',
     ];
 

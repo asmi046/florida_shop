@@ -28,6 +28,23 @@ class MySkladProcessingPlanService
     private ?array $assortmentNames = null;
 
     /**
+     * Кэш полного индекса номенклатуры (id => name/code/externalCode).
+     *
+     * @var array<string, array<string, mixed>>|null
+     */
+    private ?array $assortmentIndex = null;
+
+    /**
+     * Пауза между запросами к API, миллисекунды.
+     */
+    private int $throttleMs = 0;
+
+    /**
+     * Время последнего запроса к API.
+     */
+    private float $lastRequestAt = 0.0;
+
+    /**
      * Таймаут запроса, секунд.
      */
     private const TIMEOUT = 30;
@@ -146,6 +163,27 @@ class MySkladProcessingPlanService
         }
 
         $names = [];
+
+        foreach ($this->fetchAssortmentIndex() as $id => $item) {
+            $names[$id] = $item['name'] ?? '';
+        }
+
+        return $this->assortmentNames = $names;
+    }
+
+    /**
+     * Получить полный индекс номенклатуры: id => [name, code, externalCode].
+     * Используется для связи техкарты с товаром магазина по code/externalCode.
+     *
+     * @return array<string, array<string, mixed>>
+     */
+    public function fetchAssortmentIndex(): array
+    {
+        if ($this->assortmentIndex !== null) {
+            return $this->assortmentIndex;
+        }
+
+        $index = [];
         $offset = 0;
 
         while (true) {
@@ -165,7 +203,12 @@ class MySkladProcessingPlanService
                 $id = $row['id'] ?? null;
 
                 if ($id !== null) {
-                    $names[$id] = $row['name'] ?? '';
+                    $index[$id] = [
+                        'name' => $row['name'] ?? '',
+                        'code' => $row['code'] ?? null,
+                        'externalCode' => $row['externalCode'] ?? null,
+                        'archived' => (bool) ($row['archived'] ?? false),
+                    ];
                 }
             }
 
@@ -176,7 +219,17 @@ class MySkladProcessingPlanService
             $offset = (int) ($data['meta']['offset'] ?? $offset) + count($rows);
         }
 
-        return $this->assortmentNames = $names;
+        return $this->assortmentIndex = $index;
+    }
+
+    /**
+     * Получить результат техкарты (готовые продукты) в сыром виде.
+     *
+     * @return array<int, array<string, mixed>>
+     */
+    public function fetchPlanProducts(string $planId): array
+    {
+        return $this->fetchCollection(self::BASE_URL.'/entity/processingplan/'.$planId.'/products');
     }
 
     /**
@@ -290,8 +343,11 @@ class MySkladProcessingPlanService
         while (true) {
             $attempt++;
 
+            $this->waitForThrottle();
+
             try {
                 $response = $this->client()->get($url, $query);
+                $this->lastRequestAt = microtime(true);
             } catch (\Throwable $e) {
                 if ($attempt >= self::RETRIES) {
                     Log::channel('my_sklad')->error('Сетевая ошибка при обращении к API МойСклад', [
@@ -382,5 +438,30 @@ class MySkladProcessingPlanService
         $seconds = $delay > 0 ? $delay : min(2 ** $attempt, 10);
 
         usleep($seconds * 1000 * 1000);
+    }
+
+    /**
+     * Установить паузу между запросами к API (лимит МойСклад — 1 запрос в секунду).
+     */
+    public function setThrottleMs(int $milliseconds): void
+    {
+        $this->throttleMs = max(0, $milliseconds);
+    }
+
+    /**
+     * Выдержать паузу, если с прошлого запроса прошло меньше заданного времени.
+     */
+    private function waitForThrottle(): void
+    {
+        if ($this->throttleMs <= 0 || $this->lastRequestAt === 0.0) {
+            return;
+        }
+
+        $elapsed = (microtime(true) - $this->lastRequestAt) * 1000;
+        $wait = $this->throttleMs - $elapsed;
+
+        if ($wait > 0) {
+            usleep((int) ($wait * 1000));
+        }
     }
 }
