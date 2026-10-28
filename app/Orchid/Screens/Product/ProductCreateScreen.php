@@ -4,6 +4,7 @@ namespace App\Orchid\Screens\Product;
 
 use App\Models\Category;
 use App\Models\Product;
+use App\Orchid\Support\ProcessingPlanField;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 use Orchid\Attachment\Models\Attachment;
@@ -94,6 +95,8 @@ class ProductCreateScreen extends Screen
                     ->title('Внешний код МойСклад')
                     ->help('Внешний код из МойСклад')
                     ->horizontal(),
+
+                ProcessingPlanField::make(),
 
                 Input::make('sku')
                     ->title('Артикул')
@@ -216,6 +219,7 @@ class ProductCreateScreen extends Screen
             'skladCount' => [],
             'code' => [],
             'externalCode' => [],
+            'processingPlanId' => ['nullable', 'string', 'max:36'],
             'video_review' => ['sometimes', 'array', 'max:1'],
             'video_review.*' => ['integer', Rule::exists('attachments', 'id')],
         ]);
@@ -228,6 +232,7 @@ class ProductCreateScreen extends Screen
         }
 
         $new_data['skladCount'] = $new_data['skladCount'] ?? 0;
+        $new_data['processingPlanId'] = $new_data['processingPlanId'] ?: null;
 
         $new_tovar = Product::create($new_data);
 

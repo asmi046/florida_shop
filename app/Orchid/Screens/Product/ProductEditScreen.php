@@ -8,6 +8,7 @@ use App\Models\Product;
 use App\Models\ProductImage;
 use App\Models\ProductTag;
 use App\Orchid\Layouts\Product\ProductImageTable;
+use App\Orchid\Support\ProcessingPlanField;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 use Orchid\Attachment\Models\Attachment;
@@ -154,6 +155,8 @@ class ProductEditScreen extends Screen
                     ->value($this->product->externalCode)
                     ->help('Внешний код из МойСклад')
                     ->horizontal(),
+
+                ProcessingPlanField::make($this->product->processingPlanId),
 
                 Input::make('sku')
                     ->title('Артикул')
@@ -356,6 +359,7 @@ class ProductEditScreen extends Screen
             'skladCount' => [],
             'code' => [],
             'externalCode' => [],
+            'processingPlanId' => ['nullable', 'string', 'max:36'],
             'video_review' => ['sometimes', 'array', 'max:1'],
             'video_review.*' => ['integer', Rule::exists('attachments', 'id')],
         ]);
@@ -369,6 +373,7 @@ class ProductEditScreen extends Screen
 
         $new_data['skladCount'] = $new_data['skladCount'] ?? 0;
         $new_data['consist'] = isset($new_data['consist']) ? $new_data['consist'] : null;
+        $new_data['processingPlanId'] = $new_data['processingPlanId'] ?: null;
 
         $this->product->tovar_categories()->sync($request->get('category'));
         $this->product->tovar_celebration()->sync($request->get('сelebration'));

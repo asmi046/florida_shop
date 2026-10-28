@@ -6,7 +6,9 @@ use App\Models\MySkladAssortiment;
 use App\Models\Product;
 use App\Services\MySkladProcessingPlanService;
 use Illuminate\Console\Command;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Str;
 use RuntimeException;
 
 class ListMoySkladProcessingPlans extends Command
@@ -20,6 +22,8 @@ class ListMoySkladProcessingPlans extends Command
                             {--sync : Проставить products.processingPlanId по техкартам}
                             {--dry-run : При --sync только показать изменения без записи в БД}
                             {--overwrite : При --sync перезаписывать уже заполненный processingPlanId}
+                            {--export= : Выгрузить техкарты в JSON-файл (путь относительно корня проекта)}
+                            {--export-details : Включить в выгрузку материалы, этапы и результат всех техкарт}
                             {--throttle=1100 : Пауза между запросами к API, мс (лимит МойСклад — 1 req/s)}
                             {--json : Вывести результат в JSON}';
 
@@ -56,10 +60,16 @@ class ListMoySkladProcessingPlans extends Command
         $sync = (bool) $this->option('sync');
         $dryRun = (bool) $this->option('dry-run');
         $overwrite = (bool) $this->option('overwrite');
+        $export = $this->option('export');
+        $exportDetails = (bool) $this->option('export-details');
         $throttle = (int) $this->option('throttle');
 
         if ($dryRun && ! $sync) {
             $this->warn('Опция --dry-run работает только вместе с --sync.');
+        }
+
+        if ($exportDetails && $export === null) {
+            $this->warn('Опция --export-details работает только вместе с --export.');
         }
 
         $service->setThrottleMs($throttle);
@@ -76,6 +86,8 @@ class ListMoySkladProcessingPlans extends Command
             'sync' => $sync,
             'dry_run' => $dryRun,
             'overwrite' => $overwrite,
+            'export' => $export,
+            'export_details' => $exportDetails,
         ]);
 
         try {
@@ -94,14 +106,19 @@ class ListMoySkladProcessingPlans extends Command
 
         $details = [];
 
-        if ($withDetails && ! empty($plans)) {
-            $details = $this->loadDetails($service, $plans, $detailLimit);
+        if (($withDetails || $exportDetails) && ! empty($plans)) {
+            $detailsLimit = $exportDetails ? count($plans) : $detailLimit;
+            $details = $this->loadDetails($service, $plans, $detailsLimit);
         }
 
         $syncReport = null;
 
         if ($sync && ! empty($plans)) {
             $syncReport = $this->syncProcessingPlanIds($service, $plans, $dryRun, $overwrite);
+        }
+
+        if ($export !== null) {
+            $this->exportToFile($plans, $processes, $details, (string) $export);
         }
 
         if ($asJson) {
@@ -132,7 +149,7 @@ class ListMoySkladProcessingPlans extends Command
             $this->info('Состав техкарт:');
             $this->newLine();
 
-            foreach ($details as $planId => $detail) {
+            foreach (array_slice($details, 0, max(0, $detailLimit), true) as $planId => $detail) {
                 $this->printDetails($plans, $planId, $detail, $processes);
             }
         }
@@ -387,14 +404,15 @@ class ListMoySkladProcessingPlans extends Command
         $selected = array_slice($plans, 0, $detailLimit);
 
         $this->info("Загрузка деталей для {$detailLimit} техкарт...");
+        $this->newLine();
 
         $raw = [];
 
-        foreach ($selected as $plan) {
+        $this->withProgressBar($selected, function ($plan) use ($service, &$raw) {
             $planId = $plan['id'] ?? null;
 
             if ($planId === null) {
-                continue;
+                return;
             }
 
             try {
@@ -406,10 +424,10 @@ class ListMoySkladProcessingPlans extends Command
                     'plan_id' => $planId,
                     'error' => $e->getMessage(),
                 ]);
-
-                continue;
             }
-        }
+        });
+
+        $this->newLine(2);
 
         $names = $this->resolveAssortmentNames($service, $raw);
 
@@ -418,12 +436,36 @@ class ListMoySkladProcessingPlans extends Command
         foreach ($raw as $planId => $planRaw) {
             $details[$planId] = [
                 'materials' => $this->normalizeItems($planRaw['materials'] ?? [], $service, $names),
-                'stages' => $planRaw['stages'] ?? [],
+                'stages' => $this->normalizeStages($planRaw['stages'] ?? []),
                 'products' => $this->normalizeItems($planRaw['products'] ?? [], $service, $names),
             ];
         }
 
         return $details;
+    }
+
+    /**
+     * Привести этапы к плоскому виду.
+     *
+     * @param  array<int, array<string, mixed>>  $stages
+     * @return array<int, array<string, mixed>>
+     */
+    private function normalizeStages(array $stages): array
+    {
+        $result = [];
+
+        foreach ($stages as $stage) {
+            $result[] = [
+                'id' => $stage['id'] ?? null,
+                'cost' => (float) ($stage['cost'] ?? 0),
+                'standardHour' => (float) ($stage['standardHour'] ?? 0),
+                'labourCost' => (float) ($stage['labourCost'] ?? 0),
+                'standardHourCost' => (float) ($stage['standardHourCost'] ?? 0),
+                'enableHourAccounting' => (bool) ($stage['enableHourAccounting'] ?? false),
+            ];
+        }
+
+        return $result;
     }
 
     /**
@@ -631,6 +673,57 @@ class ListMoySkladProcessingPlans extends Command
             'details' => $details,
             'sync' => $sync,
         ], fn ($value) => $value !== null);
+    }
+
+    /**
+     * Выгрузить техкарты в JSON-файл.
+     *
+     * @param  array<int, array<string, mixed>>  $plans
+     * @param  array<string, string>  $processes
+     * @param  array<string, array<string, mixed>>  $details
+     */
+    private function exportToFile(array $plans, array $processes, array $details, string $path): void
+    {
+        $payload = [];
+
+        foreach ($plans as $plan) {
+            $plan['processName'] = $processes[$plan['processId'] ?? ''] ?? null;
+
+            if (isset($details[$plan['id']])) {
+                $plan['details'] = $details[$plan['id']];
+            }
+
+            $payload[] = $plan;
+        }
+
+        $document = [
+            'generated_at' => now()->toDateTimeString(),
+            'total' => count($plans),
+            'processes' => $processes,
+            'plans' => $payload,
+        ];
+
+        $json = json_encode(
+            $document,
+            JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT
+        );
+
+        $fullPath = Str::startsWith($path, '/') ? $path : base_path($path);
+
+        File::ensureDirectoryExists(dirname($fullPath));
+        File::put($fullPath, $json);
+
+        $size = round(filesize($fullPath) / 1024, 1);
+
+        $this->info("Выгрузка сохранена: {$fullPath} ({$size} КБ, техкарт: ".count($plans).')');
+
+        Log::channel('my_sklad')->info('Выгрузка техкарт в JSON-файл', [
+            'session_type' => self::SESSION_TYPE,
+            'path' => $fullPath,
+            'total_plans' => count($plans),
+            'with_details' => count($details),
+            'size_kb' => $size,
+        ]);
     }
 
     /**
