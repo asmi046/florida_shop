@@ -358,24 +358,6 @@
     display: none;
 }
 
-.tovar_wrap .bascet_count {
-    display: none;
-    background-color: var(--main-color);
-    color: #fff;
-    position: absolute;
-    top: 0;
-    left: calc(50% - 52px);
-    border-radius: 0 0 10px 10px;
-    font-size: 12px;
-    padding: 5px 10px;
-    cursor: pointer;
-    z-index: 9998;
-}
-
-.tovar_wrap.in-bascet .bascet_count {
-    display: block;
-}
-
 .number_wrapper {
     border: 1px solid #f2f3f5;
     border-radius: 6px;

@@ -16,9 +16,9 @@
             <x-breadcrumbs :category="['title' => $title]"></x-breadcrumbs>
             <h1 class="h1_page">Акции и скидки на цветы</h1>
 
-            <div class="margin_top_bottom">
+            <div class="margin_top_bottom tovar_wrapper">
                 @foreach ($allproduct as $tovar)
-                    <x-tovar-card :isslide="false" :tovar="$tovar"></x-tovar-card>
+                    <x-cards.tovar-card :tovar="$tovar"></x-cards.tovar-card>
                 @endforeach
             </div>
 

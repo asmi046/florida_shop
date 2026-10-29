@@ -42,8 +42,8 @@
             @endif
         </div>
 
-        @if ($tovar->asc_nal)
-            <a href="#showModalNal_{{ $tovar['sku'] }}" class="button price_button">Уточнить наличие</a>
+        @if ($tovar->skladCount <= 0)
+            <a href="#showModalNal_{{ $tovar['sku'] }}" class="button price_button">Хочу такой же</a>
         @else
             <to-bascet-btn-page sku="{{ $tovar['sku'] }}" :bascet="'/bascet'"></to-bascet-btn-page>
         @endif

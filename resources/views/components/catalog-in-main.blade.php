@@ -6,10 +6,10 @@
             <x-tovar-filter></x-tovar-filter>
         </div>
         <div class="tovars_blk">
-            <div class="tovar_blk_wrap">
+            <div class="tovar_wrapper">
 
                 @foreach ($allproduct as $tovar)
-                    <x-tovar-card :isslide="false" :tovar="$tovar"></x-tovar-card>
+                    <x-cards.tovar-card :tovar="$tovar"></x-cards.tovar-card>
                 @endforeach
             </div>
         </div>

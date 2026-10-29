@@ -547,49 +547,6 @@ header .messendger_head_blk {
 
 /*--------Слайдер скидок и акций----------*/
 
-.tovar_label_wrapper {
-    position: absolute;
-    z-index: 111;
-    left: 10px;
-    top: 10px;
-}
-
-.tovar_label {
-    width: 50px;
-    height: 28px;
-    border-radius: 20px 0 20px 0;
-    color: white;
-    text-align: center;
-    text-transform: uppercase;
-    font-size: 14px;
-    line-height: 28px;
-    margin-bottom: 10px;
-}
-
-.tovar_label.sale {
-    background-color: #e24465;
-}
-
-.tovar_label.hit {
-    background-color: #91b508;
-}
-
-.tovar_label.new {
-    background-color: orange;
-}
-
-.tovar_blk_wrap .favorites {
-    right: 10px;
-    top: 10px;
-    position: absolute;
-}
-
-.sales_tovar_wrapper .favorites {
-    right: 10px;
-    top: 10px;
-    position: absolute;
-}
-
 .favorites:hover::before {
     color: white;
     background-color: var(--main-hover-color);
@@ -614,8 +571,8 @@ header .messendger_head_blk {
 }
 
 .favorites.active,
-.tovar_wrap.in-favorites .like,
-.tovar_wrap .like:hover {
+.tovar_card_new.in-favorites .like,
+.tovar_card_new .like:hover {
     background-image: url(../img/icons/favorites_hover.svg);
 }
 
@@ -639,7 +596,7 @@ header .messendger_head_blk {
     left: calc(50% - 100px);
 }
 
-.favorites-page .tovar_wrap:not(.in-favorites) {
+.favorites-page .tovar_card_new:not(.in-favorites) {
     display: none;
 }
 
@@ -664,61 +621,6 @@ header .messendger_head_blk {
 .favorites.all_control {
     position: relative;
     top: -30px;
-}
-
-.tovar_blk_wrap {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-}
-
-.tovar_blk_wrap .sales_tovar_wrapper {
-    margin: 0 0 30px 0;
-    min-width: 340px;
-}
-
-.tovar_blk_wrap .sales_tovar_wrapper .img_wrapper {
-    min-height: 310px;
-}
-
-.sales_tovar_wrapper {
-    border-radius: 9px;
-    border: 1px solid var(--main-gray-color);
-    display: flex;
-    flex-direction: column;
-    overflow: hidden;
-    position: relative;
-    max-width: 340px;
-    height: auto;
-}
-
-.sales_tovar_wrapper .tov_info a {
-    color: var(--main-black-color);
-}
-
-.sales_tovar_wrapper.in-bascet {
-    border: 1px solid var(--main-color);
-}
-
-.sales_tovar_wrapper .img_wrapper {
-    width: 100%;
-    height: 210px;
-}
-
-.sales_tovar_wrapper .tov_info {
-    display: flex;
-    flex-direction: column;
-    padding: 10px;
-}
-
-.sales_tovar_wrapper .tov_info h3 {
-    font-size: 16px;
-    margin: 20px 0;
-}
-
-.card_bascet_btn,
-.btn_in_cart {
-    margin: auto 10px 10px 10px !important;
 }
 
 /*--------Слайдер скидок и акций end----------*/
@@ -1453,17 +1355,6 @@ textarea {
     .adv_blk {
         width: 23%;
     }
-
-    .tovar_blk_wrap .sales_tovar_wrapper {
-        min-width: 300px;
-    }
-}
-
-@media (max-width: 1280px) {
-    .tovar_blk_wrap .sales_tovar_wrapper {
-        min-width: 290px;
-        max-width: 25%;
-    }
 }
 
 @media (max-width: 1024px) {
@@ -1595,10 +1486,6 @@ textarea {
         display: none;
     }
 
-    .tovar_blk_wrap .sales_tovar_wrapper {
-        min-width: 279px;
-    }
-
     .swiper_obj .btn_left {
         left: 0;
     }
@@ -1609,10 +1496,6 @@ textarea {
 }
 
 @media (max-width: 768px) {
-    .tovar_blk_wrap .sales_tovar_wrapper {
-        min-width: 48%;
-    }
-
     #about_main ._wrapper .img_wraper {
         display: none;
     }
@@ -1745,10 +1628,6 @@ textarea {
 
     .hit_slider .swiper-slide {
         max-width: 80%;
-    }
-
-    .tovar_blk_wrap .sales_tovar_wrapper .img_wrapper {
-        min-height: unset;
     }
 
     .rew_head {

@@ -23,7 +23,7 @@ function favorites_to_page() {
                     update_fav_counter(response.data.count)
 
                     for (let element of response.data.position) {
-                        let card = document.querySelector('.tovar_wrap[data-prodid="'+element.product_sku+'"]')
+                        let card = document.querySelector('.tovar_card_new[data-prodid="'+element.product_sku+'"]')
                         if (card != undefined)
                         {
                             card.classList.add("in-favorites")
@@ -42,7 +42,7 @@ function favorites_to_page() {
 }
 
 function empty_fav_page() {
-    let count_fav = document.querySelectorAll(".favorites-page .tovar_wrap.in-favorites").length
+    let count_fav = document.querySelectorAll(".favorites-page .tovar_card_new.in-favorites").length
     console.log(count_fav)
     let es = document.querySelector(".empty_favorites")
     if (count_fav ==  0 && es != null) es.style.display = "inline-block"
@@ -66,7 +66,7 @@ document.addEventListener("DOMContentLoaded", () => {
             })
             .then((response) => {
 
-                let main_card = document.querySelector(".tovar_wrap[data-prodid='"+product_id+"']");
+                let main_card = document.querySelector(".tovar_card_new[data-prodid='"+product_id+"']");
 
                 if (response.data[0])
                 {
