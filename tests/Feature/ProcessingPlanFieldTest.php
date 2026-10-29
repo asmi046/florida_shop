@@ -11,11 +11,18 @@ class ProcessingPlanFieldTest extends TestCase
 {
     private ?User $admin = null;
 
+    private ?Product $product = null;
+
     protected function tearDown(): void
     {
         if ($this->admin !== null) {
             $this->admin->delete();
             $this->admin = null;
+        }
+
+        if ($this->product !== null) {
+            Product::where('id', $this->product->id)->update(['processingPlanId' => null]);
+            $this->product = null;
         }
 
         parent::tearDown();
@@ -26,6 +33,7 @@ class ProcessingPlanFieldTest extends TestCase
         $this->admin = $this->makeAdmin();
 
         $product = Product::firstOrFail();
+        $this->product = $product;
 
         $response = $this->actingAs($this->admin)->get('/admin/products/'.$product->id.'/edit');
 
@@ -50,6 +58,7 @@ class ProcessingPlanFieldTest extends TestCase
         $this->admin = $this->makeAdmin();
 
         $product = Product::firstOrFail();
+        $this->product = $product;
         $planId = '001ebe48-cbe6-11f1-0a80-139f0000aca5';
 
         $page = $this->actingAs($this->admin)->get('/admin/products/'.$product->id.'/edit');
@@ -75,7 +84,6 @@ class ProcessingPlanFieldTest extends TestCase
             'processingPlanId' => $planId,
         ]);
 
-        $product->forceFill(['processingPlanId' => null])->save();
     }
 
     private function makeAdmin(): User

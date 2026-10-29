@@ -208,6 +208,7 @@ class MySkladProcessingPlanService
                         'code' => $row['code'] ?? null,
                         'externalCode' => $row['externalCode'] ?? null,
                         'archived' => (bool) ($row['archived'] ?? false),
+                        'type' => $row['meta']['type'] ?? null,
                     ];
                 }
             }
@@ -230,6 +231,16 @@ class MySkladProcessingPlanService
     public function fetchPlanProducts(string $planId): array
     {
         return $this->fetchCollection(self::BASE_URL.'/entity/processingplan/'.$planId.'/products');
+    }
+
+    /**
+     * Получить материалы техкарты в сыром виде.
+     *
+     * @return array<int, array<string, mixed>>
+     */
+    public function fetchPlanMaterials(string $planId): array
+    {
+        return $this->fetchCollection(self::BASE_URL.'/entity/processingplan/'.$planId.'/materials');
     }
 
     /**
