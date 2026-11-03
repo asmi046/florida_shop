@@ -209,6 +209,7 @@ class MySkladProcessingPlanService
                         'externalCode' => $row['externalCode'] ?? null,
                         'archived' => (bool) ($row['archived'] ?? false),
                         'type' => $row['meta']['type'] ?? null,
+                        'salePrice' => $this->extractSalePrice($row),
                     ];
                 }
             }
@@ -241,6 +242,26 @@ class MySkladProcessingPlanService
     public function fetchPlanMaterials(string $planId): array
     {
         return $this->fetchCollection(self::BASE_URL.'/entity/processingplan/'.$planId.'/materials');
+    }
+
+    /**
+     * Извлечь цену продажи по типу «Цена по умолчанию» (в копейках).
+     *
+     * @param  array<string, mixed>  $row
+     */
+    private function extractSalePrice(array $row): ?float
+    {
+        foreach ($row['salePrices'] ?? [] as $price) {
+            $name = $price['priceType']['name'] ?? '';
+
+            if ($name === 'Цена по умолчанию' && isset($price['value'])) {
+                $value = (float) $price['value'];
+
+                return $value > 0 ? $value : null;
+            }
+        }
+
+        return null;
     }
 
     /**

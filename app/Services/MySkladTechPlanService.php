@@ -17,7 +17,7 @@ class MySkladTechPlanService
     {
         return Product::query()
             ->where('processingPlanId', $planId)
-            ->get(['id', 'title', 'code', 'externalCode', 'skladCount', 'asc_nal', 'processingPlanId']);
+            ->get(['id', 'title', 'code', 'externalCode', 'price', 'old_price', 'skladCount', 'asc_nal', 'processingPlanId']);
     }
 
     /**

@@ -39,7 +39,7 @@ class ProcessingPlanFieldTest extends TestCase
 
         $response->assertOk();
         $response->assertSee('processingPlanId', false);
-        $response->assertSee('Техкарта МойСклад');
+        $response->assertSee('ID техкарты МойСклад');
     }
 
     public function test_create_screen_contains_processing_plan_field(): void
@@ -50,7 +50,7 @@ class ProcessingPlanFieldTest extends TestCase
 
         $response->assertOk();
         $response->assertSee('processingPlanId', false);
-        $response->assertSee('Техкарта МойСклад');
+        $response->assertSee('ID техкарты МойСклад');
     }
 
     public function test_save_info_persists_processing_plan_id(): void
