@@ -2,11 +2,11 @@
 
 namespace App\View\Components;
 
+use App\Models\ProductTag;
 use Closure;
 use Illuminate\Contracts\View\View;
-use Illuminate\View\Component;
 use Illuminate\Support\Facades\Cache;
-use App\Models\ProductTag;
+use Illuminate\View\Component;
 
 class ProductTagInFilter extends Component
 {
@@ -29,7 +29,7 @@ class ProductTagInFilter extends Component
      */
     private function getTagsWithCache()
     {
-        return Cache::remember('product_tags_filter', 3600, function () {
+        return Cache::remember(ProductTag::FILTER_CACHE_KEY, 3600, function () {
             return ProductTag::select('id', 'title', 'alt_title', 'slug')
                 ->orderBy('title')
                 ->get();

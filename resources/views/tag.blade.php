@@ -1,8 +1,8 @@
 @extends('layouts.all')
 
 @php
-    $title = $tag_info['seo_title'];
-    $description = $tag_info['seo_description'];
+    $title = $tag_info['seo_title'] ?? ($tag_info['alt_title'] ?? $tag_info['title']);
+    $description = $tag_info['seo_description'] ?? $title . ' Цветы с доставкой по Курску откомпании Florida';
 
     if (!$allproduct->onFirstPage()) {
         $pageSuffix = ' Страница ' . $allproduct->currentPage();

@@ -15,7 +15,6 @@
 
     <form action="{{ url()->current() }}" method="GET" class="tovar_filter accordion">
         <input type="hidden" name="order" value="{{ value_check('order', '', 'Сначала дешевые') }}">
-        <input type="hidden" name="brand" value="{{ value_check('brand', '', '%') }}">
         <div class="acc_blk ">
             <div class="acc_head open">
                 <span>Стоимость</span>
@@ -47,6 +46,10 @@
                 @endforeach
             </div>
         </div>
+
+        @foreach ($product_option_types as $type)
+            <x-product-options-filter :dimension="$type->slug" :title="$type->title" />
+        @endforeach
 
         <x-product-tag-in-filter />
 

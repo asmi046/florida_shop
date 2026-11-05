@@ -2,8 +2,22 @@
 
 namespace App\Filters;
 
+use App\Models\ProductOptionType;
+use App\Support\ProductOptionCatalog;
+use Illuminate\Database\Eloquent\Builder;
+
 class ProductFilter extends QueryFilter
 {
+    /**
+     * @var array<int, string>
+     */
+    protected array $allowed = [
+        'minprice',
+        'maxprice',
+        'order',
+        'osobennosti',
+    ];
+
     public function minprice($minprice = 0)
     {
         if (! empty($minprice)) {
@@ -31,34 +45,81 @@ class ProductFilter extends QueryFilter
         }
     }
 
-    public function brand($brand)
+    /**
+     * Фильтр по особостям товара.
+     *
+     * Внутри одной группы работает «ИЛИ»: товар подходит, если он обладает
+     * хотя бы одной из отмеченных особенностей.
+     */
+    public function osobennosti($osobennosti = [])
     {
-        if ($brand != '%') {
-            $this->builder->where('brand', $brand);
-        }
+        $this->builder->where(function ($query) use ($osobennosti) {
+            foreach ((array) $osobennosti as $osobennost) {
+                if ($osobennost == 'Скидка') {
+                    $query->orWhere('old_price', '>', 0);
+                }
+                if ($osobennost == 'Хит продаж') {
+                    $query->orWhere('hit', 1);
+                }
+                if ($osobennost == 'Новинки') {
+                    $query->orWhere('new', 1);
+                }
+            }
+        });
     }
 
-    public function subcat($subcat)
+    /**
+     * Фильтр по параметрам товара с множественным выбором.
+     *
+     * Внутри одного параметра работает «ИЛИ» (товар подходит, если обладает
+     * хотя бы одним из выбранных значений), между разными параметрами — «И».
+     * Значения приходят в виде ?color[]=1&color[]=2.
+     */
+    protected function applyExtra(Builder $builder): Builder
     {
-        if (! empty($subcat)) {
-            $this->builder->whereIn('sub_category', $subcat);
+        if (! ProductOptionCatalog::tablesExist()) {
+            return $builder;
         }
+
+        $typeIds = ProductOptionType::query()
+            ->whereIn('slug', ProductDimensions::slugs())
+            ->where('show_in_filter', true)
+            ->pluck('id', 'slug');
+
+        foreach ($typeIds as $slug => $typeId) {
+            $ids = $this->dimensionIds($slug);
+
+            if ($ids === []) {
+                continue;
+            }
+
+            $builder->whereHas('productOptions', function (Builder $query) use ($typeId, $ids) {
+                $query->where('product_options.product_option_type_id', $typeId)
+                    ->whereIn('product_options.id', $ids);
+            });
+        }
+
+        return $builder;
     }
 
-    public function osobennosti($osobennosti)
+    /**
+     * Идентификаторы значений параметра из query-строки.
+     *
+     * @return array<int, int>
+     */
+    protected function dimensionIds(string $slug): array
     {
+        $raw = $this->request->query($slug);
 
-        foreach ($osobennosti as $osb) {
-            if ($osb == 'Скидка') {
-                $this->builder->where('old_price', '>', 0);
-            }
-            if ($osb == 'Хит продаж') {
-                $this->builder->where('hit', 1);
-            }
-            if ($osb == 'Новинки') {
-                $this->builder->where('new', 1);
-            }
+        if ($raw === null || $raw === '') {
+            return [];
         }
 
+        return collect((array) $raw)
+            ->filter(fn ($value) => is_numeric($value))
+            ->map(fn ($value) => (int) $value)
+            ->unique()
+            ->values()
+            ->all();
     }
 }

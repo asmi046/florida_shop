@@ -2,17 +2,18 @@
 
 namespace App\Orchid\Screens\ProductTag;
 
-use Orchid\Screen\Screen;
+use App\Models\Product;
 use App\Models\ProductTag;
-use Illuminate\Support\Str;
 use Illuminate\Http\Request;
-use Orchid\Screen\Fields\Input;
-use Orchid\Screen\Fields\Quill;
-use Orchid\Screen\Fields\Upload;
+use Illuminate\Support\Str;
 use Orchid\Screen\Actions\Button;
+use Orchid\Screen\Fields\Input;
 use Orchid\Screen\Fields\Picture;
-use Orchid\Support\Facades\Alert;
+use Orchid\Screen\Fields\Quill;
+use Orchid\Screen\Fields\Relation;
 use Orchid\Screen\Fields\TextArea;
+use Orchid\Screen\Screen;
+use Orchid\Support\Facades\Alert;
 use Orchid\Support\Facades\Layout;
 
 class ProductTagEditScreen extends Screen
@@ -28,7 +29,7 @@ class ProductTagEditScreen extends Screen
     public function query(ProductTag $tag): iterable
     {
         return [
-            'tag' => $tag
+            'tag' => $tag,
         ];
     }
 
@@ -37,7 +38,7 @@ class ProductTagEditScreen extends Screen
      */
     public function name(): ?string
     {
-        return $this->tag->exists ? 'Редактировать тег: ' . $this->tag->title : 'Создать новый тег';
+        return $this->tag->exists ? 'Редактировать тег: '.$this->tag->title : 'Создать новый тег';
     }
 
     /**
@@ -111,7 +112,18 @@ class ProductTagEditScreen extends Screen
                     ->rows(3)
                     ->placeholder('SEO описание для поисковых систем')
                     ->help('Описание для отображения в результатах поиска (до 160 символов)'),
-            ])
+            ]),
+
+            Layout::rows([
+                Relation::make('products.')
+                    ->fromModel(Product::class, 'title', 'id')
+                    ->title('Товары с этим тегом')
+                    ->value($this->tag->exists ? $this->tag->products : [])
+                    ->multiple()
+                    ->help('Товары попадут на страницу тега и в блок «Цветы» фильтра'),
+
+                Button::make('Сохранить')->method('save'),
+            ])->title('Товары'),
         ];
     }
 
@@ -123,7 +135,7 @@ class ProductTagEditScreen extends Screen
         $data = $request->validate([
             'tag.title' => 'required|string|max:255',
             'tag.alt_title' => 'required|string|max:255',
-            'tag.slug' => 'nullable|string|max:255|unique:product_tags,slug,' . $tag->id,
+            'tag.slug' => 'nullable|string|max:255|unique:product_tags,slug,'.$tag->id,
             'tag.template' => 'nullable|string|max:255',
             'tag.image' => 'nullable|string|max:800',
             'tag.description' => 'nullable|string',
@@ -138,6 +150,12 @@ class ProductTagEditScreen extends Screen
 
         $tag->fill($data['tag'])->save();
 
+        if ($request->has('products')) {
+            $tag->products()->sync($request->get('products', []));
+        }
+
+        ProductTag::clearFilterCache();
+
         Alert::info('Тег сохранен успешно');
     }
 
@@ -147,6 +165,8 @@ class ProductTagEditScreen extends Screen
     public function remove(ProductTag $tag): void
     {
         $tag->delete();
+
+        ProductTag::clearFilterCache();
 
         Alert::info('Тег удален успешно');
     }

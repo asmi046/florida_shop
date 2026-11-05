@@ -12,9 +12,6 @@ use Orchid\Support\Color;
 
 class PlatformProvider extends OrchidServiceProvider
 {
-    /**
-     * @param Dashboard $dashboard
-     */
     public function boot(Dashboard $dashboard): void
     {
         parent::boot($dashboard);
@@ -49,6 +46,10 @@ class PlatformProvider extends OrchidServiceProvider
             Menu::make('Теги')
                 ->icon('grid')
                 ->route('platform.product-tags.list'),
+
+            Menu::make('Параметры товаров')
+                ->icon('layers')
+                ->route('platform.product-options.list'),
 
             Menu::make('Блог')
                 ->icon('pencil')

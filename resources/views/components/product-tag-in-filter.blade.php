@@ -1,10 +1,12 @@
-<div class="acc_blk">
-    <div class="acc_head open">
-        <span>Цветы</span>
+@if ($tags->isNotEmpty())
+    <div class="acc_blk">
+        <div class="acc_head open">
+            <span>Цветы</span>
+        </div>
+        <div class="acc_body open">
+            @foreach($tags as $tag)
+                <a href="{{ route('tag', ['slug' => $tag->slug]) }}" @class(['tag_lnk', 'active' => request()->routeIs('tag') && request()->route('slug') == $tag->slug])>{{ $tag->title }}</a>
+            @endforeach
+        </div>
     </div>
-    <div class="acc_body open">
-        @foreach($tags as $tag)
-            <a href="{{ route('tag', ['slug' => $tag->slug]) }}" @class(['tag_lnk', 'active' => request()->routeIs('tag') && request()->route('slug') == $tag->slug])>{{ $tag->title }}</a>
-        @endforeach
-    </div>
-</div>
+@endif

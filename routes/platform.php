@@ -33,6 +33,8 @@ use App\Orchid\Screens\Category\CategoryCreateScreen;
 use App\Orchid\Screens\Examples\ExampleLayoutsScreen;
 use App\Orchid\Screens\ProductTag\ProductTagEditScreen;
 use App\Orchid\Screens\ProductTag\ProductTagListScreen;
+use App\Orchid\Screens\ProductOption\ProductOptionEditScreen;
+use App\Orchid\Screens\ProductOption\ProductOptionListScreen;
 
 
 use App\Orchid\Screens\Celebration\CelebrationEditScreen;
@@ -230,6 +232,37 @@ Route::prefix('product-tags')->name('platform.product-tags.')->group(function ()
             return $trail
                 ->parent('platform.product-tags.list')
                 ->push('Редактировать: ' . $tag->title);
+        });
+});
+
+// Группировка роутов для параметров товара
+Route::prefix('product-options')->name('platform.product-options.')->group(function () {
+
+    // Список значений параметров
+    Route::screen('/', ProductOptionListScreen::class)
+        ->name('list')
+        ->breadcrumbs(function (Trail $trail) {
+            return $trail
+                ->parent('platform.index')
+                ->push('Параметры товаров');
+        });
+
+    // Создание нового значения
+    Route::screen('create', ProductOptionEditScreen::class)
+        ->name('create')
+        ->breadcrumbs(function (Trail $trail) {
+            return $trail
+                ->parent('platform.product-options.list')
+                ->push('Новое значение параметра');
+        });
+
+    // Редактирование существующего значения
+    Route::screen('{option}/edit', ProductOptionEditScreen::class)
+        ->name('edit')
+        ->breadcrumbs(function (Trail $trail, $option) {
+            return $trail
+                ->parent('platform.product-options.list')
+                ->push('Редактировать значение');
         });
 });
 

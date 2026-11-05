@@ -1078,6 +1078,16 @@ textarea {
     background-color: var(--main-color);
 }
 
+.color_swatch {
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    border: 1px solid rgba(0, 0, 0, .15);
+    margin: -5px 8px 0 0px;
+    vertical-align: middle;
+}
+
 #uni_map {
     ._wrapper {
         display: flex;

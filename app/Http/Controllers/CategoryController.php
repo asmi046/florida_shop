@@ -19,7 +19,7 @@ class CategoryController extends Controller
         return view('catalog', ['allproduct' => $allproduct]);
     }
 
-    public function show_cat($slug)
+    public function show_cat(ProductFilter $filter, $slug)
     {
         $categoryInfo = Category::where('slug', $slug)->first();
 
@@ -27,7 +27,11 @@ class CategoryController extends Controller
             abort(404);
         }
 
-        $allproduct = $categoryInfo->category_tovars()->orderBy('asc_nal', 'ASC')->paginate(16)->withQueryString();
+        $allproduct = $categoryInfo->category_tovars()
+            ->filter($filter)
+            ->orderBy('asc_nal', 'ASC')
+            ->paginate(16)
+            ->withQueryString();
 
         if ($allproduct->currentPage() > $allproduct->lastPage() && $allproduct->total() > 0) {
             abort(404);

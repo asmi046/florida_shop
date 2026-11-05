@@ -2,14 +2,20 @@
 
 namespace App\Models;
 
-use Orchid\Screen\AsSource;
-use Orchid\Filters\Filterable;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Cache;
+use Orchid\Filters\Filterable;
+use Orchid\Screen\AsSource;
 
 class ProductTag extends Model
 {
     use AsSource;
     use Filterable;
+
+    /**
+     * Ключ кэша списка тегов для фильтра.
+     */
+    public const FILTER_CACHE_KEY = 'product_tags_filter';
 
     /**
      * The attributes that are mass assignable.
@@ -24,7 +30,7 @@ class ProductTag extends Model
         'slug',
         'description',
         'seo_title',
-        'seo_description'
+        'seo_description',
     ];
 
     /**
@@ -40,5 +46,13 @@ class ProductTag extends Model
     public function products()
     {
         return $this->belongsToMany(Product::class);
+    }
+
+    /**
+     * Сбросить кэш списка тегов для фильтра.
+     */
+    public static function clearFilterCache(): void
+    {
+        Cache::forget(self::FILTER_CACHE_KEY);
     }
 }

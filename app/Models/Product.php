@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Filters\QueryFilter;
+use App\Models\Concerns\HasProductOptions;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -16,6 +17,7 @@ class Product extends Model
     use AsSource;
     use Filterable;
     use HasFactory;
+    use HasProductOptions;
 
     public $fillable = [
         'id',

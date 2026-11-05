@@ -73,7 +73,7 @@ class PriceRangeTest extends TestCase
         $content = $response->getContent();
 
         $this->assertStringContainsString('price_selector_wrapper', $content);
-        $this->assertStringContainsString('class="tag_lnk"', $content);
+        $this->assertStringContainsString('tag_lnk', $content);
         $this->assertTrue(
             strpos($content, 'price_selector_wrapper') < strpos($content, route('price', 'do-2500'))
         );

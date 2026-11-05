@@ -5,6 +5,7 @@ namespace App\Providers;
 use App\Models\Category;
 use App\Models\Celebration;
 use App\Models\Option;
+use App\Support\ProductOptionCatalog;
 use Illuminate\Support\ServiceProvider;
 use View;
 
@@ -40,6 +41,7 @@ class OptionsProvider extends ServiceProvider
             View::share('options', $opt);
             View::share('all_cat', $categoryes);
             View::share('celebrations', $celebrations);
+            View::share('product_option_types', ProductOptionCatalog::types());
         });
     }
 }

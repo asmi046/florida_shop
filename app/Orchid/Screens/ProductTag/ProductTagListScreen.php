@@ -18,7 +18,7 @@ class ProductTagListScreen extends Screen
         return [
             'tags' => ProductTag::filters()
                 ->defaultSort('id', 'desc')
-                ->paginate()
+                ->paginate(),
         ];
     }
 
@@ -56,7 +56,7 @@ class ProductTagListScreen extends Screen
     public function layout(): iterable
     {
         return [
-            ProductTagListLayout::class
+            ProductTagListLayout::class,
         ];
     }
 
@@ -66,6 +66,8 @@ class ProductTagListScreen extends Screen
     public function remove(ProductTag $tag): void
     {
         $tag->delete();
+
+        ProductTag::clearFilterCache();
 
         Toast::info('Тег удален успешно');
     }

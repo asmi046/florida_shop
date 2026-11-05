@@ -25,7 +25,7 @@ class PriceController extends Controller
             ->when(! is_null($max), fn ($query) => $query->where('price', '<', $max))
             ->filter($filter);
 
-        if (! array_key_exists('order', $filter->filters())) {
+        if (! $filter->has('order')) {
             $query->orderBy('price', 'ASC')->orderBy('asc_nal', 'ASC');
         }
 

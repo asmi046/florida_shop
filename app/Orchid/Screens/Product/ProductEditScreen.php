@@ -2,16 +2,22 @@
 
 namespace App\Orchid\Screens\Product;
 
+use App\Filters\ProductDimensions;
 use App\Models\Category;
 use App\Models\Celebration;
 use App\Models\Product;
 use App\Models\ProductImage;
+use App\Models\ProductOption;
+use App\Models\ProductOptionType;
 use App\Models\ProductTag;
 use App\Orchid\Layouts\Product\ProductImageTable;
 use App\Orchid\Support\ProcessingPlanField;
+use App\Support\ProductOptionCatalog;
 use Illuminate\Http\Request;
+use Illuminate\Support\Collection;
 use Illuminate\Validation\Rule;
 use Orchid\Attachment\Models\Attachment;
+use Orchid\Screen\Action;
 use Orchid\Screen\Actions\Button;
 use Orchid\Screen\Actions\ModalToggle;
 use Orchid\Screen\Fields\Input;
@@ -46,6 +52,13 @@ class ProductEditScreen extends Screen
 
     public $product_video_review;
 
+    /**
+     * Типы параметров товара, сгруппированные по слагу.
+     *
+     * @var Collection
+     */
+    public $option_types;
+
     public function query($id): iterable
     {
         $product = Product::where('id', $id)->first();
@@ -62,6 +75,7 @@ class ProductEditScreen extends Screen
             'product_img' => $img,
             'product_tags' => $tags,
             'product_video_review' => $videoReviewAttachmentId,
+            'option_types' => ProductOptionType::orderBy('position')->get()->keyBy('slug'),
         ];
     }
 
@@ -100,7 +114,7 @@ class ProductEditScreen extends Screen
     /**
      * Button commands.
      *
-     * @return \Orchid\Screen\Action[]
+     * @return Action[]
      */
     public function commandBar(): iterable
     {
@@ -244,9 +258,11 @@ class ProductEditScreen extends Screen
                     ->multiple()
                     ->help('Выберите теги для товара'),
 
+                ...$this->productOptionFields(),
+
                 Matrix::make('consist')
-                    ->title('Состав букета')
-                    ->help('Состав букета (ингридиент, количество в штуках)')
+                    ->title('Состав букета для страницы')
+                    ->help('Состав букета для страницы (ингридиент, количество в штуках)')
                     ->value($this->product->consist)
                     ->columns([
                         'Имя',
@@ -306,6 +322,42 @@ class ProductEditScreen extends Screen
 
             ])->title('Управление изображениями товара'),
         ];
+    }
+
+    /**
+     * Поля выбора значений параметров товара: состав, упаковка, цвет, кому, событие.
+     *
+     * @return array<int, Relation>
+     */
+    private function productOptionFields(): array
+    {
+        $fields = [
+            Input::make('product_options_present')
+                ->type('hidden')
+                ->value('1')
+                ->title(''),
+        ];
+
+        // Порядок полей совпадает с порядком блоков в фильтре: он задаётся
+        // полем position в справочнике типов.
+        foreach ($this->option_types as $slug => $type) {
+            if (! in_array($slug, ProductDimensions::slugs(), true)) {
+                continue;
+            }
+
+            $title = ProductDimensions::adminTitle($type->title);
+
+            $fields[] = Relation::make($slug.'.')
+                ->fromModel(ProductOption::class, 'title', 'id')
+                ->title($title)
+                ->value($this->product->optionsOfType($slug)->pluck('product_options.id'))
+                ->applyScope('ofType', $slug)
+                ->searchColumns('title')
+                ->multiple()
+                ->help('Значения параметра попадут в фильтр каталога');
+        }
+
+        return $fields;
     }
 
     public function load_image(Product $product, Request $request)
@@ -373,13 +425,42 @@ class ProductEditScreen extends Screen
 
         $new_data['skladCount'] = $new_data['skladCount'] ?? 0;
         $new_data['consist'] = isset($new_data['consist']) ? $new_data['consist'] : null;
-        $new_data['processingPlanId'] = $new_data['processingPlanId'] ?: null;
+        $new_data['processingPlanId'] = $new_data['processingPlanId'] ?? null;
 
         $this->product->tovar_categories()->sync($request->get('category'));
         $this->product->tovar_celebration()->sync($request->get('сelebration'));
         $this->product->tags()->sync($request->get('tags'));
 
+        // Параметры синхронизируются только если форма содержала их блок:
+        // при полном снятии всех галочек браузер не присылает ни одного
+        // из этих параметров, поэтому ориентируемся на скрытый маркер.
+        if ($request->boolean('product_options_present')) {
+            $this->product->productOptions()->sync($this->selectedOptionIds($request));
+
+            ProductOptionCatalog::flush();
+        }
+
         Product::where('id', $this->product->id)->update($new_data);
         Toast::info('Продукт сохранен');
+    }
+
+    /**
+     * Идентификаторы выбранных значений параметров товара.
+     *
+     * @return array<int, int>
+     */
+    private function selectedOptionIds(Request $request): array
+    {
+        $ids = [];
+
+        foreach (ProductDimensions::slugs() as $slug) {
+            foreach ((array) $request->get($slug, []) as $id) {
+                if (is_numeric($id)) {
+                    $ids[] = (int) $id;
+                }
+            }
+        }
+
+        return array_values(array_unique($ids));
     }
 }

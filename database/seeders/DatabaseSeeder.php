@@ -19,8 +19,9 @@ class DatabaseSeeder extends Seeder
             OptionSeeder::class,
             CelebrationSeeder::class,
             CategorySeeder::class,
+            ProductTagSeeder::class,
             ReviewSeeder::class,
-            BlogPostSeeder::class
+            BlogPostSeeder::class,
         ]);
         // \App\Models\User::factory(10)->create();
 
