@@ -29,6 +29,7 @@ class Kernel extends ConsoleKernel
 
         $schedule->command('moysklad:fetch')->hourlyAt(5);
         $schedule->command('moysklad:update-products')->hourlyAt(35);
+        $schedule->command('moysklad:update-prices-from-techplans')->everyTwelveHours();
     }
 
     /**
