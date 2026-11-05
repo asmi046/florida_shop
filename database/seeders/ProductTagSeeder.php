@@ -13,7 +13,9 @@ class ProductTagSeeder extends Seeder
     public function run(): void
     {
         foreach (self::tags() as $tag) {
-            ProductTag::updateOrCreate(
+            // firstOrCreate, а не updateOrCreate: существующие теги не трогаем,
+            // их SEO-тексты правятся вручную.
+            ProductTag::firstOrCreate(
                 ['slug' => $tag['slug']],
                 $tag
             );

@@ -19,6 +19,7 @@ class ProductOptionListScreen extends Screen
         return [
             'options' => ProductOption::query()
                 ->with('type')
+                ->withCount('products')
                 ->filters()
                 ->defaultSort('position')
                 ->defaultSort('title')

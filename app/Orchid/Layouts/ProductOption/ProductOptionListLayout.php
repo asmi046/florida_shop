@@ -3,6 +3,7 @@
 namespace App\Orchid\Layouts\ProductOption;
 
 use App\Models\ProductOption;
+use App\Models\ProductOptionType;
 use Orchid\Screen\Actions\Button;
 use Orchid\Screen\Actions\DropDown;
 use Orchid\Screen\Actions\Link;
@@ -15,6 +16,18 @@ class ProductOptionListLayout extends Table
      * Data source.
      */
     protected $target = 'options';
+
+    /**
+     * Типы параметров для выпадающего фильтра.
+     *
+     * @return array<int, string>
+     */
+    protected function typeOptions(): array
+    {
+        return ProductOptionType::orderBy('position')
+            ->pluck('title', 'id')
+            ->all();
+    }
 
     /**
      * Get the table cells to be displayed.
@@ -38,8 +51,9 @@ class ProductOptionListLayout extends Table
                     return '<i class="color_swatch" style="background: '.e($swatch).'"></i> '.$title;
                 }),
 
-            TD::make('type', 'Тип')
-                ->filter(TD::FILTER_TEXT)
+            TD::make('product_option_type_id', 'Тип')
+                ->sort()
+                ->filter(TD::FILTER_SELECT, $this->typeOptions())
                 ->render(function (ProductOption $option) {
                     return $option->type?->title ?? '—';
                 }),
@@ -52,7 +66,7 @@ class ProductOptionListLayout extends Table
 
             TD::make('products_count', 'Товаров')
                 ->render(function (ProductOption $option) {
-                    return $option->products()->count();
+                    return $option->products_count;
                 }),
 
             TD::make('position', 'Порядок')

@@ -9,6 +9,8 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Support\Str;
 use Orchid\Filters\Filterable;
+use Orchid\Filters\Types\Like;
+use Orchid\Filters\Types\WhereIn;
 use Orchid\Screen\AsSource;
 
 class ProductOption extends Model
@@ -32,6 +34,31 @@ class ProductOption extends Model
         'meta' => 'array',
         'position' => 'integer',
         'is_active' => 'boolean',
+    ];
+
+    /**
+     * Колонки, по которым разрешена сортировка в админке.
+     *
+     * @var array<int, string>
+     */
+    protected $allowedSorts = [
+        'id',
+        'title',
+        'slug',
+        'position',
+        'is_active',
+        'product_option_type_id',
+    ];
+
+    /**
+     * Фильтры админки: колонка => тип фильтра.
+     *
+     * @var array<string, string>
+     */
+    protected $allowedFilters = [
+        'title' => Like::class,
+        'slug' => Like::class,
+        'product_option_type_id' => WhereIn::class,
     ];
 
     public function type(): BelongsTo

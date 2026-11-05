@@ -15,7 +15,7 @@
         "migrate_rep": "ssh danila1s_asmi@danila1s.beget.tech \"cd florida46.ru && php8.4 artisan migrate\"",
         "rollback_rep": "ssh danila1s_asmi@danila1s.beget.tech \"cd florida46.ru && php8.4 artisan migrate:rollback\"",
         "seed_rep": "ssh danila1s_asmi@danila1s.beget.tech \"cd florida46.ru && php8.4 artisan DB:seed\"",
-        "seed_rep_one": "ssh danila1s_asmi@danila1s.beget.tech \"cd florida46.ru && php8.4 artisan DB:seed ProductTagSeeder\"",
+        "seed_rep_one": "ssh danila1s_asmi@danila1s.beget.tech \"cd florida46.ru && php8.4 artisan DB:seed ProductOptionSeeder\"",
         "optimized_rep": "ssh danila1s_asmi@danila1s.beget.tech \"cd florida46.ru && php8.4 composer.phar update --optimize-autoloader --no-dev\"",
         "dump_autoload": "ssh danila1s_asmi@danila1s.beget.tech \"cd florida46.ru && php8.4 composer.phar dump-autoload\"",
         "storage_link": "ssh danila1s_asmi@danila1s.beget.tech \"cd florida46.ru && php8.4 artisan storage:link\"",

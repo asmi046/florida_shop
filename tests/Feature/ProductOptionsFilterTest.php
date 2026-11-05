@@ -10,8 +10,10 @@ use App\Models\ProductOptionType;
 use App\Models\ProductTag;
 use App\Models\User;
 use App\Support\ProductOptionCatalog;
+use Database\Seeders\ProductOptionSeeder;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 use Illuminate\Support\Str;
+use RuntimeException;
 use Tests\TestCase;
 
 class ProductOptionsFilterTest extends TestCase
@@ -312,6 +314,72 @@ class ProductOptionsFilterTest extends TestCase
         $this->assertSame($expected, array_slice($titles, 0, count($expected)));
     }
 
+    public function test_seeder_fails_when_palette_config_is_unavailable(): void
+    {
+        // Имитируем устаревший кэш конфига на сервере: палитра недоступна,
+        // и сидер обязан упасть, а молча записать пустой meta.
+        config(['product_colors' => []]);
+
+        $this->expectException(RuntimeException::class);
+
+        (new ProductOptionSeeder)->run();
+    }
+
+    public function test_seeder_fills_palette_into_option_meta(): void
+    {
+        $option = ProductOption::ofType('color')->where('slug', 'krasnyi')->first();
+
+        $this->assertNotNull($option);
+        $this->assertSame('#D32F2F', $option->meta['hex'] ?? null);
+    }
+
+    public function test_admin_list_filters_by_title(): void
+    {
+        $admin = $this->makeAdmin();
+        $red = $this->option('color', 'Красный');
+
+        $response = $this->actingAs($admin)->get('/admin/product-options?filter[title]='.rawurlencode('Красный'));
+
+        $response->assertOk();
+
+        $titles = $this->optionTitles($response->getContent());
+
+        $this->assertContains($red->title, $titles);
+        $this->assertNotContains('Герберы', $titles);
+    }
+
+    public function test_admin_list_filters_by_option_type(): void
+    {
+        $admin = $this->makeAdmin();
+        $type = ProductOptionType::where('slug', 'packing')->firstOrFail();
+
+        $response = $this->actingAs($admin)
+            ->get('/admin/product-options?filter[product_option_type_id][]='.$type->id);
+
+        $response->assertOk();
+
+        $titles = $this->optionTitles($response->getContent());
+
+        $this->assertContains('Коробка', $titles);
+        $this->assertNotContains('Красный', $titles);
+    }
+
+    public function test_admin_list_sorts_by_title(): void
+    {
+        $admin = $this->makeAdmin();
+
+        $ascending = $this->actingAs($admin)->get('/admin/product-options?sort=title');
+        $descending = $this->actingAs($admin)->get('/admin/product-options?sort=-title');
+
+        $ascending->assertOk();
+        $descending->assertOk();
+
+        $this->assertNotSame(
+            $this->optionTitles($ascending->getContent()),
+            $this->optionTitles($descending->getContent())
+        );
+    }
+
     public function test_admin_menu_contains_parameters_section(): void
     {
         $admin = $this->makeAdmin();
@@ -430,6 +498,18 @@ class ProductOptionsFilterTest extends TestCase
         return collect($response->viewData('allproduct')->items())
             ->map(fn (Product $product) => (int) $product->id)
             ->all();
+    }
+
+    /**
+     * Названия значений в порядке вывода таблицы.
+     *
+     * @return array<int, string>
+     */
+    protected function optionTitles(string $content): array
+    {
+        preg_match_all('#/admin/product-options/\d+/edit"[^>]*>([^<]+)</a>#', $content, $matches);
+
+        return array_map('trim', $matches[1]);
     }
 
     private function makeAdmin(): User

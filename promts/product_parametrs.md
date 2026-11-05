@@ -828,6 +828,12 @@ DB::table('product_product_option')
 
 | Баг | Где | Как исправлено |
 |---|---|---|
+| Фильтры и сортировки в таблице «Параметры товаров» не работали: любой запрос возвращал полный список | `ProductOption` | В модели не было `$allowedFilters`/`$allowedSorts` — Orchid без них применяет к запросу **ничего** (коллекции пустые, `HttpFilter::addFiltersToQuery` ничего не добавляет). Объявлены фильтры `title`/`slug` (`Like`) и `product_option_type_id` (`WhereIn`) и список сортировок |
+| Фильтр по типу фильтровал по несуществующей колонке `type` (это связь, а не колонка) → `Unknown column` | `ProductOptionListLayout` | Колонка переименована в `product_option_type_id` (реальная колонка), фильтр сделан выпадающим списком типов (`TD::FILTER_SELECT`), отображение — через `->render()` с названием типа |
+| N+1 на списке значений: количество товаров считалось отдельным запросом на каждую строку | `ProductOptionListScreen` | `->withCount('products')` вместо `$option->products()->count()` |
+
+| Баг | Где | Как исправлено |
+|---|---|---|
 | `Undefined array key "processingPlanId"` при сохранении товара без этого поля | `ProductEditScreen::save_info()` | `$new_data['processingPlanId'] ?: null` → `?? null`. Раньше — Warning и обнуление поля техкарты |
 | Утечка 2 output-буферов на каждом рендере страницы тега + пустые `<title>` и `<meta description>` | `resources/views/tag.blade.php` | `$tag_info['seo_title']` без `??` давало `null`, а `@section('title', null)` в Blade открывает буфер, который не закрывается. Исправлено как на странице категории: `$tag_info['seo_title'] ?? ($tag_info['alt_title'] ?? $tag_info['title'])` |
 | Пустой блок «Цветы» в фильтре: заголовок аккордеона выводился, под ним — ничего | `resources/views/components/product-tag-in-filter.blade.php` | Блок оборачивается в `@if ($tags->isNotEmpty())` — при пустом справочнике не показывается вовсе |
@@ -901,20 +907,20 @@ DB::table('product_product_option')
 | `database/migrations/2026_11_05_100100_create_product_options_table.php` | Значения параметров (`title`, `slug`, `image`, `external_id`, `meta`, `position`, `is_active`) |
 | `database/migrations/2026_11_05_100200_create_product_product_option_table.php` | Связь товар ↔ значение (`quantity`, `sort`) |
 | `app/Models/ProductOptionType.php` | Тип параметра, скоуп `filterable()` |
-| `app/Models/ProductOption.php` | Значение параметра, скоупы `ofType()`, `active()`, автослаг |
+| `app/Models/ProductOption.php` | Значение параметра, скоупы `ofType()`, `active()`, автослаг, `$allowedFilters`/`$allowedSorts` для админки |
 | `app/Models/Concerns/HasProductOptions.php` | Relation `productOptions()` и `optionsOfType()` в `Product` |
 | `app/Filters/ProductDimensions.php` | Список слагов измерений, участвующих в фильтре |
 | `app/Support/ProductOptionCatalog.php` | Кэш справочника для фронта + сброс кэша из админки |
 | `app/View/Components/ProductOptionsFilter.php` | Blade-компонент блока фильтра |
 | `resources/views/components/product-options-filter.blade.php` | Разметка блока (аккордеон + чекбоксы) |
 | `database/seeders/ProductOptionSeeder.php` | Идемпотентный сид 5 типов и 72 значений |
-| `app/Orchid/Screens/ProductOption/ProductOptionListScreen.php` | Список значений справочника |
+| `app/Orchid/Screens/ProductOption/ProductOptionListScreen.php` | Список значений справочника, `withCount('products')` вместо N+1 |
 | `app/Orchid/Screens/ProductOption/ProductOptionEditScreen.php` | Создание/правка значения + массовое присвоение товарам |
-| `app/Orchid/Layouts/ProductOption/ProductOptionListLayout.php` | Таблица справочника |
+| `app/Orchid/Layouts/ProductOption/ProductOptionListLayout.php` | Таблица справочника: фильтры по названию/слегу/типу, сортировки, кружок оттенка |
 | `tests/Feature/ProductOptionsFilterTest.php` | 11 тестов на фильтр и админку |
 | `tests/Feature/ProductTagAdminTest.php` | 3 теста на админку тегов и пустой блок «Цветы» |
 | `config/product_colors.php` | Палитра оттенков параметра «Цвет» (21 значение) — источник истины для сидера, YML-фида и карточки |
-| `tests/Feature/ProductOptionsFilterTest.php` | 18 тестов: частичное сохранение, кружок цвета, порядок блоков, меню, подписи |
+| `tests/Feature/ProductOptionsFilterTest.php` | 23 теста: фильтр каталога, админка (фильтры/сортировки/подписи/меню), кружок цвета, порядок блоков |
 
 ### Изменены
 

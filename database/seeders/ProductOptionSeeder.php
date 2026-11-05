@@ -6,6 +6,7 @@ use App\Models\ProductOption;
 use App\Models\ProductOptionType;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Str;
+use RuntimeException;
 
 class ProductOptionSeeder extends Seeder
 {
@@ -14,6 +15,13 @@ class ProductOptionSeeder extends Seeder
      */
     public function run(): void
     {
+        if (empty(config('product_colors'))) {
+            throw new RuntimeException(
+                'Не найден config/product_colors.php: палитра цветов недоступна. '
+                .'Выполните php artisan optimize:clear — на сервере устарел кэш конфига.'
+            );
+        }
+
         foreach (self::dimensions() as $position => [$slug, $title, $values]) {
             $type = ProductOptionType::updateOrCreate(
                 ['slug' => $slug],

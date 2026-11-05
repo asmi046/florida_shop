@@ -38,9 +38,12 @@
 .acc_blk .acc_body{
     width:100%;
     min-height: 40px;
+    max-height: 280px;
+    margin-bottom: 20px;
     padding: 10px 0;
     display: none;
     flex-direction: column;
+    overflow-y: auto;
 }
 
 .acc_body.open,
