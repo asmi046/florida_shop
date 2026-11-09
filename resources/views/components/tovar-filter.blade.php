@@ -51,8 +51,6 @@
             <x-product-options-filter :dimension="$type->slug" :title="$type->title" />
         @endforeach
 
-        <x-product-tag-in-filter />
-
         <div class="acc_blk ">
             <div class="acc_head open">
                 <span>Особенности</span>

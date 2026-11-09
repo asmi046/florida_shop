@@ -1067,7 +1067,8 @@ textarea {
     width: 16px;
     height: 16px;
     border-radius: 3px;
-    border: 1px solid #d2d1d1;
+    border: 1px solid $main_color;
+    background-color: $main_color;
     position: absolute;
     color: white;
     left: 0;
@@ -1075,7 +1076,9 @@ textarea {
 
 .ch_label input:checked ~ span::before {
     content: "\2714";
-    background-color: var(--main-color);
+    font-size: 10px;
+    line-height: 16px;
+    text-align: center;
 }
 
 .color_swatch {
