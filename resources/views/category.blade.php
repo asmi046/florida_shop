@@ -20,17 +20,7 @@
 
     <section class="category">
         <div class="_wrapper">
-            <div class="margin_top_bottom tovar_wrapper">
-                @foreach ($allproduct as $tovar)
-                    <x-cards.tovar-card :tovar="$tovar"></x-cards.tovar-card>
-                @endforeach
-            </div>
-        </div>
-    </section>
-
-    <section class="category">
-        <div class="_wrapper">
-            <x-pagination :tovars="$allproduct"></x-pagination>
+            @include('partials.product-list')
         </div>
     </section>
 

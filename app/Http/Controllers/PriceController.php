@@ -35,6 +35,13 @@ class PriceController extends Controller
             abort(404);
         }
 
+        if (request()->ajax()) {
+            return response()->json([
+                'html' => view('partials.product-list', ['allproduct' => $allproduct])->render(),
+                'count' => $allproduct->total(),
+            ]);
+        }
+
         return view('price', [
             'slug' => $slug,
             'range' => $range,

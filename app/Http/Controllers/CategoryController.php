@@ -16,6 +16,13 @@ class CategoryController extends Controller
             abort(404);
         }
 
+        if (request()->ajax()) {
+            return response()->json([
+                'html' => view('partials.product-list', ['allproduct' => $allproduct])->render(),
+                'count' => $allproduct->total(),
+            ]);
+        }
+
         return view('catalog', ['allproduct' => $allproduct]);
     }
 
@@ -35,6 +42,13 @@ class CategoryController extends Controller
 
         if ($allproduct->currentPage() > $allproduct->lastPage() && $allproduct->total() > 0) {
             abort(404);
+        }
+
+        if (request()->ajax()) {
+            return response()->json([
+                'html' => view('partials.product-list', ['allproduct' => $allproduct])->render(),
+                'count' => $allproduct->total(),
+            ]);
         }
 
         return view('category', ['cat_info' => $categoryInfo, 'allproduct' => $allproduct]);
