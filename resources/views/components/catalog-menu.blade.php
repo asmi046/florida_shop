@@ -8,8 +8,11 @@
         <x-search-str class="in_menu"></x-search-str>
 
         <div class="catclog_razdel_wrapper">
-            <a href="{{ route('catalog') }}">Все букеты</a>
-            <a href="{{ route('zones') }}">Доставка и оплата</a>
+
+            <ul>
+                <li><a href="{{ route('catalog') }}">Все букеты</a></li>
+                <li><a href="{{ route('zones') }}">Доставка и оплата</a></li>
+            </ul>
             <div class="cat_razdel">
                 <h3>Категории</h3>
                 <ul>
