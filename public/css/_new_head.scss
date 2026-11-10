@@ -32,6 +32,89 @@
         display: flex;
     }
 
+    .mobile_contacts {
+        display: none;
+        align-items: center;
+        gap: 15px;
+        margin: 0 auto;
+
+        &__link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0;
+            border: none;
+            background: none;
+            cursor: pointer;
+
+            .sprite_icon {
+                width: 25px;
+                height: 25px;
+                fill: #ffffff;
+            }
+
+            &--telegram {
+                width: 30px;
+                height: 30px;
+                border-radius: 50%;
+                background-color: #0088cc; // Telegram фирменный голубой
+
+                .sprite_icon {
+                    width: 17.5px;
+                    height: 17.5px;
+                }
+            }
+
+            &--max {
+                width: 30px;
+                height: 30px;
+                border-radius: 50%;
+                background: linear-gradient(
+                    135deg,
+                    #00d4ff 0%,
+                    /* яркий голубой (левая нижняя часть) */ #0099ff 25%,
+                    /* переход в синий */ #4a00ff 50%,
+                    /* глубокий синий */ #9f00ff 75%,
+                    /* фиолетовый */ #d100ff 100% /* яркий пурпурный (правая верхняя часть) */
+                ); // Max Huyax градиент
+
+                .sprite_icon {
+                    width: 17.5px;
+                    height: 17.5px;
+                }
+            }
+
+            &--search {
+                .sprite_icon {
+                    fill: none;
+                    stroke: black; // иконка #search рисуется обводкой
+                }
+            }
+
+            // Активное состояние: панель поиска открыта
+            &--search-active {
+                .sprite_icon {
+                    stroke: #28a745; // зеленая обводка
+                }
+            }
+        }
+    }
+
+    .mobile_search_panel {
+        display: none;
+        padding: 10px 15px;
+
+        &--open {
+            display: block;
+        }
+
+        // На мобильных .head_search скрыт медиазапросом в _serch-form.scss,
+        // в панели он должен быть виден
+        .head_search {
+            display: flex;
+        }
+    }
+
     &.is-scrolled {
         z-index: 10000;
         background-color: rgba(255, 255, 255, 0.9);
@@ -312,7 +395,7 @@
 
 .shop_control {
     display: flex;
-    margin: auto 0 10px auto;
+    margin: auto 0 auto 0;
 }
 
 .main_menu {
@@ -363,6 +446,14 @@
         .cabinet_lnk,
         .bascet_lnk {
             display: none;
+        }
+
+        .tel_lnk .sprite_icon {
+            display: none;
+        }
+
+        .mobile_contacts {
+            display: flex;
         }
     }
 

@@ -9,6 +9,28 @@
 
         <x-search-str></x-search-str>
 
+        <div class="mobile_contacts">
+            <a title="Свяжитесь с нами в Telegram" href="{{ strip_tags($options['telegram_lnk']) }}"
+                class="mobile_contacts__link mobile_contacts__link--telegram">
+                <svg class="sprite_icon">
+                    <use xlink:href="#tg_icon"></use>
+                </svg>
+            </a>
+
+            <a title="Свяжитесь с нами в MAX" href="{{ strip_tags($options['whatsapp_lnk']) }}"
+                class="mobile_contacts__link mobile_contacts__link--max">
+                <svg class="sprite_icon">
+                    <use xlink:href="#max_huyax"></use>
+                </svg>
+            </a>
+
+            <button type="button" title="Поиск" class="mobile_contacts__link mobile_contacts__link--search">
+                <svg class="sprite_icon">
+                    <use xlink:href="#search"></use>
+                </svg>
+            </button>
+        </div>
+
         <div class="shop_control">
             {{-- <x-icon-a class="search_lnk" href="{{ route('catalog') }}" ancor="Поиск" icon="search"></x-icon-a> --}}
 
@@ -30,4 +52,22 @@
                 ancor="{{ $options['phone'] }}" icon="phone"></x-icon-a>
         </div>
     </div>
+
+    <div class="mobile_search_panel">
+        <x-search-str></x-search-str>
+    </div>
 </section>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const searchToggle = document.querySelector('.mobile_contacts__link--search');
+        const searchPanel = document.querySelector('.mobile_search_panel');
+
+        if (searchToggle && searchPanel) {
+            searchToggle.addEventListener('click', function() {
+                searchPanel.classList.toggle('mobile_search_panel--open');
+                searchToggle.classList.toggle('mobile_contacts__link--search-active');
+            });
+        }
+    });
+</script>
