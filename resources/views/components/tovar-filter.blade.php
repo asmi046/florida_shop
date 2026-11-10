@@ -83,7 +83,7 @@
 
         <div class="filter_control_blk">
             <button name="filter" type="button" class="button button_green filter_apply">Применить</button>
-            <a href="{{ url()->current() }}" class="button">Сбросить фильтр</a>
+            <a href="{{ url()->current() }}" class="button">Сбросить</a>
         </div>
 
     </form>
