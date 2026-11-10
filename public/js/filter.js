@@ -1,13 +1,40 @@
 
 document.addEventListener("DOMContentLoaded", () => {
     let filter_mobile_panel = document.querySelector(".filter_mobile_panel ")
+    let filter_wrapper = document.querySelector(".filter_wrapper")
+
+    function openFilter() {
+        if (!filter_wrapper) return
+        filter_wrapper.classList.add("open")
+        document.body.classList.add("filter_locked")
+    }
+
+    function closeFilter() {
+        if (!filter_wrapper) return
+        filter_wrapper.classList.remove("open")
+        document.body.classList.remove("filter_locked")
+    }
 
     if (filter_mobile_panel)
         filter_mobile_panel.addEventListener("click", function (e) {
-            this.classList.toggle("open")
-            let tf = document.querySelector(".tovar_filter")
-            if (tf) tf.classList.toggle("open")
+            openFilter()
         })
+
+    let filter_overlay = document.querySelector(".filter_overlay")
+    if (filter_overlay)
+        filter_overlay.addEventListener("click", function (e) {
+            closeFilter()
+        })
+
+    let filter_close = document.querySelector(".filter_close")
+    if (filter_close)
+        filter_close.addEventListener("click", function (e) {
+            closeFilter()
+        })
+
+    document.addEventListener("keydown", function (e) {
+        if (e.key === "Escape") closeFilter()
+    })
 
     let acc_blk = document.querySelectorAll(".acc_head ")
     for (let elem of acc_blk ) {
@@ -28,19 +55,29 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     })
 
-    // Ценовые поля — применяем по Enter или при потере фокуса (с задержкой)
+    // Ценовые поля — применяем по Enter или с задержкой при вводе
     let price_inputs = filter_form.querySelectorAll('input[name="minprice"], input[name="maxprice"]')
     for (let input of price_inputs) {
-        let debounce_timer = null
         input.addEventListener("keydown", function (e) {
             if (e.key === "Enter") {
                 e.preventDefault()
+                clearTimeout(input._filter_timer)
                 applyFilter(filter_form)
             }
         })
         input.addEventListener("input", function () {
-            clearTimeout(debounce_timer)
-            debounce_timer = setTimeout(() => applyFilter(filter_form), 800)
+            clearTimeout(input._filter_timer)
+            input._filter_timer = setTimeout(() => applyFilter(filter_form), 800)
+        })
+    }
+
+    // Кнопка «Применить» (мобильное окно) — применяем последние изменения и закрываем окно
+    let apply_btn = filter_form.querySelector(".filter_apply")
+    if (apply_btn) {
+        apply_btn.addEventListener("click", function (e) {
+            for (let input of price_inputs) clearTimeout(input._filter_timer)
+            applyFilter(filter_form)
+            closeFilter()
         })
     }
 
@@ -119,7 +156,6 @@ async function applyFilter(form, url = null) {
         }
 
         history.pushState(null, "", url)
-        new_list.scrollIntoView({ behavior: "smooth", block: "start" })
     } catch (err) {
         location.href = url
     }

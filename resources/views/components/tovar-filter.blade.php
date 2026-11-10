@@ -13,7 +13,13 @@
         <span class="filter_icon"></span> Фильтры
     </div>
 
+    <div class="filter_overlay"></div>
+
     <form action="{{ url()->current() }}" method="GET" class="tovar_filter accordion">
+        <div class="filter_mobile_head">
+            <span>Фильтры</span>
+            <button type="button" class="filter_close" aria-label="Закрыть фильтр">&times;</button>
+        </div>
         <input type="hidden" name="order" value="{{ value_check('order', '', 'Сначала дешевые') }}">
         <div class="acc_blk ">
             <div class="acc_head open">
@@ -76,7 +82,7 @@
 
 
         <div class="filter_control_blk">
-            <button name="filter" type="submit" class="button button_green">Применить</button>
+            <button name="filter" type="button" class="button button_green filter_apply">Применить</button>
             <a href="{{ url()->current() }}" class="button">Сбросить фильтр</a>
         </div>
 
