@@ -37,7 +37,7 @@
             <thead class="table-dark">
                 <tr>
                     <th><a class="link-light text-decoration-none" href="{{ route('dashboard.index', $toggle('title')) }}">Наименование{!! $arrow('title') !!}</a></th>
-                    <th class="text-end"><a class="link-light text-decoration-none" href="{{ route('dashboard.index', $toggle('skladCount')) }}">Расчётное количество{!! $arrow('skladCount') !!}</a></th>
+                    <th class="text-center"><a class="link-light text-decoration-none" href="{{ route('dashboard.index', $toggle('skladCount')) }}">Расчётное количество{!! $arrow('skladCount') !!}</a></th>
                     <th>ID техкарты</th>
                 </tr>
             </thead>
@@ -45,8 +45,13 @@
                 @forelse ($products as $product)
                     <tr>
                         <td>{{ $product->title }}</td>
-                        <td class="text-end">{{ $product->skladCount }}</td>
-                        <td>{{ $product->processingPlanId }}</td>
+                        <td class="text-center">{{ $product->skladCount }}</td>
+                        <td>
+                            @if ($product->processingPlanId)
+                                <a href="https://online.moysklad.ru/app/#processingplan/edit?id={{ $product->processingPlanId }}"
+                                   target="_blank" rel="noopener">{{ $product->processingPlanId }}</a>
+                            @endif
+                        </td>
                     </tr>
                 @empty
                     <tr>
