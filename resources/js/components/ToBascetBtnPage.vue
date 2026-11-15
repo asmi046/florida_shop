@@ -48,6 +48,7 @@ setup(props){
             console.log(result)
             DataLayer.addToCatr( result.data[2], 1)
             store.dispatch('initialBascet')
+            store.commit('openCart')
             console.log(store.getters.cartCount)
         })
         .catch(error => console.log(error));

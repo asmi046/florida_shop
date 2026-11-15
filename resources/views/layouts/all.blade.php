@@ -142,6 +142,7 @@
             subtitle="Укажите ваше имя и телефон. В течение нескольких минут с вами свяжется наш флорист для уточнения наличия"
             showarea="false"></modal-window>
         <one-click-buy-window></one-click-buy-window>
+        <cart-drawer></cart-drawer>
 
 
 

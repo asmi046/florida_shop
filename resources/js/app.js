@@ -14,6 +14,7 @@ import BascetAndCounter from "./components/bascet/BascetAndCounter.vue"
 import MapInPage from "./components/MapInPage.vue"
 import ModalWindow from "./components/ModalWindow.vue"
 import Bascet from "./components/bascet/Bascet.vue"
+import CartDrawer from "./components/bascet/CartDrawer.vue"
 import OneClickBuyWindow from "./components/OneClickBuyWindow.vue"
 
 import ToBascetBtnPage from './components/ToBascetBtnPage.vue'
@@ -87,6 +88,7 @@ const global_app = createApp({
         MapInPage,
         ModalWindow,
         Bascet,
+        CartDrawer,
         OneClickBuyWindow,
         BascetCounter,
         BascetAndCounter,

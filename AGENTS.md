@@ -47,6 +47,13 @@ Laravel 12 (PHP ^8.2) + Vue 3 на фронтенде (сборка через V
 - Существующие тесты: `PriceRangeTest`, `ProductFilterTest`, `ProductOptionsFilterTest`, `ProductTagAdminTest`, `ProcessingPlanFieldTest` (в основном покрывают фильтры каталога и админку тегов).
 - Фабрики — `database/factories/`, сидеры — `database/seeders/` (в т.ч. `ProductOptionSeeder`, который деплоится отдельной командой `seed_rep_one`).
 
+## Механика корзины
+
+- Корзина хранится в БД по `session_id` (модель `app/Models/Cart`, роуты `/bascet/*` в `web.php`). Поле количества называется `quentity` — опечатка, но согласована в модели, API и фронте, переименовывать не нужно.
+- Фронтенд: Vuex-стор `resources/js/storage.js` (стейт `cart_count`/`cart_tovars`), все изменения корзины идут через actions стора с повторным `dispatch('initialBascet')`; информеры в шапке и мобильном меню реактивно следят за геттером `cartCount`.
+- Кнопка добавления — `resources/js/components/ToBascetBtnPage.vue`; drawer корзины после добавления — `resources/js/components/bascet/CartDrawer.vue` (паттерн существующих модалок `popup_wrapper`), вешается в `resources/views/layouts/all.blade.php`.
+- `GET /bascet/get` возвращает `count` и `position[]` с вложенным `tovar_data` (картинка, название, цена) — для отображения состава корзины отдельных эндпоинтов не требуется.
+
 ## Соглашения по коду
 
 - Комментарии и документация пишутся на русском языке — при добавлении комментариев придерживайтесь этого.

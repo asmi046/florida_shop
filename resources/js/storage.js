@@ -4,6 +4,7 @@ export const store = new createStore({
     state: {
       cart_count: 0,
       cart_tovars: {},
+      cart_open: false,
 
       favorites_count: 0,
       favorites_tovars: {}
@@ -16,6 +17,14 @@ export const store = new createStore({
 
         setTovars (state, value) {
             state.cart_tovars = value
+        },
+
+        openCart (state) {
+            state.cart_open = true
+        },
+
+        closeCart (state) {
+            state.cart_open = false
         },
 
 
@@ -52,6 +61,29 @@ export const store = new createStore({
                     context.commit('setTovars', response.data.position)
                 })
                 .catch(error => console.log(error));
+        },
+
+        // Изменение количества позиции в корзине
+        updateCartItem(context, { sku, count }) {
+            axios.post('/bascet/update', {
+                product_id: sku,
+                count: count,
+                _token: document.querySelector('meta[name="_token"]').content
+            })
+            .then(() => context.dispatch('initialBascet'))
+            .catch(error => console.log(error));
+        },
+
+        // Удаление позиции из корзины
+        deleteCartItem(context, sku) {
+            axios.delete('/bascet/delete', {
+                data: {
+                    _token: document.querySelector('meta[name="_token"]').content,
+                    product_id: sku
+                }
+            })
+            .then(() => context.dispatch('initialBascet'))
+            .catch(error => console.log(error));
         },
 
         initialFavorites(context, value) {
