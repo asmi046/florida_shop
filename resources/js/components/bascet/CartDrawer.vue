@@ -166,7 +166,7 @@ export default {
     position: fixed;
     left: 0;
     top: 0;
-    z-index: 11000;
+    z-index: 99997;
     background-color: #000000aa;
     display: flex;
     justify-content: flex-end;
@@ -363,6 +363,10 @@ export default {
 
 /* Мобильная версия — окно на весь экран */
 @media (max-width: 768px) {
+    .cart_drawer_wrapper {
+        z-index: 99997;
+    }
+
     .cart_drawer {
         width: 100%;
         height: 100dvh;
@@ -377,7 +381,12 @@ export default {
     }
 
     .cart_drawer__footer {
-        padding: 15px 20px 25px;
+        /* запас снизу, чтобы кнопка не перекрывалась .mobile_bottom_menu */
+        padding: 15px 20px calc(25px + 70px);
     }
+}
+
+.number_wrapper input {
+    border-radius: 0;
 }
 </style>
