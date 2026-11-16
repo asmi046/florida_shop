@@ -35,10 +35,23 @@ class Order extends Model
         'utm_term',
         'utm_content',
         'utm_referrer',
+        'confirm_address_with_recipient',
+        'recipient_type',
+        'anonymous_delivery',
+        'deliver_asap',
+        'agree_delivery_time_with_recipient',
+        'delivery_type',
     ];
 
     public $with = [
         'orderProducts'
+    ];
+
+    protected $casts = [
+        'confirm_address_with_recipient' => 'boolean',
+        'anonymous_delivery' => 'boolean',
+        'deliver_asap' => 'boolean',
+        'agree_delivery_time_with_recipient' => 'boolean',
     ];
 
     public static function update_order_pay_id($orderId, $payId ) {

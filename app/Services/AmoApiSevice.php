@@ -125,6 +125,24 @@ class AmoApiSevice {
             $to_text = new BascetBodyToTextAction();
             $bascet_body = $to_text->handle($request, false);
 
+            // Дополнительные параметры доставки выводим вместе со составом заказа (только для заказов с доставкой)
+            if ($request->delivery_type) {
+                $bascet_body .= "\n\rТип получения: ".$request->delivery_type."\n\r";
+                $bascet_body .= "Кто получатель: ".($request->recipient_type ?? '')."\n\r";
+            }
+            if ($request->anonymous_delivery) {
+                $bascet_body .= "Доставить анонимно\n\r";
+            }
+            if ($request->confirm_address_with_recipient) {
+                $bascet_body .= "Адрес уточнить у получателя\n\r";
+            }
+            if ($request->deliver_asap) {
+                $bascet_body .= "Доставить в ближайшее время\n\r";
+            }
+            if ($request->agree_delivery_time_with_recipient) {
+                $bascet_body .= "Время доставки согласовать с получателем\n\r";
+            }
+
             $cfBody = new TextCustomFieldValuesModel();
             $cfBody->setFieldId(837747);
             $cfBody->setValues(

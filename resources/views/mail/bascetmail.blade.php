@@ -1,22 +1,41 @@
 <h1>Письмо с сайта</h1>
+@if($formData['delivery_type'])
+<p><strong>Тип получения:</strong> {{$formData['delivery_type']}}</p>
+@endif
 <p><strong>Имя:</strong> {{$formData['fio']}}</p>
 <p><strong>Телефон:</strong> {{$formData['phone']}}</p>
 <p><strong>E-mail:</strong> {{$formData['email']}}</p>
 
 <h2>Получатель</h2>
+<p><strong>Кто получатель:</strong> {{$formData['recipient_type']}}</p>
 <p><strong>Имя получателя:</strong> {{$formData['polname']}}</p>
 <p><strong>Телефон получателя:</strong> {{$formData['polphone']}}</p>
+@if($formData['anonymous_delivery'])
+<p><strong>Доставить анонимно</strong></p>
+@endif
 
+@if($formData['delivery_type'] != 'Самовывоз')
 <h2>Адрес доставки</h2>
 <p><strong>Район:</strong> {{$formData['raion']}}</p>
 <p><strong>Адрес:</strong> {{$formData['adress_fk']}}</p>
 <p><strong>Подъезд:</strong> {{$formData['podezd']}}</p>
 <p><strong>Этаж:</strong> {{$formData['etazg']}}</p>
 <p><strong>Квартира:</strong> {{$formData['kvartira']}}</p>
+@endif
 
 <h2>Время доставки</h2>
 <p><strong>Дата:</strong> {{$formData['data']}}</p>
+@if($formData['deliver_asap'])
+<p><strong>Доставить в ближайшее время</strong></p>
+@elseif($formData['agree_delivery_time_with_recipient'])
+<p><strong>Время согласовать с получателем</strong></p>
+@else
 <p><strong>Время:</strong> {{$formData['time']}}</p>
+@endif
+
+@if($formData['confirm_address_with_recipient'])
+<p><strong>Адрес уточнить у получателя</strong></p>
+@endif
 
 <p><strong>Комментарий:</strong> {{$formData['comment']}}</p>
 <table style="width:100%; border-top:1px solid black; border-left:1px solid black; border-spacing: 0;">

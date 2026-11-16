@@ -152,6 +152,12 @@ class CartController extends Controller
             'kvartira' => $request->input('kvartira'),
             'data' => $request->input('data'),
             'time' => $request->input('time'),
+            'recipient_type' => $request->input('recipient_type', 'Другой человек'),
+            'delivery_type' => $request->input('deliverytype'),
+            'confirm_address_with_recipient' => $request->boolean('confirm_address_with_recipient'),
+            'anonymous_delivery' => $request->boolean('anonymous_delivery'),
+            'deliver_asap' => $request->boolean('deliver_asap'),
+            'agree_delivery_time_with_recipient' => $request->boolean('agree_delivery_time_with_recipient'),
             'session_id' => session()->getId(),
             'user_id' => ($request->user()) ? $request->user()->id : 0,
         ], $this->collectUtm($request)));
