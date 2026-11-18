@@ -402,6 +402,7 @@
     display: flex;
     margin: auto auto 10px auto;
     justify-content: space-between;
+    align-items: center;
 
     a {
         margin-left: 20px;
@@ -409,6 +410,28 @@
 
     ul:last-child a {
         margin-right: 0;
+    }
+}
+
+.catalog_menu_btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background-color: $main_color;
+    color: white;
+    padding: 9px 20px;
+    border-radius: 10px;
+    transition: $main_transition;
+
+    .sprite_icon {
+        width: 22px;
+        height: 16px;
+        fill: white;
+    }
+
+    &:hover {
+        background-color: $sub_color;
+        color: white;
     }
 }
 
