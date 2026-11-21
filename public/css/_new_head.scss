@@ -144,6 +144,14 @@
             justify-content: center;
         }
 
+        .swiper-slide-moms {
+            @media (max-width: 520px) {
+                .slide-overlay {
+                    background-color: rgba(0, 0, 0, 0.4);
+                }
+            }
+        }
+
         .slide-background {
             position: absolute;
             top: 0;
