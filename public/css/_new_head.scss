@@ -159,6 +159,12 @@
             }
         }
 
+        .slide-background-moms {
+            @media (max-width: 520px) {
+                background-position: -300px 0;
+            }
+        }
+
         .slide-reiting {
             display: flex;
             gap: 20px;
@@ -200,6 +206,26 @@
                 max-width: 100%;
                 padding: 0 40px;
                 box-sizing: border-box;
+            }
+        }
+
+        .slide-content-moms {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            width: 100%;
+
+            .moms_dey_text {
+                width: 250px;
+            }
+
+            .slide-button {
+                margin-right: auto;
+            }
+            @media (max-width: 520px) {
+                .moms_dey_text {
+                    margin: auto;
+                }
             }
         }
 

@@ -1,12 +1,22 @@
 <x-headers.top></x-headers.top>
 
 <header class="header" id="header">
-
-
     <div class="header-slider">
         <div class="swiper">
             <div class="swiper-wrapper">
                 <!-- Slide 1 -->
+                <div class="swiper-slide swiper-slide-moms">
+                    <div class="slide-background slide-background-moms"
+                        style="background-image: url('{{ asset('img/mams_dey.webp') }}')">
+                    </div>
+                    <div class="slide-overlay"></div>
+                    <div class="slide-content slide-content-moms">
+                        <img class="moms_dey_text" src="/img/moms_dey_text_white.webp"
+                            alt="Открыт предзаказ на букеты ко дню матери" />
+                        <a href="/catalog/mooms_day" class="slide-button">Заказать букет</a>
+                    </div>
+                </div>
+
                 <div class="swiper-slide">
                     <div class="slide-background" style="background-image: url('{{ asset('img/banner_new.webp') }}')">
                     </div>
