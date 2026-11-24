@@ -39,6 +39,7 @@
                     <th><a class="link-light text-decoration-none" href="{{ route('dashboard.index', $toggle('title')) }}">Наименование{!! $arrow('title') !!}</a></th>
                     <th class="text-center"><a class="link-light text-decoration-none" href="{{ route('dashboard.index', $toggle('skladCount')) }}">Расчётное количество{!! $arrow('skladCount') !!}</a></th>
                     <th>ID техкарты</th>
+                    <th style="width: 110px;">Состав</th>
                 </tr>
             </thead>
             <tbody>
@@ -52,10 +53,19 @@
                                    target="_blank" rel="noopener">{{ $product->processingPlanId }}</a>
                             @endif
                         </td>
+                        <td>
+                            @if ($product->processingPlanId)
+                                <a class="btn btn-sm btn-outline-primary"
+                                   href="{{ route('dashboard.product', ['product' => $product->id, 'token' => request('token')]) }}"
+                                   target="_blank" rel="noopener">Открыть</a>
+                            @else
+                                <span class="text-muted small">нет техкарты</span>
+                            @endif
+                        </td>
                     </tr>
                 @empty
                     <tr>
-                        <td colspan="3" class="text-center text-muted py-4">Ничего не найдено</td>
+                        <td colspan="4" class="text-center text-muted py-4">Ничего не найдено</td>
                     </tr>
                 @endforelse
             </tbody>

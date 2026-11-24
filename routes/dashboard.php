@@ -13,3 +13,6 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [DashboardController::class, 'index'])->name('dashboard.index');
+
+// Детализация состава букета по техкарте МойСклад
+Route::get('/product/{product}', [DashboardController::class, 'product'])->name('dashboard.product');
