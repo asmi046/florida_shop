@@ -245,6 +245,48 @@ class MySkladProcessingPlanService
     }
 
     /**
+     * Получить техкарту по её идентификатору.
+     *
+     * @return array<string, mixed>
+     */
+    public function fetchPlan(string $planId): array
+    {
+        return $this->decode($this->get(self::BASE_URL.'/entity/processingplan/'.$planId));
+    }
+
+    /**
+     * Получить актуальные остатки по всем позициям номенклатуры.
+     *
+     * Один запрос к отчёту по остаткам: assortmentId => freeStock.
+     *
+     * @return array<string, int>
+     */
+    public function fetchLiveStocks(): array
+    {
+        $response = $this->get(self::BASE_URL.'/report/stock/all/current', [
+            'stockType' => 'freeStock',
+            'include' => 'zeroLines',
+        ]);
+
+        $data = $this->decode($response);
+
+        // Отчёт по остаткам приходит массивом строк, а не объектом с rows.
+        $rows = array_is_list($data) ? $data : ($data['rows'] ?? []);
+
+        $stocks = [];
+
+        foreach ($rows as $row) {
+            $assortmentId = $row['assortmentId'] ?? null;
+
+            if ($assortmentId !== null) {
+                $stocks[$assortmentId] = (int) ($row['freeStock'] ?? 0);
+            }
+        }
+
+        return $stocks;
+    }
+
+    /**
      * Извлечь цену продажи по типу «Цена по умолчанию» (в копейках).
      *
      * @param  array<string, mixed>  $row

@@ -58,6 +58,7 @@ class MySkladTechPlanService
                 'quantity' => $quantity,
                 'stock' => $stock,
                 'hasStockRow' => $hasStockRow,
+                'possible' => $quantity > 0 && $stock > 0 ? (int) floor($stock / $quantity) : 0,
             ];
 
             if ($quantity <= 0) {
